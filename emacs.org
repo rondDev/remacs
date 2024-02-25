@@ -1,0 +1,397 @@
+#+TITLE: rond's Emacs Configuration
+#+PROPERTY: header-args :tangle init.el
+
+* Todo
+List of todos needed to complete still
+* DONE Add ivy
+CLOSED: [2024-02-23 Fri 08:30]
+* DONE Add lsp-ui
+CLOSED: [2024-02-23 Fri 08:30]
+* TODO Add buffler
+* TODO Add mu4e (email thing)
+
+
+* Base Emacs Settings
+#+begin_src elisp
+  (tool-bar-mode -1)
+  (menu-bar-mode -1)
+  (set-frame-font "Jetbrains Mono Nerd Font-11" nil t)
+
+  (custom-set-faces '(default ((t (:family "JetBrainsMono Nerd Font" :foundry "JB" :slant normal :weight regular :height 113 :width normal)))))
+  (let ((my-custom-file (locate-user-emacs-file "custom.el")))
+  (setq custom-file my-custom-file)
+  (load custom-file 'no-error))
+#+end_src
+
+* Packages
+** Install all packages
+#+BEGIN_SRC elisp
+  (defvar bootstrap-version)
+  (let ((bootstrap-file
+         (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+        (bootstrap-version 6))
+    (unless (file-exists-p bootstrap-file)
+      (with-current-buffer
+          (url-retrieve-synchronously
+           "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+           'silent 'inhibit-cookies)
+        (goto-char (point-max))
+        (eval-print-last-sexp)))
+    (load bootstrap-file nil 'nomessage))
+  (require 'use-package)
+  (setq straight-use-package-by-default t)
+  (setq use-package-always-ensure nil)
+#+END_SRC
+
+
+** benchmarking
+#+begin_src elisp
+(use-package benchmark-init
+  :demand
+  :config (benchmark-init/activate)
+  :hook (after-init . benchmark-init/deactivate))
+#+end_src
+
+
+** No-Littering
+#+begin_src elisp
+  (use-package no-littering)
+#+end_src
+
+** gcmh
+This makes startup faster by limiting garbage collections (changing collection threshold)
+#+begin_src elisp
+  (gcmh-mode 1)
+#+end_src
+
+** Theme
+#+begin_src elisp
+  ;; (use-package melancholy-theme
+  ;;   :config
+  ;;   (load-theme 'melancholy t))
+  (use-package base16-theme
+  :ensure t
+  :config
+  (load-theme 'base16-oxocarbon-dark t))
+#+end_src
+
+** Evil
+#+begin_src elisp
+  (use-package evil
+    :after general
+    :init
+    (setq evil-want-integration t)
+    (setq evil-want-keybinding nil)
+    (evil-mode 1)
+    :config
+    (setq evil-insert-state-cursor '(box . 5))
+    (general-define-key
+     :states 'normal
+     "U" 'evil-redo)
+    (general-define-key
+     :keymaps 'special-mode-map
+     :states '(normal motion)
+     "q" #'quit-window)
+    (add-to-list 'evil-emacs-state-modes 'sieve-manage-mode)
+    :custom
+    ((evil-want-C-u-scroll t)
+     (evil-want-C-u-delete nil)
+     (evil-want-C-w-delete t)
+     (evil-want-Y-yank-to-eol t)
+     (evil-undo-system 'undo-redo)
+     (evil-symbol-word-search t)
+     (evil-jumps-cross-buffers nil)
+     (evil-mode-line-format nil))
+    :bind
+    (:map evil-window-map
+          ("C-h" . evil-window-left)
+          ("C-k" . evil-window-up)
+          ("C-j" . evil-window-down)
+          ("C-l" . evil-window-right)))
+          ;; ("C-d" . evil-window-delete)))
+
+    (use-package evil-collection
+      :after evil
+      :config
+      (evil-collection-init
+       '(dired
+         docker
+         eldoc
+         evil-mc
+         git-timemachine
+         grep
+         help
+         helpful
+         ibuffer
+         imenu
+         ivy
+         magit
+         markdown-mode
+         mu4e
+         mu4e-conversation
+         (package-menu package)
+         pass
+         proced
+         vterm ; let's try this once more
+         xref
+         )))
+
+      (use-package evil-surround
+        :after evil
+        :config
+        (global-evil-surround-mode))
+
+      (use-package evil-commentary
+        :after evil
+        :config
+        (evil-commentary-mode))
+#+end_src
+
+** Which-key
+#+begin_src elisp
+  (use-package which-key
+      :config
+      (which-key-mode))
+#+end_src
+
+** Ivy, Counsel, Swiper
+#+begin_src elisp
+    (use-package ivy
+      :init
+      (ivy-mode)
+      (setq ivy-use-virtual-buffers t)
+      (setq enable-recursive-minibuffers t)
+      (global-set-key "\C-s" 'swiper)
+      (global-set-key (kbd "C-c C-r") 'ivy-resume)
+      (global-set-key (kbd "<f6>") 'ivy-resume)
+      (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+      (global-set-key (kbd "<f1> f") 'counsel-describe-function)
+      (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+      (global-set-key (kbd "<f1> o") 'counsel-describe-symbol)
+      (global-set-key (kbd "<f1> l") 'counsel-find-library)
+      (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+      (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+      (global-set-key (kbd "C-c g") 'counsel-git)
+      (global-set-key (kbd "C-c j") 'counsel-git-grep)
+      (global-set-key (kbd "C-c k") 'counsel-ag)
+      (global-set-key (kbd "C-x l") 'counsel-locate)
+      (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
+      (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
+      )
+
+    (use-package counsel
+      :init
+      (counsel-mode)
+      (counsel-projectile-mode))
+#+end_src
+
+** Lsp
+#+begin_src elisp
+    (use-package lsp-mode
+    :init
+    ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
+    (setq lsp-keymap-prefix "C-c l")
+    :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
+           ;; (XXX-mode . lsp)
+           ;; if you want which-key integration
+           (lsp-mode . lsp-enable-which-key-integration))
+    :after which-key
+    :commands lsp)
+
+  ;; optionally
+  (use-package lsp-ui :commands lsp-ui-mode :after lsp-mode)
+  ;; if you are helm user
+  ;; (use-package helm-lsp :commands helm-lsp-workspace-symbol)
+  ;; if you are ivy user
+  (use-package lsp-ivy :commands lsp-ivy-workspace-symbol :after lsp-mode)
+  ;; (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+
+  ;; optionally if you want to use debugger
+  (use-package dap-mode :after lsp-mode)
+  ;; (use-package dap-LANGUAGE) to load the dap adapter for your language
+
+#+end_src
+
+** all-the-icons
+#+begin_src elisp
+  (use-package all-the-icons)
+  (use-package all-the-icons-ivy
+  :config
+  (all-the-icons-ivy-setup))
+#+end_src
+
+** general (keybinds)
+#+begin_src elisp
+  (use-package general)
+
+  (general-create-definer leader
+                          :keymaps 'override
+                          :states '(normal insert emacs visual motion)
+                          :prefix "SPC"
+                          :non-normal-prefix "C-t")
+
+  (general-create-definer local-leader
+                          :states '(normal visual motion)
+                          :prefix ",")
+#+end_src
+
+** rainbow mode (show hex colors)
+#+begin_src elisp
+  (use-package rainbow-mode) ; should probably be deferred, haven't benchmarked
+  #+end_src
+
+#+begin_src elisp
+  (use-package emacs
+    :bind
+    ("C-h F" . describe-face)
+    ("C-h M" . describe-keymap)
+    ("C-h V" . set-variable)
+    ("C-x C-o" . other-window)
+    :config
+    (leader
+      "SPC" 'execute-extended-command
+      "b b" 'consult-buffer
+      "b k" 'kill-current-buffer
+      "b i" 'ibuffer
+      "b p" 'previous-buffer
+      "b n" 'next-buffer
+      "b r" 'revert-buffer-quick
+      "b s" 'scratch-buffer
+      "q k" 'save-buffers-kill-emacs
+      "q r" 'restart-emacs))
+#+end_src
+
+** man
+#+begin_src elisp
+  (use-package man
+    :defer
+    :config
+    (setq Man-notify-method 'aggressive))
+#+end_src
+
+#+BEGIN_SRC elisp
+(defun +pop-to-current-buffer ()
+  "Pop to the current buffer. This is supposed to be used in hooks
+for modes/commands that spawn unfocused windows, like `apropos'."
+  (pop-to-buffer (current-buffer)))
+
+(use-package emacs
+  :straight (:type built-in)
+  :config
+  (setq help-window-select t)
+  (add-hook 'apropos-mode-hook #'+pop-to-current-buffer)
+  (add-hook 'compilation-mode-hook #'+pop-to-current-buffer))
+#+END_SRC
+
+#+BEGIN_SRC elisp
+  (use-package simple
+    :straight (:type built-in)
+    :config
+    (setq eval-expression-print-length nil)
+    (setq eval-expression-print-level nil))
+#+END_SRC
+
+#+BEGIN_SRC elisp
+  (use-package dired
+    :straight (:type built-in)
+    :defer
+    :config
+    (setq dired-kill-when-opening-new-dired-buffer t)
+    (setq dired-create-destination-dirs 'ask)
+    :custom
+    ;; Sort directories to the top
+    (dired-listing-switches "-la --group-directories-first"))
+#+END_SRC
+
+#+BEGIN_SRC elisp
+  (use-package diredfl
+    :defer
+    :after dired
+    :hook (dired-mode . diredfl-mode))
+#+END_SRC
+
+* rond Functions
+
+Functions with a double slash should not be used directly
+
+#+begin_src elisp
+      (defun rond//display-startup-time ()
+        (message "remacs loaded in %s with %d garbage collections"
+                 (format "%.2f seconds"
+                         (float-time
+                          (time-subtract after-init-time before-init-time)))
+                 gcs-done))
+
+      (add-hook 'emacs-startup-hook #'rond//display-startup-time)
+
+
+  ;; (defun rond//get-package (pkg-name)
+  ;;   "Return a package object with name PKG-NAME.
+  ;; Return nil if package object is not found."
+  ;;   (when (spacemacs-ht-contains? configuration-layer--indexed-packages pkg-name)
+  ;;     (spacemacs-ht-get configuration-layer--indexed-packages pkg-name)))
+
+  ;;   (defun rond//filter-objects (objects ffunc)
+  ;;   "Return a filtered OBJECTS list where each element satisfies FFUNC."
+  ;;   (reverse (cl-reduce (lambda (acc x) (if (funcall ffunc x) (push x acc) acc))
+  ;;                       objects
+  ;;                       :initial-value nil)))
+
+
+    ;; (defun rond//get-package-stats (packages)
+    ;;   "Return a statistics alist regarding the number of configured PACKAGES."
+    ;;   `((total ,(length packages))
+    ;;     (elpa ,(length (rond//filter-objects
+    ;;                     packages
+    ;;                     (lambda (x)
+    ;;                       (let ((pkg (configuration-layer/get-package x)))
+    ;;                         (eq 'elpa (oref pkg :location)))))))
+    ;;     (recipe ,(length (rond//filter-objects
+    ;;                       packages
+    ;;                       (lambda (x)
+    ;;                         (let* ((pkg (configuration-layer/get-package x))
+    ;;                                (location (oref pkg :location)))
+    ;;                           (and (listp location)
+    ;;                                (eq 'recipe (car location))))))))
+    ;;     (local ,(length (rond//filter-objects
+    ;;                      packages
+    ;;                      (lambda (x)
+    ;;                        (let ((pkg (configuration-layer/get-package x)))
+    ;;                          (memq (oref pkg :location) '(local site)))))))
+    ;;     (built-in ,(length (rond//filter-objects
+    ;;                         packages
+    ;;                         (lambda (x)
+    ;;                           (let ((pkg (configuration-layer/get-package x)))
+    ;;                             (eq 'built-in (oref pkg :location)))))))))
+
+    ;;   (defvar rond/var/emacs-load-time nil)
+
+    ;;   (defun rond//display-load-time ()
+    ;;     "Spacemacs-like function for load time"
+    ;;     (unless rond/var/emacs-load-time
+    ;;       (setq rond/var/emacs-load-time
+    ;;             (float-time (time-subtract (current-time) emacs-start-time))))
+    ;;     (let ((stats (configuration-layer/configured-packages-stats
+    ;;                   configuration-layer--used-packages)))
+    ;;       (spacemacs-buffer/insert-page-break)
+    ;;       (with-current-buffer (get-buffer-create spacemacs-buffer-name)
+    ;;         (let ((buffer-read-only nil))
+    ;;           (spacemacs-buffer/append
+    ;;            (format "\n%s packages loaded in %.3fs (e:%s r:%s l:%s b:%s)"
+    ;;                    (cadr (assq 'total stats))
+    ;;                    configuration-layer--spacemacs-startup-time
+    ;;                    (cadr (assq 'elpa stats))
+    ;;                    (cadr (assq 'recipe stats))
+    ;;                    (cadr (assq 'local stats))
+    ;;                    (cadr (assq 'built-in stats))))
+    ;;           ;; (spacemacs-buffer//center-line)
+    ;;           ;; (spacemacs-buffer/append (format "\n(%.3fs spent in your user-config)"
+    ;;           ;;                                  dotspacemacs--user-config-elapsed-time))
+    ;;           ;; (spacemacs-buffer//center-line)
+    ;;           (insert "\n"))))
+  ;;     )
+#+end_src
+
+;; Local Variables:
+;; eval: (add-hook 'after-save-hook (lambda ()(if (y-or-n-p "Tangle?")(org-babel-tangle))) nil t)
+;; End:
