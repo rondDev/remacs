@@ -9,18 +9,28 @@ CLOSED: [2024-02-23 Fri 08:30]
 CLOSED: [2024-02-23 Fri 08:30]
 * TODO Add buffler
 * TODO Add mu4e (email thing)
+* TODO Add org additions (bullets, calendar view etc.)
+* TODO Add everywhere
+* TODO Add emms (music player)
+* TODO Add company (completion)
+* TODO Add visual indicator for yanking
+* TODO Add keybind for =evil-ex-nohighlight=
+* TODO Add vertico keybinds for evil
+
 
 
 * Base Emacs Settings
 #+begin_src elisp
   (tool-bar-mode -1)
   (menu-bar-mode -1)
+  (setq inhibit-startup-message t)
   (set-frame-font "Jetbrains Mono Nerd Font-11" nil t)
 
   (custom-set-faces '(default ((t (:family "JetBrainsMono Nerd Font" :foundry "JB" :slant normal :weight regular :height 113 :width normal)))))
   (let ((my-custom-file (locate-user-emacs-file "custom.el")))
   (setq custom-file my-custom-file)
   (load custom-file 'no-error))
+  (setq-default indent-tabs-mode nil)
 #+end_src
 
 * Packages
@@ -61,7 +71,9 @@ CLOSED: [2024-02-23 Fri 08:30]
 ** gcmh
 This makes startup faster by limiting garbage collections (changing collection threshold)
 #+begin_src elisp
-  (gcmh-mode 1)
+  (use-package gcmh
+    :config
+    (gcmh-mode 1))
 #+end_src
 
 ** Theme
@@ -77,38 +89,38 @@ This makes startup faster by limiting garbage collections (changing collection t
 
 ** Evil
 #+begin_src elisp
-  (use-package evil
-    :after general
-    :init
-    (setq evil-want-integration t)
-    (setq evil-want-keybinding nil)
-    (evil-mode 1)
-    :config
-    (setq evil-insert-state-cursor '(box . 5))
-    (general-define-key
-     :states 'normal
-     "U" 'evil-redo)
-    (general-define-key
-     :keymaps 'special-mode-map
-     :states '(normal motion)
-     "q" #'quit-window)
-    (add-to-list 'evil-emacs-state-modes 'sieve-manage-mode)
-    :custom
-    ((evil-want-C-u-scroll t)
-     (evil-want-C-u-delete nil)
-     (evil-want-C-w-delete t)
-     (evil-want-Y-yank-to-eol t)
-     (evil-undo-system 'undo-redo)
-     (evil-symbol-word-search t)
-     (evil-jumps-cross-buffers nil)
-     (evil-mode-line-format nil))
-    :bind
-    (:map evil-window-map
-          ("C-h" . evil-window-left)
-          ("C-k" . evil-window-up)
-          ("C-j" . evil-window-down)
-          ("C-l" . evil-window-right)))
-          ;; ("C-d" . evil-window-delete)))
+    (use-package evil
+      :after general
+      :init
+      (setq evil-want-integration t)
+      (setq evil-want-keybinding nil)
+      (evil-mode 1)
+      :config
+      (setq evil-insert-state-cursor '(box . 5))
+      (general-define-key
+       :states 'normal
+       "U" 'evil-redo)
+      (general-define-key
+       :keymaps 'special-mode-map
+       :states '(normal motion)
+       "q" #'quit-window)
+      (add-to-list 'evil-emacs-state-modes 'sieve-manage-mode)
+      :custom
+      ((evil-want-C-u-scroll t)
+       (evil-want-C-u-delete nil)
+       (evil-want-C-w-delete t)
+       (evil-want-Y-yank-to-eol t)
+       (evil-undo-system 'undo-redo)
+       (evil-symbol-word-search t)
+       (evil-jumps-cross-buffers nil)
+       (evil-mode-line-format nil))
+      :bind
+      (:map evil-window-map
+            ("C-h" . evil-window-left)
+            ("C-k" . evil-window-up)
+            ("C-j" . evil-window-down)
+            ("C-l" . evil-window-right)))
+    ;; ("C-d" . evil-window-delete)))
 
     (use-package evil-collection
       :after evil
@@ -132,19 +144,58 @@ This makes startup faster by limiting garbage collections (changing collection t
          (package-menu package)
          pass
          proced
+         vertico
          vterm ; let's try this once more
          xref
          )))
 
-      (use-package evil-surround
-        :after evil
-        :config
-        (global-evil-surround-mode))
+    (use-package evil-surround
+      :after evil
+      :init
+      (evil-define-key 'visual evil-surround-mode-map "s" 'evil-surround-region)
+      (evil-define-key 'visual evil-surround-mode-map "S" 'evil-substitute)
+      :config
+      (global-evil-surround-mode 1))
 
-      (use-package evil-commentary
-        :after evil
-        :config
-        (evil-commentary-mode))
+    (use-package evil-commentary
+      :after evil
+      :config
+      (evil-commentary-mode))
+
+    (use-package evil-escape
+      :after evil
+      :config
+      (evil-escape-mode 1)
+                                            ;(setq-default evil-escape-key-sequence "jk") ; default is fd
+      )
+
+    (use-package evil-anzu
+      :after evil
+      :init
+      (global-anzu-mode 1))
+    (use-package evil-numbers
+      :after evil)
+    (with-eval-after-load 'eldoc
+                     (eldoc-add-command #'evil-cp-insert)
+                     (eldoc-add-command #'evil-cp-insert-at-end-of-form)
+                     (eldoc-add-command #'evil-cp-insert-at-beginning-of-form)
+                     (eldoc-add-command #'evil-cp-append))
+    (use-package evil-args
+      :after evil)
+    (use-package evil-cleverparens
+      :after evil)
+    (use-package evil-exchange
+      :after evil)
+    (use-package evil-visual-mark-mode
+      :after evil)
+    (use-package evil-visualstar
+      :after evil)
+    (use-package vi-tilde-fringe
+      :after evil)
+    (use-package evil-lisp-state
+      :after evil
+      :config
+      (evil-lisp-state-leader ", l"))
 #+end_src
 
 ** Which-key
@@ -156,38 +207,121 @@ This makes startup faster by limiting garbage collections (changing collection t
 
 ** Ivy, Counsel, Swiper
 #+begin_src elisp
-    (use-package ivy
-      :init
-      (ivy-mode)
-      (setq ivy-use-virtual-buffers t)
-      (setq enable-recursive-minibuffers t)
-      (global-set-key "\C-s" 'swiper)
-      (global-set-key (kbd "C-c C-r") 'ivy-resume)
-      (global-set-key (kbd "<f6>") 'ivy-resume)
-      (global-set-key (kbd "C-x C-f") 'counsel-find-file)
-      (global-set-key (kbd "<f1> f") 'counsel-describe-function)
-      (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
-      (global-set-key (kbd "<f1> o") 'counsel-describe-symbol)
-      (global-set-key (kbd "<f1> l") 'counsel-find-library)
-      (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
-      (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
-      (global-set-key (kbd "C-c g") 'counsel-git)
-      (global-set-key (kbd "C-c j") 'counsel-git-grep)
-      (global-set-key (kbd "C-c k") 'counsel-ag)
-      (global-set-key (kbd "C-x l") 'counsel-locate)
-      (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
-      (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
-      )
+    ;; (use-package ivy
+    ;;   :init
+    ;;   (ivy-mode)
+    ;;   (setq ivy-use-virtual-buffers t)
+    ;;   (setq enable-recursive-minibuffers t)
+    ;;   (global-set-key "\C-s" 'swiper)
+    ;;   (global-set-key (kbd "C-c C-r") 'ivy-resume)
+    ;;   (global-set-key (kbd "<f6>") 'ivy-resume)
+    ;;   (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+    ;;   (global-set-key (kbd "<f1> f") 'counsel-describe-function)
+    ;;   (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+    ;;   (global-set-key (kbd "<f1> o") 'counsel-describe-symbol)
+    ;;   (global-set-key (kbd "<f1> l") 'counsel-find-library)
+    ;;   (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+    ;;   (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+    ;;   (global-set-key (kbd "C-c g") 'counsel-git)
+    ;;   (global-set-key (kbd "C-c j") 'counsel-git-grep)
+    ;;   (global-set-key (kbd "C-c k") 'counsel-ag)
+    ;;   (global-set-key (kbd "C-x l") 'counsel-locate)
+    ;;   (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
+    ;;   (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
+    ;;   )
 
-    (use-package counsel
-      :init
-      (counsel-mode)
-      (counsel-projectile-mode))
+    ;; (use-package counsel
+    ;;   :init
+    ;;   (counsel-mode)
+    ;;   (counsel-projectile-mode))
 #+end_src
 
+** Vertico
+#+BEGIN_SRC elisp
+  ;; Enable vertico
+  (use-package vertico
+    :after general
+    :init
+    (vertico-mode)
+
+    ;; Different scroll margin
+    ;; (setq vertico-scroll-margin 0)
+
+    ;; Show more candidates
+    ;; (setq vertico-count 20)
+
+    ;; Grow and shrink the Vertico minibuffer
+    ;; (setq vertico-resize t)
+
+    ;; Optionally enable cycling for `vertico-next' and `vertico-previous'.
+    (setq vertico-cycle t)
+    )
+
+  ;; Persist history over Emacs restarts. Vertico sorts by history position.
+  (use-package savehist
+    :init
+    (savehist-mode))
+
+  ;; A few more useful configurations...
+  (use-package emacs
+    :init
+    ;; Add prompt indicator to `completing-read-multiple'.
+    ;; We display [CRM<separator>], e.g., [CRM,] if the separator is a comma.
+    (defun crm-indicator (args)
+      (cons (format "[CRM%s] %s"
+                    (replace-regexp-in-string
+                     "\\`\\[.*?]\\*\\|\\[.*?]\\*\\'" ""
+                     crm-separator)
+                    (car args))
+            (cdr args)))
+    (advice-add #'completing-read-multiple :filter-args #'crm-indicator)
+
+    ;; Do not allow the cursor in the minibuffer prompt
+    (setq minibuffer-prompt-properties
+          '(read-only t cursor-intangible t face minibuffer-prompt))
+    (add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)
+
+    ;; Emacs 28: Hide commands in M-x which do not work in the current mode.
+    ;; Vertico commands are hidden in normal buffers.
+    ;; (setq read-extended-command-predicate
+    ;;       #'command-completion-default-include-p)
+
+    ;; Enable recursive minibuffers
+    (setq enable-recursive-minibuffers t))
+
+  ;; Optionally use the `orderless' completion style.
+  (use-package orderless
+    :init
+    ;; Configure a custom style dispatcher (see the Consult wiki)
+    ;; (setq orderless-style-dispatchers '(+orderless-consult-dispatch orderless-affix-dispatch)
+    ;;       orderless-component-separator #'orderless-escapable-split-on-space)
+    (setq completion-styles '(orderless basic)
+          completion-category-defaults nil
+          completion-category-overrides '((file (styles partial-completion)))))
+
+  ;; Configure directory extension.
+  (use-package vertico-directory
+    :straight (:type built-in)
+    :after vertico
+    :ensure nil
+    ;; More convenient directory navigation commands
+    :bind (:map vertico-map
+                ("RET" . vertico-directory-enter)
+                ("DEL" . vertico-directory-delete-char)
+                ("M-DEL" . vertico-directory-delete-word))
+    ;; Tidy shadowed file names
+    :hook (rfn-eshadow-update-overlay . vertico-directory-tidy))
+#+END_SRC
+
+** golden-ratio
+#+BEGIN_SRC elisp
+  (use-package golden-ratio
+    :config
+    (golden-ratio-mode 1))
+ #+END_SRC
 ** Lsp
-#+begin_src elisp
-    (use-package lsp-mode
+ #+begin_src elisp
+  (use-package lsp-mode
     :init
     ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
     (setq lsp-keymap-prefix "C-c l")
@@ -237,7 +371,9 @@ This makes startup faster by limiting garbage collections (changing collection t
 
 ** rainbow mode (show hex colors)
 #+begin_src elisp
-  (use-package rainbow-mode) ; should probably be deferred, haven't benchmarked
+      (use-package rainbow-mode
+        :config
+        (rainbow-mode 1)) ; should probably be deferred, haven't benchmarked
   #+end_src
 
 #+begin_src elisp
@@ -308,6 +444,68 @@ for modes/commands that spawn unfocused windows, like `apropos'."
     :defer
     :after dired
     :hook (dired-mode . diredfl-mode))
+#+END_SRC
+
+* languages
+
+** emacs lisp
+#+BEGIN_SRC elisp
+  (use-package auto-compile
+    :if (equal major-mode 'emacs-lisp-mode))
+
+  (use-package company
+    :if (equal major-mode 'emacs-lisp-mode))
+
+  (use-package elisp-def
+    :if (equal major-mode 'emacs-lisp-mode))
+
+  (use-package elisp-slime-nav
+    :if (equal major-mode 'emacs-lisp-mode))
+
+  (use-package evil-cleverparens
+    :if (equal major-mode 'emacs-lisp-mode)
+    :after evil)
+
+  (use-package eval-sexp-fu
+    :if (equal major-mode 'emacs-lisp-mode)
+    :commands eval-sexp-fu-flash-mode
+    :config)
+
+  (use-package flycheck
+    :if (equal major-mode 'emacs-lisp-mode)
+    :config
+    (flycheck-mode 1))
+
+  (use-package flycheck-elsa
+    :if (equal major-mode 'emacs-lisp-mode)
+    :config
+    (setq flycheck-elsa-backend 'eask))
+
+  (use-package flycheck-package
+    :if (equal major-mode 'emacs-lisp-mode)
+    :config
+    (flycheck-package-setup))
+
+  (use-package inspector
+    :if (equal major-mode 'emacs-lisp-mode))
+
+  (use-package macrostep
+    :if (equal major-mode 'emacs-lisp-mode)
+    :config
+    (define-key emacs-lisp-mode-map (kbd "C-c e") 'macrostep-expand))
+
+  ;; Add evil keybindings to inspector-mode
+  (defun inspector--set-evil-key-binding ()
+    "Set evil keybindings for inspector-mode if in Evil mode."
+    (when (bound-and-true-p evil-mode)
+      (evil-define-key 'normal inspector-mode-map
+        "q" #'inspector-quit
+        "l" #'inspector-pop
+        "e" #'eval-expression
+        "n" #'forward-button
+        "p" #'backward-button
+        "P" #'inspector-pprint-inspected-object)))
+  (add-hook 'inspector-mode-hook #'inspector--set-evil-key-binding)
 #+END_SRC
 
 * rond Functions
@@ -383,7 +581,7 @@ Functions with a double slash should not be used directly
     ;;                    (cadr (assq 'elpa stats))
     ;;                    (cadr (assq 'recipe stats))
     ;;                    (cadr (assq 'local stats))
-    ;;                    (cadr (assq 'built-in stats))))
+  ;;                    (cadr (assq 'built-in stats))))
     ;;           ;; (spacemacs-buffer//center-line)
     ;;           ;; (spacemacs-buffer/append (format "\n(%.3fs spent in your user-config)"
     ;;           ;;                                  dotspacemacs--user-config-elapsed-time))
