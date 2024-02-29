@@ -6,24 +6,24 @@
 * Description :unfold:
 This module adds [[https://nim-lang.org][Nim]] support to Doom Emacs.
 
-- Code completion ([[doom-package:nimsuggest]] + [[doom-package:company]])
-- Syntax checking ([[doom-package:nimsuggest]] + [[doom-package:flycheck]])
-- Org babel support ([[doom-package:ob-nim]])
+- Code completion ([[rmcs-package:nimsuggest]] + [[rmcs-package:company]])
+- Syntax checking ([[rmcs-package:nimsuggest]] + [[rmcs-package:flycheck]])
+- Org babel support ([[rmcs-package:ob-nim]])
 
 ** Maintainers
-*This module needs a maintainer.* [[doom-contrib-maintainer:][Become a maintainer?]]
+*This module needs a maintainer.* [[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 /This module has no flags./
 
 ** Packages
-- [[doom-package:flycheck-nim]] if [[doom-module::checkers syntax]]
-- [[doom-package:nim-mode]]
+- [[rmcs-package:flycheck-nim]] if [[rmcs-module::checkers syntax]]
+- [[rmcs-package:nim-mode]]
 
 ** Hacks
-- [[doom-package:nimsuggest]] was modified to strip invalid characters from its temp file paths
+- [[rmcs-package:nimsuggest]] was modified to strip invalid characters from its temp file paths
   (which would break nimsuggest on Windows systems).
-- [[doom-package:nim-mode]] was modified to fail gracefully if =nimsuggest= (the executable)
+- [[rmcs-package:nim-mode]] was modified to fail gracefully if =nimsuggest= (the executable)
   isn't available.
 
 ** TODO Changelog
@@ -31,7 +31,7 @@ This module adds [[https://nim-lang.org][Nim]] support to Doom Emacs.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module requires:
 - ~nim~, for building & evaluation.
@@ -53,25 +53,25 @@ Alternatively, nim is usually available through your OS's package manager:
 
 ** Formatter
 
-Formatting is handled using the [[doom-module::editor format]] module via [[https://github.com/FedericoCeratto/nimfmt#installation][nimfmt]].
+Formatting is handled using the [[rmcs-module::editor format]] module via [[https://github.com/FedericoCeratto/nimfmt#installation][nimfmt]].
 
 * TODO Usage
 #+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no usage documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * TODO Configuration
 #+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no configuration documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

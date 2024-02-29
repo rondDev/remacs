@@ -4,12 +4,12 @@
   :commands twit
   :config
   (setq twittering-private-info-file
-        (expand-file-name "twittering-mode.gpg" doom-data-dir)
+        (expand-file-name "twittering-mode.gpg" rmcs-data-dir)
         twittering-use-master-password t
         twittering-request-confirmation-on-posting t
         ;; twittering-icon-mode t
         ;; twittering-use-icon-storage t
-        ;; twittering-icon-storage-file (concat doom-cache-dir "twittering-mode-icons.gz")
+        ;; twittering-icon-storage-file (concat rmcs-cache-dir "twittering-mode-icons.gz")
         ;; twittering-convert-fix-size 12
         twittering-timeline-header ""
         twittering-timeline-footer ""
@@ -34,7 +34,7 @@
     "The vertical divider between tweets."
     :group 'twittering-mode)
 
-  (add-hook 'doom-real-buffer-functions #'+twitter-buffer-p)
+  (add-hook 'rmcs-real-buffer-functions #'+twitter-buffer-p)
   (when (modulep! :ui popup)
     (setq twittering-pop-to-buffer-function #'+twitter-display-buffer-fn))
 

@@ -10,10 +10,10 @@ exceptionally user-specific, read on for additional instructions to customize it
 to your needs.
 
 ** Maintainers
-- [[doom-user:][@iyefrat]]
-- [[doom-user:][@ymarco]]
+- [[rmcs-user:][@iyefrat]]
+- [[rmcs-user:][@ymarco]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module Flags
 /This module has no flags./
@@ -25,7 +25,7 @@ to your needs.
 /No hacks documented for this module./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 /This module has no external requirements./
 
@@ -78,7 +78,7 @@ English and your favorite RTL language. To do this without losing access to all
 of the keybindings require English letters, you should use [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Input-Methods.html][input methods]] to
 switch languages instead of changing the system keyboard language. If you use a
 non-qwerty layout, you will need extra configuration to keep the input method
-consistent, see [[https://github.com/ymarco/doom-emacs-config/blob/2d655adb6a35c5cd3afcba24e76327f5444cf774/dvorak-config.el#L3-L18][here]] for an example for dvorak.
+consistent, see [[https://github.com/ymarco/rmcs-emacs-config/blob/2d655adb6a35c5cd3afcba24e76327f5444cf774/dvorak-config.el#L3-L18][here]] for an example for dvorak.
 
 Toggling the input method bound to [[kbd:][C-\]]. It prompts you to choose an input method
 the first time you do this in a session, but you bypass this by setting the
@@ -129,21 +129,21 @@ automatically change the dictionary language there. For example:
 #+end_src
 
 ** Automatic input mode switching
-You may want Emacs to guess when you want it to switch input methods. See [[https://github.com/ymarco/doom-emacs-config/blob/2d655adb6a35c5cd3afcba24e76327f5444cf774/hebrew-latex-config.el#L7-L21][here]]
-and [[https://github.com/ymarco/doom-emacs-config/blob/2d655adb6a35c5cd3afcba24e76327f5444cf774/hebrew-latex-config.el#L99-L102][here]] for an example of how to get Emacs to switch to hebrew when entering
+You may want Emacs to guess when you want it to switch input methods. See [[https://github.com/ymarco/rmcs-emacs-config/blob/2d655adb6a35c5cd3afcba24e76327f5444cf774/hebrew-latex-config.el#L7-L21][here]]
+and [[https://github.com/ymarco/rmcs-emacs-config/blob/2d655adb6a35c5cd3afcba24e76327f5444cf774/hebrew-latex-config.el#L99-L102][here]] for an example of how to get Emacs to switch to hebrew when entering
 insert mode after a hebrew character, in LaTeX buffers.
 
 * Troubleshooting
-[[doom-report:][Report an issue?]]
+[[rmcs-report:][Report an issue?]]
 
 ** Nastaliq font display bug
 If Emacs is having trouble properly displaying a Nastaliq font, try using one of
 [[https://urdufonts.net/fonts/jameel-noori-nastaleeq-regular][these]] [[https://urdufonts.net/fonts/alvi-nastaleeq-regular][two]] fonts for [[var:+bidi-arabic-font]].
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

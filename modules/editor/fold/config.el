@@ -81,7 +81,7 @@
              evil-vimish-fold/delete evil-vimish-fold/delete-all
              evil-vimish-fold/create evil-vimish-fold/create-line)
   :init
-  (setq vimish-fold-dir (concat doom-cache-dir "vimish-fold/")
+  (setq vimish-fold-dir (concat rmcs-cache-dir "vimish-fold/")
         vimish-fold-indication-mode 'right-fringe)
   :config
   (vimish-fold-global-mode +1))

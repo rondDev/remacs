@@ -10,14 +10,14 @@ This module provides language functionality for [[https://qt.io][Qt]] specific f
 - Syntax highlighting for =.pro= and =.pri= files used by [[https://doc.qt.io/qt-5/qmake-project-files.html][qmake]]
 
 ** Maintainers
-*This module needs a maintainer.* [[doom-contrib-maintainer:][Become a maintainer?]]
+*This module needs a maintainer.* [[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 /This module has no flags./
 
 ** Packages
-- [[doom-package:qml-mode]]
-- [[doom-package:qt-pro-mode]]
+- [[rmcs-package:qml-mode]]
+- [[rmcs-package:qt-pro-mode]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -27,27 +27,27 @@ This module provides language functionality for [[https://qt.io][Qt]] specific f
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 /This module has no external requirements./
 
 * TODO Usage
 #+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no usage documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * TODO Configuration
 #+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no configuration documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

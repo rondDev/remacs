@@ -57,7 +57,7 @@ these properties:
   "Auto insert a yasnippet snippet into current file and enter insert mode (if
 evil is loaded and enabled)."
   (when (and pred (not ignore))
-    (when (if project (doom-project-p) t)
+    (when (if project (rmcs-project-p) t)
       (unless mode
         (setq mode
               (if (and (symbolp pred) (not (booleanp pred)))
@@ -90,16 +90,16 @@ evil is loaded and enabled)."
     (save-match-data
       (cond ((string-match "/modules/\\(.+\\)$" path)
              (match-string 1 path))
-            ((file-in-directory-p path doom-emacs-dir)
-             (file-relative-name path doom-emacs-dir))
-            ((file-in-directory-p path doom-user-dir)
-             (file-relative-name path doom-user-dir))
+            ((file-in-directory-p path rmcs-emacs-dir)
+             (file-relative-name path rmcs-emacs-dir))
+            ((file-in-directory-p path rmcs-user-dir)
+             (file-relative-name path rmcs-user-dir))
             ((abbreviate-file-name path))))))
 
 ;;;###autoload
 (defun +file-templates-module-for-path (&optional path)
-  "Generate a title for a doom module's readme at PATH."
-  (let ((m (doom-module-from-path (or path (buffer-file-name)))))
+  "Generate a title for a rmcs module's readme at PATH."
+  (let ((m (rmcs-module-from-path (or path (buffer-file-name)))))
     (if (eq (cdr m) 'README.org)
         (symbol-name (car m))
       (format "%s %s" (car m) (cdr m)))))
@@ -146,15 +146,15 @@ for it. This is used for testing."
 ;;
 ;;; Trigger functions
 
-(defun +file-templates-insert-doom-docs-fn ()
+(defun +file-templates-insert-rmcs-docs-fn ()
   "Expand one of Doom's README templates depending."
   (+file-templates--expand
    t :trigger
    (let ((path (file-truename (buffer-file-name))))
      (cond ((string-match-p "/modules/[^/]+/README\\.org$" path)
-            "__doom-category-readme")
+            "__rmcs-category-readme")
            ((string-match-p "/modules/[^/]+/[^/]+/README\\.org$" path)
-            "__doom-readme")
-           ((file-in-directory-p path doom-docs-dir)
-            "__doom-docs")
+            "__rmcs-readme")
+           ((file-in-directory-p path rmcs-docs-dir)
+            "__rmcs-docs")
            ("__")))))

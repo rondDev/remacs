@@ -118,13 +118,13 @@ This can be passed nil as its second argument to unset handlers for MODES. e.g.
     (funcall handler identifier)))
 
 (defun +lookup--run-handlers (handler identifier origin)
-  (doom-log "Looking up '%s' with '%s'" identifier handler)
+  (rmcs-log "Looking up '%s' with '%s'" identifier handler)
   (condition-case-unless-debug e
       (let ((wconf (current-window-configuration))
             (result (condition-case-unless-debug e
                         (+lookup--run-handler handler identifier)
                       (error
-                       (doom-log "Lookup handler %S threw an error: %s" handler e)
+                       (rmcs-log "Lookup handler %S threw an error: %s" handler e)
                        'fail))))
         (cond ((eq result 'fail)
                (set-window-configuration wconf)
@@ -268,10 +268,10 @@ Uses find-in-project functionality (provided by ivy, helm, or project),
 otherwise falling back to ffap.el (find-file-at-point)."
   (let ((guess
          (cond (identifier)
-               ((doom-region-active-p)
+               ((rmcs-region-active-p)
                 (buffer-substring-no-properties
-                 (doom-region-beginning)
-                 (doom-region-end)))
+                 (rmcs-region-beginning)
+                 (rmcs-region-end)))
                ((if (require 'ffap) (ffap-guesser)))
                ((thing-at-point 'filename t)))))
     (cond ((and (stringp guess)
@@ -279,11 +279,11 @@ otherwise falling back to ffap.el (find-file-at-point)."
                     (ffap-url-p guess)))
            (find-file-at-point guess))
           ((and (modulep! :completion ivy)
-                (doom-project-p))
-           (counsel-file-jump guess (doom-project-root)))
+                (rmcs-project-p))
+           (counsel-file-jump guess (rmcs-project-root)))
           ((and (modulep! :completion vertico)
-                (doom-project-p))
-           (+vertico/consult-fd-or-find (doom-project-root) guess))
+                (rmcs-project-p))
+           (+vertico/consult-fd-or-find (rmcs-project-root) guess))
           ((find-file-at-point (ffap-prompter guess))))
     t))
 
@@ -326,7 +326,7 @@ Each function in `+lookup-definition-functions' is tried until one changes the
 point or current buffer. Falls back to dumb-jump, naive
 ripgrep/the_silver_searcher text search, then `evil-goto-definition' if
 evil-mode is active."
-  (interactive (list (doom-thing-at-point-or-region)
+  (interactive (list (rmcs-thing-at-point-or-region)
                      current-prefix-arg))
   (cond ((null identifier) (user-error "Nothing under point"))
         ((+lookup--jump-to :definition identifier nil arg))
@@ -338,7 +338,7 @@ evil-mode is active."
 
 Each function in `+lookup-implementations-functions' is tried until one changes
 the point or current buffer."
-  (interactive (list (doom-thing-at-point-or-region)
+  (interactive (list (rmcs-thing-at-point-or-region)
                      current-prefix-arg))
   (cond ((null identifier) (user-error "Nothing under point"))
         ((+lookup--jump-to :implementations identifier nil arg))
@@ -350,7 +350,7 @@ the point or current buffer."
 
 Each function in `+lookup-type-definition-functions' is tried until one changes
 the point or current buffer."
-  (interactive (list (doom-thing-at-point-or-region)
+  (interactive (list (rmcs-thing-at-point-or-region)
                      current-prefix-arg))
   (cond ((null identifier) (user-error "Nothing under point"))
         ((+lookup--jump-to :type-definition identifier nil arg))
@@ -363,7 +363,7 @@ the point or current buffer."
 Tries each function in `+lookup-references-functions' until one changes the
 point and/or current buffer. Falls back to a naive ripgrep/the_silver_searcher
 search otherwise."
-  (interactive (list (doom-thing-at-point-or-region)
+  (interactive (list (rmcs-thing-at-point-or-region)
                      current-prefix-arg))
   (cond ((null identifier) (user-error "Nothing under point"))
         ((+lookup--jump-to :references identifier nil arg))
@@ -376,7 +376,7 @@ search otherwise."
 First attempts the :documentation handler specified with `set-lookup-handlers!'
 for the current mode/buffer (if any), then falls back to the backends in
 `+lookup-documentation-functions'."
-  (interactive (list (doom-thing-at-point-or-region)
+  (interactive (list (rmcs-thing-at-point-or-region)
                      current-prefix-arg))
   (cond ((+lookup--jump-to :documentation identifier #'pop-to-buffer arg))
         ((user-error "Couldn't find documentation for %S" (substring-no-properties identifier)))))
@@ -407,7 +407,7 @@ Otherwise, falls back on `find-file-at-point'."
 (defun +lookup/dictionary-definition (identifier &optional arg)
   "Look up the definition of the word at point (or selection)."
   (interactive
-   (list (or (doom-thing-at-point-or-region 'word)
+   (list (or (rmcs-thing-at-point-or-region 'word)
              (if (equal major-mode 'pdf-view-mode)
                  (car (pdf-view-active-region-text)))
              (read-string "Look up in dictionary: "))
@@ -429,7 +429,7 @@ Otherwise, falls back on `find-file-at-point'."
 (defun +lookup/synonyms (identifier &optional _arg)
   "Look up and insert a synonym for the word at point (or selection)."
   (interactive
-   (list (doom-thing-at-point-or-region 'word) ; TODO actually use this
+   (list (rmcs-thing-at-point-or-region 'word) ; TODO actually use this
          current-prefix-arg))
   (message "Looking up synonyms for %S" identifier)
   (cond ((and +lookup-dictionary-prefer-offline

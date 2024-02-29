@@ -6,7 +6,7 @@
 
 (defun +calendar--init ()
   (if-let (win (cl-find-if (lambda (b) (string-match-p "^\\*cfw:" (buffer-name b)))
-                           (doom-visible-windows)
+                           (rmcs-visible-windows)
                            :key #'window-buffer))
       (select-window win)
     (call-interactively +calendar-open-function)))
@@ -22,12 +22,12 @@
                                           (window-buffer (selected-window)))
                       '(cfw:details-mode
                         cfw:calendar-mode))
-          (doom/switch-to-scratch-buffer)
+          (rmcs/switch-to-scratch-buffer)
           (+calendar--init))
         (+workspace/display))
     (setq +calendar--wconf (current-window-configuration))
     (delete-other-windows)
-    (switch-to-buffer (doom-fallback-buffer))
+    (switch-to-buffer (rmcs-fallback-buffer))
     (+calendar--init)))
 
 ;;;###autoload
@@ -40,7 +40,7 @@
     (when (window-configuration-p +calendar--wconf)
       (set-window-configuration +calendar--wconf))
     (setq +calendar--wconf nil))
-  (doom-kill-matching-buffers "^\\*cfw[:-]"))
+  (rmcs-kill-matching-buffers "^\\*cfw[:-]"))
 
 ;;;###autoload
 (defun +calendar/open-calendar ()

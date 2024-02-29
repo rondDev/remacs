@@ -4,16 +4,16 @@
 ;;;###autoload
 (defun +modeline-resize-for-font-h ()
   "Adjust the modeline's height when the font size is changed by
-`doom/increase-font-size' or `doom/decrease-font-size'.
+`rmcs/increase-font-size' or `rmcs/decrease-font-size'.
 
-Meant for `doom-change-font-size-hook'."
+Meant for `rmcs-change-font-size-hook'."
   (unless +modeline--old-bar-height
-    (setq +modeline--old-bar-height doom-modeline-height))
+    (setq +modeline--old-bar-height rmcs-modeline-height))
   (let ((default-height +modeline--old-bar-height)
         (scale (or (frame-parameter nil 'font-scale) 0)))
-    (setq doom-modeline-height
+    (setq rmcs-modeline-height
           (if (> scale 0)
-              (+ default-height (* scale doom-font-increment))
+              (+ default-height (* scale rmcs-font-increment))
             default-height))))
 
 ;;;###autoload
@@ -21,8 +21,8 @@ Meant for `doom-change-font-size-hook'."
   "Update version strings in all buffers."
   (dolist (window (window-list))
     (with-selected-window window
-      (when (fboundp 'doom-modeline-update-env)
-        (doom-modeline-update-env))
+      (when (fboundp 'rmcs-modeline-update-env)
+        (rmcs-modeline-update-env))
       (force-mode-line-update))))
 
 ;;;###autoload
@@ -31,6 +31,6 @@ Meant for `doom-change-font-size-hook'."
   (unless (modulep! +light)
     (dolist (buffer (buffer-list))
       (with-current-buffer buffer
-        (setq doom-modeline-env--version
-              (bound-and-true-p doom-modeline-load-string)))))
+        (setq rmcs-modeline-env--version
+              (bound-and-true-p rmcs-modeline-load-string)))))
   (force-mode-line-update t))

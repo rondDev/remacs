@@ -23,7 +23,7 @@
 
 (use-package! winum
   :when (modulep! +numbers)
-  :after-call doom-switch-window-hook
+  :after-call rmcs-switch-window-hook
   :config
   ;; winum modifies `mode-line-format' in a destructive manner. I'd rather leave
   ;; it to modeline plugins (or the user) to add this if they want it.

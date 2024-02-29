@@ -8,10 +8,10 @@
   (if +org-msg-currently-exporting
       (when (and (not (featurep :system 'windows))) ; relies on posix path
         (let ((width-call (and (executable-find "identify")
-                               (doom-call-process "identify" "-format" "%w"
+                               (rmcs-call-process "identify" "-format" "%w"
                                                   (substring img-uri 7))))) ; 7=(length "file://")
           (unless width-call
-            (setq width-call (doom-call-process "file" (substring img-uri 7)))
+            (setq width-call (rmcs-call-process "file" (substring img-uri 7)))
             (setcdr width-call (replace-regexp-in-string "^.*image data, \\([0-9]+\\).*$" "\\1" (cdr width-call)))
             (setcar width-call (if (< 0 (string-to-number (cdr width-call))) 0 1)))
           (when (= (car width-call) 0)

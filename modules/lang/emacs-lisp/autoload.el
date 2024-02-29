@@ -13,11 +13,11 @@ to a pop up buffer."
           (debug-on-error t))
       (unwind-protect
           (condition-case-unless-debug e
-              (doom-module-context-with
-                  (doom-module-from-path
+              (rmcs-module-context-with
+                  (rmcs-module-from-path
                    (or (buffer-file-name (buffer-base-buffer))
                        default-directory))
-                (doom-context-with 'eval
+                (rmcs-context-with 'eval
                   (eval-region beg end buffer load-read-function))
                 (with-current-buffer buffer
                   (let ((pp-max-width nil))
@@ -39,23 +39,23 @@ Intended to replace `lisp-outline-level'."
 ;;; Handlers
 
 (defun +emacs-lisp--module-at-point ()
-  "Return (CATEGORY MODULE FLAG) at point inside a `doom!' block."
+  "Return (CATEGORY MODULE FLAG) at point inside a `rmcs!' block."
   (let ((origin (point))
         (syntax (syntax-ppss)))
     (when (and (> (ppss-depth syntax) 0) (not (ppss-string-terminator syntax)))
       (save-excursion
         (let ((parens (ppss-open-parens syntax))
-              (doom-depth 1))
+              (rmcs-depth 1))
           (while (and parens (progn (goto-char (car parens))
-                                    (not (looking-at "(doom!\\_>"))))
+                                    (not (looking-at "(rmcs!\\_>"))))
             (setq parens (cdr parens)
-                  doom-depth (1+ doom-depth)))
-          (when parens ;; Are we inside a `doom!' block?
+                  rmcs-depth (1+ rmcs-depth)))
+          (when parens ;; Are we inside a `rmcs!' block?
             (goto-char origin)
-            (let* ((doom-start (car parens))
+            (let* ((rmcs-start (car parens))
                    (bare-symbol
                     (if (ppss-comment-depth syntax)
-                        (= (save-excursion (beginning-of-thing 'list)) doom-start)
+                        (= (save-excursion (beginning-of-thing 'list)) rmcs-start)
                       (null (cdr parens))))
                    (sexp-start (if bare-symbol
                                    (beginning-of-thing 'symbol)
@@ -65,10 +65,10 @@ Intended to replace `lisp-outline-level'."
               (while (and (not match-start)
                           (re-search-backward
                            "\\_<:\\(?:\\sw\\|\\s_\\)+\\_>" ;; Find a keyword.
-                           doom-start 'noerror))
+                           rmcs-start 'noerror))
                 (unless (looking-back "(")
                   (let ((kw-syntax (syntax-ppss)))
-                    (when (and (= (ppss-depth kw-syntax) doom-depth)
+                    (when (and (= (ppss-depth kw-syntax) rmcs-depth)
                                (not (ppss-string-terminator kw-syntax))
                                (not (ppss-comment-depth kw-syntax)))
                       (setq match-start (point))))))
@@ -92,7 +92,7 @@ Intended to replace `lisp-outline-level'."
 (defun +emacs-lisp-lookup-definition (_thing)
   "Lookup definition of THING."
   (if-let (module (+emacs-lisp--module-at-point))
-      (doom/help-modules (car module) (cadr module) 'visit-dir)
+      (rmcs/help-modules (car module) (cadr module) 'visit-dir)
     (call-interactively #'elisp-def)))
 
 ;;;###autoload
@@ -100,7 +100,7 @@ Intended to replace `lisp-outline-level'."
   "Lookup THING with `helpful-variable' if it's a variable, `helpful-callable'
 if it's callable, `apropos' otherwise."
   (cond ((when-let (module (+emacs-lisp--module-at-point))
-           (doom/help-modules (car module) (cadr module))
+           (rmcs/help-modules (car module) (cadr module))
            (when (eq major-mode 'org-mode)
              (goto-char (point-min))
              (with-demoted-errors "%s"
@@ -192,8 +192,8 @@ https://emacs.stackexchange.com/questions/10230/how-to-indent-keywords-aligned"
   "Run all buttercup tests in the focused buffer."
   (interactive)
   (let ((load-path
-         (append (list (doom-path (dir!) "..")
-                       (or (doom-project-root)
+         (append (list (rmcs-path (dir!) "..")
+                       (or (rmcs-project-root)
                            default-directory))
                  load-path))
         (buttercup-suites nil))
@@ -206,8 +206,8 @@ https://emacs.stackexchange.com/questions/10230/how-to-indent-keywords-aligned"
 (defun +emacs-lisp/buttercup-run-project ()
   "Run all buttercup tests in the project."
   (interactive)
-  (let* ((default-directory (doom-project-root))
-         (load-path (append (list (doom-path "test")
+  (let* ((default-directory (rmcs-project-root))
+         (load-path (append (list (rmcs-path "test")
                                   default-directory)
                             load-path))
          (buttercup-suites nil))
@@ -233,7 +233,7 @@ https://emacs.stackexchange.com/questions/10230/how-to-indent-keywords-aligned"
 ;;;###autoload
 (defun +emacs-lisp-init-straight-maybe-h ()
   "Make sure straight sees modifications to installed packages."
-  (when (file-in-directory-p (or buffer-file-name default-directory) doom-local-dir)
+  (when (file-in-directory-p (or buffer-file-name default-directory) rmcs-local-dir)
     (add-hook 'after-save-hook #'straight-register-file-modification
               nil 'local)))
 
@@ -273,9 +273,9 @@ https://emacs.stackexchange.com/questions/10230/how-to-indent-keywords-aligned"
                    (goto-char (match-beginning 1))
                    (ignore-errors
                      (and (stringp file-base)
-                          (equal (symbol-name (doom-unquote (nth 1 (read (current-buffer)))))
+                          (equal (symbol-name (rmcs-unquote (nth 1 (read (current-buffer)))))
                                  file-base)))))))
-         (not (locate-dominating-file default-directory ".doommodule")))))
+         (not (locate-dominating-file default-directory ".rmcsmodule")))))
 
 (defvar-local +emacs-lisp-reduced-flymake-byte-compile--process nil)
 
@@ -311,8 +311,8 @@ as `+emacs-lisp-non-package-mode' will enable it and disable the other checkers.
                       "--batch"
                       ,@(mapcan (lambda (p) (list "-L" p)) elisp-flymake-byte-compile-load-path)
                       ;; this is what silences the byte compiler
-                      "--eval" ,(prin1-to-string `(setq doom-modules ',doom-modules
-                                                        doom-disabled-packages ',doom-disabled-packages
+                      "--eval" ,(prin1-to-string `(setq rmcs-modules ',rmcs-modules
+                                                        rmcs-disabled-packages ',rmcs-disabled-packages
                                                         byte-compile-warnings ',+emacs-lisp-linter-warnings))
                       "-f" "elisp-flymake--batch-compile-for-flymake"
                       ,tmp-file)
@@ -360,14 +360,14 @@ as `+emacs-lisp-non-package-mode' will enable it and disable the other checkers.
     (setq-local flycheck-emacs-lisp-check-form
                 (prin1-to-string
                  `(progn
-                    (setq doom-modules ',doom-modules
-                          doom-disabled-packages ',doom-disabled-packages
+                    (setq rmcs-modules ',rmcs-modules
+                          rmcs-disabled-packages ',rmcs-disabled-packages
                           byte-compile-warnings ',+emacs-lisp-linter-warnings)
                     (condition-case e
                         (progn
-                          (require 'doom)
-                          (require 'doom-cli)
-                          (require 'doom-start))
+                          (require 'rmcs)
+                          (require 'rmcs-cli)
+                          (require 'rmcs-start))
                       (error
                        (princ
                         (format "%s:%d:%d:Error:Failed to load Doom: %s\n"
@@ -387,11 +387,11 @@ as `+emacs-lisp-non-package-mode' will enable it and disable the other checkers.
 Essentially, this means in any elisp file that either:
 - Is not a theme in `custom-theme-load-path',
 - Lacks a `provide' statement,
-- Lives in a project with a .doommodule file,
-- Is a dotfile (like .dir-locals.el or .doomrc).
+- Lives in a project with a .rmcsmodule file,
+- Is a dotfile (like .dir-locals.el or .rmcsrc).
 
-This generally applies to your private config (`doom-user-dir') or Doom's source
-\(`doom-emacs-dir')."
+This generally applies to your private config (`rmcs-user-dir') or Doom's source
+\(`rmcs-emacs-dir')."
   :since "3.0.0"
   (unless (and (or (bound-and-true-p flycheck-mode)
                    (bound-and-true-p flymake-mode))
@@ -675,8 +675,8 @@ Adapted from URL `https://www.reddit.com/r/emacs/comments/d7x7x8/finally_fixing_
 
 ;; HACK: Quite a few functions here are called often, and so are especially
 ;;   performance sensitive, so we compile this file on-demand, at least, until
-;;   Doom adds a formal compile step to 'doom sync'.
-(doom-compile-functions #'+emacs-lisp-highlight-vars-and-faces
+;;   Doom adds a formal compile step to 'rmcs sync'.
+(rmcs-compile-functions #'+emacs-lisp-highlight-vars-and-faces
                         #'+emacs-lisp-truncate-pin
                         #'+emacs-lisp--calculate-lisp-indent-a)
 

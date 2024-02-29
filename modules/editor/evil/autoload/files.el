@@ -6,7 +6,7 @@
 kills the buffer. If FORCE-P, force the deletion (don't ask for confirmation)."
   :repeat nil
   (interactive "<f><!>")
-  (doom/delete-this-file filename force-p))
+  (rmcs/delete-this-file filename force-p))
 
 ;;;###autoload (autoload '+evil:move-this-file "editor/evil/autoload/files" nil t)
 (evil-define-command +evil:move-this-file (new-path &optional force-p)
@@ -17,7 +17,7 @@ overwrite the destination file if it exists, without confirmation."
   (interactive "<f><!>")
   (when (or (not new-path) (string-empty-p new-path))
     (user-error "No new path was specified"))
-  (doom/move-this-file new-path force-p))
+  (rmcs/move-this-file new-path force-p))
 
 ;;;###autoload (autoload '+evil:copy-this-file "editor/evil/autoload/files" nil t)
 (evil-define-command +evil:copy-this-file (new-path &optional force-p)
@@ -28,4 +28,4 @@ overwrite the destination file if it exists, without confirmation."
   (interactive "<f><!>")
   (when (or (not new-path) (string-empty-p new-path))
     (user-error "No new path was specified"))
-  (doom/copy-this-file new-path force-p))
+  (rmcs/copy-this-file new-path force-p))

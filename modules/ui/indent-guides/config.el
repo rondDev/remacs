@@ -11,8 +11,8 @@
   ;;   called much too early to set its faces correctly. To get around this, we
   ;;   need to call it again, but at a time when I can ensure a frame exists an
   ;;   the current theme is loaded.
-  (when (doom-context-p 'init)
-    (add-hook 'doom-first-buffer-hook #'highlight-indent-guides-auto-set-faces))
+  (when (rmcs-context-p 'init)
+    (add-hook 'rmcs-first-buffer-hook #'highlight-indent-guides-auto-set-faces))
 
   ;; `highlight-indent-guides' breaks when `org-indent-mode' is active
   (add-hook! 'org-mode-local-vars-hook

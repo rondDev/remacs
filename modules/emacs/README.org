@@ -6,4 +6,4 @@
 Modules in this category augment and extend the built-in features of Emacs.
 
 * Frequently asked questions
-/This category has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This category has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]

@@ -9,7 +9,7 @@ be Doom configs).
 While I work on the formal documentation for this system, I've created this
 brief guide to walk users through their use. *However, for this to work, Doom
 must live in =~/.emacs.d= or =~/.config/emacs=.* I'll refer to this as
-=$EMACSDIR= (and your private Doom config, in =~/.doom.d= or =~/.config/doom=,
+=$EMACSDIR= (and your private Doom config, in =~/.rmcs.d= or =~/.config/rmcs=,
 as =$DOOMDIR=).
 
 * How use profiles
@@ -17,8 +17,8 @@ as =$DOOMDIR=).
    - One or multiple profile files at:
      - =$DOOMDIR/profiles.el=
      - =$EMACSDIR/profiles.el=
-     - =~/.config/doom-profiles.el=
-     - =~/.doom-profiles.el=
+     - =~/.config/rmcs-profiles.el=
+     - =~/.rmcs-profiles.el=
 
      [[id:f9bce7da-d155-4727-9b6f-b566b5b8d824][Example profiles.el file]].
 
@@ -26,16 +26,16 @@ as =$DOOMDIR=).
      - =$DOOMDIR/profiles/=
      - =$EMACSDIR/profiles/=
 
-     Implicit profiles may have a =.doomprofile= file to apply additional
-     settings. [[id:ac37ac6f-6082-4c34-b98c-962bc1e528c9][Example .doomprofile]].
+     Implicit profiles may have a =.rmcsprofile= file to apply additional
+     settings. [[id:ac37ac6f-6082-4c34-b98c-962bc1e528c9][Example .rmcsprofile]].
 
-2. To run ~$ doom sync~ whenever you change the above, to regenerate Doom's
+2. To run ~$ rmcs sync~ whenever you change the above, to regenerate Doom's
    cached profile loader (generated at =$EMACSDIR/profiles/init.X.elc=, where X
    is your major Emacs version).
 
 3. To launch a profile:
    - Launch the profile you want: ~$ emacs --profile FOO~
-   - Use ~bin/doom~ on the profile you want: ~$ doom sync --profile FOO~
+   - Use ~bin/rmcs~ on the profile you want: ~$ rmcs sync --profile FOO~
 
 * Auto-generated profiles
 Doom v3's sandbox and transactional package manager are capable of generating
@@ -43,12 +43,12 @@ profiles on-the-fly. The former for rapid, isolated testing, and the latter for
 rollback/snapshot traversal for disaster recovery purposes.
 
 These auto-generated profiles will be stored and versioned in:
-=$XDG_DATA_HOME/doom/$PROFILE_NAME/@/$PROFILE_VERSION/=
+=$XDG_DATA_HOME/rmcs/$PROFILE_NAME/@/$PROFILE_VERSION/=
 
 * Fallback profile
 Unlike Chemacs, Doom's profiles has no notion of a "default"/fallback profile --
 rather, the fallback profile is the Doom installation doing the bootloading.
-This "global" profile is unique in that it won't respect a =.doomprofile= -- in
+This "global" profile is unique in that it won't respect a =.rmcsprofile= -- in
 other words, it's not treated as a normal profile.
 
 It is this way so that the profiles system imposes no overhead on users that
@@ -78,7 +78,7 @@ There are two caveats with this profile system:
 - It requires that Doom live in =~/.config/emacs= or =~/.emacs.d=. A
   non-standard install location won't work, unless you use Emacs 29's new
   =--init-directory DIR= switch and launch Emacs with ~emacs --init-directory
-  ~/nonstandard/emacs.d --profile NAME~. =bin/doom= is fine with it, though.
+  ~/nonstandard/emacs.d --profile NAME~. =bin/rmcs= is fine with it, though.
 
 - The profile system can be storage-inefficient. A barebones Doom config
   averages at ~1mb without installed packages and ~3.75mb /with/ (straight alone
@@ -93,18 +93,18 @@ There are two caveats with this profile system:
   deduplication and get cloned anew (to ensure historical integrity) -- though
   this shouldn't happen often, but can build up over time.
 
-  So v3 will introduce a ~doom gc~ command, which offers a couple nix.gc-esque
+  So v3 will introduce a ~rmcs gc~ command, which offers a couple nix.gc-esque
   switches to control it. E.g.
 
   - Acts on the "global" profile:
-    - ~doom gc --older-than 21d~
-    - ~doom gc --keep 10~
+    - ~rmcs gc --older-than 21d~
+    - ~rmcs gc --keep 10~
   - Act on a specific profile:
-    - ~doom gc --profile foo ...~
+    - ~rmcs gc --profile foo ...~
   - Act on all known profiles
-    - ~doom gc --profiles '*' ...~
+    - ~rmcs gc --profiles '*' ...~
 
-  Users can change defaults from their =init.el= or =cli.el=, or configure ~doom
+  Users can change defaults from their =init.el= or =cli.el=, or configure ~rmcs
   sync~ to auto-GC by whatever rules they like. And the good doctor will warn
   you if you haven't GCed in a while, or you're in excess of some threshold
   (which I haven't decided yet).
@@ -112,22 +112,22 @@ There are two caveats with this profile system:
 * How to switch from Chemacs
 1. Delete [[https://github.com/plexus/chemacs2][Chemacs]] from =$EMACSDIR=.
 
-2. Install Doom there: ~$ git clone https://github.com/doomemacs/doomemacs
+2. Install Doom there: ~$ git clone https://github.com/rmcsemacs/rmcsemacs
    \~/.config/emacs~
 
-3. Move =~/.emacs-profiles.el= to =~/.config/doom/profiles.el= and transform the
+3. Move =~/.emacs-profiles.el= to =~/.config/rmcs/profiles.el= and transform the
    string keys to symbols and adapt =env= entries like so:
 
    #+begin_src emacs-lisp
    ;; ~/.emacs-profiles.el
    (("default"   (user-emacs-directory . "~/.emacs.default/")
-                 (env ("DOOMDIR" . "~/.doom.private/")))
+                 (env ("DOOMDIR" . "~/.rmcs.private/")))
     ("spacemacs" (user-emacs-directory . "~/spacemacs/"))
     ("prelude"   (user-emacs-directory . "~/prelude/")))
 
    ;; ~/.config/emacs/profiles.el
    ((default   (user-emacs-directory . "~/.emacs.default/")
-               ("DOOMDIR" . "~/.doom.private/"))
+               ("DOOMDIR" . "~/.rmcs.private/"))
     (spacemacs (user-emacs-directory . "~/spacemacs/"))
     (prelude   (user-emacs-directory . "~/prelude/")))
    #+end_src

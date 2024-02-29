@@ -44,7 +44,7 @@ adjustment.")
     (when (modulep! :editor evil)
       ;; For maximum escape coverage in emacs state buffers; this only works in
       ;; GUI Emacs, in tty Emacs use C-g instead
-      (define-key map [escape] #'doom/escape))
+      (define-key map [escape] #'rmcs/escape))
     map)
   "Active keymap in popup windows. See `+popup-buffer-mode'.")
 
@@ -54,14 +54,14 @@ adjustment.")
   :global t
   :keymap +popup-mode-map
   (cond (+popup-mode
-         (add-hook 'doom-escape-hook #'+popup-close-on-escape-h 'append)
+         (add-hook 'rmcs-escape-hook #'+popup-close-on-escape-h 'append)
          (setq +popup--old-display-buffer-alist display-buffer-alist
                display-buffer-alist +popup--display-buffer-alist
                window--sides-inhibit-check t)
          (dolist (prop +popup-window-parameters)
            (push (cons prop 'writable) window-persistent-parameters)))
         (t
-         (remove-hook 'doom-escape-hook #'+popup-close-on-escape-h)
+         (remove-hook 'rmcs-escape-hook #'+popup-close-on-escape-h)
          (setq display-buffer-alist +popup--old-display-buffer-alist
                window--sides-inhibit-check nil)
          (+popup-cleanup-rules-h)
@@ -136,11 +136,11 @@ prevent the popup(s) from messing up the UI (or vice versa)."
        :vslot -1 :slot 1 :size +popup-shrink-to-fit)
       ("^\\*\\(?:[Cc]ompil\\(?:ation\\|e-Log\\)\\|Messages\\)"
        :vslot -2 :size 0.3  :autosave t :quit t :ttl nil)
-      ("^\\*\\(?:doom \\|Pp E\\)"  ; transient buffers (no interaction required)
+      ("^\\*\\(?:rmcs \\|Pp E\\)"  ; transient buffers (no interaction required)
        :vslot -3 :size +popup-shrink-to-fit :autosave t :select ignore :quit t :ttl 0)
-      ("^\\*doom:"  ; editing buffers (interaction required)
+      ("^\\*rmcs:"  ; editing buffers (interaction required)
        :vslot -4 :size 0.35 :autosave t :select t :modeline t :quit nil :ttl t)
-      ("^\\*doom:\\(?:v?term\\|e?shell\\)-popup"  ; editing buffers (interaction required)
+      ("^\\*rmcs:\\(?:v?term\\|e?shell\\)-popup"  ; editing buffers (interaction required)
        :vslot -5 :size 0.35 :select t :modeline nil :quit nil :ttl nil)
       ("^\\*\\(?:Wo\\)?Man "
        :vslot -6 :size 0.45 :select t :quit t :ttl 0)
@@ -166,7 +166,7 @@ prevent the popup(s) from messing up the UI (or vice versa)."
     ("^\\*Process List\\*" :side bottom :vslot 101 :size 0.25 :select t :quit t)
     ("^\\*\\(?:Proced\\|timer-list\\|Abbrevs\\|Output\\|Occur\\|unsent mail.*?\\|message\\)\\*" :ignore t)))
 
-(add-hook 'doom-init-ui-hook #'+popup-mode 'append)
+(add-hook 'rmcs-init-ui-hook #'+popup-mode 'append)
 
 (add-hook! '+popup-buffer-mode-hook
            #'+popup-adjust-fringes-h

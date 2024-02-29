@@ -6,13 +6,13 @@
   "Initiate debugger for current major mode"
   (interactive "<f>")
   ;; TODO Add python debugging
-  (let ((default-directory (doom-project-root)))
+  (let ((default-directory (rmcs-project-root)))
     (pcase major-mode
       ((or 'c-mode 'c++-mode)
        (realgud:gdb (if path (concat "gdb " path))))
       ('ruby-mode
        ;; FIXME
-       (doom:repl nil (format "run '%s'" (file-name-nondirectory (or path buffer-file-name)))))
+       (rmcs:repl nil (format "run '%s'" (file-name-nondirectory (or path buffer-file-name)))))
       ('sh-mode
        (let ((shell sh-shell))
          (when (string= shell "sh")

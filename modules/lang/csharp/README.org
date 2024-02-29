@@ -8,27 +8,27 @@ This module adds C# support to Emacs, powered by Omnisharp (directly or through
 LSP).
 
 ** Maintainers
-/This module has no dedicated maintainers./ [[doom-contrib-maintainer:][Become a maintainer?]]
+/This module has no dedicated maintainers./ [[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +dotnet ::
   Enable Dotnet transient interface with Sharper
 - +lsp ::
-  Enable LSP support for ~csharp-mode~. Requires [[doom-module::tools lsp]] and a langserver
+  Enable LSP support for ~csharp-mode~. Requires [[rmcs-module::tools lsp]] and a langserver
   (supports =omnisharp-roslyn=).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
-  editing. Requires [[doom-module::tools tree-sitter]].
+  editing. Requires [[rmcs-module::tools tree-sitter]].
 - +unity ::
   Enable special support for the [[https://unity.com/][Unity game engine]] (particularly, support for
   HLSL shaders).
 
 ** Packages
-- [[doom-package:csharp-mode]]
-- [[doom-package:csproj-mode]]
-- [[doom-package:shader-mode]] if [[doom-module:+unity]]
-- [[doom-package:sharper]] if [[doom-module:+dotnet]]
-- [[doom-package:sln-mode]]
+- [[rmcs-package:csharp-mode]]
+- [[rmcs-package:csproj-mode]]
+- [[rmcs-package:shader-mode]] if [[rmcs-module:+unity]]
+- [[rmcs-package:sharper]] if [[rmcs-module:+dotnet]]
+- [[rmcs-package:sln-mode]]
   
 ** Hacks
 /No hacks documented for this module./
@@ -38,14 +38,14 @@ LSP).
 /This module does not have a changelog yet./
 
 * TODO Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module requires:
 - Mono (on UNIX platforms)
 - .NET SDKs (on Windows)
 - .NET Core 1.X - 3.X or .NET 5 for cross platform
-- omnisharp-rosyln (if [[doom-module:+lsp]])
-- [[doom-executable:csharpier]] (if [[doom-module::editor format]])
+- omnisharp-rosyln (if [[rmcs-module:+lsp]])
+- [[rmcs-executable:csharpier]] (if [[rmcs-module::editor format]])
 
 ** mono
 *** TODO MacOS
@@ -64,21 +64,21 @@ dotnet tool install csharpier -g
 
 * TODO Usage
 #+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no usage documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * TODO Configuration
 #+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no configuration documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

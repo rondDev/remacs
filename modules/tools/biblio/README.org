@@ -10,22 +10,22 @@ details are listed in [[*Configuration][Configuration]] below. Some sensible def
 selected so it should be possible to use without modifications.
 
 ** Maintainers
-- [[doom-user:][bdarcus]]
-- [[doom-user:][bmg]]
+- [[rmcs-user:][bdarcus]]
+- [[rmcs-user:][bmg]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 /This module has no flags./
 
 ** Packages
-- [[doom-package:bibtex-completion]] if [[doom-module::completion ivy]] or [[doom-module::completion helm]]
-- [[doom-package:parsebib]] if [[doom-module::completion ivy]] or [[doom-module::completion helm]] or [[doom-module::completion vertico]]
-- [[doom-package:citar]] if [[doom-module::completion vertico]]
-- [[doom-package:citar-embark]] if [[doom-module::completion vertico]]
-- [[doom-package:citar-org-roam]] if [[doom-module::completion vertico]] and [[doom-module::lang org +roam2]]
-- [[doom-package:helm-bibtex]] if [[doom-module::completion helm]]
-- [[doom-package:ivy-bibtex]] if [[doom-module::completion ivy]]
+- [[rmcs-package:bibtex-completion]] if [[rmcs-module::completion ivy]] or [[rmcs-module::completion helm]]
+- [[rmcs-package:parsebib]] if [[rmcs-module::completion ivy]] or [[rmcs-module::completion helm]] or [[rmcs-module::completion vertico]]
+- [[rmcs-package:citar]] if [[rmcs-module::completion vertico]]
+- [[rmcs-package:citar-embark]] if [[rmcs-module::completion vertico]]
+- [[rmcs-package:citar-org-roam]] if [[rmcs-module::completion vertico]] and [[rmcs-module::lang org +roam2]]
+- [[rmcs-package:helm-bibtex]] if [[rmcs-module::completion helm]]
+- [[rmcs-package:ivy-bibtex]] if [[rmcs-module::completion ivy]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -35,21 +35,21 @@ selected so it should be possible to use without modifications.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 There are no hard dependencies for this module, but this module can benefit from
-having a PDF reader and one of Doom's [[doom-module::completion]] modules.
+having a PDF reader and one of Doom's [[rmcs-module::completion]] modules.
 
 ** PDF viewing
 An application for opening PDF files is required. By default =DocView= is used
-though [[doom-module::tools pdf]] is highly recommended so PDFs can be viewed within Emacs.
+though [[rmcs-module::tools pdf]] is highly recommended so PDFs can be viewed within Emacs.
 
 ** Bibtex completion
-For vertico, helm, or ivy bibtex completion you should enable [[doom-module::completion vertico]], [[doom-module::completion helm]], or [[doom-module::completion ivy]] respectively.
+For vertico, helm, or ivy bibtex completion you should enable [[rmcs-module::completion vertico]], [[rmcs-module::completion helm]], or [[rmcs-module::completion ivy]] respectively.
 
 * Usage
-Both [[doom-package:helm-bibtex]] (includes [[doom-package:helm-bibtex]], [[doom-package:ivy-bibtex]], and bibtex-completion code)
-and [[doom-package:citar]] provide an extensive range of features so it is best to check their
+Both [[rmcs-package:helm-bibtex]] (includes [[rmcs-package:helm-bibtex]], [[rmcs-package:ivy-bibtex]], and bibtex-completion code)
+and [[rmcs-package:citar]] provide an extensive range of features so it is best to check their
 respective sites for a full list of features.
 
 On a high-level you can expect:
@@ -64,7 +64,7 @@ To understand the interaction between these packages this [[https://www.reddit.c
 explain the unique features and the overlapping functionality, if any.
 
 In addition, this module provides support for native Org-mode citations
-([[doom-package:org-cite]]).
+([[rmcs-package:org-cite]]).
 
 * Configuration
 To override any defaults set by this module, do so in an ~(after! package ...)~
@@ -72,7 +72,7 @@ block in =$DOOMDIR/config.el=.
 
 ** Org-cite
 *** Processor configuration
-[[doom-package:org-cite]] provides rich features and flexible configuration options via its
+[[rmcs-package:org-cite]] provides rich features and flexible configuration options via its
 "processor" capabilities.
 
 1. /insert/ provides =org-cite-insert= integration for inserting and editing
@@ -83,7 +83,7 @@ block in =$DOOMDIR/config.el=.
 
 This module makes the following processors available:
 1. The core =oc-basic=, =oc-natbib=, =oc-biblatex=, and =oc-csl=.
-2. [[doom-package:citar]] for integration with [[doom-package:vertico]] completion.
+2. [[rmcs-package:citar]] for integration with [[rmcs-package:vertico]] completion.
 
 The module configures these processors as follows for the different completion
 modules:
@@ -101,8 +101,8 @@ directory for your CSL styles:
 #+end_src
 
 ** Path configuration
-You must set the path variable for either [[doom-package:citar]] (if using [[doom-module::completion vertico]])
-or [[doom-package:bibtex-completion]] (if using [[doom-module::completion ivy][ivy]] or [[doom-module::completion helm][helm]]); this module will in turn set the
+You must set the path variable for either [[rmcs-package:citar]] (if using [[rmcs-module::completion vertico]])
+or [[rmcs-package:bibtex-completion]] (if using [[rmcs-module::completion ivy][ivy]] or [[rmcs-module::completion helm][helm]]); this module will in turn set the
 [[var:org-cite-global-bibliography]] variable to the same value:
 #+begin_src emacs-lisp
 (setq! bibtex-completion-bibliography '("/path/to/references.bib"))
@@ -130,12 +130,12 @@ you wish to change them, refer to the respective packages' documentation for
 in-depth instructions.
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

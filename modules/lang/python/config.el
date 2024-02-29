@@ -17,7 +17,7 @@
   :mode ("[./]flake8\\'" . conf-mode)
   :mode ("/Pipfile\\'" . conf-mode)
   :init
-  (setq python-environment-directory doom-cache-dir
+  (setq python-environment-directory rmcs-cache-dir
         python-indent-guess-indent-offset-verbose nil)
 
   (when (modulep! +lsp)
@@ -92,7 +92,7 @@
 (use-package! anaconda-mode
   :defer t
   :init
-  (setq anaconda-mode-installation-directory (concat doom-data-dir "anaconda/")
+  (setq anaconda-mode-installation-directory (concat rmcs-data-dir "anaconda/")
         anaconda-mode-eldoc-as-single-line t)
 
   (add-hook! 'python-mode-local-vars-hook :append
@@ -118,7 +118,7 @@
     "Kill anaconda processes if this buffer is the last python buffer."
     (when (and (eq major-mode 'python-mode)
                (not (delq (current-buffer)
-                          (doom-buffers-in-mode 'python-mode (buffer-list)))))
+                          (rmcs-buffers-in-mode 'python-mode (buffer-list)))))
       (anaconda-mode-stop)))
   (add-hook! 'python-mode-hook
     (add-hook 'kill-buffer-hook #'+python-auto-kill-anaconda-processes-h
@@ -247,7 +247,7 @@
     (pyenv-mode +1)
     (add-to-list 'exec-path (expand-file-name "shims" (or (getenv "PYENV_ROOT") "~/.pyenv"))))
   (add-hook 'python-mode-local-vars-hook #'+python-pyenv-mode-set-auto-h)
-  (add-hook 'doom-switch-buffer-hook #'+python-pyenv-mode-set-auto-h))
+  (add-hook 'rmcs-switch-buffer-hook #'+python-pyenv-mode-set-auto-h))
 
 
 (use-package! conda

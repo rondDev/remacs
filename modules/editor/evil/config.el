@@ -29,7 +29,7 @@ directives. By default, this only recognizes C directives.")
 (defvar evil-respect-visual-line-mode nil)
 
 (use-package! evil
-  :hook (doom-after-modules-config . evil-mode)
+  :hook (rmcs-after-modules-config . evil-mode)
   :demand t
   :preface
   (setq evil-ex-search-vim-style-regexp t
@@ -85,7 +85,7 @@ directives. By default, this only recognizes C directives.")
   (advice-add #'help-with-tutorial :after (lambda (&rest _) (evil-emacs-state +1)))
 
   ;; Done in a hook to ensure the popup rules load as late as possible
-  (add-hook! 'doom-after-modules-config-hook
+  (add-hook! 'rmcs-after-modules-config-hook
     (defun +evil--init-popup-rules-h ()
       (set-popup-rules!
         '(("^\\*evil-registers" :size 0.3)
@@ -93,7 +93,7 @@ directives. By default, this only recognizes C directives.")
 
   ;; Change the cursor color in emacs state. We do it this roundabout way
   ;; to ensure changes in theme doesn't break these colors.
-  (add-hook! '(doom-load-theme-hook doom-after-modules-config-hook)
+  (add-hook! '(rmcs-load-theme-hook rmcs-after-modules-config-hook)
     (defun +evil-update-cursor-color-h ()
       (put 'cursor 'evil-emacs-color  (face-foreground 'warning))
       (put 'cursor 'evil-normal-color (face-background 'cursor))))
@@ -114,7 +114,7 @@ directives. By default, this only recognizes C directives.")
     ;; `evil-delete' in wgrep buffers.
     (define-key wgrep-mode-map [remap evil-delete] #'+evil-delete))
 
-  (add-hook! 'doom-escape-hook
+  (add-hook! 'rmcs-escape-hook
     (defun +evil-disable-ex-highlights-h ()
       "Disable ex search buffer highlights."
       (when (evil-ex-hl-active-p 'evil-ex-search)
@@ -138,7 +138,7 @@ directives. By default, this only recognizes C directives.")
         "Shorter, vim-esque save messages."
         (message "\"%s\" %dL, %dC written"
                  (if buffer-file-name
-                     (file-relative-name (file-truename buffer-file-name) (doom-project-root))
+                     (file-relative-name (file-truename buffer-file-name) (rmcs-project-root))
                    (buffer-name))
                  (count-lines (point-min) (point-max))
                  (buffer-size)))))
@@ -156,7 +156,7 @@ directives. By default, this only recognizes C directives.")
     (and (>= char ?2) (<= char ?9)))
 
   ;; REVIEW Fix #2493: dir-locals cannot target fundamental-mode when evil-mode
-  ;;        is active. See hlissner/doom-emacs#2493. Revert this if
+  ;;        is active. See hlissner/rmcs-emacs#2493. Revert this if
   ;;        emacs-evil/evil#1268 is resolved upstream.
   (defadvice! +evil--fix-local-vars-a (&rest _)
     :before #'turn-on-evil-mode
@@ -183,7 +183,7 @@ directives. By default, this only recognizes C directives.")
              (funcall fill-region from to justify t to-eop))
       (apply fn args)))
 
-  ;; Make ESC (from normal mode) the universal escaper. See `doom-escape-hook'.
+  ;; Make ESC (from normal mode) the universal escaper. See `rmcs-escape-hook'.
   (advice-add #'evil-force-normal-state :after #'+evil-escape-a)
 
   ;; monkey patch `evil-ex-replace-special-filenames' to improve support for
@@ -212,7 +212,7 @@ directives. By default, this only recognizes C directives.")
 ;;; Packages
 
 (use-package! evil-easymotion
-  :after-call doom-first-input-hook
+  :after-call rmcs-first-input-hook
   :commands evilem-create evilem-default-keybindings
   :config
   ;; Use evil-search backend, instead of isearch
@@ -292,7 +292,7 @@ directives. By default, this only recognizes C directives.")
 
 (use-package! evil-escape
   :commands evil-escape
-  :hook (doom-first-input . evil-escape-mode)
+  :hook (rmcs-first-input . evil-escape-mode)
   :init
   (setq evil-escape-excluded-states '(normal visual multiedit emacs motion)
         evil-escape-excluded-major-modes '(neotree-mode treemacs-mode vterm-mode)
@@ -313,7 +313,7 @@ directives. By default, this only recognizes C directives.")
 (use-package! evil-exchange
   :commands evil-exchange
   :config
-  (add-hook! 'doom-escape-hook
+  (add-hook! 'rmcs-escape-hook
     (defun +evil--escape-exchange-h ()
       (when evil-exchange--overlays
         (evil-exchange-cancel)
@@ -333,8 +333,8 @@ directives. By default, this only recognizes C directives.")
 
 (use-package! evil-snipe
   :commands evil-snipe-local-mode evil-snipe-override-local-mode
-  :hook (doom-first-input . evil-snipe-override-mode)
-  :hook (doom-first-input . evil-snipe-mode)
+  :hook (rmcs-first-input . evil-snipe-override-mode)
+  :hook (rmcs-first-input . evil-snipe-mode)
   :init
   (setq evil-snipe-smart-case t
         evil-snipe-scope 'line
@@ -502,9 +502,9 @@ directives. By default, this only recognizes C directives.")
 
       ;; custom evil keybinds
       :nv "zn"    #'+evil:narrow-buffer
-      :n  "zN"    #'doom/widen-indirectly-narrowed-buffer
+      :n  "zN"    #'rmcs/widen-indirectly-narrowed-buffer
       :n  "zx"    #'kill-current-buffer
-      :n  "ZX"    #'doom/save-and-kill-buffer
+      :n  "ZX"    #'rmcs/save-and-kill-buffer
       ;; don't leave visual mode after shifting
       :v  "<"     #'+evil/shift-left  ; vnoremap < <gv
       :v  ">"     #'+evil/shift-right  ; vnoremap > >gv
@@ -528,13 +528,13 @@ directives. By default, this only recognizes C directives.")
        "C-S-w"   #'ace-swap-window
        ;; Window undo/redo
        (:prefix "m"
-        "m"       #'doom/window-maximize-buffer
-        "v"       #'doom/window-maximize-vertically
-        "s"       #'doom/window-maximize-horizontally)
+        "m"       #'rmcs/window-maximize-buffer
+        "v"       #'rmcs/window-maximize-vertically
+        "s"       #'rmcs/window-maximize-horizontally)
        "u"       #'winner-undo
        "C-u"     #'winner-undo
        "C-r"     #'winner-redo
-       "o"       #'doom/window-enlargen
+       "o"       #'rmcs/window-enlargen
        ;; Delete window
        "d"       #'evil-window-delete
        "C-C"     #'ace-delete-window

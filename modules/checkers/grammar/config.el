@@ -19,7 +19,7 @@
             ((file-directory-p "/usr/local/Cellar/languagetool")
              (setq langtool-language-tool-jar
                    (locate-file "libexec/languagetool-commandline.jar"
-                                (doom-files-in "/usr/local/Cellar/languagetool"
+                                (rmcs-files-in "/usr/local/Cellar/languagetool"
                                                :type 'dirs
                                                :depth 2))))
             ;; macports compatibility

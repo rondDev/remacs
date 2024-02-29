@@ -81,7 +81,7 @@ snippets or single lines."
 is selected)."
   (interactive)
   (call-interactively
-   (if (doom-region-active-p)
+   (if (rmcs-region-active-p)
        #'+format/region
      #'+format/buffer)))
 

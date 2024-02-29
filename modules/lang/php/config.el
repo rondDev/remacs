@@ -116,7 +116,7 @@
   (add-to-list '+php--company-backends #'php-extras-company)
   :config
   (setq php-extras-eldoc-functions-file
-        (concat doom-data-dir "php-extras-eldoc-functions"))
+        (concat rmcs-data-dir "php-extras-eldoc-functions"))
   ;; Silence warning if `php-extras-eldoc-functions-file' hasn't finished
   ;; generating yet.
   (defun php-extras-load-eldoc ()

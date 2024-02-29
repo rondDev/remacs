@@ -182,7 +182,7 @@ Is relative to `org-directory', unless it is absolute. Is used in Doom's default
           ("KILL" . +org-todo-cancel)))
 
   ;; Automatic indent detection in org files is meaningless
-  (add-to-list 'doom-detect-indentation-excluded-modes 'org-mode)
+  (add-to-list 'rmcs-detect-indentation-excluded-modes 'org-mode)
 
   (set-ligatures! 'org-mode
     :name "#+NAME:"
@@ -287,7 +287,7 @@ Also adds support for a `:sync' parameter to override `:async'."
                ;; Since Doom adds its most expensive hooks to
                ;; MAJOR-MODE-local-vars-hook, we can savely inhibit those.
                (lambda ()
-                 (let ((doom-inhibit-local-var-hooks t))
+                 (let ((rmcs-inhibit-local-var-hooks t))
                    (funcall initialize)))
              initialize)
            args))
@@ -469,8 +469,8 @@ relative to `org-directory', unless it is an absolute path."
     :after #'org-capture-refile
     (+org-capture-cleanup-frame-h))
 
-  (when (modulep! :ui doom-dashboard)
-    (add-hook '+doom-dashboard-inhibit-functions #'+org-capture-frame-p)))
+  (when (modulep! :ui rmcs-dashboard)
+    (add-hook '+rmcs-dashboard-inhibit-functions #'+org-capture-frame-p)))
 
 
 (defun +org-init-attachments-h ()
@@ -522,14 +522,14 @@ relative to `org-directory', unless it is an absolute path."
             '("duckduckgo"  . "https://duckduckgo.com/?q=%s")
             '("wikipedia"   . "https://en.wikipedia.org/wiki/%s")
             '("wolfram"     . "https://wolframalpha.com/input/?i=%s")
-            '("doom-repo"   . "https://github.com/doomemacs/doomemacs/%s")
-            `("emacsdir"    . ,(doom-path doom-emacs-dir "%s"))
-            `("doomdir"     . ,(doom-path doom-user-dir "%s")))
+            '("rmcs-repo"   . "https://github.com/rmcsemacs/rmcsemacs/%s")
+            `("emacsdir"    . ,(rmcs-path rmcs-emacs-dir "%s"))
+            `("rmcsdir"     . ,(rmcs-path rmcs-user-dir "%s")))
 
   (+org-define-basic-link "org" 'org-directory)
-  (+org-define-basic-link "doom" 'doom-emacs-dir)
-  (+org-define-basic-link "doom-docs" 'doom-docs-dir)
-  (+org-define-basic-link "doom-modules" 'doom-modules-dir)
+  (+org-define-basic-link "rmcs" 'rmcs-emacs-dir)
+  (+org-define-basic-link "rmcs-docs" 'rmcs-docs-dir)
+  (+org-define-basic-link "rmcs-modules" 'rmcs-modules-dir)
 
   ;; Add "lookup" links for packages and keystrings; useful for Emacs
   ;; documentation -- especially Doom's!
@@ -542,9 +542,9 @@ relative to `org-directory', unless it is an absolute path."
      "kbd"
      :follow (lambda (ev)
                (interactive "e")
-               (minibuffer-message "%s" (+org-link-doom--help-echo-from-textprop
+               (minibuffer-message "%s" (+org-link-rmcs--help-echo-from-textprop
                                          nil (current-buffer) (posn-point (event-start ev)))))
-     :help-echo #'+org-link-doom--help-echo-from-textprop
+     :help-echo #'+org-link-rmcs--help-echo-from-textprop
      :face 'help-key-binding)
     (org-link-set-parameters
      "var"
@@ -566,41 +566,41 @@ relative to `org-directory', unless it is an absolute path."
      :follow (-call-interactively #'describe-command)
      :activate-func #'+org-link--command-link-activate-fn
      :face 'help-key-binding
-     :help-echo #'+org-link-doom--help-echo-from-textprop)
+     :help-echo #'+org-link-rmcs--help-echo-from-textprop)
     (org-link-set-parameters
-     "doom-package"
-     :follow #'+org-link--doom-package-link-follow-fn
-     :activate-func #'+org-link--doom-package-link-activate-fn
-     :help-echo #'+org-link-doom--help-echo-from-textprop)
+     "rmcs-package"
+     :follow #'+org-link--rmcs-package-link-follow-fn
+     :activate-func #'+org-link--rmcs-package-link-activate-fn
+     :help-echo #'+org-link-rmcs--help-echo-from-textprop)
     (org-link-set-parameters
-     "doom-module"
-     :follow #'+org-link--doom-module-link-follow-fn
-     :activate-func #'+org-link--doom-module-link-activate-fn
-     :help-echo #'+org-link-doom--help-echo-from-textprop)
+     "rmcs-module"
+     :follow #'+org-link--rmcs-module-link-follow-fn
+     :activate-func #'+org-link--rmcs-module-link-activate-fn
+     :help-echo #'+org-link-rmcs--help-echo-from-textprop)
     (org-link-set-parameters
-     "doom-executable"
-     :activate-func #'+org-link--doom-executable-link-activate-fn
-     :help-echo #'+org-link-doom--help-echo-from-textprop
+     "rmcs-executable"
+     :activate-func #'+org-link--rmcs-executable-link-activate-fn
+     :help-echo #'+org-link-rmcs--help-echo-from-textprop
      :face 'org-verbatim)
     (org-link-set-parameters
-     "doom-ref"
+     "rmcs-ref"
      :follow (lambda (link)
                (let ((link (+org-link-read-desc-at-point link))
                      (url "https://github.com")
-                     (doom-repo "doomemacs/doomemacs"))
+                     (rmcs-repo "rmcsemacs/rmcsemacs"))
                  (save-match-data
                    (browse-url
                     (cond ((string-match "^\\([^/]+\\(?:/[^/]+\\)?\\)?#\\([0-9]+\\(?:#.*\\)?\\)" link)
                            (format "%s/%s/issues/%s" url
                                    (or (match-string 1 link)
-                                       doom-repo)
+                                       rmcs-repo)
                                    (match-string 2 link)))
                           ((string-match "^\\([^/]+\\(?:/[^/]+\\)?@\\)?\\([a-z0-9]\\{7,\\}\\(?:#.*\\)?\\)" link)
                            (format "%s/%s/commit/%s" url
                                    (or (match-string 1 link)
-                                       doom-repo)
+                                       rmcs-repo)
                                    (match-string 2 link)))
-                          ((user-error "Invalid doom-ref link: %S" link)))))))
+                          ((user-error "Invalid rmcs-ref link: %S" link)))))))
      :face (lambda (link)
              (let ((link (+org-link-read-desc-at-point link)))
                (if (or (string-match "^\\([^/]+\\(?:/[^/]+\\)?\\)?#\\([0-9]+\\(?:#.*\\)?\\)" link)
@@ -608,7 +608,7 @@ relative to `org-directory', unless it is an absolute path."
                    'org-link
                  'error))))
     (org-link-set-parameters
-     "doom-user"
+     "rmcs-user"
      :follow (lambda (link)
                (browse-url
                 (format "https://github.com/%s"
@@ -618,9 +618,9 @@ relative to `org-directory', unless it is an absolute path."
              ;; Avoid confusion with function `org-priority'
              'org-priority))
     (org-link-set-parameters
-     "doom-changelog"
+     "rmcs-changelog"
      :follow (lambda (link)
-               (find-file (doom-path doom-docs-dir "changelog.org"))
+               (find-file (rmcs-path rmcs-docs-dir "changelog.org"))
                (org-match-sparse-tree nil link))))
 
   ;; TODO PR this upstream
@@ -699,8 +699,8 @@ mutating hooks on exported output, like formatters."
   (defadvice! +org--fix-async-export-a (fn &rest args)
     :around '(org-export-to-file org-export-as)
     (let ((old-async-init-file org-export-async-init-file)
-          (org-export-async-init-file (make-temp-file "doom-org-async-export")))
-      (doom-file-write
+          (org-export-async-init-file (make-temp-file "rmcs-org-async-export")))
+      (rmcs-file-write
        org-export-async-init-file
        `((setq org-export-async-debug ,(or org-export-async-debug debug-on-error)
                load-path ',load-path)
@@ -709,7 +709,7 @@ mutating hooks on exported output, like formatters."
                (if init-file
                    (load init-file nil t)
                  (load ,early-init-file nil t)
-                 (require 'doom-start)))
+                 (require 'rmcs-start)))
            (delete-file load-file-name))))
       (apply fn args))))
 
@@ -743,7 +743,7 @@ mutating hooks on exported output, like formatters."
   (add-to-list 'org-file-apps '(remote . emacs))
 
   ;; Open help:* links with helpful-* instead of describe-*
-  (advice-add #'org-link--open-help :around #'doom-use-helpful-a)
+  (advice-add #'org-link--open-help :around #'rmcs-use-helpful-a)
 
   ;; Unlike the stock showNlevels options, these will also show the parents of
   ;; the target level, recursively.
@@ -817,7 +817,7 @@ Unlike showNlevels, this will also unfold parent trees."
     "Restart `org-mode', but only once."
     (quiet! (org-mode-restart))
     (delq! (current-buffer) org-agenda-new-buffers)
-    (remove-hook 'doom-switch-buffer-hook #'+org--restart-mode-h
+    (remove-hook 'rmcs-switch-buffer-hook #'+org--restart-mode-h
                  'local)
     (run-hooks 'find-file-hook))
 
@@ -841,7 +841,7 @@ can grow up to be fully-fledged org-mode buffers."
       (dolist (buffer org-agenda-new-buffers)
         (when (buffer-live-p buffer)      ; Ensure buffer is not killed
           (with-current-buffer buffer
-            (add-hook 'doom-switch-buffer-hook #'+org--restart-mode-h
+            (add-hook 'rmcs-switch-buffer-hook #'+org--restart-mode-h
                       nil 'local))))))
 
   (defadvice! +org--restart-mode-before-indirect-buffer-a (base-buffer &rest _)
@@ -852,7 +852,7 @@ the *user* visits it, but also when some code interacts with it via an indirect
 buffer as done, e.g., by `org-capture'."
     :before #'make-indirect-buffer
     (with-current-buffer base-buffer
-     (when (memq #'+org--restart-mode-h doom-switch-buffer-hook)
+     (when (memq #'+org--restart-mode-h rmcs-switch-buffer-hook)
        (+org--restart-mode-h))))
 
   (defvar recentf-exclude)
@@ -860,7 +860,7 @@ buffer as done, e.g., by `org-capture'."
     "Prevent temporarily opened agenda buffers from polluting recentf."
     :around #'org-get-agenda-file-buffer
     (let ((recentf-exclude (list (lambda (_file) t)))
-          (doom-inhibit-large-file-detection t)
+          (rmcs-inhibit-large-file-detection t)
           org-startup-indented
           org-startup-folded
           vc-handled-backends
@@ -890,10 +890,10 @@ buffer as done, e.g., by `org-capture'."
 (defun +org-init-keybinds-h ()
   "Sets up org-mode and evil keybindings. Tries to fix the idiosyncrasies
 between the two."
-  (add-hook 'doom-escape-hook #'+org-remove-occur-highlights-h)
+  (add-hook 'rmcs-escape-hook #'+org-remove-occur-highlights-h)
 
-  ;; C-a & C-e act like `doom/backward-to-bol-or-indent' and
-  ;; `doom/forward-to-last-non-comment-or-eol', but with more org awareness.
+  ;; C-a & C-e act like `rmcs/backward-to-bol-or-indent' and
+  ;; `rmcs/forward-to-last-non-comment-or-eol', but with more org awareness.
   (setq org-special-ctrl-a/e t)
 
   (setq org-M-RET-may-split-line nil
@@ -904,7 +904,7 @@ between the two."
              #'+org-yas-expand-maybe-h
              #'+org-indent-maybe-h)
 
-  (add-hook 'doom-delete-backward-functions
+  (add-hook 'rmcs-delete-backward-functions
             #'+org-delete-backward-char-and-realign-table-maybe-h)
 
   (map! :map org-mode-map
@@ -928,8 +928,8 @@ between the two."
          [s-S-return] #'+org/insert-item-above
          [s-M-return] #'org-insert-subheading)
         ;; Org-aware C-a/C-e
-        [remap doom/backward-to-bol-or-indent]          #'org-beginning-of-line
-        [remap doom/forward-to-last-non-comment-or-eol] #'org-end-of-line
+        [remap rmcs/backward-to-bol-or-indent]          #'org-beginning-of-line
+        [remap rmcs/forward-to-last-non-comment-or-eol] #'org-end-of-line
 
         :localleader
         "#" #'org-update-statistics-cookies
@@ -1165,7 +1165,7 @@ between the two."
 (use-package! org-clock ; built-in
   :commands org-clock-save
   :init
-  (setq org-clock-persist-file (concat doom-data-dir "org-clock-save.el"))
+  (setq org-clock-persist-file (concat rmcs-data-dir "org-clock-save.el"))
   (defadvice! +org--clock-load-a (&rest _)
     "Lazy load org-clock until its commands are used."
     :before '(org-clock-in
@@ -1233,7 +1233,7 @@ between the two."
   :when (modulep! :editor evil +everywhere)
   :hook (org-mode . evil-org-mode)
   :hook (org-capture-mode . evil-insert-state)
-  :hook (doom-docs-org-mode . evil-org-mode)
+  :hook (rmcs-docs-org-mode . evil-org-mode)
   :init
   (defvar evil-org-retain-visual-state-on-shift t)
   (defvar evil-org-special-o/O '(table-row))
@@ -1317,7 +1317,7 @@ between the two."
   :config
   (evil-org-agenda-set-keys)
   (evil-define-key* 'motion evil-org-agenda-mode-map
-    (kbd doom-leader-key) nil))
+    (kbd rmcs-leader-key) nil))
 
 
 ;;
@@ -1336,9 +1336,9 @@ between the two."
   (defvar org-attach-id-dir nil)
   (defvar org-babel-python-command nil)
 
-  (setq org-persist-directory (concat doom-cache-dir "org/persist/")
-        org-publish-timestamp-directory (concat doom-cache-dir "org/timestamps/")
-        org-preview-latex-image-directory (concat doom-cache-dir "org/latex/")
+  (setq org-persist-directory (concat rmcs-cache-dir "org/persist/")
+        org-publish-timestamp-directory (concat rmcs-cache-dir "org/timestamps/")
+        org-preview-latex-image-directory (concat rmcs-cache-dir "org/latex/")
         ;; Recognize a), A), a., A., etc -- must be set before org is loaded.
         org-list-allow-alphabetical t)
 
@@ -1358,7 +1358,7 @@ between the two."
       ))
 
   ;;; Custom org modules
-  (dolist (flag (doom-module-context-get :flags))
+  (dolist (flag (rmcs-module-context-get :flags))
     (load! (concat "contrib/" (substring (symbol-name flag) 1)) nil t))
 
   ;; Add our general hooks after the submodules, so that any hooks the
@@ -1366,9 +1366,9 @@ between the two."
   (add-hook! 'org-mode-hook
              ;; `show-paren-mode' causes flickering with indent overlays made by
              ;; `org-indent-mode', so we turn off show-paren-mode altogether
-             #'doom-disable-show-paren-mode-h
+             #'rmcs-disable-show-paren-mode-h
              ;; disable `show-trailing-whitespace'; shows a lot of false positives
-             #'doom-disable-show-trailing-whitespace-h
+             #'rmcs-disable-show-trailing-whitespace-h
              ;; #'+org-enable-auto-reformat-tables-h
              ;; #'+org-enable-auto-update-cookies-h
              #'+org-make-last-point-visible-h)
@@ -1424,12 +1424,12 @@ between the two."
   ;; In case the user has eagerly loaded org from their configs
   (when (and (featurep 'org)
              (not byte-compile-current-file))
-    (unless (doom-context-p 'reload)
+    (unless (rmcs-context-p 'reload)
       (message "`org' was already loaded by the time lang/org loaded, this may cause issues"))
     (run-hooks 'org-load-hook))
 
   :config
-  (add-to-list 'doom-debug-variables 'org-export-async-debug)
+  (add-to-list 'rmcs-debug-variables 'org-export-async-debug)
 
   (set-company-backend! 'org-mode 'company-capf)
   (set-eval-handler! 'org-mode #'+org-eval-handler)
@@ -1459,10 +1459,10 @@ between the two."
     :before-while '(org-id-locations-save org-id-locations-load)
     (file-writable-p org-id-locations-file))
 
-  (add-hook 'org-open-at-point-functions #'doom-set-jump-h)
+  (add-hook 'org-open-at-point-functions #'rmcs-set-jump-h)
   ;; HACK For functions that dodge `org-open-at-point-functions', like
   ;;   `org-id-open', `org-goto', or roam: links.
-  (advice-add #'org-mark-ring-push :around #'doom-set-jump-a)
+  (advice-add #'org-mark-ring-push :around #'rmcs-set-jump-a)
 
   ;; Add the ability to play gifs, at point or throughout the buffer. However,
   ;; 'playgifs' is stupid slow and there's not much I can do to fix it; use at

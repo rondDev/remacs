@@ -2,8 +2,8 @@
 ;;;###if (modulep! +roam2)
 
 ;;; Custom node accessors
-;;;###autoload (autoload 'org-roam-node-doom-filetitle "lang/org/autoload/contrib-roam2" nil t)
-(cl-defmethod org-roam-node-doom-filetitle ((node org-roam-node))
+;;;###autoload (autoload 'org-roam-node-rmcs-filetitle "lang/org/autoload/contrib-roam2" nil t)
+(cl-defmethod org-roam-node-rmcs-filetitle ((node org-roam-node))
   "Return the value of \"#+title:\" (if any) from file that NODE resides in.
 If there's no file-level title in the file, return empty string."
   (or (if (= (org-roam-node-level node) 0)
@@ -11,14 +11,14 @@ If there's no file-level title in the file, return empty string."
         (org-roam-node-file-title node))
       ""))
 
-;;;###autoload (autoload 'org-roam-node-doom-hierarchy "lang/org/autoload/contrib-roam2" nil t)
-(cl-defmethod org-roam-node-doom-hierarchy ((node org-roam-node))
+;;;###autoload (autoload 'org-roam-node-rmcs-hierarchy "lang/org/autoload/contrib-roam2" nil t)
+(cl-defmethod org-roam-node-rmcs-hierarchy ((node org-roam-node))
   "Return hierarchy for NODE, constructed of its file title, OLP and direct title.
 If some elements are missing, they will be stripped out."
   (let ((title     (org-roam-node-title node))
         (olp       (org-roam-node-olp   node))
         (level     (org-roam-node-level node))
-        (filetitle (org-roam-node-doom-filetitle node))
+        (filetitle (org-roam-node-rmcs-filetitle node))
         (separator (propertize org-eldoc-breadcrumb-separator 'face 'shadow)))
     (cl-case level
       ;; node is a top-level file
@@ -31,8 +31,8 @@ If some elements are missing, they will be stripped out."
                  separator (propertize (string-join olp separator) 'face '(shadow italic))
                  separator title)))))
 
-;;;###autoload (autoload 'org-roam-node-doom-subdirs "lang/org/autoload/contrib-roam2" nil t)
-(cl-defmethod org-roam-node-doom-subdirs ((node org-roam-node))
+;;;###autoload (autoload 'org-roam-node-rmcs-subdirs "lang/org/autoload/contrib-roam2" nil t)
+(cl-defmethod org-roam-node-rmcs-subdirs ((node org-roam-node))
   "Return subdirectories of `org-roam-directory' in which NODE resides in.
 If there's none, return an empty string."
   (thread-first
@@ -41,10 +41,10 @@ If there's none, return an empty string."
     (file-relative-name org-roam-directory)
     (file-name-directory)))
 
-;;;###autoload (autoload 'org-roam-node-doom-tags "lang/org/autoload/contrib-roam2" nil t)
-(cl-defmethod org-roam-node-doom-tags ((node org-roam-node))
+;;;###autoload (autoload 'org-roam-node-rmcs-tags "lang/org/autoload/contrib-roam2" nil t)
+(cl-defmethod org-roam-node-rmcs-tags ((node org-roam-node))
   "Return tags formatted in the same way how they appear in org files."
-  (cl-remove-if (doom-rpartial
+  (cl-remove-if (rmcs-rpartial
                  #'member (delq
                            nil (append
                                 (list (bound-and-true-p org-archive-tag)
@@ -52,8 +52,8 @@ If there's none, return an empty string."
                                 (bound-and-true-p org-num-skip-tags))))
                 (org-roam-node-tags node)))
 
-;;;###autoload (autoload 'org-roam-node-doom-type "lang/org/autoload/contrib-roam2" nil t)
-(cl-defmethod org-roam-node-doom-type ((node org-roam-node))
+;;;###autoload (autoload 'org-roam-node-rmcs-type "lang/org/autoload/contrib-roam2" nil t)
+(cl-defmethod org-roam-node-rmcs-type ((node org-roam-node))
   "Return the directory relative to `org-roam-directory' as a note's \"type\"."
   (when-let (dir (thread-first
                    node
@@ -70,20 +70,20 @@ If there's none, return an empty string."
 (defun +org-roam-manage-backlinks-buffer-h ()
   "Open or close roam backlinks buffer depending on visible org-roam buffers.
 
-Intended to be added to `doom-switch-buffer-hook' in `org-roam-find-file-hook'.
+Intended to be added to `rmcs-switch-buffer-hook' in `org-roam-find-file-hook'.
 Controlled by `+org-roam-open-buffer-on-find-file'."
   (when (and +org-roam-auto-backlinks-buffer
              (not org-roam-capture--node)  ; not for roam capture buffers
              (not org-capture-mode)        ; not for capture buffers
              (not (bound-and-true-p +popup-buffer-mode)))
     (let ((visible-p (eq 'visible (org-roam-buffer--visibility))))
-      (if (cl-some #'org-roam-buffer-p (doom-visible-buffers))
+      (if (cl-some #'org-roam-buffer-p (rmcs-visible-buffers))
           (unless visible-p
             (org-roam-buffer-toggle))
         (when visible-p
           (org-roam-buffer-toggle))
-        (unless (doom-buffers-in-mode 'org-mode)
-          (remove-hook 'doom-switch-buffer-hook #'+org-roam-manage-backlinks-buffer-h))))))
+        (unless (rmcs-buffers-in-mode 'org-mode)
+          (remove-hook 'rmcs-switch-buffer-hook #'+org-roam-manage-backlinks-buffer-h))))))
 
 
 ;;

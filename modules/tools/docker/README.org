@@ -10,19 +10,19 @@ Emacs.
 Provides a major ~dockerfile-mode~ to edit =Dockerfiles=. Additional convenience
 functions allow images to be built easily.
 
-[[doom-package:docker-tramp]] offers [[https://www.gnu.org/software/tramp/][TRAMP]] support for Docker containers.
+[[rmcs-package:docker-tramp]] offers [[https://www.gnu.org/software/tramp/][TRAMP]] support for Docker containers.
 
 ** Maintainers
-/This module has no dedicated maintainers./ [[doom-contrib-maintainer:][Become a maintainer?]]
+/This module has no dedicated maintainers./ [[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +lsp ::
   Enable integration for the Dockerfile Language Server.
 
 ** Packages
-- [[doom-package:docker]]
-- [[doom-package:docker-tramp]]
-- [[doom-package:dockerfile-mode]]
+- [[rmcs-package:docker]]
+- [[rmcs-package:docker-tramp]]
+- [[rmcs-package:dockerfile-mode]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -32,7 +32,7 @@ functions allow images to be built easily.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module assumes =docker=, =docker-compose= and =docker-machine= binaries are
 installed and accessible from your PATH.
@@ -40,11 +40,11 @@ installed and accessible from your PATH.
 Optionally, this module also uses the following programs:
 - =docker-langserver= (for LSP users): ~$ npm install -g
   dockerfile-language-server-nodejs~
-- =dockfmt= for [[doom-module::editor format]]: https://github.com/jessfraz/dockfmt#installation
+- =dockfmt= for [[rmcs-module::editor format]]: https://github.com/jessfraz/dockfmt#installation
 
 * TODO Usage
 #+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's usage documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Docker control
@@ -88,7 +88,7 @@ C-x C-f /docker:$USER@$CONTAINER:/path/to/file
 
 * TODO Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Popups
@@ -125,7 +125,7 @@ You can change the candidates offered by the backend by customizing
 =docker-compose-keywords=.
 
 * Troubleshooting
-[[doom-report:][Report an issue?]]
+[[rmcs-report:][Report an issue?]]
 
 ** Tramp hangs on Alpine container
 Busyboxes built with the =ENABLE_FEATURE_EDITING_ASK_TERMINAL= config option
@@ -141,9 +141,9 @@ For older versions of TRAMP you can dump [[https://github.com/emacs-pe/docker-tr
 #+end_src
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

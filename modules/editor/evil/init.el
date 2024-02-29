@@ -20,7 +20,7 @@
 ;;    `evil-collection-list' (now I can just copy it from time to time).
 
 (when (and (not noninteractive)
-           (not (doom-context-p 'reload))
+           (not (rmcs-context-p 'reload))
            (modulep! +everywhere))
 
   (setq evil-collection-company-use-tng (modulep! :completion company +tng)
@@ -285,7 +285,7 @@ variable for an explanation of the defaults (in comments). See
 Unlike `evil-collection-init', this respects `+evil-collection-disabled-list',
 and complains if a module is loaded too early (during startup)."
     (unless (memq (or (car-safe module) module) disabled-list)
-      (doom-log "editor:evil: loading evil-collection-%s %s"
+      (rmcs-log "editor:evil: loading evil-collection-%s %s"
                 (or (car-safe module) module)
                 (if after-init-time "" "(too early!)"))
       (with-demoted-errors "evil-collection error: %s"
@@ -302,8 +302,8 @@ and complains if a module is loaded too early (during startup)."
   (with-eval-after-load 'evil-collection
     ;; Don't let evil-collection interfere with certain keys
     (setq evil-collection-key-blacklist
-          (append (list doom-leader-key doom-localleader-key
-                        doom-leader-alt-key)
+          (append (list rmcs-leader-key rmcs-localleader-key
+                        rmcs-leader-alt-key)
                   evil-collection-key-blacklist
                   (when (modulep! :tools lookup)
                     '("gd" "gf" "K"))

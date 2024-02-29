@@ -9,31 +9,31 @@ for managing [[https://nixos.org/][Nix(OS)]].
 
 Includes:
 - Syntax highlighting
-- Completion through [[doom-package:company]] and/or [[doom-package:helm]]
+- Completion through [[rmcs-package:company]] and/or [[rmcs-package:helm]]
 - Nix option lookup
 - Formatting (~nixfmt~)
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[rmcs-user:][@hlissner]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
-  editing. Requires [[doom-module::tools tree-sitter]].
+  editing. Requires [[rmcs-module::tools tree-sitter]].
 - +lsp ::
-  Enable an LSP hook for ~nix-mode~. Requires [[doom-module::tools lsp]] and a language
+  Enable an LSP hook for ~nix-mode~. Requires [[rmcs-module::tools lsp]] and a language
   server (one of either ~nil~ or ~rnix-lsp~).
 
   You can still start a nix lsp manually without this flag, this just adds
   a hook to always start the lsp when loading ~nix-mode~.
 
 ** Packages
-- [[doom-package:company-nixos-options]] if [[doom-module::completion company]]
-- [[doom-package:helm-nixos-options]] if [[doom-module::completion helm]]
-- [[doom-package:nix-mode]]
-- [[doom-package:nix-update]]
+- [[rmcs-package:company-nixos-options]] if [[rmcs-module::completion company]]
+- [[rmcs-package:helm-nixos-options]] if [[rmcs-module::completion helm]]
+- [[rmcs-package:nix-mode]]
+- [[rmcs-package:nix-update]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -43,12 +43,12 @@ Includes:
 /This module does not have a changelog yet./
 
 * TODO Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module requires:
 - [[https://nixos.org/guides/install-nix.html][The Nix package manager]], for a variety of its features (besides syntax
   highlighting).
-- =nixfmt=, for automatic formatting (requires [[doom-module::editor format]]).
+- =nixfmt=, for automatic formatting (requires [[rmcs-module::editor format]]).
 
 - *MacOS:* TODO
 - *Arch Linux:* TODO
@@ -56,7 +56,7 @@ This module requires:
 
 * TODO Usage
 #+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's usage documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Keybindings
@@ -72,16 +72,16 @@ This module requires:
 
 * TODO Configuration
 #+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no configuration documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

@@ -61,8 +61,8 @@ With non-nil prefix INCLUDE-ROOT, also include the project's root."
   (interactive "P")
   (+default/yank-buffer-path
    (if include-root
-       (file-name-directory (directory-file-name (doom-project-root)))
-     (doom-project-root))))
+       (file-name-directory (directory-file-name (rmcs-project-root)))
+     (rmcs-project-root))))
 
 ;;;###autoload
 (defun +default/insert-file-path (arg)
@@ -76,7 +76,7 @@ If `buffer-file-name' isn't set, uses `default-directory'."
        (file-name-nondirectory path)))))
 
 ;;;###autoload
-(defun doom/backward-delete-whitespace-to-column ()
+(defun rmcs/backward-delete-whitespace-to-column ()
   "Delete back to the previous column of whitespace, or as much whitespace as
 possible, or just one char if that's not possible."
   (interactive)
@@ -102,7 +102,7 @@ possible, or just one char if that's not possible."
           ((and (not indent-tabs-mode)
                 (> tab-width 1)
                 (not (bolp))
-                (not (doom-point-in-string-p))
+                (not (rmcs-point-in-string-p))
                 (>= (abs (save-excursion (skip-chars-backward " \t")))
                     (setq current-column (current-column))))
            (delete-char (- (1+ (% (1- current-column) tab-width)))))
@@ -121,7 +121,7 @@ possible, or just one char if that's not possible."
   {
   |
   } => {|}
-+ Otherwise, resort to `doom/backward-delete-whitespace-to-column'.
++ Otherwise, resort to `rmcs/backward-delete-whitespace-to-column'.
 + Resorts to `delete-char' if n > 1"
   (interactive "p\nP")
   (or (integerp n)
@@ -151,7 +151,7 @@ possible, or just one char if that's not possible."
                          (save-excursion
                            (and (/= (skip-chars-backward " \t" (line-beginning-position)) 0)
                                 (bolp)))))
-                (doom/backward-delete-whitespace-to-column))
+                (rmcs/backward-delete-whitespace-to-column))
                ((let* ((pair (ignore-errors (sp-get-thing)))
                        (op   (plist-get pair :op))
                        (cl   (plist-get pair :cl))
@@ -159,17 +159,17 @@ possible, or just one char if that's not possible."
                        (end  (plist-get pair :end)))
                   (cond ((and end beg (= end (+ beg (length op) (length cl))))
                          (delete-char (- (length op))))
-                        ((doom-surrounded-p pair 'inline 'balanced)
+                        ((rmcs-surrounded-p pair 'inline 'balanced)
                          (delete-char -1 killflag)
                          (delete-char 1)
                          (when (= (point) (+ (length cl) beg))
                            (sp-backward-delete-char 1)
                            (sp-insert-pair op)))
-                        ((and (bolp) (doom-surrounded-p pair nil 'balanced))
+                        ((and (bolp) (rmcs-surrounded-p pair nil 'balanced))
                          (delete-region beg end)
                          (sp-insert-pair op)
                          t)
-                        ((run-hook-with-args-until-success 'doom-delete-backward-functions))
-                        ((doom/backward-delete-whitespace-to-column)))))))
+                        ((run-hook-with-args-until-success 'rmcs-delete-backward-functions))
+                        ((rmcs/backward-delete-whitespace-to-column)))))))
         ;; Otherwise, do simple deletion.
         ((delete-char (- n) killflag))))

@@ -13,23 +13,23 @@ emacs fontset to cover as many unicode glyphs as possible by scanning all
 available glyphs from all available fonts.
 
 When this module is enabled:
-- Emacs will prefer to use the ~doom-symbol-font~ font to display non-latin
+- Emacs will prefer to use the ~rmcs-symbol-font~ font to display non-latin
   glyphs if it provides coverage for them.
 - The first time you run Emacs a unicode cache will be generated -- this will
   take a while!
 - The cache will be regenerated every time Emacs is made aware of new fonts or
-  you change the font configuration e.g. by modifying ~doom-symbol-font~.
+  you change the font configuration e.g. by modifying ~rmcs-symbol-font~.
 - The cache will be stored and should not be regenerated unless font-related
   configuration or the versions of relevant packages changes.
 
 ** Maintainers
-*This module needs a maintainer.* [[doom-contrib-maintainer:][Become a maintainer?]]
+*This module needs a maintainer.* [[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 /This module has no flags./
 
 ** Packages
-- [[doom-package:unicode-fonts]]
+- [[rmcs-package:unicode-fonts]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -39,31 +39,31 @@ When this module is enabled:
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 /This module has no external requirements./
 
 * TODO Usage
 #+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no usage documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * TODO Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 The first font that will be analyzed to see if it contains the glyphs of
-non-latin characters will be ~doom-symbol-font~:
+non-latin characters will be ~rmcs-symbol-font~:
 #+begin_src emacs-lisp
 ;; in $DOOMDIR/config.el
-(setq doom-symbol-font (font-spec :family "JuliaMono"))
+(setq rmcs-symbol-font (font-spec :family "JuliaMono"))
 #+end_src
 
-If your ~doom-font~ provides good unicode coverage use:
+If your ~rmcs-font~ provides good unicode coverage use:
 #+begin_src emacs-lisp
 ;; in $DOOMDIR/config.el
-(setq doom-symbol-font doom-font)
+(setq rmcs-symbol-font rmcs-font)
 #+end_src
 
 If your font does not provide some glyphs, this package will try its best to
@@ -105,12 +105,12 @@ If you want to redefine several blocks an efficient way would be:
 You can find a list of fonts available to emacs using ~M-x counsel-fonts~.
 
 * Troubleshooting
-[[doom-report:][Report an issue?]]
+[[rmcs-report:][Report an issue?]]
 
-** TODO Emacs daemon mode ([[doom-ref:][#3328]])
+** TODO Emacs daemon mode ([[rmcs-ref:][#3328]])
 This module may fail to setup fonts when emacs is run in a daemon session.
 
-** Common error: ~void-variable \.\.\.~ ([[doom-ref:][#7164]])
+** Common error: ~void-variable \.\.\.~ ([[rmcs-ref:][#7164]])
 Users for this module may see the error similar to:
 
 #+begin_src
@@ -122,7 +122,7 @@ Debugger entered--Lisp error: (void-variable \.\.\.)
 #+end_src
 
 This is a known issue with an unidentified cause. See
-[[doom-ref:][rolandwalker/unicode-fonts#36]]. A workaround is to delete your
+[[rmcs-ref:][rolandwalker/unicode-fonts#36]]. A workaround is to delete your
 unicode-fonts cache and restart Emacs:
 #+begin_src bash
 # $EMACSDIR == where you cloned Doom Emacs
@@ -130,9 +130,9 @@ rm -f $EMACSDIR/.local/cache/pcache/unicode-fonts
 #+end_src
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

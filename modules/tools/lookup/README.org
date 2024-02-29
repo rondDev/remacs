@@ -16,9 +16,9 @@ or synonyms.
 - Support for online (and offline) dictionaries and thesauruses.
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[rmcs-user:][@hlissner]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +dictionary ::
@@ -26,26 +26,26 @@ or synonyms.
 - +docsets ::
   Enable integration with Dash.app docsets.
 - +offline ::
-  Install and prefer offline dictionary/thesaurus (with [[doom-module:+dictionary]]).
+  Install and prefer offline dictionary/thesaurus (with [[rmcs-module:+dictionary]]).
 
 ** Packages
-- [[doom-package:dumb-jump]]
-- [[doom-package:helm-xref]] if [[doom-module::completion helm]]
-- [[doom-package:ivy-xref]] if [[doom-module::completion ivy]]
-- [[doom-package:request]]
-- if [[doom-module:+docsets]]
-  - [[doom-package:dash-docs]]
-  - [[doom-package:counsel-dash]] if [[doom-module::completion ivy]]
-  - [[doom-package:helm-dash]] if [[doom-module::completion helm]]
-- if [[doom-module:+dictionary]]
+- [[rmcs-package:dumb-jump]]
+- [[rmcs-package:helm-xref]] if [[rmcs-module::completion helm]]
+- [[rmcs-package:ivy-xref]] if [[rmcs-module::completion ivy]]
+- [[rmcs-package:request]]
+- if [[rmcs-module:+docsets]]
+  - [[rmcs-package:dash-docs]]
+  - [[rmcs-package:counsel-dash]] if [[rmcs-module::completion ivy]]
+  - [[rmcs-package:helm-dash]] if [[rmcs-module::completion helm]]
+- if [[rmcs-module:+dictionary]]
   - if macOS
-    - [[doom-package:osx-dictionary]]
+    - [[rmcs-package:osx-dictionary]]
   - else
-    - [[doom-package:define-word]]
-    - [[doom-package:powerthesaurus]]
-    - if [[doom-module:+offline]]
-      - [[doom-package:wordnut]]
-      - [[doom-package:synosaurus]]
+    - [[rmcs-package:define-word]]
+    - [[rmcs-package:powerthesaurus]]
+    - if [[rmcs-module:+offline]]
+      - [[rmcs-package:wordnut]]
+      - [[rmcs-package:synosaurus]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -55,14 +55,14 @@ or synonyms.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module has several optional dependencies:
 
 - ~ripgrep~ as a last-resort fallback for jump-to-definition/find-references.
-- ~sqlite3~ for Dash docset support (if you have [[doom-module:+docsets]] enabled)
+- ~sqlite3~ for Dash docset support (if you have [[rmcs-module:+docsets]] enabled)
 - ~wordnet~ for offline dictionary and thesaurus support (if you have
-  [[doom-module:+dictionary]] and [[doom-module:+offline]] enabled).
+  [[rmcs-module:+dictionary]] and [[rmcs-module:+offline]] enabled).
 
 ** MacOS
 #+begin_src sh
@@ -102,7 +102,7 @@ following sources before giving up:
 1. Whatever ~:definition~ function is registered for the current buffer with the
    ~:lookup~ setting (see "Configuration" section).
 2. Any available xref backends.
-3. [[doom-package:dumb-jump]] (a text search with aides to reduce false positives).
+3. [[rmcs-package:dumb-jump]] (a text search with aides to reduce false positives).
 3. An ordinary project-wide text search with =ripgrep=.
 5. If ~evil-mode~ is active, use ~evil-goto-definition~, which preforms a simple
    text search within the current buffer.
@@ -118,7 +118,7 @@ will try:
 
 1. Whatever ~:references~ function is registered for the current buffer with the
    ~:lookup~ setting (see [[*Configuration][Configuration]]).
-2. Any available [[doom-package:xref]] backends.
+2. Any available [[rmcs-package:xref]] backends.
 3. An ordinary project-wide text search with ripgrep.
 
 If there are multiple results, you will be prompted to select one.
@@ -169,7 +169,7 @@ properties:
   Run when looking up the file for a symbol/string. Typically a file path. Used
   by ~+lookup/file~.
 - ~:xref-backend FN~ ::
-  Defines an [[doom-package:xref]] backend, which implicitly provides ~:definition~ and
+  Defines an [[rmcs-package:xref]] backend, which implicitly provides ~:definition~ and
   ~:references~ handlers. If you specify them anyway, they will take precedence
   over the xref backend, however.
 
@@ -234,14 +234,14 @@ with Xwidgets support):
 #+end_src
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 /This module's appendix is incomplete./ [[doom-contrib-module:][Write more?]]
+ 󱌣 /This module's appendix is incomplete./ [[rmcs-contrib-module:][Write more?]]
 #+end_quote
 
 ** Commands

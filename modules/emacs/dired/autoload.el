@@ -4,7 +4,7 @@
 (defun +dired/quit-all ()
   "Kill all `dired-mode' buffers."
   (interactive)
-  (mapc #'kill-buffer (doom-buffers-in-mode 'dired-mode))
+  (mapc #'kill-buffer (rmcs-buffers-in-mode 'dired-mode))
   (message "Killed all dired buffers"))
 
 ;;;###autoload

@@ -7,15 +7,15 @@
 This module adds system-wide popup Emacs windows for quick edits.
 
 ** Maintainers
-- [[doom-user:][@tecosaur]]
+- [[rmcs-user:][@tecosaur]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 /This module has no flags./
 
 ** Packages
-- [[doom-package:emacs-everywhere]]
+- [[rmcs-package:emacs-everywhere]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -25,7 +25,7 @@ This module adds system-wide popup Emacs windows for quick edits.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module requires:
 - *On Linux:* (these should be available through your OS package manager)
@@ -40,7 +40,7 @@ This module requires:
 To use this, invoke the =emacs-everywhere= executable. This can be done in two
 ways:
 - ~$ emacsclient --eval "(emacs-everywhere)"~
-- ~$ doom +everywhere~
+- ~$ rmcs +everywhere~
 
 It is recommended that you add a keybinding for this.
 
@@ -49,7 +49,7 @@ return to the original window and paste the content with [[kbd:][C-c C-c]] or [[
 exit without pasting, use [[kbd:][C-c C-k]].
 
 * Configuration
-[[doom-package:emacs-everywhere]] likes to guess if you triggered it from an application which
+[[rmcs-package:emacs-everywhere]] likes to guess if you triggered it from an application which
 supports markdown. Configure ~emacs-everywhere-markdown-windows~ and
 ~emacs-everywhere-markdown-apps~ to improve how accurate this is on your system.
 
@@ -61,12 +61,12 @@ closing the frame) by setting ~emacs-everywhere-major-mode-function~ to
 Most other behavior is implemented as hooks on ~emacs-everywhere-init-hooks~.
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

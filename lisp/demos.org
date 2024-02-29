@@ -187,11 +187,11 @@ Or to create aliases for functions that behave differently:
    `(,red-bg-faces
      :background "red" :weight bold)))
 
-;; You may utilise `doom-themes's theme API to fetch or tweak colors from their
+;; You may utilise `rmcs-themes's theme API to fetch or tweak colors from their
 ;; palettes. No need to wait until the theme or package is loaded. e.g.
 (custom-set-faces!
- `(outline-1 :foreground ,(doom-color 'red))
- `(outline-2 :background ,(doom-color 'blue)))
+ `(outline-1 :foreground ,(rmcs-color 'red))
+ `(outline-2 :background ,(rmcs-color 'blue)))
 #+end_src
 
 * custom-theme-set-faces!
@@ -199,7 +199,7 @@ Or to create aliases for functions that behave differently:
 :added: 3.0.0-pre
 :END:
 #+begin_src emacs-lisp :eval no
-(custom-theme-set-faces! 'doom-one
+(custom-theme-set-faces! 'rmcs-one
  '(outline-1 :weight normal)
  '(outline-2 :weight normal)
  '(outline-3 :weight normal)
@@ -209,24 +209,24 @@ Or to create aliases for functions that behave differently:
  '(default :background "red" :weight bold)
  '(region :background "red" :weight bold))
 
-(custom-theme-set-faces! '(doom-one-theme doom-one-light-theme)
+(custom-theme-set-faces! '(rmcs-one-theme rmcs-one-light-theme)
  '((outline-1 outline-2 outline-3 outline-4 outline-5 outline-6)
    :weight normal)
  '((default region)
    :background "red" :weight bold))
 
 (let ((red-bg-faces '(default region)))
-  (custom-theme-set-faces! '(doom-one-theme doom-one-light-theme)
+  (custom-theme-set-faces! '(rmcs-one-theme rmcs-one-light-theme)
    `(,(cl-loop for i from 0 to 6 collect (intern (format "outline-%d" i)))
      :weight normal)
    `(,red-bg-faces
      :background "red" :weight bold)))
 
-;; You may utilise `doom-themes's theme API to fetch or tweak colors from their
+;; You may utilise `rmcs-themes's theme API to fetch or tweak colors from their
 ;; palettes. No need to wait until the theme or package is loaded. e.g.
-(custom-theme-set-faces! 'doom-one
- `(outline-1 :foreground ,(doom-color 'red))
- `(outline-2 :background ,(doom-color 'blue)))
+(custom-theme-set-faces! 'rmcs-one
+ `(outline-1 :foreground ,(rmcs-color 'red))
+ `(outline-2 :background ,(rmcs-color 'blue)))
 #+end_src
 
 * TODO defer-feature!
@@ -246,12 +246,12 @@ Or to create aliases for functions that behave differently:
 (disable-packages! some-package second-package)
 #+end_src
 
-* doom!
+* rmcs!
 :PROPERTIES:
 :added: 3.0.0-pre
 :END:
 #+begin_src emacs-lisp :eval no
-(doom! :completion
+(rmcs! :completion
        company
        ivy
        ;;helm
@@ -278,12 +278,12 @@ Or to create aliases for functions that behave differently:
        literate
        (default +bindings +smartparens))
 
-(doom!
+(rmcs!
  (pin "v3.0.0")
 
  (source "modules/")  ; Modules in $DOOMDIR/modules/*/*
- (source :name doom :repo "doomemacs/modules" :pin "v21.12.0")  ; Doom's default modules
- (source :name contrib :repo "doomemacs/contrib-modules" :pin "v21.12.0")  ; Community-contributed
+ (source :name rmcs :repo "rmcsemacs/modules" :pin "v21.12.0")  ; Doom's default modules
+ (source :name contrib :repo "rmcsemacs/contrib-modules" :pin "v21.12.0")  ; Community-contributed
  ;; Examples:
  (source :name my :repo "my/modules" :root "unorthodox/path/to/modules/")
  (source :name more :host gitlab :repo "more/modules")
@@ -293,14 +293,14 @@ Or to create aliases for functions that behave differently:
 
  ;;;; Examples of explicit and/or remote modules:
  :lang
- (rust   :repo "doomemacs/modules" :branch "somePR" :pin "1a2b3c4d"
+ (rust   :repo "rmcsemacs/modules" :branch "somePR" :pin "1a2b3c4d"
          :path "lang/rust"
          :flags '(-lsp))
  ;; A local, out-of-tree module
  (python :path "/nonstandard/location/for/modules/python"
          :flags '(+pyenv +conda))
- (cc     :source 'doom)         ; explicit source
- (agda   :source '(doom more))  ; multiple sources
+ (cc     :source 'rmcs)         ; explicit source
+ (agda   :source '(rmcs more))  ; multiple sources
 
  :lang
  (clojure +lsp)  ; shorthand format still works for flags
@@ -319,13 +319,13 @@ Or to create aliases for functions that behave differently:
 :added: 3.0.0-pre
 :END:
 #+begin_src emacs-lisp
-(file-exists-p! "init.el" doom-emacs-dir)
+(file-exists-p! "init.el" rmcs-emacs-dir)
 #+end_src
 
 #+begin_src emacs-lisp
 (file-exists-p! (and (or "doesnotexist" "init.el")
                      "LICENSE")
-                doom-emacs-dir)
+                rmcs-emacs-dir)
 #+end_src
 
 * fn!
@@ -336,7 +336,7 @@ Or to create aliases for functions that behave differently:
 #+begin_src emacs-lisp
 (seq-sort (fn! (string-lessp (symbol-name %1)
                              (symbol-name %2)))
-          '(bonzo foo bar buddy doomguy baz zombies))
+          '(bonzo foo bar buddy rmcsguy baz zombies))
 #+end_src
 
 #+begin_src emacs-lisp
@@ -367,10 +367,10 @@ Or to create aliases for functions that behave differently:
 :added: 3.0.0-pre
 :END:
 #+begin_src emacs-lisp :eval no
-;;; Lets say we're in ~/.doom.d/config.el
-(load! "lisp/module")                  ; loads ~/.doom.d/lisp/module.el
-(load! "somefile" doom-emacs-dir)      ; loads ~/.emacs.d/somefile.el
-(load! "anotherfile" doom-user-dir)    ; loads ~/.doom.d/anotherfile.el
+;;; Lets say we're in ~/.rmcs.d/config.el
+(load! "lisp/module")                  ; loads ~/.rmcs.d/lisp/module.el
+(load! "somefile" rmcs-emacs-dir)      ; loads ~/.emacs.d/somefile.el
+(load! "anotherfile" rmcs-user-dir)    ; loads ~/.rmcs.d/anotherfile.el
 
 ;; If you don't want a `load!' call to throw an error if the file doesn't exist:
 (load! "~/.maynotexist" nil t)
@@ -504,7 +504,7 @@ These are side-by-side comparisons, showing how to bind keys with and without
 ;; To unpin a pinned package:
 (package! evil :pin nil)
 
-;; If you share your config between two computers, and don't want bin/doom
+;; If you share your config between two computers, and don't want bin/rmcs
 ;; refresh to delete packages used only on one system, use :ignore
 (package! evil :ignore (not (equal system-name "my-desktop")))
 #+end_src

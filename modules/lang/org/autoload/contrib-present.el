@@ -5,7 +5,7 @@
 ;;; Helpers
 
 (defun +org-present--cleanup-org-tree-slides-mode ()
-  (unless (cl-loop for buf in (doom-buffers-in-mode 'org-mode)
+  (unless (cl-loop for buf in (rmcs-buffers-in-mode 'org-mode)
                    if (buffer-local-value 'org-tree-slide-mode buf)
                    return t)
     (org-tree-slide-mode -1)
@@ -59,7 +59,7 @@
         (when +org-present--last-wconf
           (set-window-configuration +org-present--last-wconf))
       (setq +org-present--last-wconf (current-window-configuration))
-      (doom/window-maximize-buffer))
+      (rmcs/window-maximize-buffer))
     (when (fboundp 'centered-window-mode)
       (setq-local cwm-use-vertical-padding t)
       (setq-local cwm-frame-internal-border 100)

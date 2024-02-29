@@ -22,20 +22,20 @@ Through the power of [[https://scalameta.org/metals/docs/editors/overview.html][
 - Organize Imports
 
 ** Maintainers
-/This module has no dedicated maintainers./ [[doom-contrib-maintainer:][Become a maintainer?]]
+/This module has no dedicated maintainers./ [[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~scala-mode~. Requires [[doom-module::tools lsp]] and a langserver
+  Enable LSP support for ~scala-mode~. Requires [[rmcs-module::tools lsp]] and a langserver
   (supports metals).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
-  editing. Requires [[doom-module::tools tree-sitter]].
+  editing. Requires [[rmcs-module::tools tree-sitter]].
 
 ** Packages
-- [[doom-package:sbt-mode]]
-- [[doom-package:scala-mode]]
-- [[doom-package:lsp-metals]] if [[doom-module:+lsp]]
+- [[rmcs-package:sbt-mode]]
+- [[rmcs-package:scala-mode]]
+- [[rmcs-package:lsp-metals]] if [[rmcs-module:+lsp]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -45,7 +45,7 @@ Through the power of [[https://scalameta.org/metals/docs/editors/overview.html][
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 ** =+lsp= Integration
 To set up LSP support for Scala you'll need the Metals LSP server. To install it
@@ -97,20 +97,20 @@ yay -S metals
 
 ** Formatter
 
-Formatting is handled using the [[doom-module::editor format]] module via [[https://scalameta.org/scalafmt/docs/installation.html#cli][scalafmt]].
+Formatting is handled using the [[rmcs-module::editor format]] module via [[https://scalameta.org/scalafmt/docs/installation.html#cli][scalafmt]].
 
 * TODO Usage
 #+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no usage documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * TODO Configuration
 #+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no configuration documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
-[[doom-report:][Report an issue?]]
+[[rmcs-report:][Report an issue?]]
 
 - Projects are required to have scala version =2.11.12=, =2.12.8=, =2.13.0= or
   greater.
@@ -119,9 +119,9 @@ Formatting is handled using the [[doom-module::editor format]] module via [[http
 - Full reference here: https://scalameta.org/metals/docs/editors/emacs.html
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

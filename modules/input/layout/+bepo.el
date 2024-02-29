@@ -57,7 +57,7 @@ In all cases, 'h' functions go to 'c' and 'l' ones go to 'r' so the navigation k
           :desc "Jump to next hunk"        ")"  #'git-gutter:next-hunk
           :desc "Jump to previous hunk"    "("  #'git-gutter:previous-hunk))
         (:prefix-map ("p" . "project")
-         :desc "Browse other project"      "»"  #'doom/browse-in-other-project)))
+         :desc "Browse other project"      "»"  #'rmcs/browse-in-other-project)))
 
 (defun +layout-remap-evil-keys-for-bepo-h ()
   ;; "ts" would be a little too common for an evil escape sequence
@@ -150,7 +150,7 @@ In all cases, 'h' functions go to 'c' and 'l' ones go to 'r' so the navigation k
   (after! lsp-ui
     (+layout-bepo-rotate-ts-bare-keymap '(lsp-ui-peek-mode-map)))
   (after! org-capture
-    (defadvice! doom-bepo--org-completing-read (&rest args)
+    (defadvice! rmcs-bepo--org-completing-read (&rest args)
       "Completing-read with SPACE being a normal character, and C-c mapping left alone."
       :override #'org-completing-read
       (let ((enable-recursive-minibuffers t)

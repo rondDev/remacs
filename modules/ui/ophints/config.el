@@ -2,7 +2,7 @@
 
 (use-package! evil-goggles
   :when (modulep! :editor evil)
-  :hook (doom-first-input . evil-goggles-mode)
+  :hook (rmcs-first-input . evil-goggles-mode)
   :init
   (setq evil-goggles-duration 0.1
         evil-goggles-pulse nil ; too slow
@@ -66,7 +66,7 @@
 
 (use-package! volatile-highlights
   :unless (modulep! :editor evil)
-  :hook (doom-first-input . volatile-highlights-mode)
+  :hook (rmcs-first-input . volatile-highlights-mode)
   :config
   (after! undo-fu
     (vhl/define-extension 'undo-fu 'undo-fu-only-undo 'undo-fu-only-redo)

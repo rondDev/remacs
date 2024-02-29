@@ -13,7 +13,7 @@ This module configures Emacs for use in the terminal, by providing:
 - Mouse support in the terminal.
 
 ** Maintainers
-/This module has no dedicated maintainers./ [[doom-contrib-maintainer:][Become a maintainer?]]
+/This module has no dedicated maintainers./ [[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +osc ::
@@ -23,9 +23,9 @@ This module configures Emacs for use in the terminal, by providing:
   connections or Tmux. However, this requires [[https://github.com/spudlyo/clipetty#terminals-that-support-osc-clipboard-operations][a supported terminal]].
 
 ** Packages
-- [[doom-package:clipetty]] if [[doom-module:+osc]]
-- [[doom-package:evil-terminal-cursor-changer]] if [[doom-module::editor evil]]
-- [[doom-package:xclip]] unless [[doom-module:+osc]]
+- [[rmcs-package:clipetty]] if [[rmcs-module:+osc]]
+- [[rmcs-package:evil-terminal-cursor-changer]] if [[rmcs-module::editor evil]]
+- [[rmcs-package:xclip]] unless [[rmcs-module:+osc]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -35,7 +35,7 @@ This module configures Emacs for use in the terminal, by providing:
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module has no hard prerequisites, but in order for its features to work you
 need:
@@ -45,7 +45,7 @@ need:
     - Linux: =xclip=, =xsel=, or =wl-clibpoard= (Wayland)
     - macOS: =pbcopy= and =pbpaste= (included with macOS)
     - Windows: =getclip= and =putclip= (cygwin)
-  - (If [[doom-module:+osc]] is enabled) A terminal that supports OSC 52 escape codes, such as:
+  - (If [[rmcs-module:+osc]] is enabled) A terminal that supports OSC 52 escape codes, such as:
     xterm (unix), iTerm2 (macOS), alacritty (cross platform), kitty (macOS,
     linux), mintty (Windows), hterm (javascript), st (unix), mlterm (cross
     platform)
@@ -56,12 +56,12 @@ need:
 
 * TODO Usage
 #+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no usage documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * TODO Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** True-color and italic support
@@ -69,12 +69,12 @@ Consult [[https://github.com/syl20bnr/spacemacs/wiki/Terminal][the spacemacs wik
 terminal Emacs.
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

@@ -32,7 +32,7 @@
 (defun +org/find-file-in-attachments ()
   "Open a file from `org-attach-id-dir'."
   (interactive)
-  (doom-project-browse org-attach-id-dir))
+  (rmcs-project-browse org-attach-id-dir))
 
 ;;;###autoload
 (defun +org/attach-file-and-insert-link (path)

@@ -2,16 +2,16 @@
 
 ;;;###autoload
 (defun +evil-escape-a (&rest _)
-  "Call `doom/escape' if `evil-force-normal-state' is called interactively."
+  "Call `rmcs/escape' if `evil-force-normal-state' is called interactively."
   (when (called-interactively-p 'any)
-    (call-interactively #'doom/escape)))
+    (call-interactively #'rmcs/escape)))
 
 ;;;###autoload
 (defun +evil-replace-filename-modifiers-a (file-name)
   "Take a path and resolve any vim-like filename modifiers in it. This adds
 support for most vim file modifiers, as well as:
 
-  %:P   Resolves to `doom-project-root'.
+  %:P   Resolves to `rmcs-project-root'.
 
 See http://vimdoc.sourceforge.net/htmldoc/cmdline.html#filename-modifiers for
 more information on modifiers."
@@ -64,7 +64,7 @@ more information on modifiers."
                                       (unless global 1))))
                                path))
                             ("P"
-                             (let ((project-root (doom-project-root (file-name-directory (expand-file-name path)))))
+                             (let ((project-root (rmcs-project-root (file-name-directory (expand-file-name path)))))
                                (unless project-root
                                  (user-error "Not in a project"))
                                (abbreviate-file-name project-root)))))
@@ -189,14 +189,14 @@ Adapted from https://github.com/emacs-evil/evil/issues/606"
             (cend (save-excursion (goto-char end) (line-end-position)))
             (cbeg (save-excursion
                     (goto-char beg)
-                    (and (doom-point-in-comment-p
+                    (and (rmcs-point-in-comment-p
                           (save-excursion
                             (goto-char (line-beginning-position 2))
                             (skip-syntax-forward " \t")
                             (point)))
                          (or (comment-search-backward (line-beginning-position) t)
                              (comment-search-forward  (line-end-position) t)
-                             (and (doom-point-in-comment-p beg)
+                             (and (rmcs-point-in-comment-p beg)
                                   (stringp comment-continue)
                                   (or (search-forward comment-continue (line-end-position) t)
                                       beg)))))))

@@ -4,7 +4,7 @@
 Functionality in Doom is divided into collections of code called modules (à la
 Spacemacs' layers). A module is a bundle of packages, configuration and
 commands, organized into a unit that can be enabled or disabled by adding or
-removing them from your ~doom!~ block in =$DOOMDIR/init.el=.
+removing them from your ~rmcs!~ block in =$DOOMDIR/init.el=.
 
 * Table of Contents :TOC:
 - [[#app][:app]]
@@ -53,7 +53,7 @@ Modules that configure Emacs one way or another, or focus on making it easier
 for you to customize it yourself. It is best to load these last.
 
 + [[file:../modules/config/literate/README.org][literate]] - For users with literate configs. This will tangle+compile a
-  config.org in your ~doom-private-dir~ when it changes.
+  config.org in your ~rmcs-private-dir~ when it changes.
 + [[file:../modules/config/default/README.org][default]] =+bindings +smartparens= - The default module sets reasonable defaults
   for Emacs. It also provides a Spacemacs-inspired keybinding scheme and a
   smartparens config. Use it as a reference for your own modules.
@@ -200,9 +200,9 @@ Small modules that give Emacs access to external tools & services.
 Aesthetic modules that affect the Emacs interface or user experience.
 
 + [[file:../modules/ui/deft/README.org][deft]] - TODO
-+ [[file:../modules/ui/doom/README.org][doom]] - TODO
-+ [[file:../modules/ui/doom-dashboard/README.org][doom-dashboard]] - TODO
-+ [[file:../modules/ui/doom-quit/README.org][doom-quit]] - TODO
++ [[file:../modules/ui/rmcs/README.org][rmcs]] - TODO
++ [[file:../modules/ui/rmcs-dashboard/README.org][rmcs-dashboard]] - TODO
++ [[file:../modules/ui/rmcs-quit/README.org][rmcs-quit]] - TODO
 + [[file:../modules/ui/emoji/README.org][emoji]] =+ascii +github +unicode= - Adds emoji support to Emacs
 + [[file:../modules/ui/hl-todo/README.org][hl-todo]] - TODO
 + [[file:../modules/ui/hydra/README.org][hydra]] - TODO

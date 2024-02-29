@@ -19,17 +19,17 @@ It includes:
   structures like any other text object.
 
 ** Maintainers
-- [[doom-user:][@jeetelongname]]
+- [[rmcs-user:][@jeetelongname]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 /This module has no flags./
 
 ** Packages
-- [[doom-package:evil-textobj-tree-sitter]] if [[doom-module::editor evil +everywhere]]
-- [[doom-package:tree-sitter]]
-- [[doom-package:tree-sitter-langs]]
+- [[rmcs-package:evil-textobj-tree-sitter]] if [[rmcs-module::editor evil +everywhere]]
+- [[rmcs-package:tree-sitter]]
+- [[rmcs-package:tree-sitter-langs]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -39,15 +39,15 @@ It includes:
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module has no direct requirements, but some languages may have their own to
-fulfill before tree-sitter support works for them. Run ~$ doom doctor~ to find
+fulfill before tree-sitter support works for them. Run ~$ rmcs doctor~ to find
 out what you're missing.
 
 * TODO Usage
 #+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's usage documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Language support
@@ -97,7 +97,7 @@ Currently keys are bound to:
 
 * TODO Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Rebind text objects
@@ -147,7 +147,7 @@ If ~+tree-sitter-hl-enabled-modes~ is set to ~nil~ or ~t~ it will fully disable
 or fully enable highlighting in every tree sitter enabled language respectively.
 
 * Troubleshooting
-[[doom-report:][Report an issue?]]
+[[rmcs-report:][Report an issue?]]
 
 ** =(error "Bad bounding indices: 0, 1")=
 This means that the text object does not have the underlying query needed. This
@@ -155,9 +155,9 @@ can be fixed by either adding in a custom query (which would override the
 current key bound) or [[https://github.com/nvim-treesitter/nvim-treesitter-textobjects/][contributing upstream!]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

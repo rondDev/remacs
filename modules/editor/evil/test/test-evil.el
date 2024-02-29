@@ -10,7 +10,7 @@
 
   (before-each
     (fset 'resv #'+evil-replace-filename-modifiers-a)
-    (spy-on 'doom-project-root :and-call-fake (lambda () project-root)))
+    (spy-on 'rmcs-project-root :and-call-fake (lambda () project-root)))
 
   ;; `evil-ex-replace-special-filenames' / `+evil-replace-filename-modifiers-a'
   (describe "file modifiers"

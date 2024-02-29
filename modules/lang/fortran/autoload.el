@@ -93,7 +93,7 @@ or gfortran, depending on what feature flags are set."
 ;;;###autoload
 (defun +fortran--fpm-toml ()
   "If this is an fpm project, find its toml file."
-  (when-let* ((project-root (doom-project-root))
+  (when-let* ((project-root (rmcs-project-root))
               (toml (expand-file-name "fpm.toml" project-root)))
     (when (file-exists-p toml)
       toml)))
@@ -119,7 +119,7 @@ or gfortran, depending on what feature flags are set."
 ;;;###autoload
 (defun +fortran/fpm-open-project-toml (project-root)
   "Open fpm.toml at PROJECT-ROOT (defaults to the open project)."
-  (interactive (list (doom-project-root)))
+  (interactive (list (rmcs-project-root)))
   (let ((file (file-name-concat project-root "fpm.toml")))
     (cond ((file-exists-p file) (find-file file))
           ((null project-root) (user-error "Not in a project"))

@@ -18,7 +18,7 @@ intuitive out of the box:
 - A configuration for using org-mode for slide-show presentations or exporting
   org files to reveal.js slideshows.
 - Drag-and-drop support for images (with inline preview) and media files (drops
-  a file icon and a short link) (requires [[doom-module:+dragndrop]] flag).
+  a file icon and a short link) (requires [[rmcs-module:+dragndrop]] flag).
 - Integration with pandoc, ipython, jupyter, reveal.js, beamer, and others
   (requires flags).
 - Export-to-clipboard functionality, for copying text into formatted html,
@@ -36,20 +36,20 @@ https://www.mfoot.com/blog/2015/11/22/literate-emacs-configuration-with-org-mode
 #+end_quote
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[rmcs-user:][@hlissner]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +brain ::
-  Enable [[doom-package:org-brain]] integration.
+  Enable [[rmcs-package:org-brain]] integration.
 - +contacts ::
-  Enable [[doom-package:org-contacts]] integration.
+  Enable [[rmcs-package:org-contacts]] integration.
 - +dragndrop ::
   Enable drag-and-drop support for images and files; inserts inline previews for
   images and an icon+link for other media types.
 - +crypt ::
-  Enable [[doom-package:org-crypt]] integraiton for encryption and decryption on org
+  Enable [[rmcs-package:org-crypt]] integraiton for encryption and decryption on org
   files.
 - +gnuplot ::
   Install gnuplot & gnuplot-mode, which enables rendering images from gnuplot
@@ -61,16 +61,16 @@ https://www.mfoot.com/blog/2015/11/22/literate-emacs-configuration-with-org-mode
 - +ipython ::
   (**DEPRECATED**) Enable ipython integration for babel.
 - +journal ::
-  Enable [[doom-package:org-journal]] integration.
+  Enable [[rmcs-package:org-journal]] integration.
 - +jupyter ::
   Enable Jupyter integration for babel.
 - +noter ::
-  Enable [[doom-package:org-noter]] integration. Keeps notes in sync with a
-  document. Requires [[doom-module::tools pdf]], [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Document-View.html][DocView]], or [[https://github.com/wasamasa/nov.el][nov.el]] to be enabled.
+  Enable [[rmcs-package:org-noter]] integration. Keeps notes in sync with a
+  document. Requires [[rmcs-module::tools pdf]], [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Document-View.html][DocView]], or [[https://github.com/wasamasa/nov.el][nov.el]] to be enabled.
 - +pandoc ::
   Enable pandoc integration into the Org exporter.
 - +passwords ::
-  Enable [[doom-package:org-passwords]] integration.
+  Enable [[rmcs-package:org-passwords]] integration.
 - +pomodoro ::
   Enable a pomodoro timer for clocking time on tasks.
 - +present ::
@@ -82,62 +82,62 @@ https://www.mfoot.com/blog/2015/11/22/literate-emacs-configuration-with-org-mode
   too slow, it'd be wise to disable this flag.
 - +roam ::
   Enable integration with [[https://github.com/org-roam/org-roam-v1][org-roam v1]]. This requires ~sqlite3~ to be installed
-  on your system. /Incompatible with [[doom-module:+roam2]]./
+  on your system. /Incompatible with [[rmcs-module:+roam2]]./
 - +roam2 ::
   Enable integration with [[https://github.com/org-roam/org-roam][org-roam v2]]. This requires ~sqlite3~ to be installed
-  on your system. /Incompatible with [[doom-module:+roam]]./
+  on your system. /Incompatible with [[rmcs-module:+roam]]./
 
 ** Packages
-- [[doom-package:evil-org]] if [[doom-module::editor evil]]
-- [[doom-package:htmlize]]
-- [[doom-package:jupyter]] if [[doom-module:+jupyter]]
-- [[doom-package:ob-ammonite]] if [[doom-module::lang scala]]
-- [[doom-package:ob-async]]
-- [[doom-package:ob-crystal]] if [[doom-module::lang crystal]]
-- [[doom-package:ob-go]] if [[doom-module::lang go]]
-- [[doom-package:ob-ipython]] if [[doom-module:+ipython]]
-- [[doom-package:ob-nim]] if [[doom-module::lang nim]]
-- [[doom-package:ob-racket]] if [[doom-module::lang racket]]
-- [[doom-package:ob-restclient]] if [[doom-module::lang rest]]
-- [[doom-package:ob-rust]] if [[doom-module::lang rust]]
-- [[doom-package:org-contacts]] if [[doom-module:+contacts]]
-- [[doom-package:org-cliplink]]
-- [[doom-package:org-download]] if [[doom-module:+dragndrop]]
-- [[doom-package:orgit]]
-- [[doom-package:org-noter]] if [[doom-module:+noter]]
-- [[doom-package:org-pdftools]] if [[doom-module::tools pdf]]
-- [[doom-package:org-plus-contrib]]
-- [[doom-package:org-passwords]] if [[doom-module:+passwords]]
-- [[doom-package:org-pomodoro]] if [[doom-module:+pomodoro]]
-- [[doom-package:org-roam]] (v1) if [[doom-module:+roam]]
-- [[doom-package:org-roam]] (v2) if [[doom-module:+roam2]]
-- [[doom-package:org-yt]]
-- [[doom-package:ox-clip]]
-- [[doom-package:ox-hugo]] if [[doom-module:+hugo]]
-- [[doom-package:ox-pandoc]] if [[doom-module:+pandoc]]
-- [[doom-package:ox-rst]] if [[doom-module::lang rst]]
-- [[doom-package:toc-org]]
-- if [[doom-module:+gnuplot]]
-  - [[doom-package:gnuplot]]
-  - [[doom-package:gnuplot-mode]]
-- if [[doom-module:+present]]
-  - [[doom-package:centered-window]]
-  - [[doom-package:org-tree-slide]]
-  - [[doom-package:org-re-reveal]]
-- if [[doom-module:+pretty]]
-  - [[doom-package:org-superstar]]
-  - [[doom-package:org-fancy-priorities]]
+- [[rmcs-package:evil-org]] if [[rmcs-module::editor evil]]
+- [[rmcs-package:htmlize]]
+- [[rmcs-package:jupyter]] if [[rmcs-module:+jupyter]]
+- [[rmcs-package:ob-ammonite]] if [[rmcs-module::lang scala]]
+- [[rmcs-package:ob-async]]
+- [[rmcs-package:ob-crystal]] if [[rmcs-module::lang crystal]]
+- [[rmcs-package:ob-go]] if [[rmcs-module::lang go]]
+- [[rmcs-package:ob-ipython]] if [[rmcs-module:+ipython]]
+- [[rmcs-package:ob-nim]] if [[rmcs-module::lang nim]]
+- [[rmcs-package:ob-racket]] if [[rmcs-module::lang racket]]
+- [[rmcs-package:ob-restclient]] if [[rmcs-module::lang rest]]
+- [[rmcs-package:ob-rust]] if [[rmcs-module::lang rust]]
+- [[rmcs-package:org-contacts]] if [[rmcs-module:+contacts]]
+- [[rmcs-package:org-cliplink]]
+- [[rmcs-package:org-download]] if [[rmcs-module:+dragndrop]]
+- [[rmcs-package:orgit]]
+- [[rmcs-package:org-noter]] if [[rmcs-module:+noter]]
+- [[rmcs-package:org-pdftools]] if [[rmcs-module::tools pdf]]
+- [[rmcs-package:org-plus-contrib]]
+- [[rmcs-package:org-passwords]] if [[rmcs-module:+passwords]]
+- [[rmcs-package:org-pomodoro]] if [[rmcs-module:+pomodoro]]
+- [[rmcs-package:org-roam]] (v1) if [[rmcs-module:+roam]]
+- [[rmcs-package:org-roam]] (v2) if [[rmcs-module:+roam2]]
+- [[rmcs-package:org-yt]]
+- [[rmcs-package:ox-clip]]
+- [[rmcs-package:ox-hugo]] if [[rmcs-module:+hugo]]
+- [[rmcs-package:ox-pandoc]] if [[rmcs-module:+pandoc]]
+- [[rmcs-package:ox-rst]] if [[rmcs-module::lang rst]]
+- [[rmcs-package:toc-org]]
+- if [[rmcs-module:+gnuplot]]
+  - [[rmcs-package:gnuplot]]
+  - [[rmcs-package:gnuplot-mode]]
+- if [[rmcs-module:+present]]
+  - [[rmcs-package:centered-window]]
+  - [[rmcs-package:org-tree-slide]]
+  - [[rmcs-package:org-re-reveal]]
+- if [[rmcs-module:+pretty]]
+  - [[rmcs-package:org-superstar]]
+  - [[rmcs-package:org-fancy-priorities]]
 
 ** Hacks
 - Adds support for a ~:sync~ parameter for org src blocks. This overrides
   ~:async~.
-- Gracefully degrades ~:async~ babel blocks to ~:sync~ when [[doom-package:ob-async]] would cause
-  errors or issues (such as with a ~:session~ parameter, which [[doom-package:ob-async]] does not
+- Gracefully degrades ~:async~ babel blocks to ~:sync~ when [[rmcs-package:ob-async]] would cause
+  errors or issues (such as with a ~:session~ parameter, which [[rmcs-package:ob-async]] does not
   support, or when exporting org documents).
 - The window is recentered when following links.
 - The breadcrumbs displayed in eldoc when hovering over an org headline has been
   reworked to strip out link syntax and normalize font-size disparities.
-- If [[doom-module::ui workspaces]] is enabled, persp-mode won't register org agenda buffers
+- If [[rmcs-module::ui workspaces]] is enabled, persp-mode won't register org agenda buffers
   that are temporarily opened in the background.
 - Temporary org agenda files aren't added to recentf.
 - =file:= links are highlighted with the [[face:error]] face if they are broken.
@@ -168,18 +168,18 @@ https://www.mfoot.com/blog/2015/11/22/literate-emacs-configuration-with-org-mode
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module has no hard requirements, but these soft requirements are needed to
 use Org's more esoteric features:
-- For inline LaTeX previews, [[doom-executable:latex]] and [[doom-executable:dvipng]] is needed.
-- To render GNUPlot images (with [[doom-module:+gnuplot]] flag) the [[doom-executable:gnuplot]] program is needed.
+- For inline LaTeX previews, [[rmcs-executable:latex]] and [[rmcs-executable:dvipng]] is needed.
+- To render GNUPlot images (with [[rmcs-module:+gnuplot]] flag) the [[rmcs-executable:gnuplot]] program is needed.
 - To execute babel code blocks, you need whatever dependencies those languages
-  need. It is recommended you enable the associated [[doom-module::lang]] module and ensure its
-  dependencies are met, e.g. install the [[doom-executable:ruby]] executable for ruby support. To
-  use ~jupyter kernels~ you need the [[doom-module:+jupyter]] flag, the associated kernel as
-  well as the [[doom-executable:jupyter]] program.
-- [[doom-package:org-roam]] (with [[doom-module:+roam]] or [[doom-module:+roam2]] flag) requires [[doom-executable:sqlite3]] to be installed.
+  need. It is recommended you enable the associated [[rmcs-module::lang]] module and ensure its
+  dependencies are met, e.g. install the [[rmcs-executable:ruby]] executable for ruby support. To
+  use ~jupyter kernels~ you need the [[rmcs-module:+jupyter]] flag, the associated kernel as
+  well as the [[rmcs-executable:jupyter]] program.
+- [[rmcs-package:org-roam]] (with [[rmcs-module:+roam]] or [[rmcs-module:+roam2]] flag) requires [[rmcs-executable:sqlite3]] to be installed.
 
 ** MacOS
 #+begin_src sh
@@ -208,7 +208,7 @@ environment.systemPackages = with pkgs; [
 
 * TODO Usage
 #+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's usage documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Invoking the org-capture frame from outside Emacs
@@ -225,13 +225,13 @@ emacsclient --eval '(+org-capture/open-frame INITIAL-INPUT KEY)'
 This module defines a number of custom link types in ~+org-init-custom-links-h~.
 They are (with examples):
 
-- ~doom-docs:index.org~ -> =~/.emacs.d/docs/%s=
-- ~doom-modules:editor/evil/README.org~ -> =~/.emacs.d/modules/%s=
-- ~doom-repo:issues~ -> =https://github.com/hlissner/doom-emacs/%s=
-- ~doom:core/core.el~ -> =~/.emacs.d/%s=
+- ~rmcs-docs:index.org~ -> =~/.emacs.d/docs/%s=
+- ~rmcs-modules:editor/evil/README.org~ -> =~/.emacs.d/modules/%s=
+- ~rmcs-repo:issues~ -> =https://github.com/hlissner/rmcs-emacs/%s=
+- ~rmcs:core/core.el~ -> =~/.emacs.d/%s=
 - ~duckduckgo:search terms~
 - ~gimages:search terms~ (Google Images)
-- ~github:hlissner/doom-emacs~
+- ~github:hlissner/rmcs-emacs~
 - ~gmap:Toronto, Ontario~ (Google Maps)
 - ~google:search terms~
 - ~kagi:search terms~
@@ -246,11 +246,11 @@ For =evil-mode= users, an overview of org-mode keybindings is provided [[https:/
 
 * TODO Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Changing ~org-directory~
-~org-directory~ must be set /before/ [[doom-package:org]] has loaded:
+~org-directory~ must be set /before/ [[rmcs-package:org]] has loaded:
 #+begin_src emacs-lisp
 ;; in $DOOMDIR/config.el
 (setq org-directory "~/new/org/location/")
@@ -263,13 +263,13 @@ For =evil-mode= users, an overview of org-mode keybindings is provided [[https:/
 #+end_src
 
 * Troubleshooting
-[[doom-report:][Report an issue?]]
+[[rmcs-report:][Report an issue?]]
 
 ** =org-roam=
 *** Should I go with =+roam= (v1) or =+roam2= (v2)?
-Long story short: if you're new to [[doom-package:org-roam]] and haven't used it, then you should
-go with [[doom-module:+roam2]]; if you already have an ~org-roam-directory~ with the v1 files in
-it, then you can keep use [[doom-module:+roam]] for the time being, but it will eventually be
+Long story short: if you're new to [[rmcs-package:org-roam]] and haven't used it, then you should
+go with [[rmcs-module:+roam2]]; if you already have an ~org-roam-directory~ with the v1 files in
+it, then you can keep use [[rmcs-module:+roam]] for the time being, but it will eventually be
 removed, so you should [[https://www.orgroam.com/manual.html#How-to-migrate-from-Org_002droam-v1_003f][migrate]] at your earliest convenience.
 
 V1 isn't actively maintained anymore and is now basically EOL. This means that
@@ -290,10 +290,10 @@ appear during the migration process. Because of that, *don't forget to backup*
 your ~org-roam-directory~ before attempting to migrate.
 
 In order to migrate from v1 to v2 using Doom follow the next steps:
-1. Enable [[doom-module:+roam2]] flag (and disable [[doom-module:+roam]] if it was previously enabled) in your
+1. Enable [[rmcs-module:+roam2]] flag (and disable [[rmcs-module:+roam]] if it was previously enabled) in your
    =init.el=.
 2. Ensure your ~org-roam-directory~ points to a directory with your v1 files.
-3. Run ~$ doom sync -u~ in your shell.
+3. Run ~$ rmcs sync -u~ in your shell.
 4. Restart Emacs (if it was previously opened) and run ~org-roam-migrate-wizard~
    command (~M-x org-roam-migrate-wizard RET~). The wizard will automatically
    attempt to backup your previous ~org-roam-directory~ to =org-roam.bak=, but
@@ -303,9 +303,9 @@ In order to migrate from v1 to v2 using Doom follow the next steps:
    [[https://github.com/org-roam/org-roam/issues][report]] your issue.
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

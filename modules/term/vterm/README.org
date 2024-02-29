@@ -8,7 +8,7 @@ This module provides a terminal emulator powered by libvterm. It is still in
 alpha and requires a component be compiled (=vterm-module.so=).
 
 #+begin_quote
- 💡 [[doom-package:vterm]] is as good as terminal emulation gets in Emacs (at the time of
+ 💡 [[rmcs-package:vterm]] is as good as terminal emulation gets in Emacs (at the time of
     writing) and the most performant, as it is implemented in C. However, it
     requires extra steps to set up:
 
@@ -16,23 +16,23 @@ alpha and requires a component be compiled (=vterm-module.so=).
     - and =vterm-module.so= must be compiled, which depends on =libvterm=,
       =cmake=, and =libtool-bin=.
 
-    [[doom-package:vterm]] will try to automatically build =vterm-module.so= when you first open
+    [[rmcs-package:vterm]] will try to automatically build =vterm-module.so= when you first open
     it, but this will fail on Windows, NixOS and Guix out of the box. Install
-    instructions for nix/guix can be found in the [[doom-module::term vterm]] module's
+    instructions for nix/guix can be found in the [[rmcs-module::term vterm]] module's
     documentation. There is no way to install vterm on Windows that I'm aware of
     (but perhaps with WSL?).
 #+end_quote
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[rmcs-user:][@hlissner]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 /This module has no flags./
 
 ** Packages
-- [[doom-package:vterm]]
+- [[rmcs-package:vterm]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -42,7 +42,7 @@ alpha and requires a component be compiled (=vterm-module.so=).
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 + Emacs must be built with dynamic module support, i.e. compiled with the
   =--with-modules= option.
@@ -52,7 +52,7 @@ alpha and requires a component be compiled (=vterm-module.so=).
 
 ** Dynamic Module support
 To check if your build of Emacs was built with dynamic module support, check ~$
-doom info~ for ~MODULES~ next to "System features". If it's there, you're good
+rmcs info~ for ~MODULES~ next to "System features". If it's there, you're good
 to go.
 
 You can also check for ~--with-modules~ in the ~system-configuration-options~
@@ -140,7 +140,7 @@ There are several ways to manually install the module:
 
 * TODO Usage
 #+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's usage documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 The following commands are available to open it:
@@ -151,16 +151,16 @@ The following commands are available to open it:
 
 * TODO Configuration
 #+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no configuration documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

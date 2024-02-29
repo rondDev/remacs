@@ -5,17 +5,17 @@
 
 * Description :unfold:
 This module adds grammar checking to Emacs to aid your writing by combining
-[[doom-package:lang-tool]] and [[doom-package:writegood-mode]].
+[[rmcs-package:lang-tool]] and [[rmcs-package:writegood-mode]].
 
 ** Maintainers
-/This module has no dedicated maintainers./ [[doom-contrib-maintainer:][Become a maintainer?]]
+/This module has no dedicated maintainers./ [[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 /This module has no flags./
 
 ** Packages
-- [[doom-package:langtool]]
-- [[doom-package:writegood-mode]]
+- [[rmcs-package:langtool]]
+- [[rmcs-package:writegood-mode]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -25,7 +25,7 @@ This module adds grammar checking to Emacs to aid your writing by combining
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module requires [[https://languagetool.org/][LanguageTool]] (which requires =Java 1.8+=).
 
@@ -41,7 +41,7 @@ will need to set ~langtool-language-tool-jar~ to its location.
 
 * TODO Usage
 #+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's usage documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Language Tool
@@ -61,16 +61,16 @@ This minor mode highlights weasel words, duplication and passive voice.
 
 * TODO Configuration
 #+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no configuration documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

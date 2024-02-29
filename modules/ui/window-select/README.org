@@ -7,27 +7,27 @@
 This module provides several methods for selecting windows without the use of
 the mouse or spatial navigation (e.g. [[kbd:][C-w {h,j,k,l}]]).
 
-The command ~other-window~ is remapped to either [[doom-package:switch-window]] or [[doom-package:ace-window]],
+The command ~other-window~ is remapped to either [[rmcs-package:switch-window]] or [[rmcs-package:ace-window]],
 depending on which backend you've enabled. It is bound to [[kbd:][C-x o]] (and [[kbd:][C-w C-w]] for
 evil users).
 
-It also provides numbered windows and selection with the [[doom-package:winum]] package, if
+It also provides numbered windows and selection with the [[rmcs-package:winum]] package, if
 desired. Evil users can jump to window N in [[kbd:][C-w <N>]] (where N is a number between
 0 and 9). Non evil users have [[kbd:][C-x w <N>]] instead.
 
 ** Maintainers
-/This module has no dedicated maintainers./ [[doom-contrib-maintainer:][Become a maintainer?]]
+/This module has no dedicated maintainers./ [[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +numbers ::
-  Enable numbered windows and window selection (using [[doom-package:winum]]).
+  Enable numbered windows and window selection (using [[rmcs-package:winum]]).
 - +switch-window ::
-  Use the [[doom-package:switch-window]] package as the backend, instead of ace-window ([[doom-package:avy]]).
+  Use the [[rmcs-package:switch-window]] package as the backend, instead of ace-window ([[rmcs-package:avy]]).
 
 ** Packages
-- [[doom-package:ace-window]] unless [[doom-module:+switch-window]]
-- [[doom-package:switch-window]] if [[doom-module:+switch-window]]
-- [[doom-package:winum]] if [[doom-module:+numbers]]
+- [[rmcs-package:ace-window]] unless [[rmcs-module:+switch-window]]
+- [[rmcs-package:switch-window]] if [[rmcs-module:+switch-window]]
+- [[rmcs-package:winum]] if [[rmcs-module:+numbers]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -37,22 +37,22 @@ desired. Evil users can jump to window N in [[kbd:][C-w <N>]] (where N is a numb
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 /This module has no external requirements./
 
 * TODO Usage
 #+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no usage documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * TODO Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 This module provides two backends, both providing the same functionality, but
-with different visual cues. They are [[doom-package:ace-window]] and [[doom-package:switch-window]].
+with different visual cues. They are [[rmcs-package:ace-window]] and [[rmcs-package:switch-window]].
 
 ** ace-window
 The first character of the buffers changes to a highlighted, user-selectable
@@ -79,12 +79,12 @@ Replaces the entire buffer with large letters.
 - *Cons:* You can't see the contents of the buffers.
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

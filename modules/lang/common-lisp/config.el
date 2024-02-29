@@ -40,7 +40,7 @@
   (add-hook! 'after-init-hook (after! sly (sly-setup)))
 
   :config
-  (setq sly-mrepl-history-file-name (concat doom-cache-dir "sly-mrepl-history")
+  (setq sly-mrepl-history-file-name (concat rmcs-cache-dir "sly-mrepl-history")
         sly-kill-without-query-p t
         sly-net-coding-system 'utf-8-unix
         ;; Doom defaults to non-fuzzy search, because it is faster and more
@@ -74,7 +74,7 @@
   (add-hook! 'sly-mode-hook
     (defun +common-lisp-init-sly-h ()
       "Attempt to auto-start sly when opening a lisp buffer."
-      (cond ((or (doom-temp-buffer-p (current-buffer))
+      (cond ((or (rmcs-temp-buffer-p (current-buffer))
                  (sly-connected-p)))
             ((executable-find (car (split-string inferior-lisp-program)))
              (let ((sly-auto-start 'always))

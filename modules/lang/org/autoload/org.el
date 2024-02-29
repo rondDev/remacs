@@ -508,7 +508,7 @@ All my (performant) foldings needs are met between this and `org-show-subtree'
        ;; `org-reveal') relies on overlays that aren't immediately available
        ;; when `org-mode' first initializes.
        (let ((buf (current-buffer)))
-         (unless (doom-temp-buffer-p buf)
+         (unless (rmcs-temp-buffer-p buf)
            (run-at-time 0.1 nil (lambda ()
                                   (when (buffer-live-p buf)
                                     (with-current-buffer buf

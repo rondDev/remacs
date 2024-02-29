@@ -5,7 +5,7 @@
              company-complete-common-or-cycle
              company-manual-begin
              company-grab-line)
-  :hook (doom-first-input . global-company-mode)
+  :hook (rmcs-first-input . global-company-mode)
   :init
   (setq company-minimum-prefix-length 2
         company-tooltip-limit 14
@@ -176,8 +176,8 @@
 (use-package! company-dict
   :defer t
   :config
-  (setq company-dict-dir (expand-file-name "dicts" doom-user-dir))
-  (add-hook! 'doom-project-hook
+  (setq company-dict-dir (expand-file-name "dicts" rmcs-user-dir))
+  (add-hook! 'rmcs-project-hook
     (defun +company-enable-project-dicts-h (mode &rest _)
       "Enable per-project dictionaries."
       (if (symbol-value mode)

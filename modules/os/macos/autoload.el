@@ -1,7 +1,7 @@
 ;;; os/macos/autoload.el -*- lexical-binding: t; -*-
 
 (defun +macos-defaults (action &rest args)
-  (apply #'doom-call-process "defaults" action args))
+  (apply #'rmcs-call-process "defaults" action args))
 
 (defun +macos-open-with (&optional app-name path)
   "Send PATH to APP-NAME on OSX."
@@ -51,7 +51,7 @@
 
 ;;;###autoload (autoload '+macos/reveal-project-in-finder "os/macos/autoload" nil t)
 (+macos--open-with reveal-project-in-finder "Finder"
-                   (or (doom-project-root) default-directory))
+                   (or (rmcs-project-root) default-directory))
 
 ;;;###autoload (autoload '+macos/send-to-transmit "os/macos/autoload" nil t)
 (+macos--open-with send-to-transmit "Transmit")
@@ -64,7 +64,7 @@
 
 ;;;###autoload (autoload '+macos/send-project-to-launchbar "os/macos/autoload" nil t)
 (+macos--open-with send-project-to-launchbar "LaunchBar"
-                   (or (doom-project-root) default-directory))
+                   (or (rmcs-project-root) default-directory))
 
 ;;;###autoload (autoload '+macos/open-in-iterm "os/macos/autoload" nil t)
 (+macos--open-with-iterm open-in-iterm default-directory)

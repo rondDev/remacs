@@ -19,7 +19,7 @@
                 `(,lsp-julia-command
                   ,@lsp-julia-flags
                   "-e" "using LanguageServer, SymbolServer")))))
-    (unless (zerop (car (apply #'doom-call-process args)))
+    (unless (zerop (car (apply #'rmcs-call-process args)))
       (warn! "Couldn't find LanguageServer.jl and/or SymbolServer.jl"))))
 
 ;; TODO Check for snail

@@ -13,13 +13,13 @@
     (ruby-mode       . "rb")
     (sh-mode         . "sh"))
   "An alist mapping major modes to extensions. Used by
-`doom--editorconfig-smart-detection-a' to give editorconfig filetype hints.")
+`rmcs--editorconfig-smart-detection-a' to give editorconfig filetype hints.")
 
 
 ;; Handles whitespace (tabs/spaces) settings externally. This way projects can
 ;; specify their own formatting rules.
 (use-package! editorconfig
-  :hook (doom-first-buffer . editorconfig-mode)
+  :hook (rmcs-first-buffer . editorconfig-mode)
   :config
   (when (require 'ws-butler nil t)
     (setq editorconfig-trim-whitespaces-mode 'ws-butler-mode))
@@ -50,4 +50,4 @@ extension, try to guess one."
 specified by editorconfig."
       (when (or (gethash 'indent_style props)
                 (gethash 'indent_size props))
-        (setq doom-inhibit-indent-detection 'editorconfig)))))
+        (setq rmcs-inhibit-indent-detection 'editorconfig)))))

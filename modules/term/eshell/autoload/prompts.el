@@ -14,11 +14,11 @@
 (defun +eshell--current-git-branch ()
   ;; TODO Refactor me
   (cl-destructuring-bind (status . output)
-      (doom-call-process "git" "symbolic-ref" "-q" "--short" "HEAD")
+      (rmcs-call-process "git" "symbolic-ref" "-q" "--short" "HEAD")
     (if (equal status 0)
         (format " [%s]" output)
       (cl-destructuring-bind (status . output)
-          (doom-call-process "git" "describe" "--all" "--always" "HEAD")
+          (rmcs-call-process "git" "describe" "--all" "--always" "HEAD")
         (if (equal status 0)
             (format " [%s]" output)
           "")))))

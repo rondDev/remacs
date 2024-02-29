@@ -8,8 +8,8 @@ Provides a REPL for your shell.
 
 #+begin_quote
  💡 =shell= is more REPL than terminal emulator. You can edit your command line
-    like you would any ordinary text in Emacs -- something you can't do in [[doom-package:term]]
-    (without ~term-line-mode~, which can be unstable) or [[doom-package:vterm]].
+    like you would any ordinary text in Emacs -- something you can't do in [[rmcs-package:term]]
+    (without ~term-line-mode~, which can be unstable) or [[rmcs-package:vterm]].
 
     Due to =shell='s simplicity, you're less likely to encounter edge cases
     (e.g. against your shell config), but it's also the least capable. TUI
@@ -18,7 +18,7 @@ Provides a REPL for your shell.
 #+end_quote
 
 ** Maintainers
-/This module has no dedicated maintainers./ [[doom-contrib-maintainer:][Become a maintainer?]]
+/This module has no dedicated maintainers./ [[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 /This module has no flags./
@@ -34,27 +34,27 @@ Provides a REPL for your shell.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 /This module has no external requirements./
 
 * TODO Usage
 #+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no usage documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * TODO Configuration
 #+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no configuration documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

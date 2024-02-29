@@ -14,14 +14,14 @@ Enjoy twitter from emacs.
 - Favorite tweets
 
 ** Maintainers
-/This module has no dedicated maintainers./ [[doom-contrib-maintainer:][Become a maintainer?]]
+/This module has no dedicated maintainers./ [[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 /This module has no flags./
 
 ** Packages
-- [[doom-package:avy]]
-- [[doom-package:twittering-mode]]
+- [[rmcs-package:avy]]
+- [[rmcs-package:twittering-mode]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -31,7 +31,7 @@ Enjoy twitter from emacs.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module requires:
 - One of the following (for SSL connections; required by Twitter's API):
@@ -48,12 +48,12 @@ This module requires:
 
 * TODO Usage
 #+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no usage documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * TODO Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Commands & Keybindings
@@ -64,7 +64,7 @@ Here is a list of available commands and their default keybindings (defined in
 | ~+twitter/quit~     | [[kbd:][q]]                | Close current window                                        |
 | ~+twitter/quit-all~ | [[kbd:][Q]]                | Close all twitter windows and buffers, and delete workspace |
 
-And when [[doom-module::editor evil +everywhere]] is active:
+And when [[rmcs-module::editor evil +everywhere]] is active:
 | command                                          | key / ex command | description                                                      |
 |--------------------------------------------------+------------------+------------------------------------------------------------------|
 | ~twittering-favorite~                            | [[kbd:][f]]                | Favorite/Like a tweet                                            |
@@ -85,17 +85,17 @@ And when [[doom-module::editor evil +everywhere]] is active:
 | ~twittering-goto-previous-status-of-user)))~     | [[kbd:][gk]]               | Go to previous tweet of user                                     |
 
 * Troubleshooting
-[[doom-report:][Report an issue?]]
+[[rmcs-report:][Report an issue?]]
 
 ** ~twittering-mode~ overrides the [[kbd:][SPC]] key
 Currently ~twittering-mode~ binds [[kbd:][SPC]], breaking its functionality as a leader
 key for evil users. To work around this issue you may use [[kbd:][M-SPC]] instead.
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote
 

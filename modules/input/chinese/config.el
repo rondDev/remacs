@@ -3,7 +3,7 @@
 (use-package! pyim
   :after-call after-find-file pre-command-hook
   :init
-  (setq pyim-dcache-directory (concat doom-cache-dir "pyim/"))
+  (setq pyim-dcache-directory (concat rmcs-cache-dir "pyim/"))
   :config
   (setq pyim-page-tooltip t
         default-input-method "pyim")
@@ -32,7 +32,7 @@
   :when (modulep! +rime)
   :init
   (setq liberime-auto-build t
-        liberime-user-data-dir (file-name-concat doom-cache-dir "rime")))
+        liberime-user-data-dir (file-name-concat rmcs-cache-dir "rime")))
 
 
 (use-package! pyim-liberime

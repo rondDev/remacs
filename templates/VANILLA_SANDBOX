@@ -3,10 +3,10 @@
 ;; This is a test bed for running Emacs Lisp in another instance of Emacs that
 ;; has varying amounts of Doom loaded:
 ;;
-;; - vanilla Emacs (nothing loaded)         \[doom--run-vanilla-emacs]
-;; - vanilla Doom (only Doom core)          \[doom--run-vanilla-doom]
-;; - Doom + modules - your private config   \[doom--run-vanilla-doom+]
-;; - Doom + modules + your private config   \[doom--run-full-doom]
+;; - vanilla Emacs (nothing loaded)         \[rmcs--run-vanilla-emacs]
+;; - vanilla Doom (only Doom core)          \[rmcs--run-vanilla-rmcs]
+;; - Doom + modules - your private config   \[rmcs--run-vanilla-rmcs+]
+;; - Doom + modules + your private config   \[rmcs--run-full-rmcs]
 ;;
 ;; This is done without sacrificing access to installed packages. Use the sandbox
 ;; to reproduce bugs and determine if Doom is to blame.

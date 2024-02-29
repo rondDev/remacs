@@ -15,7 +15,7 @@
 
 ;; HACK: See #5823: indent detection is slow and inconclusive in coq-mode files,
 ;;   and rarely helpful anyway, so I inhibit it.
-(add-to-list 'doom-detect-indentation-excluded-modes 'coq-mode)
+(add-to-list 'rmcs-detect-indentation-excluded-modes 'coq-mode)
 
 ;; We've replaced coq-mode abbrevs with yasnippet snippets (in the snippets
 ;; library included with Doom).

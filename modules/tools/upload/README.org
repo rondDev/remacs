@@ -14,15 +14,15 @@ The idea for this plug-in was to mimic the behavior of PhpStorm deployment funct
 #+end_quote
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[rmcs-user:][@hlissner]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 /This module has no flags./
 
 ** Packages
-- [[doom-package:ssh-deploy]]
+- [[rmcs-package:ssh-deploy]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -32,13 +32,13 @@ The idea for this plug-in was to mimic the behavior of PhpStorm deployment funct
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 /This module has no external requirements./
 
 * TODO Usage
 #+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's usage documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 Uses ~ssh-deploy~ to map a local folder to a remote one. Set
@@ -51,13 +51,13 @@ to establish this mapping. E.g.
 #+end_src
 
 #+begin_quote
- 󰐃 ~ssh-deploy-root-local~ is optional, and will resort to ~doom-project-root~
+ 󰐃 ~ssh-deploy-root-local~ is optional, and will resort to ~rmcs-project-root~
     if unspecified.
 #+end_quote
 
 * TODO Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 Check out [[https://github.com/cjohansson/emacs-ssh-deploy#deployment-configuration-examples][Deployment configuration examples]] for some ideas of what's possible.
@@ -71,9 +71,9 @@ The final directory names much match:
 #+end_src
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

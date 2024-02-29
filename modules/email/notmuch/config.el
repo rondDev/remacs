@@ -3,7 +3,7 @@
 ;; FIXME This module is a WIP!
 
 (defvar +notmuch-home-function #'notmuch
-  "Function for customizing the landing page for doom-emacs =notmuch.")
+  "Function for customizing the landing page for rmcs-emacs =notmuch.")
 
 (defvar +notmuch-sync-backend 'gmi
   "Which backend to use to synchrone email.
@@ -82,7 +82,7 @@ variable accordingly.")
   ;; only unfold unread messages in thread by default
   (add-hook 'notmuch-show-hook #'+notmuch-show-expand-only-unread-h)
 
-  (add-hook 'doom-real-buffer-functions #'notmuch-interesting-buffer)
+  (add-hook 'rmcs-real-buffer-functions #'notmuch-interesting-buffer)
 
   (advice-add #'notmuch-start-notmuch-sentinel :around #'+notmuch-dont-confirm-on-kill-process-a)
 

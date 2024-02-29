@@ -8,7 +8,7 @@
 ;;
 ;;; Code:
 
-(defvar doom--deferred-packages-alist '(t))
+(defvar rmcs--deferred-packages-alist '(t))
 (autoload 'use-package "use-package-core" nil nil t)
 
 
@@ -55,7 +55,7 @@
   ;; HACK Fix `:load-path' so it resolves relative paths to the containing file,
   ;;      rather than `user-emacs-directory'. This is a done as a convenience
   ;;      for users, wanting to specify a local directory.
-  (defadvice! doom--resolve-load-path-from-containg-file-a (fn label arg &optional recursed)
+  (defadvice! rmcs--resolve-load-path-from-containg-file-a (fn label arg &optional recursed)
     "Resolve :load-path from the current directory."
     :around #'use-package-normalize-paths
     ;; `use-package-normalize-paths' resolves paths relative to
@@ -64,7 +64,7 @@
            (or (and (stringp arg)
                     (not (file-name-absolute-p arg))
                     (ignore-errors (dir!)))
-               doom-emacs-dir)))
+               rmcs-emacs-dir)))
       (funcall fn label arg recursed)))
 
   ;; Adds two keywords to `use-package' to expand its lazy-loading capabilities:
@@ -81,7 +81,7 @@
   (defalias 'use-package-normalize/:defer-incrementally #'use-package-normalize-symlist)
   (defun use-package-handler/:defer-incrementally (name _keyword targets rest state)
     (use-package-concat
-     `((doom-load-packages-incrementally
+     `((rmcs-load-packages-incrementally
         ',(if (equal targets '(t))
               (list name)
             (append targets (list name)))))
@@ -91,25 +91,25 @@
   (defun use-package-handler/:after-call (name _keyword hooks rest state)
     (if (plist-get state :demand)
         (use-package-process-keywords name rest state)
-      (let ((fn (make-symbol (format "doom--after-call-%s-h" name))))
+      (let ((fn (make-symbol (format "rmcs--after-call-%s-h" name))))
         (use-package-concat
          `((fset ',fn
                  (lambda (&rest _)
-                   (doom-log "use-package: lazy loading %s from %s" ',name ',fn)
+                   (rmcs-log "use-package: lazy loading %s from %s" ',name ',fn)
                    (condition-case e
                        ;; If `default-directory' is a directory that doesn't
                        ;; exist or is unreadable, Emacs throws up file-missing
                        ;; errors, so we set it to a directory we know exists and
                        ;; is readable.
-                       (let ((default-directory doom-emacs-dir))
+                       (let ((default-directory rmcs-emacs-dir))
                          (require ',name))
                      ((debug error)
                       (message "Failed to load deferred package %s: %s" ',name e)))
-                   (when-let (deferral-list (assq ',name doom--deferred-packages-alist))
+                   (when-let (deferral-list (assq ',name rmcs--deferred-packages-alist))
                      (dolist (hook (cdr deferral-list))
                        (advice-remove hook #',fn)
                        (remove-hook hook #',fn))
-                     (delq! deferral-list doom--deferred-packages-alist)
+                     (delq! deferral-list rmcs--deferred-packages-alist)
                      (unintern ',fn nil)))))
          (let (forms)
            (dolist (hook hooks forms)
@@ -117,9 +117,9 @@
                        `(add-hook ',hook #',fn)
                      `(advice-add #',hook :before #',fn))
                    forms)))
-         `((unless (assq ',name doom--deferred-packages-alist)
-             (push '(,name) doom--deferred-packages-alist))
-           (nconc (assq ',name doom--deferred-packages-alist)
+         `((unless (assq ',name rmcs--deferred-packages-alist)
+             (push '(,name) rmcs--deferred-packages-alist))
+           (nconc (assq ',name rmcs--deferred-packages-alist)
                   '(,@hooks)))
          (use-package-process-keywords name rest state))))))
 
@@ -128,7 +128,7 @@
 ;;
 ;;; Macros
 
-(defvar doom-disabled-packages)
+(defvar rmcs-disabled-packages)
 (defmacro use-package! (name &rest plist)
   "Declares and configures a package.
 
@@ -153,7 +153,7 @@ two extra properties:
   NAME is implicitly added if this property is present and non-nil. No need to
   specify it. A value of `t' implies NAME."
   (declare (indent 1))
-  (unless (or (memq name doom-disabled-packages)
+  (unless (or (memq name rmcs-disabled-packages)
               ;; At compile-time, use-package will forcibly load packages to
               ;; prevent compile-time errors. However, if a Doom user has
               ;; disabled packages you get file-missing package errors, so it's

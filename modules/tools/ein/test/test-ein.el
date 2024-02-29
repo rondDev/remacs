@@ -8,7 +8,7 @@
   (require 'ein-notebook)
 
   (before-each
-    (spy-on 'doom-project-root :and-call-fake (lambda () project-root)))
+    (spy-on 'rmcs-project-root :and-call-fake (lambda () project-root)))
 
   (it "keymap defs still valid"
       (dolist (km (list ein:notebook-mode-map ein:notebooklist-mode-map))

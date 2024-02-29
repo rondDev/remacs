@@ -8,25 +8,25 @@ This module adds support for various statistics languages, including R, S-Plus,
 SAS, Julia and Stata.
 
 ** Maintainers
-/This module has no dedicated maintainers./ [[doom-contrib-maintainer:][Become a maintainer?]]
+/This module has no dedicated maintainers./ [[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +stan ::
   Enable support for ~stan-mode~, including code completion and syntax checking.
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
-  editing. Currently only supports ~ess-r-mode~. Requires [[doom-module::tools tree-sitter]].
+  editing. Currently only supports ~ess-r-mode~. Requires [[rmcs-module::tools tree-sitter]].
 
 ** Packages
-- [[doom-package:ess]]
-- [[doom-package:ess-R-data-view]]
-- [[doom-package:polymode]]
-- [[doom-package:poly-R]]
-- if [[doom-module:+stan]]
-  - [[doom-package:company-stan]] if [[doom-module::completion company]]
-  - [[doom-package:eldoc-stan]]
-  - [[doom-package:flycheck-stan]] if [[doom-module::checkers syntax]]
-  - [[doom-package:stan-mode]]
+- [[rmcs-package:ess]]
+- [[rmcs-package:ess-R-data-view]]
+- [[rmcs-package:polymode]]
+- [[rmcs-package:poly-R]]
+- if [[rmcs-module:+stan]]
+  - [[rmcs-package:company-stan]] if [[rmcs-module::completion company]]
+  - [[rmcs-package:eldoc-stan]]
+  - [[rmcs-package:flycheck-stan]] if [[rmcs-module::checkers syntax]]
+  - [[rmcs-package:stan-mode]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -36,16 +36,16 @@ SAS, Julia and Stata.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module has several optional dependencies:
 
 - [[https://github.com/jimhester/lintr][lintr]]: for R linting.
-- [[https://github.com/REditorSupport/languageserver][languageserver]]: for LSP support in an R buffer (with [[doom-module:+lsp]] flag).
+- [[https://github.com/REditorSupport/languageserver][languageserver]]: for LSP support in an R buffer (with [[rmcs-module:+lsp]] flag).
 
 * TODO Usage
 #+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's usage documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** :map ess-doc-map
@@ -92,16 +92,16 @@ This module has several optional dependencies:
 
 * TODO Configuration
 #+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no configuration documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

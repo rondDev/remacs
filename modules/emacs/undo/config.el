@@ -2,7 +2,7 @@
 
 (use-package! undo-fu
   :unless (modulep! +tree)
-  :hook (doom-first-buffer . undo-fu-mode)
+  :hook (rmcs-first-buffer . undo-fu-mode)
   :config
   ;; Increase undo history limits to reduce likelihood of data loss
   (setq undo-limit 400000           ; 400kb (default is 160kb)
@@ -27,7 +27,7 @@
 (use-package! undo-fu-session
   :unless (modulep! +tree)
   :hook (undo-fu-mode . global-undo-fu-session-mode)
-  :custom (undo-fu-session-directory (concat doom-cache-dir "undo-fu-session/"))
+  :custom (undo-fu-session-directory (concat rmcs-cache-dir "undo-fu-session/"))
   :config
   (setq undo-fu-session-incompatible-files '("\\.gpg$" "/COMMIT_EDITMSG\\'" "/git-rebase-todo\\'"))
 
@@ -55,14 +55,14 @@
   :config
   (setq vundo-glyph-alist vundo-unicode-symbols
         vundo-compact-display t)
-  (define-key vundo-mode-map [remap doom/escape] #'vundo-quit))
+  (define-key vundo-mode-map [remap rmcs/escape] #'vundo-quit))
 
 
 (use-package! undo-tree
   :when (modulep! +tree)
   ;; Branching & persistent undo
-  :hook (doom-first-buffer . global-undo-tree-mode)
-  :custom (undo-tree-history-directory-alist `(("." . ,(concat doom-cache-dir "undo-tree-hist/"))))
+  :hook (rmcs-first-buffer . global-undo-tree-mode)
+  :custom (undo-tree-history-directory-alist `(("." . ,(concat rmcs-cache-dir "undo-tree-hist/"))))
   :config
   (setq undo-tree-visualizer-diff t
         undo-tree-auto-save-history t
@@ -100,4 +100,4 @@
   ;; Undo-tree is too chatty about saving its history files. This doesn't
   ;; totally suppress it logging to *Messages*, it only stops it from appearing
   ;; in the echo-area.
-  (advice-add #'undo-tree-save-history :around #'doom-shut-up-a))
+  (advice-add #'undo-tree-save-history :around #'rmcs-shut-up-a))

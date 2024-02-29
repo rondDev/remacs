@@ -16,7 +16,7 @@
         ;; Ask whether destination dirs should get created when copying/removing files.
         dired-create-destination-dirs 'ask
         ;; Where to store image caches
-        image-dired-dir (concat doom-cache-dir "image-dired/")
+        image-dired-dir (concat rmcs-cache-dir "image-dired/")
         image-dired-db-file (concat image-dired-dir "db.el")
         image-dired-gallery-dir (concat image-dired-dir "gallery/")
         image-dired-temp-image-file (concat image-dired-dir "temp-image")
@@ -138,7 +138,7 @@ we have to clean it up ourselves."
   :hook (dired-mode . dired-omit-mode)
   :config
   (require 'dired-x)
-  (setq dirvish-cache-dir (concat doom-cache-dir "dirvish/")
+  (setq dirvish-cache-dir (concat rmcs-cache-dir "dirvish/")
         dirvish-hide-details nil
         dirvish-attributes '(git-msg)
         dired-omit-files (concat dired-omit-files "\\|^\\..*$"))
@@ -207,7 +207,7 @@ we have to clean it up ourselves."
 
 
 (use-package! fd-dired
-  :when doom-projectile-fd-binary
+  :when rmcs-projectile-fd-binary
   :defer t
   :init
   (global-set-key [remap find-dired] #'fd-dired)

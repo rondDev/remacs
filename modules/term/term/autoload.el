@@ -17,7 +17,7 @@ If prefix ARG, recreate the term buffer."
   (require 'multi-term)
   (let ((multi-term-dedicated-select-after-open-p t)
         (multi-term-dedicated-buffer-name
-         (format "doom:term-popup:%s"
+         (format "rmcs:term-popup:%s"
                  (if (bound-and-true-p persp-mode)
                      (safe-persp-name (get-current-persp))
                    "main"))))
@@ -29,9 +29,9 @@ If prefix ARG, recreate the term buffer."
       (if (and (window-live-p window)
                (buffer-live-p buffer))
           (delete-window window)
-        (setenv "PROOT" (or (doom-project-root) default-directory))
+        (setenv "PROOT" (or (rmcs-project-root) default-directory))
         (with-current-buffer buffer
-          (doom-mark-buffer-as-real-h)
+          (rmcs-mark-buffer-as-real-h)
           (multi-term-internal))
         (unless (window-live-p window)
           (when-let (window

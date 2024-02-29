@@ -37,4 +37,4 @@
 (defun +lisp/find-file-in-quicklisp ()
   "Find a file belonging to a library downloaded by Quicklisp."
   (interactive)
-  (doom-project-find-file "~/.quicklisp/dists/"))
+  (rmcs-project-find-file "~/.quicklisp/dists/"))

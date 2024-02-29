@@ -18,7 +18,7 @@
                             (modulep! :checkers syntax +flymake))
         ess-nuke-trailing-whitespace-p t
         ess-style 'DEFAULT
-        ess-history-directory (expand-file-name "ess-history/" doom-cache-dir))
+        ess-history-directory (expand-file-name "ess-history/" rmcs-cache-dir))
 
   (set-docsets! 'ess-r-mode "R")
   (when (modulep! +lsp)

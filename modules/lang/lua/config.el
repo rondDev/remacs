@@ -22,7 +22,7 @@
     (add-hook 'lua-mode-local-vars-hook #'lsp! 'append)
 
     (when (modulep! :tools lsp +eglot)
-      (defvar +lua-lsp-dir (concat doom-data-dir "lsp/lua-language-server/")
+      (defvar +lua-lsp-dir (concat rmcs-data-dir "lsp/lua-language-server/")
         "Absolute path to the directory of sumneko's lua-language-server.
 
 This directory MUST contain the 'main.lua' file and be the in-source build of
@@ -33,13 +33,13 @@ lua-language-server.")
         ;; the bundled dependencies aren't found otherwise. The only reason this
         ;; is a function is to dynamically change when/if `+lua-lsp-dir' does
         (list (or (executable-find "lua-language-server")
-                  (doom-path +lua-lsp-dir
+                  (rmcs-path +lua-lsp-dir
                              (cond ((featurep :system 'macos)   "bin/macOS")
                                    ((featurep :system 'linux)   "bin/Linux")
                                    ((featurep :system 'windows) "bin/Windows"))
                              "lua-language-server"))
               "-E" "-e" "LANG=en"
-              (doom-path +lua-lsp-dir "main.lua")))
+              (rmcs-path +lua-lsp-dir "main.lua")))
 
       (set-eglot-client! 'lua-mode (+lua-generate-lsp-server-command)))
 

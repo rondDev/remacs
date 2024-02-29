@@ -11,5 +11,5 @@
 
 (defadvice! +hydra--inhibit-window-switch-hooks-a (fn)
   :around #'lv-window
-  (let (doom-switch-window-hook)
+  (let (rmcs-switch-window-hook)
     (funcall fn)))

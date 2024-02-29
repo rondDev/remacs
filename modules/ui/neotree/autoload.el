@@ -11,7 +11,7 @@
   (require 'neotree)
   (if (neo-global--window-exists-p)
       (neotree-hide)
-    (neotree-dir (or (doom-project-root)
+    (neotree-dir (or (rmcs-project-root)
                      default-directory))))
 
 ;;;###autoload
@@ -19,7 +19,7 @@
   "Open the neotree window in the current project, and find the current file."
   (interactive)
   (let ((path buffer-file-name)
-        (project-root (or (doom-project-root)
+        (project-root (or (rmcs-project-root)
                           default-directory)))
     (require 'neotree)
     (cond ((and (neo-global--window-exists-p)

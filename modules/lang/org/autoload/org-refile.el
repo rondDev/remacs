@@ -51,7 +51,7 @@ If prefix ARG, copy instead of move."
   (let ((org-refile-keep arg)
         org-refile-targets
         current-prefix-arg)
-    (dolist (buf (delq (current-buffer) (doom-buffers-in-mode 'org-mode)))
+    (dolist (buf (delq (current-buffer) (rmcs-buffers-in-mode 'org-mode)))
       (when-let (file (buffer-file-name (buffer-base-buffer buf)))
         (cl-pushnew (cons file (cons :maxlevel 10))
                     org-refile-targets)))

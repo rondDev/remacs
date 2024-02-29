@@ -62,10 +62,10 @@
   ;; its manpath.
   (let ((manpath (cond
                   ((executable-find "manpath")
-                   (split-string (cdr (doom-call-process "manpath"))
+                   (split-string (cdr (rmcs-call-process "manpath"))
                                  path-separator t))
                   ((executable-find "man")
-                   (split-string (cdr (doom-call-process "man" "--path"))
+                   (split-string (cdr (rmcs-call-process "man" "--path"))
                                  path-separator t)))))
     (when manpath
       (setq woman-manpath manpath))))
@@ -98,7 +98,7 @@
     ;; expensive it is. It's also less useful for evil users. This may need to
     ;; be reactivated for non-evil users though. Needs more testing!
     (add-hook! 'after-change-major-mode-hook
-      (defun doom-disable-smartparens-navigate-skip-match-h ()
+      (defun rmcs-disable-smartparens-navigate-skip-match-h ()
         (setq sp-navigate-skip-match nil
               sp-navigate-consider-sgml-tags nil)))
 
@@ -246,8 +246,8 @@
         (sp-local-pair "f'" "'"))
       ;; Original keybind interferes with smartparens rules
       (define-key python-mode-map (kbd "DEL") nil)
-      ;; Interferes with the def snippet in doom-snippets
-      ;; TODO Fix this upstream, in doom-snippets, instead
+      ;; Interferes with the def snippet in rmcs-snippets
+      ;; TODO Fix this upstream, in rmcs-snippets, instead
       (setq sp-python-insert-colon-in-function-definitions nil))))
 
 
@@ -270,7 +270,7 @@
 (advice-add #'delete-backward-char :override #'+default--delete-backward-char-a)
 
 ;; HACK Makes `newline-and-indent' continue comments (and more reliably).
-;;      Consults `doom-point-in-comment-functions' to detect a commented region
+;;      Consults `rmcs-point-in-comment-functions' to detect a commented region
 ;;      and uses that mode's `comment-line-break-function' to continue comments.
 ;;      If neither exists, it will fall back to the normal behavior of
 ;;      `newline-and-indent'.
@@ -283,11 +283,11 @@
   "A replacement for `newline-and-indent'.
 
 Continues comments if executed from a commented line. Consults
-`doom-point-in-comment-functions' to determine if in a comment."
+`rmcs-point-in-comment-functions' to determine if in a comment."
   :before-until #'newline-and-indent
   (interactive "*")
   (when (and +default-want-RET-continue-comments
-             (doom-point-in-comment-p)
+             (rmcs-point-in-comment-p)
              (functionp comment-line-break-function))
     (funcall comment-line-break-function nil)
     t))
@@ -325,17 +325,17 @@ Continues comments if executed from a commented line. Consults
         "s-x" #'execute-extended-command
         :v "s-x" #'kill-region
         ;; Buffer-local font scaling
-        "s-+" #'doom/reset-font-size
-        "s-=" #'doom/increase-font-size
-        "s--" #'doom/decrease-font-size
+        "s-+" #'rmcs/reset-font-size
+        "s-=" #'rmcs/increase-font-size
+        "s--" #'rmcs/decrease-font-size
         ;; Conventional text-editing keys & motions
         "s-a" #'mark-whole-buffer
         "s-/" (cmd! (save-excursion (comment-line 1)))
         :n "s-/" #'evilnc-comment-or-uncomment-lines
         :v "s-/" #'evilnc-comment-operator
-        :gi  [s-backspace] #'doom/backward-kill-to-bol-and-indent
-        :gi  [s-left]      #'doom/backward-to-bol-or-indent
-        :gi  [s-right]     #'doom/forward-to-last-non-comment-or-eol
+        :gi  [s-backspace] #'rmcs/backward-kill-to-bol-and-indent
+        :gi  [s-left]      #'rmcs/backward-to-bol-or-indent
+        :gi  [s-right]     #'rmcs/forward-to-last-non-comment-or-eol
         :gi  [M-backspace] #'backward-kill-word
         :gi  [M-left]      #'backward-word
         :gi  [M-right]     #'forward-word))
@@ -349,12 +349,12 @@ Continues comments if executed from a commented line. Consults
 (define-key! help-map
   ;; new keybinds
   "'"    #'describe-char
-  "u"    #'doom/help-autodefs
-  "E"    #'doom/sandbox
-  "M"    #'doom/describe-active-minor-mode
+  "u"    #'rmcs/help-autodefs
+  "E"    #'rmcs/sandbox
+  "M"    #'rmcs/describe-active-minor-mode
   "O"    #'+lookup/online
-  "T"    #'doom/toggle-profiler
-  "V"    #'doom/help-custom-variable
+  "T"    #'rmcs/toggle-profiler
+  "V"    #'rmcs/help-custom-variable
   "W"    #'+default/man-or-woman
   "C-k"  #'describe-key-briefly
   "C-l"  #'describe-language-environment
@@ -367,11 +367,11 @@ Continues comments if executed from a commented line. Consults
   ;; replacement keybinds
   ;; replaces `info-emacs-manual' b/c it's on C-m now
   "r"    nil
-  "rr"   #'doom/reload
-  "rt"   #'doom/reload-theme
-  "rp"   #'doom/reload-packages
-  "rf"   #'doom/reload-font
-  "re"   #'doom/reload-env
+  "rr"   #'rmcs/reload
+  "rt"   #'rmcs/reload-theme
+  "rp"   #'rmcs/reload-packages
+  "rf"   #'rmcs/reload-font
+  "re"   #'rmcs/reload-env
 
   ;; make `describe-bindings' available under the b prefix which it previously
   ;; occupied. Add more binding related commands under that prefix as well
@@ -385,27 +385,27 @@ Continues comments if executed from a commented line. Consults
 
   ;; replaces `apropos-documentation' b/c `apropos' covers this
   "d"    nil
-  "db"   #'doom/report-bug
-  "dc"   #'doom/goto-private-config-file
-  "dC"   #'doom/goto-private-init-file
-  "dd"   #'doom-debug-mode
-  "df"   #'doom/help-faq
-  "dh"   #'doom/help
-  "dl"   #'doom/help-search-load-path
-  "dL"   #'doom/help-search-loaded-files
-  "dm"   #'doom/help-modules
-  "dn"   #'doom/help-news
-  "dN"   #'doom/help-search-news
-  "dpc"  #'doom/help-package-config
-  "dpd"  #'doom/goto-private-packages-file
-  "dph"  #'doom/help-package-homepage
-  "dpp"  #'doom/help-packages
-  "ds"   #'doom/help-search-headings
-  "dS"   #'doom/help-search
-  "dt"   #'doom/toggle-profiler
-  "du"   #'doom/help-autodefs
-  "dv"   #'doom/version
-  "dx"   #'doom/sandbox
+  "db"   #'rmcs/report-bug
+  "dc"   #'rmcs/goto-private-config-file
+  "dC"   #'rmcs/goto-private-init-file
+  "dd"   #'rmcs-debug-mode
+  "df"   #'rmcs/help-faq
+  "dh"   #'rmcs/help
+  "dl"   #'rmcs/help-search-load-path
+  "dL"   #'rmcs/help-search-loaded-files
+  "dm"   #'rmcs/help-modules
+  "dn"   #'rmcs/help-news
+  "dN"   #'rmcs/help-search-news
+  "dpc"  #'rmcs/help-package-config
+  "dpd"  #'rmcs/goto-private-packages-file
+  "dph"  #'rmcs/help-package-homepage
+  "dpp"  #'rmcs/help-packages
+  "ds"   #'rmcs/help-search-headings
+  "dS"   #'rmcs/help-search
+  "dt"   #'rmcs/toggle-profiler
+  "du"   #'rmcs/help-autodefs
+  "dv"   #'rmcs/version
+  "dx"   #'rmcs/sandbox
 
   ;; replaces `apropos-command'
   "a"    #'apropos
@@ -417,18 +417,18 @@ Continues comments if executed from a commented line. Consults
   ;; replaces `view-hello-file' b/c annoying
   "h"    nil
   ;; replaces `view-emacs-news' b/c it's on C-n too
-  "n"    #'doom/help-news
+  "n"    #'rmcs/help-news
   ;; replaces `help-with-tutorial', b/c it's less useful than `load-theme'
   "t"    #'load-theme
   ;; replaces `finder-by-keyword' b/c not useful
-  "p"    #'doom/help-packages
-  ;; replaces `describe-package' b/c redundant w/ `doom/help-packages'
+  "p"    #'rmcs/help-packages
+  ;; replaces `describe-package' b/c redundant w/ `rmcs/help-packages'
   "P"    #'find-library)
 
 (after! which-key
-  (let ((prefix-re (regexp-opt (list doom-leader-key doom-leader-alt-key))))
+  (let ((prefix-re (regexp-opt (list rmcs-leader-key rmcs-leader-alt-key))))
     (cl-pushnew `((,(format "\\`\\(?:<\\(?:\\(?:f1\\|help\\)>\\)\\|C-h\\|%s h\\) d\\'" prefix-re))
-                  nil . "doom")
+                  nil . "rmcs")
                 which-key-replacement-alist)
     (cl-pushnew `((,(format "\\`\\(?:<\\(?:\\(?:f1\\|help\\)>\\)\\|C-h\\|%s h\\) r\\'" prefix-re))
                   nil . "reload")
@@ -461,8 +461,8 @@ Continues comments if executed from a commented line. Consults
   ;; Smarter C-a/C-e for both Emacs and Evil. C-a will jump to indentation.
   ;; Pressing it again will send you to the true bol. Same goes for C-e, except
   ;; it will ignore comments+trailing whitespace before jumping to eol.
-  (map! :gi "C-a" #'doom/backward-to-bol-or-indent
-        :gi "C-e" #'doom/forward-to-last-non-comment-or-eol
+  (map! :gi "C-a" #'rmcs/backward-to-bol-or-indent
+        :gi "C-e" #'rmcs/forward-to-last-non-comment-or-eol
         ;; Standardizes the behavior of modified RET to match the behavior of
         ;; other editors, particularly Atom, textedit, textmate, and vscode, in
         ;; which ctrl+RET will add a new "item" below the current one and

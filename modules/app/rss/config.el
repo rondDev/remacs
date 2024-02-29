@@ -21,8 +21,8 @@ easier to scroll through.")
 (use-package! elfeed
   :commands elfeed
   :init
-  (setq elfeed-db-directory (concat doom-local-dir "elfeed/db/")
-        elfeed-enclosure-default-dir (concat doom-local-dir "elfeed/enclosures/"))
+  (setq elfeed-db-directory (concat rmcs-local-dir "elfeed/db/")
+        elfeed-enclosure-default-dir (concat rmcs-local-dir "elfeed/enclosures/"))
   :config
   (setq elfeed-search-filter "@2-week-ago "
         elfeed-show-entry-switch #'pop-to-buffer
@@ -36,7 +36,7 @@ easier to scroll through.")
   (make-directory elfeed-db-directory t)
 
   ;; Ensure elfeed buffers are treated as real
-  (add-hook! 'doom-real-buffer-functions
+  (add-hook! 'rmcs-real-buffer-functions
     (defun +rss-buffer-p (buf)
       (string-match-p "^\\*elfeed" (buffer-name buf))))
 

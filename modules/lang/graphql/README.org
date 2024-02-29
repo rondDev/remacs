@@ -8,29 +8,29 @@ This module adds [[https://www.graphql.org][GraphQL]] support to Doom Emacs.
 
 It includes:
 - Code completion
-- LSP support ([[doom-module:+lsp]])
+- LSP support ([[rmcs-module:+lsp]])
   - Diagnostics (GraphQL syntax linting/validations) (spec-compliant)
   - Autocomplete suggestions (spec-compliant)
   - Hyperlink to fragment definitions and named types (type, input, enum) definitions (spec-compliant)
   - Outline view support for queries and SDL
   - Symbols support across the workspace
 - Local schema viewer
-- Org-babel exporter (requires [[doom-module::lang org]])
+- Org-babel exporter (requires [[rmcs-module::lang org]])
 
 ** Maintainers
-- [[doom-user:][@elken]]
+- [[rmcs-user:][@elken]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~graphql-mode~. Requires [[doom-module::tools lsp]] and a langserver
+  Enable LSP support for ~graphql-mode~. Requires [[rmcs-module::tools lsp]] and a langserver
   ([[https://github.com/graphql/graphiql/tree/main/packages/graphql-language-service-cli#readme][graphql-language-service-cli]]).
 
 ** Packages
-- [[doom-package:company-graphql]] unless [[doom-module:+lsp]]
-- [[doom-package:graphql-mode]]
-- [[doom-package:graphql-doc]]
+- [[rmcs-package:company-graphql]] unless [[rmcs-module:+lsp]]
+- [[rmcs-package:graphql-mode]]
+- [[rmcs-package:graphql-doc]]
 
 ** Hacks
 - Added a convenience function [[fn:+graphql-doc-open-config]] to open schema docs from
@@ -41,7 +41,7 @@ It includes:
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 ** LSP
 
@@ -50,7 +50,7 @@ LSP server]].
 
 ** Formatter
 
-Formatting is handled using the [[doom-module::editor format]] module via [[https://prettier.io/docs/en/install.html][prettier]].
+Formatting is handled using the [[rmcs-module::editor format]] module via [[https://prettier.io/docs/en/install.html][prettier]].
 
 * Usage
 ** Sending queries
@@ -114,16 +114,16 @@ These files will also be useful to other editors, so it would be worth checking
 them into version control.
 
 * Troubleshooting
-[[doom-report:][Report an issue?]]
+[[rmcs-report:][Report an issue?]]
 
 - [[https://github.com/ifitzpatrick/graphql-doc.el/issues][Issues with the doc viewer]]
 - [[https://github.com/davazp/graphql-mode/issues][Issues with graphql-mode]]
 - [[https://github.com/emacs-lsp/lsp-mode/issues][Issues with LSP]] ([[https://github.com/graphql/graphiql/issues][Upstream LSP issues]])
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

@@ -25,9 +25,9 @@ for Markdown's syntax is the format of plain text email. -- John Gruber
 #+end_quote
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[rmcs-user:][@hlissner]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +grip ::
@@ -35,14 +35,14 @@ for Markdown's syntax is the format of plain text email. -- John Gruber
   previews of your markdown (or org) files.
 
 ** Packages
-- [[doom-package:edit-indirect]]
-- [[doom-package:evil-markdown]] if [[doom-module::editor evil +everywhere]]
-- [[doom-package:grip-mode]] if [[doom-module:+grip]]
-- [[doom-package:markdown-mode]]
-- [[doom-package:markdown-toc]]
+- [[rmcs-package:edit-indirect]]
+- [[rmcs-package:evil-markdown]] if [[rmcs-module::editor evil +everywhere]]
+- [[rmcs-package:grip-mode]] if [[rmcs-module:+grip]]
+- [[rmcs-package:markdown-mode]]
+- [[rmcs-package:markdown-toc]]
 
 ** Hacks
-- [[doom-package:flyspell]] has been configured not to spell check in code blocks, links, HTML
+- [[rmcs-package:flyspell]] has been configured not to spell check in code blocks, links, HTML
   tags or references.
 
 ** TODO Changelog
@@ -50,10 +50,10 @@ for Markdown's syntax is the format of plain text email. -- John Gruber
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module requires:
-- A linter (requires [[doom-module::checkers syntax]])
+- A linter (requires [[rmcs-module::checkers syntax]])
 - A markdown compiler, for previewing Markdown
 
 ** Linters
@@ -117,22 +117,22 @@ installed through your OS's package manager:
 
 ** Formatter
 
-Formatting is handled using the [[doom-module::editor format]] module via [[https://prettier.io/docs/en/install.html][prettier]].
+Formatting is handled using the [[rmcs-module::editor format]] module via [[https://prettier.io/docs/en/install.html][prettier]].
 
 * TODO Usage
 #+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's usage documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Markdown preview
 ~markdown-preview~ is bound to [[kbd:][<localleader> p]]. This will open a preview of your
 compiled markdown document in your browser.
 
-Alternatively, you can use ~grip-mode~ through [[doom-module:+grip]].
+Alternatively, you can use ~grip-mode~ through [[rmcs-module:+grip]].
 
 * Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Changing how markdown is compiled
@@ -166,12 +166,12 @@ Otherwise, you can change ~markdown-command~ directly:
 #+end_src
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

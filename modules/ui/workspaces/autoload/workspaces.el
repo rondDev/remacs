@@ -136,7 +136,7 @@ Otherwise return t on success, nil otherwise."
       (let ((ignore-window-parameters t)
             (+popup--inhibit-transient t))
         (persp-delete-other-windows))
-      (switch-to-buffer (doom-fallback-buffer))
+      (switch-to-buffer (rmcs-fallback-buffer))
       (setf (persp-window-conf persp)
             (funcall persp-window-state-get-function (selected-frame))))
     persp))
@@ -186,7 +186,7 @@ throws an error."
 ;;; Commands
 
 ;;;###autoload
-(defalias '+workspace/restore-last-session #'doom/quickload-session)
+(defalias '+workspace/restore-last-session #'rmcs/quickload-session)
 
 ;;;###autoload
 (defun +workspace/load (name)
@@ -257,13 +257,13 @@ workspace to delete."
                   (if (+workspace-exists-p +workspace--last)
                       +workspace--last
                     (car (+workspace-list-names))))
-                 (unless (doom-buffer-frame-predicate (window-buffer))
-                   (switch-to-buffer (doom-fallback-buffer))))
+                 (unless (rmcs-buffer-frame-predicate (window-buffer))
+                   (switch-to-buffer (rmcs-fallback-buffer))))
                 (t
                  (+workspace-switch +workspaces-main t)
                  (unless (string= (car workspaces) +workspaces-main)
                    (+workspace-delete name))
-                 (doom/kill-all-buffers (doom-buffer-list))))
+                 (rmcs/kill-all-buffers (rmcs-buffer-list))))
           (+workspace-message (format "Deleted '%s' workspace" name) 'success)))
     ('error (+workspace-error ex t))))
 
@@ -278,7 +278,7 @@ workspace to delete."
       (unless (cl-every #'+workspace-delete (+workspace-list-names))
         (+workspace-error "Could not clear session")))
     (+workspace-switch +workspaces-main t)
-    (setq buffers (doom/kill-all-buffers (buffer-list)))
+    (setq buffers (rmcs/kill-all-buffers (buffer-list)))
     (when interactive
       (message "Killed %d workspace(s), %d window(s) & %d buffer(s)"
                persps windows buffers))))
@@ -399,7 +399,7 @@ the next."
         (funcall delete-window-fn)
       (let ((current-persp-name (+workspace-current-name)))
         (cond ((or (+workspace--protected-p current-persp-name)
-                   (cdr (doom-visible-windows)))
+                   (cdr (rmcs-visible-windows)))
                (funcall delete-window-fn))
 
               ((cdr (+workspace-list-names))
@@ -505,8 +505,8 @@ created."
         (+workspace-switch +workspaces-main t)
       (with-selected-frame frame
         (+workspace-switch (format "#%s" (+workspace--generate-id)) t)
-        (unless (doom-real-buffer-p (current-buffer))
-          (switch-to-buffer (doom-fallback-buffer)))
+        (unless (rmcs-real-buffer-p (current-buffer))
+          (switch-to-buffer (rmcs-fallback-buffer)))
         (set-frame-parameter frame 'workspace (+workspace-current-name))
         ;; ensure every buffer has a buffer-predicate
         (persp-set-frame-buffer-predicate frame))
@@ -548,12 +548,12 @@ This be hooked to `projectile-after-switch-project-hook'."
                        (equal (safe-persp-name (get-current-persp)) persp-nil-name)
                        (+workspace-buffer-list)))
               (let* ((persp
-                      (let ((project-name (doom-project-name +workspaces--project-dir)))
+                      (let ((project-name (rmcs-project-name +workspaces--project-dir)))
                         (or (+workspace-get project-name t)
                             (+workspace-new project-name))))
                      (new-name (persp-name persp)))
                 (+workspace-switch new-name)
-                (with-current-buffer (doom-fallback-buffer)
+                (with-current-buffer (rmcs-fallback-buffer)
                   (setq default-directory +workspaces--project-dir)
                   (hack-dir-local-variables-non-file-buffer))
                 (unless current-prefix-arg
@@ -561,12 +561,12 @@ This be hooked to `projectile-after-switch-project-hook'."
                 (+workspace-message
                  (format "Switched to '%s' in new workspace" new-name)
                  'success))
-            (with-current-buffer (doom-fallback-buffer)
+            (with-current-buffer (rmcs-fallback-buffer)
               (setq default-directory +workspaces--project-dir)
               (hack-dir-local-variables-non-file-buffer)
-              (message "Switched to '%s'" (doom-project-name +workspaces--project-dir)))
+              (message "Switched to '%s'" (rmcs-project-name +workspaces--project-dir)))
             (with-demoted-errors "Workspace error: %s"
-              (+workspace-rename (+workspace-current-name) (doom-project-name +workspaces--project-dir)))
+              (+workspace-rename (+workspace-current-name) (rmcs-project-name +workspaces--project-dir)))
             (unless current-prefix-arg
               (funcall +workspaces-switch-project-function +workspaces--project-dir)))
         (run-hooks 'projectile-after-switch-project-hook)
@@ -608,6 +608,6 @@ This be hooked to `projectile-after-switch-project-hook'."
 ;;;###autoload
 (defun +workspaces-autosave-real-buffers-a (fn &rest args)
   "Don't autosave if no real buffers are open."
-  (when (doom-real-buffer-list)
+  (when (rmcs-real-buffer-list)
     (apply fn args))
   t)

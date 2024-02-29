@@ -1,8 +1,8 @@
 ;;; config/default/+emacs-bindings.el -*- lexical-binding: t; -*-
 
 ;; Sensible default key bindings for non-evil users
-(setq doom-leader-alt-key "C-c"
-      doom-localleader-alt-key "C-c l")
+(setq rmcs-leader-alt-key "C-c"
+      rmcs-localleader-alt-key "C-c l")
 
 ;; persp-mode and projectile in different prefixes
 (setq! persp-keymap-prefix (kbd "C-c w"))
@@ -39,7 +39,7 @@
        :desc "Send to repl"                          "s"   #'+eval/send-region-to-repl
        :desc "Find type definition"                  "t"   #'+lookup/type-definition
        :desc "Delete trailing whitespace"            "w"   #'delete-trailing-whitespace
-       :desc "Delete trailing newlines"              "W"   #'doom/delete-trailing-newlines
+       :desc "Delete trailing newlines"              "W"   #'rmcs/delete-trailing-newlines
        :desc "List errors"                           "x"   #'+default/diagnostics
        (:when (and (modulep! :tools lsp) (not (modulep! :tools lsp +eglot)))
         :desc "LSP Code actions"                      "a"   #'lsp-execute-code-action
@@ -72,25 +72,25 @@
       (:prefix-map ("f" . "file")
        (:when (modulep! :tools editorconfig)
         :desc "Open project editorconfig"  "c"   #'editorconfig-find-current-editorconfig)
-       :desc "Copy this file"              "C"   #'doom/copy-this-file
+       :desc "Copy this file"              "C"   #'rmcs/copy-this-file
        :desc "Find directory"              "d"   #'dired
-       :desc "Delete this file"            "D"   #'doom/delete-this-file
-       :desc "Find file in emacs.d"        "e"   #'doom/find-file-in-emacsd
-       :desc "Browse emacs.d"              "E"   #'doom/browse-in-emacsd
+       :desc "Delete this file"            "D"   #'rmcs/delete-this-file
+       :desc "Find file in emacs.d"        "e"   #'rmcs/find-file-in-emacsd
+       :desc "Browse emacs.d"              "E"   #'rmcs/browse-in-emacsd
        :desc "Find file"                   "f"   #'find-file
        :desc "Find file from here"         "F"   #'+default/find-file-under-here
        :desc "Locate file"                 "l"   #'locate
-       :desc "Rename/move this file"       "m"   #'doom/move-this-file
-       :desc "Find file in private config" "p"   #'doom/find-file-in-private-config
-       :desc "Browse private config"       "P"   #'doom/open-private-config
+       :desc "Rename/move this file"       "m"   #'rmcs/move-this-file
+       :desc "Find file in private config" "p"   #'rmcs/find-file-in-private-config
+       :desc "Browse private config"       "P"   #'rmcs/open-private-config
        :desc "Recent files"                "r"   #'recentf-open-files
        :desc "Recent project files"        "R"   #'projectile-recentf
-       :desc "Sudo this file"              "u"   #'doom/sudo-this-file
-       :desc "Sudo find file"              "U"   #'doom/sudo-find-file
+       :desc "Sudo this file"              "u"   #'rmcs/sudo-this-file
+       :desc "Sudo find file"              "U"   #'rmcs/sudo-find-file
        :desc "Yank file path"              "y"   #'+default/yank-buffer-path
        :desc "Yank file path from project" "Y"   #'+default/yank-buffer-path-relative-to-project
-       :desc "Open scratch buffer"         "x"   #'doom/open-scratch-buffer
-       :desc "Switch to scratch buffer"    "X"   #'doom/switch-to-scratch-buffer)
+       :desc "Open scratch buffer"         "x"   #'rmcs/open-scratch-buffer
+       :desc "Switch to scratch buffer"    "X"   #'rmcs/switch-to-scratch-buffer)
 
       ;;; <leader> r --- remote
       (:when (modulep! :tools upload)
@@ -282,11 +282,11 @@
       ;;; <leader> p --- project
       (:prefix ("p" . "project")
        :desc "Search project for symbol"   "." #'+default/search-project-for-symbol-at-point
-       :desc "Find file in other project"  "F" #'doom/find-file-in-other-project
+       :desc "Find file in other project"  "F" #'rmcs/find-file-in-other-project
        :desc "Search project"              "s" #'+default/search-project
        :desc "List project todos"          "t" #'magit-todos-list
-       :desc "Open project scratch buffer" "x" #'doom/open-project-scratch-buffer
-       :desc "Switch to project scratch buffer" "X" #'doom/switch-to-project-scratch-buffer
+       :desc "Open project scratch buffer" "x" #'rmcs/open-project-scratch-buffer
+       :desc "Switch to project scratch buffer" "X" #'rmcs/switch-to-project-scratch-buffer
        (:when (and (modulep! :tools taskrunner)
                    (or (modulep! :completion ivy)
                        (modulep! :completion helm)))
@@ -299,16 +299,16 @@
       (:prefix-map ("q" . "quit/restart")
        :desc "Restart emacs server"         "d" #'+default/restart-server
        :desc "Delete frame"                 "f" #'delete-frame
-       :desc "Clear current frame"          "F" #'doom/kill-all-buffers
+       :desc "Clear current frame"          "F" #'rmcs/kill-all-buffers
        :desc "Kill Emacs (and daemon)"      "K" #'save-buffers-kill-emacs
        :desc "Quit Emacs"                   "q" #'kill-emacs
        :desc "Save and quit Emacs"          "Q" #'save-buffers-kill-terminal
-       :desc "Quick save current session"   "s" #'doom/quicksave-session
-       :desc "Restore last session"         "l" #'doom/quickload-session
-       :desc "Save session to file"         "S" #'doom/save-session
-       :desc "Restore session from file"    "L" #'doom/load-session
-       :desc "Restart & restore Emacs"      "r" #'doom/restart-and-restore
-       :desc "Restart Emacs"                "R" #'doom/restart)
+       :desc "Quick save current session"   "s" #'rmcs/quicksave-session
+       :desc "Restore last session"         "l" #'rmcs/quickload-session
+       :desc "Save session to file"         "S" #'rmcs/save-session
+       :desc "Restore session from file"    "L" #'rmcs/load-session
+       :desc "Restart & restore Emacs"      "r" #'rmcs/restart-and-restore
+       :desc "Restart Emacs"                "R" #'rmcs/restart)
 
       ;;; <leader> & --- snippets
       (:prefix-map ("&" . "snippets")
@@ -321,12 +321,12 @@
 
       ;;; <leader> t --- toggle
       (:prefix-map ("t" . "toggle")
-       :desc "Big mode"                     "b" #'doom-big-font-mode
+       :desc "Big mode"                     "b" #'rmcs-big-font-mode
        :desc "Fill Column Indicator"        "c" #'global-display-fill-column-indicator-mode
        :desc "Flymake"                      "f" #'flymake-mode
        :desc "Frame fullscreen"             "F" #'toggle-frame-fullscreen
-       :desc "Indent style"                 "I" #'doom/toggle-indent-style
-       :desc "Line numbers"                 "l" #'doom/toggle-line-numbers
+       :desc "Indent style"                 "I" #'rmcs/toggle-indent-style
+       :desc "Line numbers"                 "l" #'rmcs/toggle-line-numbers
        :desc "Visible mode"                 "v" #'visible-mode
        :desc "Soft line wrapping"           "w" #'visual-line-mode
        (:when (modulep! :editor word-wrap)
@@ -428,10 +428,10 @@
         :desc "Switch to workspace 8"        "8" #'+workspace/switch-to-7
         :desc "Switch to workspace 9"        "9" #'+workspace/switch-to-8
         :desc "Switch to last workspace"     "0" #'+workspace/switch-to-final)
-       :desc "Autosave session"             "a" #'doom/quicksave-session
-       :desc "Save session"                 "s" #'doom/save-session
-       :desc "Load session"                 "l" #'doom/load-session
-       :desc "Load last autosaved session"  "L" #'doom/quickload-session
+       :desc "Autosave session"             "a" #'rmcs/quicksave-session
+       :desc "Save session"                 "s" #'rmcs/save-session
+       :desc "Load session"                 "l" #'rmcs/load-session
+       :desc "Load last autosaved session"  "L" #'rmcs/quickload-session
        :desc "Undo window config"           "u" #'winner-undo
        :desc "Redo window config"           "U" #'winner-redo)
 
@@ -509,7 +509,7 @@
         (:when (modulep! :completion ivy)
           "C-x 4 b"   #'+ivy/switch-workspace-buffer-other-window))
       "C-x C-b"     #'ibuffer
-      "C-x K"       #'doom/kill-this-buffer-in-all-windows
+      "C-x K"       #'rmcs/kill-this-buffer-in-all-windows
 
       ;;; company-mode
       (:when (modulep! :completion company)

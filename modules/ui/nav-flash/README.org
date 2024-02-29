@@ -12,15 +12,15 @@ make it easy to follow after big operations.
 #+end_quote
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[rmcs-user:][@hlissner]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 /This module has no flags./
 
 ** Packages
-- [[doom-package:nav-flash]]
+- [[rmcs-package:nav-flash]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -30,13 +30,13 @@ make it easy to follow after big operations.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 /This module has no external requirements./
 
 * Usage
-By default, [[doom-package:nav-flash]] will be triggered whenever [[fn:recenter]] is called or an entry
-is added to the jump-list (managed by [[doom-package:better-jumper]]).
+By default, [[rmcs-package:nav-flash]] will be triggered whenever [[fn:recenter]] is called or an entry
+is added to the jump-list (managed by [[rmcs-package:better-jumper]]).
 
 [[fn:recenter]] is called after many hooks and commands, such as:
 - [[var:better-jumper-post-jump-hook]]
@@ -48,16 +48,16 @@ is added to the jump-list (managed by [[doom-package:better-jumper]]).
 
 * TODO Configuration
 #+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no configuration documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

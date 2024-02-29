@@ -18,14 +18,14 @@ languages:
 - [[https://fennel-lang.org][Fennel]]
 
 ** Maintainers
-*This module needs a maintainer.* [[doom-contrib-maintainer:][Become a maintainer?]]
+*This module needs a maintainer.* [[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 /This module has no flags./
 
 ** Packages
-- [[doom-package:lispy]]
-- [[doom-package:lispyville]] if [[doom-module::editor evil +everywhere]]
+- [[rmcs-package:lispy]]
+- [[rmcs-package:lispyville]] if [[rmcs-module::editor evil +everywhere]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -35,21 +35,21 @@ languages:
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 /This module has no external requirements./
 
 * TODO Usage
 #+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's usage documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
-If [[doom-module::editor evil]] is enabled, [[doom-package:lispyville]] would also be activated for every mode
-where [[doom-package:lispy]] is active.
+If [[rmcs-module::editor evil]] is enabled, [[rmcs-package:lispyville]] would also be activated for every mode
+where [[rmcs-package:lispy]] is active.
 
 * TODO Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 The default key themes that are set are as follows:
@@ -90,17 +90,17 @@ them like below:
 #+end_src
 
 * Troubleshooting
-[[doom-report:][Report an issue?]]
+[[rmcs-report:][Report an issue?]]
 
-** Mouse wheel and =wrap=/=additional-wrap= key themes in TTY Emacs ([[https://github.com/hlissner/doom-emacs/issues/2573][#2573]])
+** Mouse wheel and =wrap=/=additional-wrap= key themes in TTY Emacs ([[https://github.com/hlissner/rmcs-emacs/issues/2573][#2573]])
 lispyville binds [[kbd:][M-[]] to ~lispyville-wrap-brackets~ when the =wrap= or
 =additional-wrap= key themes are enabled. In terminal Emacs, this is the key
 Emacs receives when you scroll with your mouse wheel.
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

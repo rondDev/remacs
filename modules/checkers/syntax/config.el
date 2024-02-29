@@ -6,7 +6,7 @@
 (use-package! flycheck
   :unless (modulep! +flymake)
   :commands flycheck-list-errors flycheck-buffer
-  :hook (doom-first-buffer . global-flycheck-mode)
+  :hook (rmcs-first-buffer . global-flycheck-mode)
   :config
   (setq flycheck-emacs-lisp-load-path 'inherit)
 
@@ -29,7 +29,7 @@
     '(("^\\*Flycheck error messages\\*" :select nil)
       ("^\\*Flycheck errors\\*" :size 0.25)))
 
-  (add-hook! 'doom-escape-hook :append
+  (add-hook! 'rmcs-escape-hook :append
     (defun +syntax-check-buffer-h ()
       "Flycheck buffer on ESC in normal mode."
       (when flycheck-mode

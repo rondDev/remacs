@@ -8,20 +8,20 @@ This module augments Emacs' built-in undo system to be more intuitive and to
 persist across Emacs sessions.
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[rmcs-user:][@hlissner]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +tree ::
-  Uses [[doom-package:undo-tree]] instead of [[doom-package:undo-fu]], which is a little less stable, but offers
+  Uses [[rmcs-package:undo-tree]] instead of [[rmcs-package:undo-fu]], which is a little less stable, but offers
   branching undo history and a visualizer for navigating it.
 
 ** Packages
-- [[doom-package:undo-fu]]
-- [[doom-package:undo-fu-session]]
-- [[doom-package:undo-tree]] if [[doom-module:+tree]]
-- [[doom-package:vundo]]
+- [[rmcs-package:undo-fu]]
+- [[rmcs-package:undo-fu-session]]
+- [[rmcs-package:undo-tree]] if [[rmcs-module:+tree]]
+- [[rmcs-package:vundo]]
 
 ** Hacks
 - Both undo-fu and undo-tree have been modified to use =zstd= to compress undo
@@ -40,22 +40,22 @@ persist across Emacs sessions.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 /This module has no external requirements./
 
 * TODO Usage
 #+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no usage documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * TODO Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Disabling persistent undo history
-- If you are using [[doom-module:+tree]]:
+- If you are using [[rmcs-module:+tree]]:
   #+begin_src emacs-lisp
   (after! undo-tree
     (setq undo-tree-auto-save-history nil))
@@ -67,7 +67,7 @@ persist across Emacs sessions.
   #+end_src
 
 * Troubleshooting
-[[doom-report:][Report an issue?]]
+[[rmcs-report:][Report an issue?]]
 
 ** undo-tree
 - Has been known to truncate undo history unpredictably, due to Emacs' undo
@@ -76,9 +76,9 @@ persist across Emacs sessions.
   to mitigate this somewhat.
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

@@ -100,8 +100,8 @@ installed with `dash-docs-install-docset'."
          (if arg
              (dash-docs-installed-docsets)
            (cl-remove-if-not #'dash-docs-docset-path (or docsets dash-docs-docsets))))
-        (query (doom-thing-at-point-or-region query)))
-    (doom-log "Searching docsets %s" dash-docs-docsets)
+        (query (rmcs-thing-at-point-or-region query)))
+    (rmcs-log "Searching docsets %s" dash-docs-docsets)
     (cond ((modulep! :completion vertico)
            (require 'consult)
            (dash-docs-initialize-debugging-buffer)

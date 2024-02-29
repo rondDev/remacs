@@ -41,7 +41,7 @@
      (unless ispell-personal-dictionary
        (setq ispell-personal-dictionary
              (expand-file-name (concat "ispell/" ispell-dictionary ".pws")
-                               doom-data-dir)))
+                               rmcs-data-dir)))
 
      (add-hook! 'text-mode-hook
        (defun +spell-remove-run-together-switch-for-aspell-h ()
@@ -60,7 +60,7 @@
     (`enchant
      (setq ispell-program-name "enchant-2"))
 
-    (_ (doom-log "Spell checker not found. Either install `aspell', `hunspell' or `enchant'"))))
+    (_ (rmcs-log "Spell checker not found. Either install `aspell', `hunspell' or `enchant'"))))
 
 
 ;;
@@ -128,7 +128,7 @@
               font-lock-variable-name-face)))
         "Faces in certain major modes that spell-fu will not spellcheck.")
 
-      (setq spell-fu-directory (concat doom-data-dir "spell-fu"))
+      (setq spell-fu-directory (concat rmcs-data-dir "spell-fu"))
       (when (modulep! +everywhere)
         (add-hook! '(yaml-mode-hook
                      conf-mode-hook

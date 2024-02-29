@@ -23,13 +23,13 @@
              (with-temp-file "org-version.el"
                (let ((version
                       (with-temp-buffer
-                        (insert-file-contents (doom-path "lisp/org.el") nil 0 1024)
+                        (insert-file-contents (rmcs-path "lisp/org.el") nil 0 1024)
                         (if (re-search-forward "^;; Version: \\([^\n-]+\\)" nil t)
                             (match-string-no-properties 1)
                           "Unknown"))))
                  (insert (format "(defun org-release () %S)\n" version)
                          (format "(defun org-git-version (&rest _) \"%s-??-%s\")\n"
-                                 version (cdr (doom-call-process "git" "rev-parse" "--short" "HEAD")))
+                                 version (cdr (rmcs-call-process "git" "rev-parse" "--short" "HEAD")))
                          "(provide 'org-version)\n")))))
   :pin "7a6bb0904d01b50680f9028f7c0f3cfc6ae3aa6e")
 (package! org-contrib

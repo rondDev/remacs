@@ -8,15 +8,15 @@ This module adds a calendar view for Emacs, with org and google calendar sync
 support.
 
 ** Maintainers
-/This module has no dedicated maintainers./ [[doom-contrib-maintainer:][Become a maintainer?]]
+/This module has no dedicated maintainers./ [[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 /This module has no flags./
 
 ** Packages
-- [[doom-package:calfw]]
-- [[doom-package:calfw-org]]
-- [[doom-package:org-gcal]]
+- [[rmcs-package:calfw]]
+- [[rmcs-package:calfw-org]]
+- [[rmcs-package:org-gcal]]
   
 ** Hacks
 /No hacks documented for this module./
@@ -26,20 +26,20 @@ support.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module requires:
 - A Google Calendar account.
-- [[https://github.com/kidd/org-gcal.el#installation][An OAuth client ID]], for syncing said account with [[doom-package:org-gcal]].
+- [[https://github.com/kidd/org-gcal.el#installation][An OAuth client ID]], for syncing said account with [[rmcs-package:org-gcal]].
 
 * TODO Usage
 #+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no usage documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * TODO Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Changing calendar sources
@@ -67,12 +67,12 @@ The [[https://github.com/kidd/org-gcal.el][kidd/org-gcal.el]] project README con
 to link your calendar with Google calendars.
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

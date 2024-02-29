@@ -1,6 +1,6 @@
-;;; ui/doom-quit/config.el -*- lexical-binding: t; -*-
+;;; ui/rmcs-quit/config.el -*- lexical-binding: t; -*-
 
-(defvar +doom-quit-messages
+(defvar +rmcs-quit-messages
   `(;; from Doom 1
     "Please don't leave, there's more demons to toast!"
     "Let's beat it -- This is turning into a bloodbath!"
@@ -28,16 +28,16 @@
     "Wake up, Mr. Stallman. Wake up and smell the ashes."
     "You are *not* prepared!"
     "Please don't go. The drones need you. They look up to you.")
-  "A list of quit messages, picked randomly by `+doom-quit'. Taken from
-http://doom.wikia.com/wiki/Quit_messages and elsewhere.")
+  "A list of quit messages, picked randomly by `+rmcs-quit'. Taken from
+http://rmcs.wikia.com/wiki/Quit_messages and elsewhere.")
 
-(defun +doom-quit-fn (&rest _)
-  (doom-quit-p
+(defun +rmcs-quit-fn (&rest _)
+  (rmcs-quit-p
    (format "%s  %s"
-           (propertize (nth (random (length +doom-quit-messages))
-                            +doom-quit-messages)
+           (propertize (nth (random (length +rmcs-quit-messages))
+                            +rmcs-quit-messages)
                        'face '(italic default))
            "Really quit Emacs?")))
 
 ;;
-(setq confirm-kill-emacs #'+doom-quit-fn)
+(setq confirm-kill-emacs #'+rmcs-quit-fn)

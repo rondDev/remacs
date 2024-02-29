@@ -31,7 +31,7 @@
     ;; REVIEW: This fork fixes SavchenkoValeriy/emacs-powerthesaurus#40.
     (package! powerthesaurus
       :recipe (:host github
-               :repo "doomelpa/powerthesaurus")
+               :repo "rmcselpa/powerthesaurus")
       :pin "d9ebb866f6fce469102665f187266f0a041cfc4b")
     (when (modulep! +offline)
       (package! wordnut :pin "feac531404041855312c1a046bde7ea18c674915")

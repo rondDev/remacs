@@ -10,24 +10,24 @@ This module adds support for the Clojure(Script) language.
   running tests, definitions & documentation lookup, code completion, and much
   more
 - Refactoring (~clj-refactor~)
-- Linting (~clj-kondo~), requires [[doom-module::checkers syntax]]
-- LSP support (~clojure-lsp~), required [[doom-module:+lsp]]
+- Linting (~clj-kondo~), requires [[rmcs-module::checkers syntax]]
+- LSP support (~clojure-lsp~), required [[rmcs-module:+lsp]]
 
 ** Maintainers
-- [[doom-user:][@elken]]
+- [[rmcs-user:][@elken]]
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~clojure-mode~ (alongside Cider). Requires [[doom-module::tools lsp]]
+  Enable LSP support for ~clojure-mode~ (alongside Cider). Requires [[rmcs-module::tools lsp]]
   and a langserver (supports [[https://clojure-lsp.io/][clojure-lsp]]).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
-  editing. Requires [[doom-module::tools tree-sitter]].
+  editing. Requires [[rmcs-module::tools tree-sitter]].
 
 ** Packages
-- [[doom-package:cider]]
-- [[doom-package:clj-refactor]]
-- [[doom-package:flycheck-clj-kondo]] if [[doom-module::checkers syntax]]
+- [[rmcs-package:cider]]
+- [[rmcs-package:clj-refactor]]
+- [[rmcs-package:flycheck-clj-kondo]] if [[rmcs-module::checkers syntax]]
 
 ** Hacks
 - Error messages emitted from CIDER are piped into the REPL buffer when it is
@@ -39,17 +39,17 @@ This module adds support for the Clojure(Script) language.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module requires:
 - [[https://clojure.org/][clojure]]
 
 This module optionally requires:
-- [[https://github.com/borkdude/clj-kondo][clj-kondo]], for linting code (if [[doom-module::checkers syntax]])
-- [[https://clojure-lsp.github.io/clojure-lsp/][clojure-lsp]], for LSP support (if [[doom-module:+lsp]])
+- [[https://github.com/borkdude/clj-kondo][clj-kondo]], for linting code (if [[rmcs-module::checkers syntax]])
+- [[https://clojure-lsp.github.io/clojure-lsp/][clojure-lsp]], for LSP support (if [[rmcs-module:+lsp]])
 - [[https://github.com/babashka/neil][neil]] for the ability to add packages to your Clojure project from Emacs
 - [[https://github.com/borkdude/jet][jet]] for jet integration
-- [[https://github.com/weavejester/cljfmt][cljfmt]], for formatting code (if [[doom-module::editor format]])
+- [[https://github.com/weavejester/cljfmt][cljfmt]], for formatting code (if [[rmcs-module::editor format]])
 
 * Usage
 
@@ -94,7 +94,7 @@ The module also provides support for running tests through cider, including a ni
 
 
 ** Search/navigation
-Some useful bindings for navigating around namespaces and symbols. When using [[doom-module:+lsp]], the bindings in [[doom-module::tools lsp]] are supported.
+Some useful bindings for navigating around namespaces and symbols. When using [[rmcs-module:+lsp]], the bindings in [[rmcs-module::tools lsp]] are supported.
 
 | Keybind                     | Command             |
 |-----------------------------+---------------------|
@@ -162,12 +162,12 @@ In order to opt into this, add the following to your =config.el=
 See [[https://docs.cider.mx/cider/config/basic_config.html#use-enrich-classpath][the docs]] for more
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

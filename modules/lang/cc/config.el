@@ -95,7 +95,7 @@ This is ignored by ccls.")
         c-backspace-function #'delete-backward-char)
 
   (c-add-style
-   "doom" '((c-comment-only-line-offset . 0)
+   "rmcs" '((c-comment-only-line-offset . 0)
             (c-hanging-braces-alist (brace-list-open)
                                     (brace-entry-open)
                                     (substatement-open after)
@@ -125,7 +125,7 @@ This is ignored by ccls.")
              (label . 0))))
 
   (when (listp c-default-style)
-    (setf (alist-get 'other c-default-style) "doom"))
+    (setf (alist-get 'other c-default-style) "rmcs"))
 
   (after! ffap
     (add-to-list 'ffap-alist '(c-mode . ffap-c-mode))))
@@ -144,7 +144,7 @@ This is ignored by ccls.")
   ;; Only initialize `irony-mode' if the server is available. Otherwise fail
   ;; quietly and gracefully.
   :hook ((c-mode-local-vars c++-mode-local-vars objc-mode-local-vars) . +cc-init-irony-mode-maybe-h)
-  :preface (setq irony-server-install-prefix (concat doom-data-dir "irony-server/"))
+  :preface (setq irony-server-install-prefix (concat rmcs-data-dir "irony-server/"))
   :config
   (defun +cc-init-irony-mode-maybe-h ()
     (if (file-directory-p irony-server-install-prefix)
@@ -200,7 +200,7 @@ This is ignored by ccls.")
   :unless (modulep! +lsp)
   ;; Only initialize rtags-mode if rtags and rdm are available.
   :hook ((c-mode-local-vars c++-mode-local-vars objc-mode-local-vars) . +cc-init-rtags-maybe-h)
-  :preface (setq rtags-install-path (concat doom-data-dir "rtags/"))
+  :preface (setq rtags-install-path (concat rmcs-data-dir "rtags/"))
   :config
   (defun +cc-init-rtags-maybe-h ()
     "Start an rtags server in c-mode and c++-mode buffers.
@@ -291,7 +291,7 @@ If rtags or rdm aren't available, fail silently instead of throwing a breaking e
                      `((:ccls . ((:clang . ,(list :extraArgs ["-isystem/Library/Developer/CommandLineTools/usr/include/c++/v1"
                                                               "-isystem/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"
                                                               "-isystem/usr/local/include"]
-                                                  :resourceDir (cdr (doom-call-process "clang" "-print-resource-dir"))))))))))))
+                                                  :resourceDir (cdr (rmcs-call-process "clang" "-print-resource-dir"))))))))))))
 
 (use-package! ccls
   :when (modulep! +lsp)
@@ -317,11 +317,11 @@ If rtags or rdm aren't available, fail silently instead of throwing a breaking e
             (featurep :system 'linux))
     (setq ccls-initialization-options
           `(:index (:trackDependency 1
-                    :threads ,(max 1 (/ (doom-system-cpus) 2))))))
+                    :threads ,(max 1 (/ (rmcs-system-cpus) 2))))))
   (when (featurep :system 'macos)
     (setq ccls-initialization-options
           (append ccls-initialization-options
                   `(:clang ,(list :extraArgs ["-isystem/Library/Developer/CommandLineTools/usr/include/c++/v1"
                                               "-isystem/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"
                                               "-isystem/usr/local/include"]
-                                  :resourceDir (cdr (doom-call-process "clang" "-print-resource-dir"))))))))
+                                  :resourceDir (cdr (rmcs-call-process "clang" "-print-resource-dir"))))))))

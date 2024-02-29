@@ -17,7 +17,7 @@
     "C-r"    #'evil-paste-from-register
     "C-u"    #'evil-delete-back-to-indentation
     "C-v"    #'yank
-    "C-w"    #'doom/delete-backward-word
+    "C-w"    #'rmcs/delete-backward-word
     "C-z"    (cmd! (ignore-errors (call-interactively #'undo))))
 
   (define-key! :keymaps +default-minibuffer-maps
@@ -56,14 +56,14 @@
                       ;; mode-local ones for modes that don't have an evil
                       ;; keybinding scheme or users who don't have :editor (evil
                       ;; +everywhere) enabled.
-                      (or (doom-lookup-key
+                      (or (rmcs-lookup-key
                            [tab]
                            (list (evil-get-auxiliary-keymap (current-local-map) evil-state)
                                  (current-local-map)))
-                          (doom-lookup-key
+                          (rmcs-lookup-key
                            (kbd "TAB")
                            (list (evil-get-auxiliary-keymap (current-local-map) evil-state)))
-                          (doom-lookup-key (kbd "TAB") (list (current-local-map))))
+                          (rmcs-lookup-key (kbd "TAB") (list (current-local-map))))
                       it
                       (fboundp 'evil-jump-item)
                       #'evil-jump-item)
@@ -115,13 +115,13 @@
 
       ;; misc
       :n "C-S-f"  #'toggle-frame-fullscreen
-      :n "C-+"    #'doom/reset-font-size
+      :n "C-+"    #'rmcs/reset-font-size
       ;; Buffer-local font resizing
       :n "C-="    #'text-scale-increase
       :n "C--"    #'text-scale-decrease
       ;; Frame-local font resizing
-      :n "M-C-="  #'doom/increase-font-size
-      :n "M-C--"  #'doom/decrease-font-size)
+      :n "M-C-="  #'rmcs/increase-font-size
+      :n "M-C--"  #'rmcs/decrease-font-size)
 
 
 ;;
@@ -280,7 +280,7 @@
 (map! :leader
       :desc "Eval expression"       ";"    #'pp-eval-expression
       :desc "M-x"                   ":"    #'execute-extended-command
-      :desc "Pop up scratch buffer" "x"    #'doom/open-scratch-buffer
+      :desc "Pop up scratch buffer" "x"    #'rmcs/open-scratch-buffer
       :desc "Org Capture"           "X"    #'org-capture
       ;; C-u is used by evil
       :desc "Universal argument"    "u"    #'universal-argument
@@ -335,7 +335,7 @@
 
       ;;; <leader> b --- buffer
       (:prefix-map ("b" . "buffer")
-       :desc "Toggle narrowing"            "-"   #'doom/toggle-narrow-buffer
+       :desc "Toggle narrowing"            "-"   #'rmcs/toggle-narrow-buffer
        :desc "Previous buffer"             "["   #'previous-buffer
        :desc "Next buffer"                 "]"   #'next-buffer
        (:when (modulep! :ui workspaces)
@@ -349,24 +349,24 @@
        :desc "Kill buffer"                 "d"   #'kill-current-buffer
        :desc "ibuffer"                     "i"   #'ibuffer
        :desc "Kill buffer"                 "k"   #'kill-current-buffer
-       :desc "Kill all buffers"            "K"   #'doom/kill-all-buffers
+       :desc "Kill all buffers"            "K"   #'rmcs/kill-all-buffers
        :desc "Switch to last buffer"       "l"   #'evil-switch-to-windows-last-buffer
        :desc "Set bookmark"                "m"   #'bookmark-set
        :desc "Delete bookmark"             "M"   #'bookmark-delete
        :desc "Next buffer"                 "n"   #'next-buffer
        :desc "New empty buffer"            "N"   #'evil-buffer-new
-       :desc "Kill other buffers"          "O"   #'doom/kill-other-buffers
+       :desc "Kill other buffers"          "O"   #'rmcs/kill-other-buffers
        :desc "Previous buffer"             "p"   #'previous-buffer
        :desc "Revert buffer"               "r"   #'revert-buffer
        :desc "Rename buffer"               "R"   #'rename-buffer
        :desc "Save buffer"                 "s"   #'basic-save-buffer
        :desc "Save all buffers"            "S"   #'evil-write-all
-       :desc "Save buffer as root"         "u"   #'doom/sudo-save-buffer
-       :desc "Pop up scratch buffer"       "x"   #'doom/open-scratch-buffer
-       :desc "Switch to scratch buffer"    "X"   #'doom/switch-to-scratch-buffer
+       :desc "Save buffer as root"         "u"   #'rmcs/sudo-save-buffer
+       :desc "Pop up scratch buffer"       "x"   #'rmcs/open-scratch-buffer
+       :desc "Switch to scratch buffer"    "X"   #'rmcs/switch-to-scratch-buffer
        :desc "Yank buffer"                 "y"   #'+default/yank-buffer-contents
        :desc "Bury buffer"                 "z"   #'bury-buffer
-       :desc "Kill buried buffers"         "Z"   #'doom/kill-buried-buffers)
+       :desc "Kill buried buffers"         "Z"   #'rmcs/kill-buried-buffers)
 
       ;;; <leader> c --- code
       (:prefix-map ("c" . "code")
@@ -408,28 +408,28 @@
        :desc "Send to repl"                          "s"   #'+eval/send-region-to-repl
        :desc "Find type definition"                  "t"   #'+lookup/type-definition
        :desc "Delete trailing whitespace"            "w"   #'delete-trailing-whitespace
-       :desc "Delete trailing newlines"              "W"   #'doom/delete-trailing-newlines
+       :desc "Delete trailing newlines"              "W"   #'rmcs/delete-trailing-newlines
        :desc "List errors"                           "x"   #'+default/diagnostics)
 
       ;;; <leader> f --- file
       (:prefix-map ("f" . "file")
        :desc "Open project editorconfig"   "c"   #'editorconfig-find-current-editorconfig
-       :desc "Copy this file"              "C"   #'doom/copy-this-file
+       :desc "Copy this file"              "C"   #'rmcs/copy-this-file
        :desc "Find directory"              "d"   #'+default/dired
-       :desc "Delete this file"            "D"   #'doom/delete-this-file
-       :desc "Find file in emacs.d"        "e"   #'doom/find-file-in-emacsd
-       :desc "Browse emacs.d"              "E"   #'doom/browse-in-emacsd
+       :desc "Delete this file"            "D"   #'rmcs/delete-this-file
+       :desc "Find file in emacs.d"        "e"   #'rmcs/find-file-in-emacsd
+       :desc "Browse emacs.d"              "E"   #'rmcs/browse-in-emacsd
        :desc "Find file"                   "f"   #'find-file
        :desc "Find file from here"         "F"   #'+default/find-file-under-here
        :desc "Locate file"                 "l"   #'locate
-       :desc "Find file in private config" "p"   #'doom/find-file-in-private-config
-       :desc "Browse private config"       "P"   #'doom/open-private-config
+       :desc "Find file in private config" "p"   #'rmcs/find-file-in-private-config
+       :desc "Browse private config"       "P"   #'rmcs/open-private-config
        :desc "Recent files"                "r"   #'recentf-open-files
-       :desc "Rename/move file"            "R"   #'doom/move-this-file
+       :desc "Rename/move file"            "R"   #'rmcs/move-this-file
        :desc "Save file"                   "s"   #'save-buffer
        :desc "Save file as..."             "S"   #'write-file
-       :desc "Sudo find file"              "u"   #'doom/sudo-find-file
-       :desc "Sudo this file"              "U"   #'doom/sudo-this-file
+       :desc "Sudo find file"              "u"   #'rmcs/sudo-find-file
+       :desc "Sudo this file"              "U"   #'rmcs/sudo-this-file
        :desc "Yank file path"              "y"   #'+default/yank-buffer-path
        :desc "Yank file path from project" "Y"   #'+default/yank-buffer-path-relative-to-project)
 
@@ -662,7 +662,7 @@
       ;;; <leader> p --- project
       (:prefix-map ("p" . "project")
        :desc "Browse project"               "." #'+default/browse-project
-       :desc "Browse other project"         ">" #'doom/browse-in-other-project
+       :desc "Browse other project"         ">" #'rmcs/browse-in-other-project
        :desc "Run cmd in project root"      "!" #'projectile-run-shell-command-in-root
        :desc "Async cmd in project root"    "&" #'projectile-run-async-shell-command-in-root
        :desc "Add new project"              "a" #'projectile-add-known-project
@@ -673,7 +673,7 @@
        :desc "Discover projects in folder"  "D" #'+default/discover-projects
        :desc "Edit project .dir-locals"     "e" #'projectile-edit-dir-locals
        :desc "Find file in project"         "f" #'projectile-find-file
-       :desc "Find file in other project"   "F" #'doom/find-file-in-other-project
+       :desc "Find file in other project"   "F" #'rmcs/find-file-in-other-project
        :desc "Configure project"            "g" #'projectile-configure-project
        :desc "Invalidate project cache"     "i" #'projectile-invalidate-cache
        :desc "Kill project buffers"         "k" #'projectile-kill-buffers
@@ -684,8 +684,8 @@
        :desc "Save project files"           "s" #'projectile-save-project-buffers
        :desc "List project todos"           "t" #'magit-todos-list
        :desc "Test project"                 "T" #'projectile-test-project
-       :desc "Pop up scratch buffer"        "x" #'doom/open-project-scratch-buffer
-       :desc "Switch to scratch buffer"     "X" #'doom/switch-to-project-scratch-buffer
+       :desc "Pop up scratch buffer"        "x" #'rmcs/open-project-scratch-buffer
+       :desc "Switch to scratch buffer"     "X" #'rmcs/switch-to-project-scratch-buffer
        (:when (and (modulep! :tools taskrunner)
                    (or (modulep! :completion ivy)
                        (modulep! :completion helm)))
@@ -695,16 +695,16 @@
       (:prefix-map ("q" . "quit/session")
        :desc "Restart emacs server"         "d" #'+default/restart-server
        :desc "Delete frame"                 "f" #'delete-frame
-       :desc "Clear current frame"          "F" #'doom/kill-all-buffers
+       :desc "Clear current frame"          "F" #'rmcs/kill-all-buffers
        :desc "Kill Emacs (and daemon)"      "K" #'save-buffers-kill-emacs
        :desc "Quit Emacs"                   "q" #'save-buffers-kill-terminal
        :desc "Quit Emacs without saving"    "Q" #'evil-quit-all-with-error-code
-       :desc "Quick save current session"   "s" #'doom/quicksave-session
-       :desc "Restore last session"         "l" #'doom/quickload-session
-       :desc "Save session to file"         "S" #'doom/save-session
-       :desc "Restore session from file"    "L" #'doom/load-session
-       :desc "Restart & restore Emacs"      "r" #'doom/restart-and-restore
-       :desc "Restart Emacs"                "R" #'doom/restart)
+       :desc "Quick save current session"   "s" #'rmcs/quicksave-session
+       :desc "Restore last session"         "l" #'rmcs/quickload-session
+       :desc "Save session to file"         "S" #'rmcs/save-session
+       :desc "Restore session from file"    "L" #'rmcs/load-session
+       :desc "Restart & restore Emacs"      "r" #'rmcs/restart-and-restore
+       :desc "Restart Emacs"                "R" #'rmcs/restart)
 
       ;;; <leader> r --- remote
       (:when (modulep! :tools upload)
@@ -766,7 +766,7 @@
 
       ;;; <leader> t --- toggle
       (:prefix-map ("t" . "toggle")
-       :desc "Big mode"                     "b" #'doom-big-font-mode
+       :desc "Big mode"                     "b" #'rmcs-big-font-mode
        :desc "Fill Column Indicator"        "c" #'global-display-fill-column-indicator-mode
        :desc "Flymake"                      "f" #'flymake-mode
        (:when (and (modulep! :checkers syntax)
@@ -776,8 +776,8 @@
        :desc "Evil goggles"                 "g" #'evil-goggles-mode
        (:when (modulep! :ui indent-guides)
         :desc "Indent guides"              "i" #'highlight-indent-guides-mode)
-       :desc "Indent style"                 "I" #'doom/toggle-indent-style
-       :desc "Line numbers"                 "l" #'doom/toggle-line-numbers
+       :desc "Indent style"                 "I" #'rmcs/toggle-indent-style
+       :desc "Line numbers"                 "l" #'rmcs/toggle-line-numbers
        (:when (modulep! :ui minimap)
         :desc "Minimap"                      "m" #'minimap-mode)
        (:when (modulep! :lang org +present)
@@ -798,7 +798,7 @@
         :desc "Zen mode (fullscreen)"      "Z" #'+zen/toggle-fullscreen)))
 
 (after! which-key
-  (let ((prefix-re (regexp-opt (list doom-leader-key doom-leader-alt-key))))
+  (let ((prefix-re (regexp-opt (list rmcs-leader-key rmcs-leader-alt-key))))
     (cl-pushnew `((,(format "\\`\\(?:C-w\\|%s w\\) m\\'" prefix-re))
                   nil . "maximize")
                 which-key-replacement-alist)))

@@ -22,11 +22,11 @@ Only has an effect in GUI Emacs.")
   :init
   (setq magit-auto-revert-mode nil)  ; we do this ourselves further down
   ;; Must be set early to prevent ~/.config/emacs/transient from being created
-  (setq transient-levels-file  (concat doom-data-dir "transient/levels")
-        transient-values-file  (concat doom-data-dir "transient/values")
-        transient-history-file (concat doom-data-dir "transient/history"))
+  (setq transient-levels-file  (concat rmcs-data-dir "transient/levels")
+        transient-values-file  (concat rmcs-data-dir "transient/values")
+        transient-history-file (concat rmcs-data-dir "transient/history"))
   :config
-  (add-to-list 'doom-debug-variables 'magit-refresh-verbose)
+  (add-to-list 'rmcs-debug-variables 'magit-refresh-verbose)
 
   (setq transient-default-level 5
         magit-diff-refine-hunk t ; show granular diffs in selected hunk
@@ -48,7 +48,7 @@ Only has an effect in GUI Emacs.")
     ;; changed: refresh the visible buffers immediately...
     (+magit-mark-stale-buffers-h))
   ;; ...then refresh the rest only when we switch to them, not all at once.
-  (add-hook 'doom-switch-buffer-hook #'+magit-revert-buffer-maybe-h)
+  (add-hook 'rmcs-switch-buffer-hook #'+magit-revert-buffer-maybe-h)
 
   ;; The default location for git-credential-cache is in
   ;; ~/.cache/git/credential. However, if ~/.git-credential-cache/ exists, then
@@ -56,7 +56,7 @@ Only has an effect in GUI Emacs.")
   ;; we override it to have more correct behavior.
   (unless (file-exists-p "~/.git-credential-cache/")
     (setq magit-credential-cache-daemon-socket
-          (doom-glob (or (getenv "XDG_CACHE_HOME")
+          (rmcs-glob (or (getenv "XDG_CACHE_HOME")
                          "~/.cache/")
                      "git/credential/socket")))
 
@@ -96,7 +96,7 @@ Only has an effect in GUI Emacs.")
     '("-a" "Autostash" "--autostash"))
 
   ;; so magit buffers can be switched to (except for process buffers)
-  (add-hook! 'doom-real-buffer-functions
+  (add-hook! 'rmcs-real-buffer-functions
     (defun +magit-buffer-p (buf)
       (with-current-buffer buf
         (and (derived-mode-p 'magit-mode)
@@ -147,7 +147,7 @@ Only has an effect in GUI Emacs.")
   :after-call magit-status
   :commands forge-create-pullreq forge-create-issue
   :preface
-  (setq forge-database-file (concat doom-data-dir "forge/forge-database.sqlite"))
+  (setq forge-database-file (concat rmcs-data-dir "forge/forge-database.sqlite"))
   (setq forge-add-default-bindings (not (modulep! :editor evil +everywhere)))
   :config
   ;; All forge list modes are derived from `forge-topic-list-mode'
@@ -172,9 +172,9 @@ Only has an effect in GUI Emacs.")
         (dolist (state states)
           (evil-collection-define-key state 'code-review-mode-map evil-binding fn))))
     (evil-set-initial-state 'code-review-mode evil-default-state))
-  (setq code-review-db-database-file (concat doom-data-dir "code-review/code-review-db-file.sqlite")
-        code-review-log-file (concat doom-data-dir "code-review/code-review-error.log")
-        code-review-download-dir (concat doom-data-dir "code-review/"))
+  (setq code-review-db-database-file (concat rmcs-data-dir "code-review/code-review-db-file.sqlite")
+        code-review-log-file (concat rmcs-data-dir "code-review/code-review-error.log")
+        code-review-download-dir (concat rmcs-data-dir "code-review/"))
   :config
   (transient-append-suffix 'magit-merge "i"
     '("y" "Review pull request" +magit/start-code-review))

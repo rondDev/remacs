@@ -7,23 +7,23 @@
 This module adds support for the [[https://developer.apple.com/swift/][Swift programming language]] to Doom Emacs.
 
 ** Maintainers
-*This module needs a maintainer.* [[doom-contrib-maintainer:][Become a maintainer?]]
+*This module needs a maintainer.* [[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~swift-mode~. Requires [[doom-module::tools lsp]] and a langserver
+  Enable LSP support for ~swift-mode~. Requires [[rmcs-module::tools lsp]] and a langserver
   (supports sourcekit).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
-  editing. Requires [[doom-module::tools tree-sitter]].
+  editing. Requires [[rmcs-module::tools tree-sitter]].
 
 ** Packages
-- [[doom-package:swift-mode]]
-- if [[doom-module:+lsp]]
-  - [[doom-package:lsp-sourcekit]]
+- [[rmcs-package:swift-mode]]
+- if [[rmcs-module:+lsp]]
+  - [[rmcs-package:lsp-sourcekit]]
 - else
-  - [[doom-package:company-sourcekit]] if [[doom-module::completion company]]
-  - [[doom-package:flycheck-sourcekit]] if [[doom-module::checkers syntax]]
+  - [[rmcs-package:company-sourcekit]] if [[rmcs-module::completion company]]
+  - [[rmcs-package:flycheck-sourcekit]] if [[rmcs-module::checkers syntax]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -33,33 +33,33 @@ This module adds support for the [[https://developer.apple.com/swift/][Swift pro
 /This module does not have a changelog yet./
 
 * TODO Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 ** Formatter
 
-Formatting is handled using the [[doom-module::editor format]] module via [[https://github.com/nicklockwood/SwiftFormat#command-line-tool][swiftformat]].
+Formatting is handled using the [[rmcs-module::editor format]] module via [[https://github.com/nicklockwood/SwiftFormat#command-line-tool][swiftformat]].
 
 #+begin_quote
- 󱌣 /This module's prerequisites are not documented./ [[doom-contrib-module:][Document them?]]
+ 󱌣 /This module's prerequisites are not documented./ [[rmcs-contrib-module:][Document them?]]
 #+end_quote
 
 * TODO Usage
 #+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no usage documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * TODO Configuration
 #+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no configuration documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

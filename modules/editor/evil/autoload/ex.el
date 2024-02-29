@@ -91,7 +91,7 @@ g   Repeat alignment on all matches in each line"
 ;;;###autoload (autoload '+evil:open-scratch-buffer "editor/evil/autoload/ex" nil t)
 (evil-define-operator +evil:open-scratch-buffer (bang)
   (interactive "<!>")
-  (doom/open-scratch-buffer bang))
+  (rmcs/open-scratch-buffer bang))
 
 ;;;###autoload (autoload '+evil:pwd "editor/evil/autoload/ex" nil t)
 (evil-define-command +evil:pwd (bang)
@@ -150,15 +150,15 @@ This command understands vim file modifiers (like %:p:h). See
   (interactive "<!>")
   (if (and bang (fboundp '+workspace/kill-session))
       (+workspace/kill-session)
-    (call-interactively #'doom/kill-all-buffers)))
+    (call-interactively #'rmcs/kill-all-buffers)))
 
 ;;;###autoload (autoload '+evil:kill-matching-buffers "editor/evil/autoload/ex" nil t)
 (evil-define-command +evil:kill-matching-buffers (&optional bang pattern)
   "Kill all buffers matching PATTERN regexp. If BANG, only match project
 buffers."
   (interactive "<a>")
-  (doom/kill-matching-buffers
-   pattern (if bang (doom-project-buffer-list))))
+  (rmcs/kill-matching-buffers
+   pattern (if bang (rmcs-project-buffer-list))))
 
 ;;;###autoload (autoload '+evil:help "editor/evil/autoload/ex" nil t)
 (evil-define-command +evil:help (&optional bang query)
@@ -170,10 +170,10 @@ search for it with `apropos'.
 
 If QUERY is empty, this runs the equivalent of 'M-x apropos'. If BANG is
 non-nil, a search is preformed against Doom's manual (with
-`doom/help-search-headings')."
+`rmcs/help-search-headings')."
   (interactive "<!><a>")
   (if bang
-      (doom/help-search-headings query)
+      (rmcs/help-search-headings query)
     (save-match-data
       (cond ((or (null query) (string-empty-p (string-trim query)))
              (call-interactively

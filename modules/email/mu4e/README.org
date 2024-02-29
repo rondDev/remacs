@@ -6,15 +6,15 @@
 * Description :unfold:
 This module makes Emacs an email client, using [[https://www.djcbsoftware.nl/code/mu/mu4e.html][mu4e]].
 
-- Tidied mu4e headers view, with flags from [[doom-package:nerd-icons]].
+- Tidied mu4e headers view, with flags from [[rmcs-package:nerd-icons]].
 - Consistent coloring of reply depths (across compose and gnus modes).
 - Prettified =mu4e:main= view.
 - Cooperative locking of the =mu= process. Another Emacs instance may request
   access, or grab the lock when it's available.
-- [[doom-package:org-msg]] integration with [[doom-module:+org]], which can be toggled per-message, with revamped
+- [[rmcs-package:org-msg]] integration with [[rmcs-module:+org]], which can be toggled per-message, with revamped
   style and an accent color.
-- Gmail integrations with the [[doom-module:+gmail]] flag.
-- Email notifications with [[doom-package:mu4e-alert]], and (on Linux) a customised notification
+- Gmail integrations with the [[rmcs-module:+gmail]] flag.
+- Email notifications with [[rmcs-package:mu4e-alert]], and (on Linux) a customised notification
   style.
 
 #+begin_quote
@@ -29,25 +29,25 @@ This module makes Emacs an email client, using [[https://www.djcbsoftware.nl/cod
 #+end_quote
 
 ** Maintainers
-- [[doom-user:][@tecosaur]]
+- [[rmcs-user:][@tecosaur]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +gmail ::
   Enable gmail-specific configuration for mail ~To~ or ~From~ a gmail address,
   or a maildir with ~gmail~ in the name.
 - +org ::
-  Use [[doom-package:org-msg]] for composing email in Org, then sending a multipart text (ASCII
+  Use [[rmcs-package:org-msg]] for composing email in Org, then sending a multipart text (ASCII
   export) and HTML message.
 
 ** Packages
-- [[doom-package:mu4e-alert]]
-- [[doom-package:org-msg]] if [[doom-module:+org]]
+- [[rmcs-package:mu4e-alert]]
+- [[rmcs-package:org-msg]] if [[rmcs-module:+org]]
 
 ** TODO Hacks
 #+begin_quote
- 󱌣 This module's hacks haven't been documented yet. [[doom-contrib-module:][Document them?]]
+ 󱌣 This module's hacks haven't been documented yet. [[rmcs-contrib-module:][Document them?]]
 #+end_quote
 
 ** TODO Changelog
@@ -55,7 +55,7 @@ This module makes Emacs an email client, using [[https://www.djcbsoftware.nl/cod
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module requires:
 
@@ -103,12 +103,12 @@ environment.systemPackages = with pkgs; [
 
 * TODO Usage
 #+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no usage documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * TODO Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** offlineimap
@@ -160,7 +160,7 @@ mail by disabling this module's backend selection and setting the value of the
 
 If your command prompts you for a passphrase, you might want to change the value
 of the ~mu4e~get-mail-password-regexp~ variable
-(~mu4e--get-mail-password-regexp~ if =mu= *>=1.8*) such that [[doom-package:mu4e]] will recognize
+(~mu4e--get-mail-password-regexp~ if =mu= *>=1.8*) such that [[rmcs-package:mu4e]] will recognize
 the prompt and let you provide the passphrase from within Emacs.
 
 ** mu and mu4e
@@ -214,7 +214,7 @@ you are not replying to an email to or from one of the specified aliases, you
 will be prompted for an alias to send from.
 
 *** Gmail
-With the [[doom-module:+gmail]] flag, integrations are applied which account for the different
+With the [[rmcs-module:+gmail]] flag, integrations are applied which account for the different
 behaviour of Gmail.
 
 The integrations are applied to addresses with /both/ "@gmail.com" in the
@@ -243,7 +243,7 @@ as deleted: Auto-Expunge off - Wait for the client to update the server." and
 folder: Move the message to the trash" for the integrations to work as expected.
 
 ** OrgMsg
-With the [[doom-module:+org]] flag, [[doom-package:org-msg]] is installed, and ~org-msg-mode~ is enabled before
+With the [[rmcs-module:+org]] flag, [[rmcs-package:org-msg]] is installed, and ~org-msg-mode~ is enabled before
 composing the first message. To disable ~org-msg-mode~ by default:
 #+begin_src emacs-lisp
 ;; add to $DOOMDIR/config.el
@@ -251,7 +251,7 @@ composing the first message. To disable ~org-msg-mode~ by default:
 #+end_src
 
 To toggle org-msg for a single message, just apply the universal argument to the
-compose or reply command ([[kbd:][SPC u]] with [[doom-package:evil]], [[kbd:][C-u]] otherwise).
+compose or reply command ([[kbd:][SPC u]] with [[rmcs-package:evil]], [[kbd:][C-u]] otherwise).
 
 The accent color that Doom uses can be customised by setting
 ~+org-msg-accent-color~ to a CSS color string.
@@ -274,10 +274,10 @@ mail retrieval/indexing, change the value of ~mu4e-update-interval~:
 #+end_src
 
 * Troubleshooting
-[[doom-report:][Report an issue?]]
+[[rmcs-report:][Report an issue?]]
 
 ** =No such file or directory, mu4e=
-You will get =No such file or directory, mu4e= errors if you don't run ~$ doom
+You will get =No such file or directory, mu4e= errors if you don't run ~$ rmcs
 sync~ after installing =mu= through your package manager.
 
 Some times the the ~mu~ package does not include ~mu4e~ (*cough Ubuntu*). if
@@ -308,9 +308,9 @@ Later versions of the =net-mail/mu= package have [[https://gitweb.gentoo.org/rep
 need to switch to the unstable build of =net-mail/mu= to see it.
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

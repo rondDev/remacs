@@ -16,7 +16,7 @@
 
 ** Environment Variables :category:
 - $DOOMDIR :: The location of the user's private configuration for Doom Emacs;
-  usually found in =~/.config/doom= or =~/.doom.d=.
+  usually found in =~/.config/rmcs= or =~/.rmcs.d=.
 
 - $EMACSDIR :: The location of your Emacs initfile. This is where Doom users
   will have cloned Doom's core to (=~/.config/emacs= or =~/.emacs.d=).
@@ -184,17 +184,17 @@
   [[kbd:][C-x]] and [[kbd:][C-x C-k]] can be considered prefixes.
 
   Prefix keys allow to store and move keybindings in groups. For example by
-  default all [[doom-package:lsp-mode]] commands are under ~SPC c l ...~, but if you want to
-  change that prefix to ~SPC L ...~ for all [[doom-package:lsp-mode]] commands, it is a one liner
+  default all [[rmcs-package:lsp-mode]] commands are under ~SPC c l ...~, but if you want to
+  change that prefix to ~SPC L ...~ for all [[rmcs-package:lsp-mode]] commands, it is a one liner
   in your configuration; you do _not_ have to rebind each command manually to
   its new ~SPC L ...~ variant.
 
 ** Repositories :category:
-- doomemacs/core :: https://git.doomemacs.org/core
-- doomemacs/modules :: https://git.doomemacs.org/modules
-- doomemacs/contrib-modules :: https://git.doomemacs.org/contrib-modules
-- doomemacs/themes :: https://git.doomemacs.org/themes
-- doomemacs/snippets :: https://git.doomemacs.org/snippets
+- rmcsemacs/core :: https://git.rmcsemacs.org/core
+- rmcsemacs/modules :: https://git.rmcsemacs.org/modules
+- rmcsemacs/contrib-modules :: https://git.rmcsemacs.org/contrib-modules
+- rmcsemacs/themes :: https://git.rmcsemacs.org/themes
+- rmcsemacs/snippets :: https://git.rmcsemacs.org/snippets
 
 * Acronyms
 - CD :: Continuous Delivery

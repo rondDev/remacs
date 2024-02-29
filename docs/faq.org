@@ -6,8 +6,8 @@
 #+startup:  nonum show2levels*
 
 #+begin_quote
- 󰐃 Our documentation was designed to be read in Doom Emacs ([[kbd:][M-x doom/help]]) or
-    online at https://docs.doomemacs.org. Avoid reading it elsewhere (like
+ 󰐃 Our documentation was designed to be read in Doom Emacs ([[kbd:][M-x rmcs/help]]) or
+    online at https://docs.rmcsemacs.org. Avoid reading it elsewhere (like
     Github) where it will be rendered incorrectly.
 #+end_quote
 
@@ -46,8 +46,8 @@ More similarities (and differences) will no doubt emerge as our userbase grows
 and more starter kits appear.
 
 ** Doom claims to be an Emacs framework, not a starter kit. What's the difference?
-I don't claim to own these terms, but I use them to distinguish [[https://git.doomemacs.org/core][Doom's core]] (a
-framework) from [[https://git.doomemacs.org/modules][Doom's module library]] (a starter kit).
+I don't claim to own these terms, but I use them to distinguish [[https://git.rmcsemacs.org/core][Doom's core]] (a
+framework) from [[https://git.rmcsemacs.org/modules][Doom's module library]] (a starter kit).
 
 My premise is: starter kits and Emacs frameworks have different goals. Where
 starter kits help you avoid work by doing it for you, an Emacs framework helps
@@ -88,7 +88,7 @@ So "Doom Emacs" was what you got when you combined childhood, demon-carnage
 nostalgia, [[https://www.youtube.com/user/n4sco][terrible]] [[https://github.com/hlissner/emacs-solaire-mode][naming]] [[https://github.com/hlissner/vim-forrestgump][sense]], and the sneaking suspicion that Emacs is the
 unwritten tenth circle Dante censored for humanity's protection.
 
-I've doomed us all.
+I've rmcsed us all.
 
 ** Why does Doom use straight.el and not package.el?
 =package.el= simply doesn't cut it. Its flaws become apparent the more packages
@@ -102,7 +102,7 @@ see updates:
   roll back, so you /have/ to deal with it, and now. Or hope your old config was
   backed up.
 
-  Though Doom doesn't have a 'doom rollback' command (yet), the ability to
+  Though Doom doesn't have a 'rmcs rollback' command (yet), the ability to
   quickly checkout an old commit of a problematic package (or Doom itself),
   without the overhead of forking and/or maintaining a local copy, is priceless.
 - Rolling release or bust ::
@@ -161,11 +161,11 @@ Our development resources are listed [[id:a20e3feb-f1e4-4bd3-92a9-6dfb17bcb24b][
 
 ** Where do I report issues, request features, or get user support?
 Check out [[id:2f277e96-654d-406f-8797-b9a7d2ccc218][our community resources]] for a complete list of communities and
-platforms. I'd recommend [[https://discourse.doomemacs.org/get-help][our Discourse]].
+platforms. I'd recommend [[https://discourse.rmcsemacs.org/get-help][our Discourse]].
 
 ** I don't like Discord. Can Doom move to IRC/Telegram/Matrix/other?
-This is requested *a lot*--and not always so kindly. We have [[https://discourse.doomemacs.org][a Discourse]] and
-[[https://discourse.doomemacs.org/t/a-matrix-space-for-doom-emacs/2664/12][there are plans for a Matrix space]], but that's as many platforms as I have
+This is requested *a lot*--and not always so kindly. We have [[https://discourse.rmcsemacs.org][a Discourse]] and
+[[https://discourse.rmcsemacs.org/t/a-matrix-space-for-rmcs-emacs/2664/12][there are plans for a Matrix space]], but that's as many platforms as I have
 bandwidth for. Please do not ask me to reconsider.
 
 ** How do I add a question to the FAQ?
@@ -182,13 +182,13 @@ cut they will naturally find their way here.
 :ID:       9c81ab2a-7da9-4b8e-9f90-d4ebff8bebbb
 :END:
 For common how-to and configuration questions from Doom users. You'll find more
-[[https://discourse.doomemacs.org/tags/faq][on our Discourse]].
+[[https://discourse.rmcsemacs.org/tags/faq][on our Discourse]].
 
 ** Find out what version of Doom am I running?
-Use ~M-x doom/info~ or ~$ doom info~ to produce detailed information about your
+Use ~M-x rmcs/info~ or ~$ rmcs info~ to produce detailed information about your
 installation and environment.
 
-Alternatively, ~M-x doom/version~ or ~$ doom version~ will only list the
+Alternatively, ~M-x rmcs/version~ or ~$ rmcs version~ will only list the
 versions of installed Doom components.
 
 The installed version of Doom core is also displayed in the Doom dashboard's
@@ -205,23 +205,23 @@ Doom's LSP support and install a supported LSP client.
 This provides code completion, lookup {definition,references,documentation}
 functionality, and syntax checking, all in one:
 
-1. Enable Doom's [[doom-module::tools lsp]] module. ([[id:01cffea4-3329-45e2-a892-95a384ab2338][How do I enable modules?]])
+1. Enable Doom's [[rmcs-module::tools lsp]] module. ([[id:01cffea4-3329-45e2-a892-95a384ab2338][How do I enable modules?]])
 2. Enable the ~+lsp~ flag on the ~:lang~ module corresponding to the language
-   you want LSP support for. E.g. For python, enable [[doom-module::lang python +lsp]]. For
-   rust, enable [[doom-module::lang rust +lsp]]. ([[id:01cffea4-3329-45e2-a892-95a384ab2338][How do I enable module flags?]])
+   you want LSP support for. E.g. For python, enable [[rmcs-module::lang python +lsp]]. For
+   rust, enable [[rmcs-module::lang rust +lsp]]. ([[id:01cffea4-3329-45e2-a892-95a384ab2338][How do I enable module flags?]])
 3. Install [[https://emacs-lsp.github.io/lsp-mode/page/languages/][a supported LSP client]] on your system using your OS package manager
    OR from within Emacs using ~M-x lsp-install-server~ (warning: not all servers
    can be installed this way).
-4. Run ~$ doom sync~ on the command line.
+4. Run ~$ rmcs sync~ on the command line.
 5. Restart Emacs.
 6. (Optional) If Emacs fails to find your LSP server, you may need to run ~$
-   doom env~ to regenerate your envvar file (which contains your =$PATH=, which
+   rmcs env~ to regenerate your envvar file (which contains your =$PATH=, which
    tells Emacs where to find programs on your system).
 
 *** Potential issues
 1. Some language modules lack LSP support (either because it doesn't exist or
    I'm not aware of it -- let me know!). If you're certain a language is
-   supported by [[doom-package:lsp-mode]], simply adding [[fn:lsp!]] to that major mode's hook will be
+   supported by [[rmcs-package:lsp-mode]], simply adding [[fn:lsp!]] to that major mode's hook will be
    enough to enable it:
 
    #+begin_src elisp
@@ -239,21 +239,21 @@ functionality, and syntax checking, all in one:
    as Cider for Clojure or Sly for Common Lisp).
 
 When in doubt, check that language module's documentation! Look up a module's
-documentation with [[kbd:][<help> d m]] (or ~M-x doom/help-modules~).
+documentation with [[kbd:][<help> d m]] (or ~M-x rmcs/help-modules~).
 
 ** Change my fonts
 Doom exposes a couple variables for setting fonts. They are:
 
-- [[var:doom-font]]: the primary font for Emacs to use.
-- [[var:doom-variable-pitch-font]]: used for non-monospace fonts (e.g. when using
+- [[var:rmcs-font]]: the primary font for Emacs to use.
+- [[var:rmcs-variable-pitch-font]]: used for non-monospace fonts (e.g. when using
   variable-pitch-mode or mixed-pitch-mode). Popular for text modes, like Org or
   Markdown.
-- [[var:doom-emoji-font]]: used for rendering emoji. Only needed if you want to use
+- [[var:rmcs-emoji-font]]: used for rendering emoji. Only needed if you want to use
   a font other than your operating system’s default.
-- [[var:doom-symbol-font]]: used for rendering symbols.
-- [[var:doom-serif-font]]: the sans-serif font to use wherever the [[face:fixed-pitch-serif]]
+- [[var:rmcs-symbol-font]]: used for rendering symbols.
+- [[var:rmcs-serif-font]]: the sans-serif font to use wherever the [[face:fixed-pitch-serif]]
   face is used.
-- [[var:doom-big-font]]: the large font to use when [[fn:doom-big-font-mode]] is active.
+- [[var:rmcs-big-font]]: the large font to use when [[fn:rmcs-big-font-mode]] is active.
 
 Each of these variables accept one of:
 
@@ -266,10 +266,10 @@ Each of these variables accept one of:
 For example:
 #+begin_src emacs-lisp
 ;; in $DOOMDIR/config.el
-(setq doom-font (font-spec :family "JetBrainsMono" :size 12 :weight 'light)
-      doom-variable-pitch-font (font-spec :family "DejaVu Sans" :size 13)
-      doom-symbol-font (font-spec :family "JuliaMono")
-      doom-big-font (font-spec :family "JetBrainsMono" :size 24))
+(setq rmcs-font (font-spec :family "JetBrainsMono" :size 12 :weight 'light)
+      rmcs-variable-pitch-font (font-spec :family "DejaVu Sans" :size 13)
+      rmcs-symbol-font (font-spec :family "JuliaMono")
+      rmcs-big-font (font-spec :family "JetBrainsMono" :size 24))
 #+end_src
 
 #+begin_quote
@@ -282,31 +282,31 @@ For example:
 1. Select your ~setq~ statements,
 2. Evaluate them with ~M-x eval-region~ (evil users can use the [[kbd:][gr]] operator to
    evaluate regions of elisp, non-evil users can use [[kbd:][C-x C-e]]),
-3. Then reload the fonts: ~M-x doom/reload-font~.
+3. Then reload the fonts: ~M-x rmcs/reload-font~.
 
 Your changes should take effect immediately.
 
 ** Change, customize, or make themes?
-- To change themes, add ~(setq doom-theme 'name-of-theme)~ to
+- To change themes, add ~(setq rmcs-theme 'name-of-theme)~ to
   =$DOOMDIR/config.el=.
 - To switch themes on-the-fly, type [[kbd:][<help> t]] or ~M-x load-theme~.
-- To customize or write themes, see our guide on [[https://discourse.doomemacs.org/t/how-to-switch-customize-or-write-themes/37][the Discourse]].
+- To customize or write themes, see our guide on [[https://discourse.rmcsemacs.org/t/how-to-switch-customize-or-write-themes/37][the Discourse]].
 
 ** Properly update Doom?
 You can update Doom one of two ways:
 
-1. The correct way: by running ~$ doom upgrade~ in the shell and restarting
+1. The correct way: by running ~$ rmcs upgrade~ in the shell and restarting
    Emacs.
-2. The manual way (if ~doom upgrade~ is broken for some reason):
+2. The manual way (if ~rmcs upgrade~ is broken for some reason):
 
    #+begin_src bash
    $ cd ~/.emacs.d
    $ git pull       # pull the latest version of Doom's source
-   $ doom sync -u   # update Doom's packages and 'doom sync'
+   $ rmcs sync -u   # update Doom's packages and 'rmcs sync'
    #+end_src
 
-This may change in the future, so ~$ doom upgrade~ will always be the safest
-option. That said, ~$ doom help upgrade~ will always document the correct
+This may change in the future, so ~$ rmcs upgrade~ will always be the safest
+option. That said, ~$ rmcs help upgrade~ will always document the correct
 procedure for manual updates if you need it.
 
 ** Bind my own keys (or change existing ones)?
@@ -325,7 +325,7 @@ There are also live examples =map!='s usage in
 =config/default/+evil-bindings.el=.
 
 Unfortunately, binding keys in Emacs can be a complicated affair. A more
-detailed guide on keys, keymaps, and keymap precedence can be found [[https://discourse.doomemacs.org/t/how-to-re-bind-keys/56][on our
+detailed guide on keys, keymaps, and keymap precedence can be found [[https://discourse.rmcsemacs.org/t/how-to-re-bind-keys/56][on our
 Discourse]].
 
 ** Change or alias the leader or localleader key?
@@ -336,7 +336,7 @@ This is documented in more detail in our user manual:
 - [[id:8e0d2c05-6028-4e68-a50d-b81851f3f258][How to bind aliases for your leader / localleader prefix]]
 
 ** Change the style of (or disable) line-numbers?
-Doom uses the [[doom-package:display-line-numbers]] package, which is included with Emacs 26+.
+Doom uses the [[rmcs-package:display-line-numbers]] package, which is included with Emacs 26+.
 
 *** To disable line numbers entirely
 #+begin_src emacs-lisp
@@ -364,58 +364,58 @@ For example:
 #+end_src
 
 You'll find more precise documentation on the variable through [[kbd:][<help> v
-display-line-numbers-type]] ([[kbd:][<help>]] is [[kbd:][SPC h]] for [[doom-package:evil]] users, [[kbd:][C-h]] otherwise).
+display-line-numbers-type]] ([[kbd:][<help>]] is [[kbd:][SPC h]] for [[rmcs-package:evil]] users, [[kbd:][C-h]] otherwise).
 
 *** To cycle through different styles of line numbers
-Use ~M-x doom/toggle-line-numbers~ (bound to [[kbd:][<leader> t l]] by default) to cycle
+Use ~M-x rmcs/toggle-line-numbers~ (bound to [[kbd:][<leader> t l]] by default) to cycle
 through the available line number styles in the current buffer.
 
 E.g. ~normal -> relative -> visual -> disabled -> normal~
 
 ** Disable Evil (vim emulation)?
-By disabling the [[doom-module::editor evil]] module ([[id:01cffea4-3329-45e2-a892-95a384ab2338][how to toggle modules]]).
+By disabling the [[rmcs-module::editor evil]] module ([[id:01cffea4-3329-45e2-a892-95a384ab2338][how to toggle modules]]).
 
 Read the "[[id:f3925da6-5f0b-4d11-aa08-7bb58bea1982][Removing evil-mode]]" section in the module's documentation for precise
 instructions.
 
-** Know when to run ~$ doom sync~?
+** Know when to run ~$ rmcs sync~?
 :PROPERTIES:
 :ID:       594d2505-d3cb-4061-ab76-06e7c8a4e0b8
 :END:
-As a rule of thumb, run ~$ doom sync~ whenever you:
+As a rule of thumb, run ~$ rmcs sync~ whenever you:
 
-- Update Doom with ~$ git pull~ instead of ~$ doom upgrade~,
-- Change your ~doom!~ block in =$DOOMDIR/init.el=,
+- Update Doom with ~$ git pull~ instead of ~$ rmcs upgrade~,
+- Change your ~rmcs!~ block in =$DOOMDIR/init.el=,
 - Change =autoload.el= or =autoload/*.el= files in any module (or =$DOOMDIR=),
 - Change the =packages.el= file in any module (or =$DOOMDIR=).
 - Install an Emacs package or dependency outside of Emacs (i.e. through your OS
   package manager).
 
-If anything is misbehaving, it's a good idea to run ~$ doom sync~ first, to rule
+If anything is misbehaving, it's a good idea to run ~$ rmcs sync~ first, to rule
 out any issues with missing packages or autoloads.
 
 This command is never needed for changes to =$DOOMDIR/config.el=.
 
-** Suppress confirmation prompts when executing a doom command?
+** Suppress confirmation prompts when executing a rmcs command?
 ~-!~ or ~--force~ are the universal "suppress all prompts" switch for most
-=doom= commands.
+=rmcs= commands.
 
 ** Copy or sync my config to another system?
 *Short answer:* it is safe to sync =$DOOMDIR= across systems, but not
-=$EMACSDIR=. Once moved, use ~$ doom sync && doom build~ to ensure everything is
+=$EMACSDIR=. Once moved, use ~$ rmcs sync && rmcs build~ to ensure everything is
 set up correctly.
 
 *Long answer:* packages can contain baked-in absolute paths and non-portable
 byte-code. It is never a good idea to mirror it across multiple systems, unless
 they are all the same (same OS, same version of Emacs, same paths). Most issues
-should be solved by running ~$ doom sync && doom build~ on the other end, once
+should be solved by running ~$ rmcs sync && rmcs build~ on the other end, once
 moved.
 
 ** Start over, in case something went terribly wrong?
-Delete =$EMACSDIR/.local/straight= and run ~$ doom sync~.
+Delete =$EMACSDIR/.local/straight= and run ~$ rmcs sync~.
 
-** Restore the s and S keys to their default vim behavior ([[doom-ref:][#1307]])
-[[kbd:][s]] and [[kbd:][S]] have been intentionally replaced with the [[doom-package:evil-snipe]] plugin, which
+** Restore the s and S keys to their default vim behavior ([[rmcs-ref:][#1307]])
+[[kbd:][s]] and [[kbd:][S]] have been intentionally replaced with the [[rmcs-package:evil-snipe]] plugin, which
 provides 2-character versions of the f/F/t/T motion keys, ala [[https://github.com/goldfeld/vim-seek][vim-seek]] or
 [[https://github.com/justinmk/vim-sneak][vim-sneak]].
 
@@ -425,15 +425,15 @@ These keys were changed because they are redundant with [[kbd:][cl]] and [[kbd:]
 If you still want to restore the old behavior, simply disable evil-snipe-mode:
 #+begin_src emacs-lisp
 ;; in $DOOMDIR/config.el
-(remove-hook 'doom-first-input-hook #'evil-snipe-mode)
+(remove-hook 'rmcs-first-input-hook #'evil-snipe-mode)
 #+end_src
 
 * Common issues
 :PROPERTIES:
 :ID:       9adcf3a0-add2-4135-b918-e1d7f406c80d
 :END:
-For problems that come up especially often. You'll find more [[https://discourse.doomemacs.org][on our Discourse]]
-and [[https://github.com/doomemacs/doomemacs/issues][Github issue tracker]]. Consult [[id:14040b81-3dd3-422e-abce-245f4c03d1b4][our troubleshooting guide]] for help debugging
+For problems that come up especially often. You'll find more [[https://discourse.rmcsemacs.org][on our Discourse]]
+and [[https://github.com/rmcsemacs/rmcsemacs/issues][Github issue tracker]]. Consult [[id:14040b81-3dd3-422e-abce-245f4c03d1b4][our troubleshooting guide]] for help debugging
 issues.
 
 ** Doom and/or Emacs is slow
@@ -441,21 +441,21 @@ issues.
 :ID:       643acc75-9717-4739-9c52-3947491e827e
 :END:
 The answer changes from version to version (of Emacs), and is often updated with
-new information, so [[https://discourse.doomemacs.org/t/why-is-emacs-doom-slow/83][this is answered on Discourse]] instead.
+new information, so [[https://discourse.rmcsemacs.org/t/why-is-emacs-rmcs-slow/83][this is answered on Discourse]] instead.
 
 ** Doom starts up with a vanilla splash screen
 The most common cause for this is a =~/.emacs= file. If it exists, Emacs will
 read this file instead of the =~/.emacs.d= directory, ignoring Doom altogether.
 
-If this isn't the case, run ~$ doom doctor~. It can detect a variety of common
+If this isn't the case, run ~$ rmcs doctor~. It can detect a variety of common
 issues and may offer you clues.
 
 ** I see a scratch buffer at startup instead of the dashboard
 The common explanations for this are:
 
-- Emacs can't find your private doom config (in =~/.doom.d= or
-  =~/.config/doom=). Make sure only one of these two folders exist, and that it
-  has an =init.el= file with a ~doom!~ block. Running ~$ doom install~ will
+- Emacs can't find your private rmcs config (in =~/.rmcs.d= or
+  =~/.config/rmcs=). Make sure only one of these two folders exist, and that it
+  has an =init.el= file with a ~rmcs!~ block. Running ~$ rmcs install~ will
   create these files and directories for you.
 
 - An error occurred while starting up Doom. Use [[kbd:][C-h e]] to inspect Emacs' log.
@@ -463,11 +463,11 @@ The common explanations for this are:
   the error can shed more light on it (and will be required if you ask the
   community for help debugging it).
 
-- You have disabled the [[doom-module::ui doom-dashboard]] module. Read about
+- You have disabled the [[rmcs-module::ui rmcs-dashboard]] module. Read about
   [[id:5e267107-81fa-45b4-8ff3-26d4b98e508e][what Doom modules are]] and [[id:01cffea4-3329-45e2-a892-95a384ab2338][how to
   toggle them]].
 
-If you're still stuck, run ~$ doom doctor~. It can detect a variety of common
+If you're still stuck, run ~$ rmcs doctor~. It can detect a variety of common
 issues and may give you some clues as to what is wrong.
 
 ** Doom fails to find executables (or inherit my shell's =$PATH=)
@@ -484,19 +484,19 @@ The three most common causes for =$PATH= issues in Doom are:
    these apps from an isolated environment.
 
 As long as your shell is properly configured, there is a simple solution to
-issues #1 and #3: generate an envvar file by running ~$ doom env~. This scrapes
+issues #1 and #3: generate an envvar file by running ~$ rmcs env~. This scrapes
 your shell environment into a file that is loaded when Doom Emacs starts up. Run
-~$ doom help env~ for details on how this works.
+~$ rmcs help env~ for details on how this works.
 
 For issue #2, you'll need to investigate your launcher. There are too many
 launchers write a walkthrough for, you'll have better luck asking about it on
-[[https://doomemacs.org/discord][our Discord]] or [[https://discourse.doomemacs.org][Discourse]].
+[[https://rmcsemacs.org/discord][our Discord]] or [[https://discourse.rmcsemacs.org][Discourse]].
 
 ** Changes to my config aren't taking effect
-1. Make sure you don't have both =~/.doom.d= and =~/.config/doom= directories.
+1. Make sure you don't have both =~/.rmcs.d= and =~/.config/rmcs= directories.
    Doom will ignore the first if the second exists.
-2. Remember to run ~$ doom sync~ after making [[id:594d2505-d3cb-4061-ab76-06e7c8a4e0b8][certain changes]] to your config.
-   Run ~$ doom help sync~ to know exactly when you should use it.
+2. Remember to run ~$ rmcs sync~ after making [[id:594d2505-d3cb-4061-ab76-06e7c8a4e0b8][certain changes]] to your config.
+   Run ~$ rmcs help sync~ to know exactly when you should use it.
 3. If you are reconfiguring a package, make sure you've deferred your settings
    until the package loads with the ~after!~ macro:
 
@@ -516,7 +516,7 @@ launchers write a walkthrough for, you'll have better luck asking about it on
    (setq evil-respect-visual-line-mode t)
    #+end_src
 
-If none of these solve your issue, try ~$ doom doctor~. It will detect a variety
+If none of these solve your issue, try ~$ rmcs doctor~. It will detect a variety
 of common issues, and may give you some clues as to what is wrong. Otherwise,
 consult [[id:2f277e96-654d-406f-8797-b9a7d2ccc218][the community]].
 
@@ -524,11 +524,11 @@ consult [[id:2f277e96-654d-406f-8797-b9a7d2ccc218][the community]].
 Here are a few common causes for random crashes:
 
 - Some fonts cause Emacs to crash when they lack support for a particular glyph
-  (typically symbols). Try changing your font by changing ~doom-font~ or
-  ~doom-symbol-font~.
+  (typically symbols). Try changing your font by changing ~rmcs-font~ or
+  ~rmcs-symbol-font~.
 
-- Ligatures can cause Emacs to crash. Try a different [[doom-module::ui ligatures +fira][ligature font]] or disable
-  the [[doom-module::ui ligatures]] module altogether.
+- Ligatures can cause Emacs to crash. Try a different [[rmcs-module::ui ligatures +fira][ligature font]] or disable
+  the [[rmcs-module::ui ligatures]] module altogether.
 
 - On some systems (particularly MacOS), manipulating the fringes or window
   margins can cause Emacs to crash. This is most prominent in Doom's Dashboard
@@ -547,7 +547,7 @@ Here are a few common causes for random crashes:
     (setq org-startup-indented nil))
   #+end_src
 
-  Or disable the [[doom-module::ui doom-dashboard]] and [[doom-module::tools magit]] modules (see [[doom-ref:][#1170]]).
+  Or disable the [[rmcs-module::ui rmcs-dashboard]] and [[rmcs-module::tools magit]] modules (see [[rmcs-ref:][#1170]]).
 
 If these don't help, check our troubleshooting guides for [[id:f88eaf35-97c4-48de-85ef-2d53f8615d4a][hard crashes]] or
 [[id:0b744192-c648-452d-ba62-1b4c76dc3aee][freezes/hangs]].
@@ -556,7 +556,7 @@ If these don't help, check our troubleshooting guides for [[id:f88eaf35-97c4-48d
 You'll find solutions [[https://www.emacswiki.org/emacs/TrampMode#toc7][on the emacswiki]].
 
 ** Why do I see ugly indentation highlights for tabs?
-[[https://github.com/doomemacs/doomemacs/blob/4eeb3c7a19c324f5a7839a2e3edb03fc87d23034/core/core-ui.el#L97-L116][Doom highlights non-standard indentation]]. i.e. Indentation that doesn't match
+[[https://github.com/rmcsemacs/rmcsemacs/blob/4eeb3c7a19c324f5a7839a2e3edb03fc87d23034/core/core-ui.el#L97-L116][Doom highlights non-standard indentation]]. i.e. Indentation that doesn't match
 the indent style you've set for that file. Spaces are Doom's default style for
 most languages (excluding languages where tabs are the norm, like Go).
 
@@ -582,10 +582,10 @@ There are a couple ways to address this:
    #+end_src
 
 3. Use [[https://editorconfig.org/][editorconfig]] to configure code style on a per-project basis. If you
-   enable Doom's [[doom-module::tools editorconfig]] module, Doom will recognize
+   enable Doom's [[rmcs-module::tools editorconfig]] module, Doom will recognize
    =.editorconfigrc= files.
 
-4. Or trust in [[doom-package:dtrt-indent]]; a plugin Doom uses to analyze and detect indentation
+4. Or trust in [[rmcs-package:dtrt-indent]]; a plugin Doom uses to analyze and detect indentation
    when you open a file (that isn't in a project with an editorconfig file).
    This isn't foolproof, and won't work for files that have no content in them,
    but it can help in one-off scenarios.
@@ -650,7 +650,7 @@ Then these are the three most common explanations:
   #+end_quote
 
 - =tar= and/or =gzip= aren't in your =$PATH=, somehow. Once you've corrected
-  your shell config, run ~$ doom env~ to regenerate your envvar file (containing
+  your shell config, run ~$ rmcs env~ to regenerate your envvar file (containing
   the =$PATH= Doom will see), then restart Emacs.
 
 - *(macOS users only)* You've installed Emacs from one of the sources I
@@ -674,7 +674,7 @@ project]].
 :ID:       1223f94f-7c3f-4870-8a58-b94e8d7cbbb3
 :END:
 The project does not have a dedicated support team -- only one overworked
-[[doom-user:hlissner][meatball]] and a handful of busy volunteers -- so there may be delays processing
+[[rmcs-user:hlissner][meatball]] and a handful of busy volunteers -- so there may be delays processing
 your PR. Sometimes this is unavoidable, but there are some measures you can take
 to mitigate these delays:
 
@@ -708,7 +708,7 @@ I approve PRs in bulk, often days before merging them. This is done to:
 
 If your PR was approved, you only have to wait for Henrik to get off his
 glorious Canadian behind and merge it. If it's been a week or so with no
-progress, feel free to ping him in-thread or [[https://doomemacs.org/discord][on Discord]] (in the #contributing
+progress, feel free to ping him in-thread or [[https://rmcsemacs.org/discord][on Discord]] (in the #contributing
 channel).
 
 ** Why was my issue deleted or tagged "delete me"?
@@ -740,7 +740,7 @@ Some examples:
 - An issue that omits important information, like steps to reproduce or system
   information.
 - A post asking how to configure or use Emacs to achieve some effect (our issue
-  tracker is for bug reports, not support; ask on [[https://doomemacs.org/discord][Discord]] or [[https://discourse.doomemacs.org][Discourse]] instead).
+  tracker is for bug reports, not support; ask on [[https://rmcsemacs.org/discord][Discord]] or [[https://discourse.rmcsemacs.org][Discourse]] instead).
 - A convoluted and unfocused issue that present multiple issues in one.
 - A rude user that won't meet us half way and/or expects us to do all the work
   for them.
@@ -814,7 +814,7 @@ getting first priority, to ensure their issues are resolved ASAP. Or check out
 [[https://github.com/sponsors/hlissner?frequency=one-time&sponsor=hlissner][my one-time tiers]] to hire me for dedicated support.
 
 ** I have a question, comment, or complaint about sponsorships...
-Feel free to DM me (Henrik#0666) on [[https://doomemacs.org/discord][Discord]], ask on [[https://discourse.doomemacs.org][Discourse]], or email me at
+Feel free to DM me (Henrik#0666) on [[https://rmcsemacs.org/discord][Discord]], ask on [[https://discourse.rmcsemacs.org][Discourse]], or email me at
 contact@henrik.io.
 
 * Technical
@@ -841,7 +841,7 @@ There's more about quoting [[https://emacsdocs.org/docs/elisp/Quoting][in the Em
 ** TODO How does Doom Emacs start up so quickly?
 #+begin_quote
  󱌣 *This post is a work in progress!* However, there's a post on our Discourse
-    that outlines [[https://discourse.doomemacs.org/t/how-does-doom-start-up-so-quickly/163/1][some of our older techniques]].
+    that outlines [[https://discourse.rmcsemacs.org/t/how-does-rmcs-start-up-so-quickly/163/1][some of our older techniques]].
 #+end_quote
 
 ** TODO How does Doom Emacs improve runtime performance?
@@ -893,7 +893,7 @@ All that said, I take no steps to disable or cripple =Customize= in Doom
 to cause issues). If used sparingly, you may not even run into these issues.
 
 ** Why no =expand-region= for evil users (by default)?
-I believe [[doom-package:expand-region]] is redundant with and less precise than evil's text
+I believe [[rmcs-package:expand-region]] is redundant with and less precise than evil's text
 objects and motions.
 
 - There's a text object for every "step" of expansion that expand-region
@@ -911,7 +911,7 @@ objects and motions.
   the surrounding brackets/parentheses, etc. There is no reverse of this
   however; you'd have to restart visual mode.
 
-The [[doom-package:expand-region]] way dictates you start at some point and expand/contract until
+The [[rmcs-package:expand-region]] way dictates you start at some point and expand/contract until
 you have what you want selected. The vim/evil way would rather you select
 exactly what you want from the get go. In the rare event a text object fails
 you, a combination of [[kbd:][o]] (swaps your cursor between the two ends of the region)
@@ -928,7 +928,7 @@ editing paradigm. Vimmers will feel right at home. To everyone else: mastering
 them will have a far-reaching effect on your effectiveness in vim environments.
 I highly recommend putting in the time to learn them.
 
-That said, if you aren't convinced, it is trivial to install [[doom-package:expand-region]] and
+That said, if you aren't convinced, it is trivial to install [[rmcs-package:expand-region]] and
 binds keys to it yourself:
 #+begin_src emacs-lisp
 ;;; in $DOOMDIR/packages.el
@@ -939,28 +939,28 @@ binds keys to it yourself:
       :nv "C-+" #'er/expand-region)
 #+end_src
 
-** Why ~doom env~ instead of ~exec-path-from-shell~?
+** Why ~rmcs env~ instead of ~exec-path-from-shell~?
 For some context: there are scenarios where Emacs launches in an isolated
 environment where it cannot see your =$PATH= or other needed environment
 variables. This affects macOS users (all =Emacs.app= bundles launch Emacs in an
 isolated environment), Linux users who misconfigure their launchers to use the
 wrong shell, or Windows users who may have no shell environment at all.
 
-[[doom-package:exec-path-from-shell]] was written to mitigate this, by polling the shell at
-startup for those environment variables. ~$ doom env~ was written as more
+[[rmcs-package:exec-path-from-shell]] was written to mitigate this, by polling the shell at
+startup for those environment variables. ~$ rmcs env~ was written as more
 reliable (and slightly faster) substitute. Here's why it's better:
 
-1. [[doom-package:exec-path-from-shell]] must spawn (at least) one process at startup to scrape
+1. [[rmcs-package:exec-path-from-shell]] must spawn (at least) one process at startup to scrape
    your shell environment. This can be slow depending on the user's shell
    configuration and may fail on non-standard shells (like =fish=). A single
    program (like =pyenv= or =nvm=) or config framework (like =oh-my-zsh=) could
    all our startup optimizations in one fell swoop.
 
-2. [[doom-package:exec-path-from-shell]] takes a whitelist approach and captures only =$PATH= and
+2. [[rmcs-package:exec-path-from-shell]] takes a whitelist approach and captures only =$PATH= and
    =$MANPATH= by default. You must be proactive in order to capture all the
    envvars relevant to your development environment and tools.
 
-   ~$ doom env~ takes the blacklist approach and captures all of your shell
+   ~$ rmcs env~ takes the blacklist approach and captures all of your shell
    environment. This front loads the debugging process, which is nicer than
    dealing with it later, while you're getting work done.
 
@@ -977,7 +977,7 @@ yourself:
 #+end_src
 
 ** Why =ws-butler= over =whitespace-cleanup= or =delete-trailing-whitespace=?
-I believe [[doom-package:ws-butler]] is less imposing on teammates/project maintainers; it only
+I believe [[rmcs-package:ws-butler]] is less imposing on teammates/project maintainers; it only
 cleans up whitespace on the lines you've touched.
 
 You know the story: a PR with 99 whitespace adjustments around a one-line

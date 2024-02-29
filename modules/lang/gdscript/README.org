@@ -8,15 +8,15 @@ This module adds support for GDScript, the scripting language of the [[http://go
 engine, to Doom Emacs, powered by [[https://github.com/GDQuest/emacs-gdscript-mode][gdscript-mode]].
 
 ** Maintainers
-*This module needs a maintainer.* [[doom-contrib-maintainer:][Become a maintainer?]]
+*This module needs a maintainer.* [[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~gdscript-mode~. Requires [[doom-module::tools lsp]] and a langserver
+  Enable LSP support for ~gdscript-mode~. Requires [[rmcs-module::tools lsp]] and a langserver
   (Godot ~3.2.1~ or newer).
 
 ** Packages
-- [[doom-package:gdscript-mode]]
+- [[rmcs-package:gdscript-mode]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -26,7 +26,7 @@ engine, to Doom Emacs, powered by [[https://github.com/GDQuest/emacs-gdscript-mo
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module requires Godot 3.2.1+ to be installed to make use of any of its
 features (beyond syntax highlighting).
@@ -42,12 +42,12 @@ pip3 install gdtoolkit
 
 * TODO Usage
 #+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's usage documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** LSP support
 The language server support for GDScript is built into by lsp-mode. As long as
-you have [[doom-module:+lsp]] and [[doom-module::tools lsp]] enabled, and Godot 3.2.1+ installed, it should work
+you have [[rmcs-module:+lsp]] and [[rmcs-module::tools lsp]] enabled, and Godot 3.2.1+ installed, it should work
 out of the box.
 
 Godot's language server is built into the game engine, so you need to open your
@@ -60,19 +60,19 @@ available commands.
 
 * TODO Configuration
 #+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no configuration documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
-[[doom-report:][Report an issue?]]
+[[rmcs-report:][Report an issue?]]
 
 - The GDScript language server has known issues causing some errors with
-  [[doom-package:lsp-mode]]. They should be addressed in future releases.
+  [[rmcs-package:lsp-mode]]. They should be addressed in future releases.
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

@@ -5,7 +5,7 @@
     "Adds a new :project property to prodigy services, which hides the service
 unless invoked from the relevant project."
     :around #'prodigy-services
-    (let ((project-root (downcase (or (doom-project-root) default-directory)))
+    (let ((project-root (downcase (or (rmcs-project-root) default-directory)))
           (services (apply fn args)))
       (if current-prefix-arg
           services

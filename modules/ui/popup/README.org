@@ -16,9 +16,9 @@ and easily restored if I want to see them again. Of course, this system should
 clean up after itself and kill off buffers I mark as transient.
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[rmcs-user:][@hlissner]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +all ::
@@ -31,20 +31,20 @@ clean up after itself and kill off buffers I mark as transient.
 /This module doesn't install any packages./
 
 ** Hacks
-- [[doom-package:help-mode]] has been advised to follow file links in the buffer you were in
+- [[rmcs-package:help-mode]] has been advised to follow file links in the buffer you were in
   before entering the popup, rather than in a new window.
-- [[doom-package:wgrep]] buffers are advised to close themselves when aborting or committing
+- [[rmcs-package:wgrep]] buffers are advised to close themselves when aborting or committing
   changes.
-- [[doom-package:persp-mode]] is advised to restore popup windows when loading a session from
+- [[rmcs-package:persp-mode]] is advised to restore popup windows when loading a session from
   file.
 - Interactive calls to ~windmove-*~ commands (used by ~evil-window-*~ commands)
   will ignore the ~no-other-window~ window parameter, allowing you to switch to
   popup windows as if they're ordinary windows.
 - ~balance-windows~ has been advised to close popups while it does its business,
   then restore them afterwards.
-- [[doom-package:neotree]] advises ~balance-windows~, which causes major slow-downs when paired
+- [[rmcs-package:neotree]] advises ~balance-windows~, which causes major slow-downs when paired
   with our ~balance-window~ advice, so we removes neotree's advice.
-- [[doom-package:org-mode]] is an ongoing (and huge) effort. It has a scorched-earth window
+- [[rmcs-package:org-mode]] is an ongoing (and huge) effort. It has a scorched-earth window
   management system I'm not fond of. ie. it kills all windows and monopolizes
   the frame. On top of that, it /really/ likes to use ~switch-to-buffer~ for
   most of its buffer management, which completely bypasses
@@ -55,18 +55,18 @@ clean up after itself and kill off buffers I mark as transient.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 /This module has no external requirements./
 
 * TODO Usage
 #+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no usage documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * TODO Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** ~set-popup-rule!~ and ~set-popup-rules!~
@@ -95,7 +95,7 @@ Multiple popup rules can be defined with ~set-popup-rules!~:
    ("^\\*Completions" :slot -1 :ttl 0)
    ("^\\*\\(?:scratch\\|Messages\\)" :ttl t)
    ("^\\*Help" :slot -1 :size 0.2 :select t)
-   ("^\\*doom:"
+   ("^\\*rmcs:"
     :size 0.35 :select t :modeline t :quit t :ttl t)))
 #+end_src
 
@@ -121,14 +121,14 @@ By default, the mode-line is hidden in popups. To disable this, you can either:
    #+end_src
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 /This module's appendix is incomplete./ [[doom-contrib-module:][Write more?]]
+ 󱌣 /This module's appendix is incomplete./ [[rmcs-contrib-module:][Write more?]]
 #+end_quote
 
 ** Commands

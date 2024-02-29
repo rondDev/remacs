@@ -19,7 +19,7 @@ results buffer.")
 ;;; Packages
 
 (use-package! ivy
-  :hook (doom-first-input . ivy-mode)
+  :hook (rmcs-first-input . ivy-mode)
   :init
   (let ((standard-search-fn
          (if (modulep! +prescient)
@@ -105,7 +105,7 @@ results buffer.")
     (defhydra+ hydra-ivy () ("M-o" nil)))
 
   (define-key! ivy-minibuffer-map
-    [remap doom/delete-backward-word] #'ivy-backward-kill-word
+    [remap rmcs/delete-backward-word] #'ivy-backward-kill-word
     "C-c C-e" #'+ivy/woccur
     "C-o" #'ivy-dispatching-done
     "M-o" #'hydra-ivy/body))
@@ -216,9 +216,9 @@ results buffer.")
         counsel-describe-variable-function #'helpful-variable
         counsel-descbinds-function #'helpful-callable)
 
-  ;; Decorate `doom/help-custom-variable' results the same way as
+  ;; Decorate `rmcs/help-custom-variable' results the same way as
   ;; `counsel-describe-variable' (adds value and docstring columns).
-  (ivy-configure 'doom/help-custom-variable :parent 'counsel-describe-variable)
+  (ivy-configure 'rmcs/help-custom-variable :parent 'counsel-describe-variable)
 
   ;; Record in jumplist when opening files via counsel-{ag,rg,pt,git-grep}
   (add-hook 'counsel-grep-post-action-hook #'better-jumper-set-jump)
@@ -243,7 +243,7 @@ results buffer.")
 
   ;; `swiper'
   ;; Don't mess with font-locking on the dashboard; it causes breakages
-  (add-to-list 'swiper-font-lock-exclude #'+doom-dashboard-mode)
+  (add-to-list 'swiper-font-lock-exclude #'+rmcs-dashboard-mode)
 
   ;; `counsel-find-file'
   (setq counsel-find-file-ignore-regexp "\\(?:^[#.]\\)\\|\\(?:[#~]$\\)\\|\\(?:^Icon?\\)")
@@ -271,7 +271,7 @@ results buffer.")
     "Change `counsel-file-jump' to use fd or ripgrep, if they are available."
     :override #'counsel--find-return-list
     (cl-destructuring-bind (find-program . args)
-        (cond ((when-let (fd (executable-find (or doom-projectile-fd-binary "fd") t))
+        (cond ((when-let (fd (executable-find (or rmcs-projectile-fd-binary "fd") t))
                  (append (list fd "--hidden" "--type" "file" "--type" "symlink" "--follow" "--color=never")
                          (cl-loop for dir in projectile-globally-ignored-directories
                                   collect "--exclude"
@@ -349,7 +349,7 @@ results buffer.")
     (setf (alist-get fn ivy-posframe-display-functions-alist)
           #'ivy-display-function-fallback))
 
-  (add-hook 'doom-after-reload-hook #'posframe-delete-all))
+  (add-hook 'rmcs-after-reload-hook #'posframe-delete-all))
 
 
 (use-package! flx
@@ -389,7 +389,7 @@ results buffer.")
       (ivy-prescient-re-builder str)))
 
   ;; NOTE prescient config duplicated with `company'
-  (setq prescient-save-file (concat doom-cache-dir "prescient-save.el")))
+  (setq prescient-save-file (concat rmcs-cache-dir "prescient-save.el")))
 
 
 ;;;###package swiper
@@ -397,4 +397,4 @@ results buffer.")
 
 
 ;;;###package amx
-(setq amx-save-file (concat doom-cache-dir "amx-items"))  ; used by `counsel-M-x'
+(setq amx-save-file (concat rmcs-cache-dir "amx-items"))  ; used by `counsel-M-x'

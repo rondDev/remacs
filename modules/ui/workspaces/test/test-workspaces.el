@@ -29,8 +29,8 @@
           in2  (get-buffer-create "in2")
           out1 (get-buffer-create "out1")
           out2 (get-buffer-create "out2"))
-    (doom-set-buffer-real in1 t)
-    (doom-set-buffer-real out1 t)
+    (rmcs-set-buffer-real in1 t)
+    (rmcs-set-buffer-real out1 t)
     (let (noninteractive)
       (persp-mode +1)
       (let (persp-before-switch-functions persp-activated-functions)
@@ -109,10 +109,10 @@
       (before-each
         (+workspace-switch persp2-name)
         (split-window)
-        (expect (length (doom-visible-windows)) :to-be 2))
+        (expect (length (rmcs-visible-windows)) :to-be 2))
       (it "kills window if more than one window"
         (quiet! (+workspace/close-window-or-workspace))
-        (expect (length (doom-visible-windows)) :to-be 1))
+        (expect (length (rmcs-visible-windows)) :to-be 1))
       (it "kills workspace on last window"
         (quiet! (+workspace/close-window-or-workspace)
                 (+workspace/close-window-or-workspace))

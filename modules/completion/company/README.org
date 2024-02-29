@@ -5,14 +5,14 @@
 
 * Description :unfold:
 This module provides code completion, powered by [[https://github.com/company-mode/company-mode][company-mode]]. Many of Doom's
-[[doom-module::lang]] modules require it for "intellisense" functionality.
+[[rmcs-module::lang]] modules require it for "intellisense" functionality.
 
-https://assets.doomemacs.org/completion/company/overlay.png
+https://assets.rmcsemacs.org/completion/company/overlay.png
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[rmcs-user:][@hlissner]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +childframe ::
@@ -23,9 +23,9 @@ https://assets.doomemacs.org/completion/company/overlay.png
   [[kbd:][S-TAB]] will navigate the completion candidates.
 
 ** Packages
-- [[doom-package:company-box]] if [[doom-module:+childframe]]
-- [[doom-package:company-dict]]
-- [[doom-package:company-mode]]
+- [[rmcs-package:company-box]] if [[rmcs-module:+childframe]]
+- [[rmcs-package:company-dict]]
+- [[rmcs-package:company-mode]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -35,16 +35,16 @@ https://assets.doomemacs.org/completion/company/overlay.png
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module has no direct requirements, but some languages may have their own
 requirements to fulfill before you get code completion in them (and some
-languages may lack code completion support altogether). Run ~$ doom doctor~ to
+languages may lack code completion support altogether). Run ~$ rmcs doctor~ to
 find out if you're missing any dependencies.
 
 * TODO Usage
 #+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's usage documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Code completion
@@ -87,7 +87,7 @@ More information can be found [[https://github.com/oantolin/orderless#company][h
 
 * TODO Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Enable company backend(s) in certain modes
@@ -116,7 +116,7 @@ To unset the backends for a particular mode, pass ~nil~ to it:
 #+end_src
 
 * Troubleshooting
-[[doom-report:][Report an issue?]]
+[[rmcs-report:][Report an issue?]]
 
 ** X-mode doesn't have code completion support or requires extra setup
 There is no guarantee your language mode will have completion support.
@@ -138,9 +138,9 @@ to see what backends are available. Check the [[*Assigning company backend(s) to
 on changing what backends are available for that mode.
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

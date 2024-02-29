@@ -17,7 +17,7 @@ overrides `completion-styles' during company completion sessions.")
 ;;; Packages
 
 (use-package! vertico
-  :hook (doom-first-input . vertico-mode)
+  :hook (rmcs-first-input . vertico-mode)
   :init
   (defadvice! +vertico-crm-indicator-a (args)
     :filter-args #'completing-read-multiple
@@ -64,7 +64,7 @@ overrides `completion-styles' during company completion sessions.")
 
 
 (use-package! orderless
-  :after-call doom-first-input-hook
+  :after-call rmcs-first-input-hook
   :config
   (defadvice! +vertico--company-capf--candidates-a (fn &rest args)
     "Highlight company matches correctly, and try default completion styles before
@@ -139,7 +139,7 @@ orderless."
     :before (list #'consult-recent-file #'consult-buffer)
     (recentf-mode +1))
 
-  (setq consult-project-function #'doom-project-root
+  (setq consult-project-function #'rmcs-project-root
         consult-narrow-key "<"
         consult-line-numbers-widen t
         consult-async-min-input 2
@@ -291,16 +291,16 @@ orderless."
         cons
         '+vertico-embark-target-package-fn
         (nthcdr pos embark-target-finders)))
-  (defvar-keymap +vertico/embark-doom-package-map
+  (defvar-keymap +vertico/embark-rmcs-package-map
     :doc "Keymap for Embark package actions for packages installed by Doom."
     :parent embark-general-map
-    "h" #'doom/help-packages
-    "b" #'doom/bump-package
-    "c" #'doom/help-package-config
-    "u" #'doom/help-package-homepage)
-  (setf (alist-get 'package embark-keymap-alist) #'+vertico/embark-doom-package-map)
+    "h" #'rmcs/help-packages
+    "b" #'rmcs/bump-package
+    "c" #'rmcs/help-package-config
+    "u" #'rmcs/help-package-homepage)
+  (setf (alist-get 'package embark-keymap-alist) #'+vertico/embark-rmcs-package-map)
   (map! (:map embark-file-map
-         :desc "Open target with sudo"        "s"   #'doom/sudo-find-file
+         :desc "Open target with sudo"        "s"   #'rmcs/sudo-find-file
          (:when (modulep! :tools magit)
            :desc "Open magit-status of target" "g"   #'+vertico/embark-magit-status)
          (:when (modulep! :ui workspaces)
@@ -308,20 +308,20 @@ orderless."
 
 
 (use-package! marginalia
-  :hook (doom-first-input . marginalia-mode)
+  :hook (rmcs-first-input . marginalia-mode)
   :init
   (map! :map minibuffer-local-map
         :desc "Cycle marginalia views" "M-A" #'marginalia-cycle)
   :config
   (when (modulep! +icons)
     (add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup))
-  (advice-add #'marginalia--project-root :override #'doom-project-root)
+  (advice-add #'marginalia--project-root :override #'rmcs-project-root)
   (pushnew! marginalia-command-categories
             '(+default/find-file-under-here . file)
-            '(doom/find-file-in-emacsd . project-file)
-            '(doom/find-file-in-other-project . project-file)
-            '(doom/find-file-in-private-config . file)
-            '(doom/describe-active-minor-mode . minor-mode)
+            '(rmcs/find-file-in-emacsd . project-file)
+            '(rmcs/find-file-in-other-project . project-file)
+            '(rmcs/find-file-in-private-config . file)
+            '(rmcs/describe-active-minor-mode . minor-mode)
             '(flycheck-error-list-set-filter . builtin)
             '(persp-switch-to-buffer . buffer)
             '(projectile-find-file . project-file)
@@ -339,4 +339,4 @@ orderless."
   :when (modulep! +childframe)
   :hook (vertico-mode . vertico-posframe-mode)
   :config
-  (add-hook 'doom-after-reload-hook #'posframe-delete-all))
+  (add-hook 'rmcs-after-reload-hook #'posframe-delete-all))

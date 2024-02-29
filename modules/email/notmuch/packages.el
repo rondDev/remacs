@@ -11,11 +11,11 @@
                       (with-temp-buffer (insert-file-contents "version.txt")
                                         (string-trim (buffer-string)))
                       (save-match-data
-                        (let ((desc (doom-call-process "git" "describe" "--abbrev=7" "--match" "[0-9.]*")))
+                        (let ((desc (rmcs-call-process "git" "describe" "--abbrev=7" "--match" "[0-9.]*")))
                           (if (zerop (car desc))
                               (car (last (split-string (cdr desc) "-") 2))
                             "??")))
-                      (cdr (doom-call-process "git" "rev-parse" "HEAD")))
+                      (cdr (rmcs-call-process "git" "rev-parse" "HEAD")))
               t t)))
   :pin "2f0320c5f24adfee026e938ebc379ca90e3045d3")
 

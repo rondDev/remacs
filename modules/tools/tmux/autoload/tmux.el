@@ -70,14 +70,14 @@ but do not execute them."
 (defun +tmux/cd (&optional directory noreturn)
   "Change the pwd of the currently active tmux pane to DIRECTORY.
 
-DIRECTORY defaults to `default-directory' if omitted, or to `doom-project-root'
+DIRECTORY defaults to `default-directory' if omitted, or to `rmcs-project-root'
 if prefix arg is non-nil.
 
 If NORETURN is non-nil, send the cd command to tmux, but do not execute the
 command."
   (interactive "D")
   (+tmux/run (format "cd %S" (or directory (if current-prefix-arg
-                                               (doom-project-root)
+                                               (rmcs-project-root)
                                              default-directory)))
              noreturn))
 
@@ -89,9 +89,9 @@ command."
 
 ;;;###autoload
 (defun +tmux/cd-to-project ()
-  "cd into `doom-project-root' in tmux."
+  "cd into `rmcs-project-root' in tmux."
   (interactive)
-  (+tmux/cd (doom-project-root)))
+  (+tmux/cd (rmcs-project-root)))
 
 
 ;;

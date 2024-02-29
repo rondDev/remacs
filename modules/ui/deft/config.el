@@ -16,7 +16,7 @@
           (case-fn . downcase)))
   :config
   (add-to-list 'deft-extensions "tex")
-  (add-hook 'deft-mode-hook #'doom-mark-buffer-as-real-h)
+  (add-hook 'deft-mode-hook #'rmcs-mark-buffer-as-real-h)
   ;; start filtering immediately
   (set-evil-initial-state! 'deft-mode 'insert)
   (map! :map deft-mode-map

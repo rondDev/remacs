@@ -11,5 +11,5 @@
 
 ;;;###autoload
 (defun +csharp-kill-omnisharp-server-h ()
-  (unless (doom-buffers-in-mode 'csharp-mode (buffer-list))
+  (unless (rmcs-buffers-in-mode 'csharp-mode (buffer-list))
     (omnisharp-stop-server)))

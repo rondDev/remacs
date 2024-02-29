@@ -18,9 +18,9 @@ be formatted and returned to the buffer using
 [[https://tools.ietf.org/doc/tcllib/html/rcs.html#section4][RCS patching]].
 
 ** Maintainers
-- [[doom-user:][@elken]]
+- [[rmcs-user:][@elken]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +onsave ::
@@ -29,7 +29,7 @@ be formatted and returned to the buffer using
   major modes.
 
 ** Packages
-- [[doom-package:apheleia]]
+- [[rmcs-package:apheleia]]
 
 ** Hacks
 As of writing this, apheleia doesn't /yet/ support regions or similar kinds of
@@ -44,11 +44,11 @@ indentation-based languages may produce poor results.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module has no direct requirements, but each language will need one of their
 supported formatter programs in order for this to work. In their absence,
-[[doom-package:apheleia]] will fail silently.
+[[rmcs-package:apheleia]] will fail silently.
 
 To see if a particular mode has a configured formatter, check for the mode in
 [[var:apheleia-mode-alist]] which corresponds to the list of formatters defined in
@@ -118,7 +118,7 @@ formatted on save, but can still be formatted by manually invoking the commands
 
 ** Disabling the LSP formatter
 If you are in a buffer with ~lsp-mode~ enabled and a server that supports
-=textDocument/formatting=, it will be used instead of [[doom-package:apheleia]]'s formatter.
+=textDocument/formatting=, it will be used instead of [[rmcs-package:apheleia]]'s formatter.
 
 + To disable this behavior universally use: ~(setq +format-with-lsp nil)~
 + To disable this behavior in one mode: ~(setq-hook! 'python-mode-hook
@@ -151,9 +151,9 @@ the error buffer and handle any problems raised there.
 Any issues specific to apheleia should most often be reported upstream [[https://github.com/radian-software/apheleia/issues][here]].
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

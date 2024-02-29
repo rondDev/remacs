@@ -7,15 +7,15 @@
 Displays a tilde(~) in the left fringe to indicate an empty line, similar to Vi.
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[rmcs-user:][@hlissner]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 /This module has no flags./
 
 ** Packages
-- [[doom-package:vi-tilde-fringe]]
+- [[rmcs-package:vi-tilde-fringe]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -25,7 +25,7 @@ Displays a tilde(~) in the left fringe to indicate an empty line, similar to Vi.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 /This module has no external requirements./
 
@@ -34,7 +34,7 @@ Nothing more needs to be done once the module is activated. Tildes will become
 visible in all buffers, after EOB.
 
 * Configuration
-By default, doom activates ~vi-tilde-fringe-mode~ for ~prog-mode~, ~text-mode~
+By default, rmcs activates ~vi-tilde-fringe-mode~ for ~prog-mode~, ~text-mode~
 and ~conf-mode~. To change this to your liking, you can remove any of the modes
 from the list:
 #+begin_src emacs-lisp
@@ -49,12 +49,12 @@ Or add new modes where you would like ~vi-tilde-fringe-mode~ enabled:
 #+end_src
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

@@ -4,17 +4,17 @@
 (defun +default/browse-project ()
   "Browse files from the current project's root."
   (interactive)
-  (doom-project-browse (or (doom-project-root) default-directory)))
+  (rmcs-project-browse (or (rmcs-project-root) default-directory)))
 ;; NOTE No need for find-in-project, use `projectile-find-file'
 
 ;;;###autoload
 (defun +default/browse-templates ()
   "Browse files from `+file-templates-dir'."
-  (interactive) (doom-project-browse +file-templates-dir))
+  (interactive) (rmcs-project-browse +file-templates-dir))
 ;;;###autoload
 (defun +default/find-in-templates ()
   "Find a file under `+file-templates-dir', recursively."
-  (interactive) (doom-project-find-file +file-templates-dir))
+  (interactive) (rmcs-project-find-file +file-templates-dir))
 
 ;;;###autoload
 (defun +default/browse-notes ()
@@ -22,20 +22,20 @@
   (interactive)
   (unless (bound-and-true-p org-directory)
     (require 'org))
-  (doom-project-browse org-directory))
+  (rmcs-project-browse org-directory))
 ;;;###autoload
 (defun +default/find-in-notes ()
   "Find a file under `org-directory', recursively."
   (interactive)
   (unless (bound-and-true-p org-directory)
     (require 'org))
-  (doom-project-find-file org-directory))
+  (rmcs-project-find-file org-directory))
 
 ;;;###autoload
 (defun +default/find-file-under-here ()
   "Perform a recursive file search from the current directory."
   (interactive)
-  (doom-project-find-file default-directory))
+  (rmcs-project-find-file default-directory))
 
 ;;;###autoload
 (defun +default/discover-projects (arg)

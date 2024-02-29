@@ -148,7 +148,7 @@ and cannot run in."
 ;; When you get to the right edge, it goes back to how it normally prints
 (setq prettify-symbols-unprettify-at-point 'right-edge)
 
-(add-hook! 'doom-init-ui-hook :append
+(add-hook! 'rmcs-init-ui-hook :append
   (defun +ligatures-init-h ()
     (add-hook 'after-change-major-mode-hook #'+ligatures-init-buffer-h)))
 
@@ -159,7 +159,7 @@ and cannot run in."
  ;; so use that instead if this module is enabled.
  ((if (featurep :system 'macos)
       (fboundp 'mac-auto-operator-composition-mode))
-  (add-hook 'doom-init-ui-hook #'mac-auto-operator-composition-mode 'append))
+  (add-hook 'rmcs-init-ui-hook #'mac-auto-operator-composition-mode 'append))
 
  ;; NOTE: the module does not support Emacs 27 and less, but if we still try to enable ligatures,
  ;; it will end up in catastrophic work-loss errors, so we leave the check here for safety.
@@ -174,7 +174,7 @@ and cannot run in."
     (ligature-set-ligatures 'prog-mode +ligatures-prog-mode-list)
     (ligature-set-ligatures 't +ligatures-all-modes-list))
 
-  (add-hook! 'doom-init-ui-hook :append
+  (add-hook! 'rmcs-init-ui-hook :append
     (defun +ligature-enable-globally-h ()
       "Enables ligature checks globally in all buffers.
 You can also do it per mode with `ligature-mode'."

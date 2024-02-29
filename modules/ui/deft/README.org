@@ -9,13 +9,13 @@ plain text formats, such as org-mode, markdown, and LaTeX. It enables you to
 quickly jot down thoughts and easily retrieve them later.
 
 ** Maintainers
-/This module has no dedicated maintainers./ [[doom-contrib-maintainer:][Become a maintainer?]]
+/This module has no dedicated maintainers./ [[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 /This module has no flags./
 
 ** Packages
-- [[doom-package:deft]]
+- [[rmcs-package:deft]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -25,18 +25,18 @@ quickly jot down thoughts and easily retrieve them later.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 /This module has no external requirements./
 
 * TODO Usage
 #+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no usage documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * TODO Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 To use deft, you first need to specify the directory in which your notes are
@@ -62,14 +62,14 @@ Further customization options can be found here:
 https://github.com/jrblevin/deft#other-customizations
 
 * Troubleshooting
-[[doom-report:][Report an issue?]]
+[[rmcs-report:][Report an issue?]]
 
-- It is [[https://github.com/hlissner/doom-emacs/pull/2845/commits/dce80a3c8032f5390f4e763e18a108d5f3f08772][not recommended]] to re-enable deft's buffer auto-save.
+- It is [[https://github.com/hlissner/rmcs-emacs/pull/2845/commits/dce80a3c8032f5390f4e763e18a108d5f3f08772][not recommended]] to re-enable deft's buffer auto-save.
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

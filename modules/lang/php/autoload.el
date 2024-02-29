@@ -6,7 +6,7 @@
 (defun +php-composer-conf (&optional project-root refresh-p)
   "Retrieve the contents of composer.json as an alist. If REFRESH-P is non-nil
 ignore the cache."
-  (let ((project-root (or project-root (doom-project-root))))
+  (let ((project-root (or project-root (rmcs-project-root))))
     (or (and (not refresh-p) (gethash project-root +php-composer-conf))
         (let ((package-file (expand-file-name "composer.json" project-root)))
           (when-let (data (and (file-exists-p package-file)

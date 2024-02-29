@@ -15,7 +15,7 @@ to contribute to our fine corner of the interwebs.
 - [[#reporting-issues][Reporting issues]]
   - [[#acquire-a-backtrace-from-errors][Acquire a backtrace from errors]]
   - [[#create-a-step-by-step-reproduction-guide][Create a step-by-step reproduction guide]]
-  - [[#include-information-about-your-doom-install][Include information about your Doom install]]
+  - [[#include-information-about-your-rmcs-install][Include information about your Doom install]]
   - [[#debugging-crashes-with-gdb][Debugging crashes with gdb]]
 - [[#suggesting-features-keybinds-andor-enhancements][Suggesting features, keybinds and/or enhancements]]
 - [[#contributing-code][Contributing code]]
@@ -26,31 +26,31 @@ to contribute to our fine corner of the interwebs.
     - [[#keybind-conventions][Keybind conventions]]
   - [[#your-first-code-contribution][Your first code contribution]]
   - [[#submitting-pull-requests][Submitting pull requests]]
-  - [[#contributing-to-doom-core][Contributing to Doom core]]
+  - [[#contributing-to-rmcs-core][Contributing to Doom core]]
   - [[#contributing-to-an-existing-module][Contributing to an existing module]]
   - [[#contributing-a-new-module][Contributing a new module]]
 - [[#contributing-documentation][Contributing documentation]]
-  - [[#contributing-to-dooms-manual][Contributing to Doom's manual]]
+  - [[#contributing-to-rmcss-manual][Contributing to Doom's manual]]
   - [[#contributing-module-documentation][Contributing module documentation]]
 - [[#help-keep-packages-up-to-date][Help keep packages up-to-date!]]
-- [[#other-ways-to-support-doom-emacs][Other ways to support Doom Emacs]]
+- [[#other-ways-to-support-rmcs-emacs][Other ways to support Doom Emacs]]
 - [[#special-thanks][Special thanks]]
 
 * Where can I help?
-+ Our [[https://github.com/hlissner/doom-emacs/issues][issue tracker]] has many issues. If you find one that you have an answer to,
++ Our [[https://github.com/hlissner/rmcs-emacs/issues][issue tracker]] has many issues. If you find one that you have an answer to,
   it would be a huge help!
-+ Look for issues tagged [[https://github.com/hlissner/doom-emacs/labels/good%20first%20issue][good first issue]]. These were judged to have a low
++ Look for issues tagged [[https://github.com/hlissner/rmcs-emacs/labels/good%20first%20issue][good first issue]]. These were judged to have a low
   barrier of entry.
-+ Look for issues tagged [[https://github.com/hlissner/doom-emacs/labels/help%20wanted][help wanted]]. These tend to be a little (or a lot)
++ Look for issues tagged [[https://github.com/hlissner/rmcs-emacs/labels/help%20wanted][help wanted]]. These tend to be a little (or a lot)
   harder, and are issues outside my own expertise.
-+ If you've encountered a bug, [[https://github.com/hlissner/doom-emacs/issues/new/choose][file a bug report]].
-+ The [[https://github.com/hlissner/doom-emacs/projects/3][development roadmap board]] is a rough timeline of what is being worked on
++ If you've encountered a bug, [[https://github.com/hlissner/rmcs-emacs/issues/new/choose][file a bug report]].
++ The [[https://github.com/hlissner/rmcs-emacs/projects/3][development roadmap board]] is a rough timeline of what is being worked on
   and when. It will give you an idea of what will change and where you can
   redirect your efforts.
-+ The [[https://github.com/hlissner/doom-emacs/projects/2][plugins under review board]] lists third party plugins being considered (or
++ The [[https://github.com/hlissner/rmcs-emacs/projects/2][plugins under review board]] lists third party plugins being considered (or
   rejected) for inclusion in Doom Emacs. Approved and unclaimed packages are
   open for you to implement yourself.
-+ The [[https://github.com/hlissner/doom-emacs/projects/5][upstream bugs board]] lists known issues that have external causes, but
++ The [[https://github.com/hlissner/rmcs-emacs/projects/5][upstream bugs board]] lists known issues that have external causes, but
   affect Doom. If you're feeling adventurous (or are better acquainted with the
   cause) perhaps you can address them at the source.
 
@@ -107,18 +107,18 @@ public variables/functions (e.g. ~bookmark-default-file~ or
 ~company~ plugin prefixes all its variables/functions with ~company-~.
 
 **** Doom Naming Conventions
-+ ~doom/NAME~ or ~+MODULE/NAME~ :: Denotes a public command designed to be used
-  interactively, via =M-x= or a keybinding. e.g. ~doom/info~, ~+popup/other~,
++ ~rmcs/NAME~ or ~+MODULE/NAME~ :: Denotes a public command designed to be used
+  interactively, via =M-x= or a keybinding. e.g. ~rmcs/info~, ~+popup/other~,
   ~+ivy/rg~.
-+ ~doom:NAME~ :: A public evil operator, motion or command. e.g. ~+evil:align~,
++ ~rmcs:NAME~ :: A public evil operator, motion or command. e.g. ~+evil:align~,
   ~+ivy:rg~.
-+ ~doom-[-]NAME-h~ or ~+MODULE-[-]NAME-h~ :: A non-interactive function meant to
++ ~rmcs-[-]NAME-h~ or ~+MODULE-[-]NAME-h~ :: A non-interactive function meant to
   be used (exclusively) as a hook. e.g. ~+cc-fontify-constants-h~,
   ~+flycheck-buffer-h~.
-+ ~doom-[-]NAME-a~ or ~+MODULE-[-]NAME-a~ :: Functions designed to be used as
-  advice for other functions. e.g. ~doom-set-jump-a~,
-  ~doom--fix-broken-smie-modes-a~, ~+org--babel-lazy-load-library-a~
-+ ~doom-[-]NAME-fn~ or ~+MODULE-[-]NAME-fn~ :: Indicates an [[https://en.wikipedia.org/wiki/Strategy_pattern][strategy]] function. A
++ ~rmcs-[-]NAME-a~ or ~+MODULE-[-]NAME-a~ :: Functions designed to be used as
+  advice for other functions. e.g. ~rmcs-set-jump-a~,
+  ~rmcs--fix-broken-smie-modes-a~, ~+org--babel-lazy-load-library-a~
++ ~rmcs-[-]NAME-fn~ or ~+MODULE-[-]NAME-fn~ :: Indicates an [[https://en.wikipedia.org/wiki/Strategy_pattern][strategy]] function. A
   good rule of thumb for what makes a strategy function is: is it
   interchangeable? Can it be replaced with another function with a matching
   signature? e.g. ~+lookup-dumb-jump-backend-fn~, ~+magit-display-buffer-fn~,

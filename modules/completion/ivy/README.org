@@ -13,7 +13,7 @@ lighter, simpler and faster in many cases.
 #+end_quote
 
 ** Maintainers
-/This module has no dedicated maintainers./ [[doom-contrib-maintainer:][Become a maintainer?]]
+/This module has no dedicated maintainers./ [[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +childframe ::
@@ -27,18 +27,18 @@ lighter, simpler and faster in many cases.
   Enable prescient filtering and sorting for Ivy searches.
 
 ** Packages
-- [[doom-package:nerd-icons-ivy]]* if [[doom-module:+icons]]
-- [[doom-package:amx]]
-- [[doom-package:counsel]]
-- [[doom-package:counsel-projectile]]
-- [[doom-package:flx]]* if [[doom-module:+fuzzy]]
-- [[doom-package:ivy]]
-- [[doom-package:ivy-hydra]]
-- [[doom-package:ivy-posframe]]* if [[doom-module:+childframe]]
-- [[doom-package:ivy-rich]]
-- [[doom-package:prescient]]* if [[doom-module:+prescient]]
-- [[doom-package:swiper]]
-- [[doom-package:wgrep]]
+- [[rmcs-package:nerd-icons-ivy]]* if [[rmcs-module:+icons]]
+- [[rmcs-package:amx]]
+- [[rmcs-package:counsel]]
+- [[rmcs-package:counsel-projectile]]
+- [[rmcs-package:flx]]* if [[rmcs-module:+fuzzy]]
+- [[rmcs-package:ivy]]
+- [[rmcs-package:ivy-hydra]]
+- [[rmcs-package:ivy-posframe]]* if [[rmcs-module:+childframe]]
+- [[rmcs-package:ivy-rich]]
+- [[rmcs-package:prescient]]* if [[rmcs-module:+prescient]]
+- [[rmcs-package:swiper]]
+- [[rmcs-package:wgrep]]
 
 ** Hacks
 - Functions with ivy/counsel equivalents have been globally remapped (like
@@ -52,7 +52,7 @@ lighter, simpler and faster in many cases.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module has only one requirement: [[https://github.com/BurntSushi/ripgrep][Ripgrep]], which is a hard dependency of
 Doom itself, so you should already have it installed.
@@ -64,19 +64,19 @@ use their associated Helm command or plugin.
 
 * TODO Usage
 #+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's usage documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
-[[doom-package:ivy]] is a /large/ framework for completing things. Covering all its features is
+[[rmcs-package:ivy]] is a /large/ framework for completing things. Covering all its features is
 not within the scope of this module's documentation, so only its highlights will
 be covered here.
 
 ** Jump-to navigation
 Inspired by Sublime Text's jump-to-anywhere, CtrlP/Unite in Vim, and Textmate's
-Command-T, this module provides similar functionality by bringing [[doom-package:projectile]] and
-[[doom-package:ivy]] together.
+Command-T, this module provides similar functionality by bringing [[rmcs-package:projectile]] and
+[[rmcs-package:ivy]] together.
 
-https://assets.doomemacs.org/completion/ivy/projectile.png
+https://assets.rmcsemacs.org/completion/ivy/projectile.png
 
 | Keybind          | Description                         |
 |------------------+-------------------------------------|
@@ -94,7 +94,7 @@ This module provides interactive text search and replace using ripgrep.
 | [[kbd:][SPC s d]] | Search this directory    |
 | [[kbd:][SPC s D]] | Search another directory |
 
-https://assets.doomemacs.org/completion/ivy/search.png
+https://assets.rmcsemacs.org/completion/ivy/search.png
 
 Prefixing these keys with the universal argument (=SPC u= for evil users; =C-u=
 otherwise) changes the behavior of these commands, instructing the underlying
@@ -122,10 +122,10 @@ These keybindings are available while a search is active:
 Changes to the resulting wgrep buffer (opened by [[kbd:][C-c C-e]]) can be committed with
 [[kbd:][C-c C-c]] and aborted with [[kbd:][C-c C-k]] (alternatively [[kbd:][ZZ]] and [[kbd:][ZQ]], for evil users).
 
-https://assets.doomemacs.org/completion/ivy/search-replace.png
+https://assets.rmcsemacs.org/completion/ivy/search-replace.png
 
 ** In-buffer searching
-The [[doom-package:swiper]] package provides an interactive buffer search powered by ivy. It
+The [[rmcs-package:swiper]] package provides an interactive buffer search powered by ivy. It
 can be invoked with:
 
 - [[kbd:][SPC s s]] (~swiper-isearch~)
@@ -133,7 +133,7 @@ can be invoked with:
 - [[kbd:][SPC s b]] (~swiper~)
 - ~:sw[iper] [QUERY]~
 
-https://assets.doomemacs.org/completion/ivy/swiper.png
+https://assets.rmcsemacs.org/completion/ivy/swiper.png
 
 A wgrep buffer can be opened from swiper with [[kbd:][C-c C-e]].
 
@@ -169,7 +169,7 @@ A wgrep buffer can be opened from swiper with [[kbd:][C-c C-e]].
 
 * TODO Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** TODO Enable fuzzy/non-fuzzy search for specific commands
@@ -188,12 +188,12 @@ issues, so increasing the value may fix your issue:
 
 
 * Frequently asked questions
-[[doom-suggest-faq:][Ask a question?]]
+[[rmcs-suggest-faq:][Ask a question?]]
 
 ** Helm vs Ivy vs Ido vs Vertico
 See [[id:4f36ae11-1da8-4624-9c30-46b764e849fc][this answer]].
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

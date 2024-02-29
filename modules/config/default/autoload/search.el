@@ -23,9 +23,9 @@ If prefix ARG is set, prompt for a directory to search from."
 
 ;;;###autoload
 (defun +default/search-emacsd ()
-  "Conduct a text search in files under `doom-emacs-dir'."
+  "Conduct a text search in files under `rmcs-emacs-dir'."
   (interactive)
-  (let ((default-directory doom-emacs-dir))
+  (let ((default-directory rmcs-emacs-dir))
     (call-interactively
      (cond ((modulep! :completion ivy)     #'+ivy/project-search-from-cwd)
            ((modulep! :completion helm)    #'+helm/project-search-from-cwd)
@@ -98,13 +98,13 @@ If prefix ARG is set, include ignored/hidden files."
   "Search current project for symbol at point.
 If prefix ARG is set, prompt for a known project to search from."
   (interactive
-   (list (rxt-quote-pcre (or (doom-thing-at-point-or-region) ""))
+   (list (rxt-quote-pcre (or (rmcs-thing-at-point-or-region) ""))
          (let ((projectile-project-root nil))
            (if current-prefix-arg
                (if-let (projects (projectile-relevant-known-projects))
                    (completing-read "Search project: " projects nil t)
                  (user-error "There are no known projects"))
-             (doom-project-root default-directory)))))
+             (rmcs-project-root default-directory)))))
   (cond ((modulep! :completion ivy)
          (+ivy/project-search nil symbol dir))
         ((modulep! :completion helm)
@@ -118,7 +118,7 @@ If prefix ARG is set, prompt for a known project to search from."
   "Conduct a text search in the current project for symbol at point. If prefix
 ARG is set, prompt for a known project to search from."
   (interactive
-   (list (rxt-quote-pcre (or (doom-thing-at-point-or-region) ""))))
+   (list (rxt-quote-pcre (or (rmcs-thing-at-point-or-region) ""))))
   (require 'org)
   (+default/search-project-for-symbol-at-point
    symbol org-directory))
@@ -127,10 +127,10 @@ ARG is set, prompt for a known project to search from."
 (defun +default/org-notes-search (query)
   "Perform a text search on `org-directory'."
   (interactive
-   (list (if (doom-region-active-p)
+   (list (if (rmcs-region-active-p)
              (buffer-substring-no-properties
-              (doom-region-beginning)
-              (doom-region-end))
+              (rmcs-region-beginning)
+              (rmcs-region-end))
            "")))
   (require 'org)
   (+default/search-project-for-symbol-at-point
@@ -140,7 +140,7 @@ ARG is set, prompt for a known project to search from."
 (defun +default/org-notes-headlines ()
   "Jump to an Org headline in `org-agenda-files'."
   (interactive)
-  (doom-completing-read-org-headings
+  (rmcs-completing-read-org-headings
    "Jump to org headline: " org-agenda-files
    :depth 3
    :include-files t))

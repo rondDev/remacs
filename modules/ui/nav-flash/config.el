@@ -26,7 +26,7 @@
                dumb-jump-after-jump-hook)
              #'+nav-flash-blink-cursor-maybe-h)
 
-  (add-hook 'doom-switch-window-hook #'+nav-flash-blink-cursor-maybe-h)
+  (add-hook 'rmcs-switch-window-hook #'+nav-flash-blink-cursor-maybe-h)
 
   ;; `org'
   (add-hook 'org-follow-link-hook #'+nav-flash-delayed-blink-cursor-h)

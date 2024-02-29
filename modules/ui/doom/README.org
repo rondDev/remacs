@@ -1,27 +1,27 @@
-#+title:    :ui doom
+#+title:    :ui rmcs
 #+subtitle: Make Doom fabulous again
 #+created:  February 20, 2017
 #+since:    2.0.0
 
 * Description :unfold:
-This module gives Doom its signature look: powered by the [[doom-package:doom-themes][doom-one]] theme
-(loosely inspired by [[https://github.com/atom/one-dark-syntax][Atom's One Dark theme]]) and [[doom-package:solaire-mode]]. Includes:
+This module gives Doom its signature look: powered by the [[rmcs-package:rmcs-themes][rmcs-one]] theme
+(loosely inspired by [[https://github.com/atom/one-dark-syntax][Atom's One Dark theme]]) and [[rmcs-package:solaire-mode]]. Includes:
 
-- A custom folded-region indicator for [[doom-package:hideshow]].
-- "Thin bar" fringe bitmaps for [[doom-package:git-gutter-fringe]].
-- File-visiting buffers are slightly brighter (thanks to [[doom-package:solaire-mode]]).
+- A custom folded-region indicator for [[rmcs-package:hideshow]].
+- "Thin bar" fringe bitmaps for [[rmcs-package:git-gutter-fringe]].
+- File-visiting buffers are slightly brighter (thanks to [[rmcs-package:solaire-mode]]).
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[rmcs-user:][@hlissner]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 /This module has no flags./
 
 ** Packages
-- [[doom-package:doom-themes]]
-- [[doom-package:solaire-mode]]
+- [[rmcs-package:rmcs-themes]]
+- [[rmcs-package:solaire-mode]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -31,58 +31,58 @@ This module gives Doom its signature look: powered by the [[doom-package:doom-th
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 /This module has no external requirements./
 
 * TODO Usage
 #+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no usage documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * TODO Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Changing theme
-Although this module uses the ~doom-one~ theme by default, [[https://github.com/hlissner/emacs-doom-theme/][doom-themes]] offers a
+Although this module uses the ~rmcs-one~ theme by default, [[https://github.com/hlissner/emacs-rmcs-theme/][rmcs-themes]] offers a
 number of alternatives:
 
-- *doom-one:* doom-themes' flagship theme, inspired by [[https://atom.io/][Atom's]] One Dark themes
-- *doom-vibrant:* a more vibrant version of doom-one
-- *doom-molokai:* based on Textmate's monokai
-- *doom-nova:* adapted from [[https://github.com/trevordmiller/nova-colors][Nova]]
-- *doom-one-light:* light version of doom-one
-- *doom-peacock:* based on Peacock from [[https://daylerees.github.io/][daylerees' themes]]
-- *doom-tomorrow-night:* by [[https://github.com/ChrisKempson/Tomorrow-Theme][Chris Kempson]]
+- *rmcs-one:* rmcs-themes' flagship theme, inspired by [[https://atom.io/][Atom's]] One Dark themes
+- *rmcs-vibrant:* a more vibrant version of rmcs-one
+- *rmcs-molokai:* based on Textmate's monokai
+- *rmcs-nova:* adapted from [[https://github.com/trevordmiller/nova-colors][Nova]]
+- *rmcs-one-light:* light version of rmcs-one
+- *rmcs-peacock:* based on Peacock from [[https://daylerees.github.io/][daylerees' themes]]
+- *rmcs-tomorrow-night:* by [[https://github.com/ChrisKempson/Tomorrow-Theme][Chris Kempson]]
 - And /many/ more...
 
-This can be changed by changing the ~doom-theme~ variable, e.g.
+This can be changed by changing the ~rmcs-theme~ variable, e.g.
 #+begin_src emacs-lisp
 ;; in $DOOMDIR/config.el
-(setq doom-theme 'doom-molokai)
+(setq rmcs-theme 'rmcs-molokai)
 #+end_src
 
 ** Changing fonts
 core/core-ui.el has four relevant variables:
 
-- ~doom-font~ :: the default font to use in Doom Emacs.
-- ~doom-big-font~ :: the font to use when ~doom-big-font-mode~ is enabled.
-- ~doom-variable-pitch-font~ :: the font to use when ~variable-pitch-mode~ is active
+- ~rmcs-font~ :: the default font to use in Doom Emacs.
+- ~rmcs-big-font~ :: the font to use when ~rmcs-big-font-mode~ is enabled.
+- ~rmcs-variable-pitch-font~ :: the font to use when ~variable-pitch-mode~ is active
   (or where the ~variable-pitch~ face is used).
-- ~doom-symbol-font~ :: the font used to display unicode symbols. This is
-  ignored if the [[doom-module::ui unicode]] module is enabled.
+- ~rmcs-symbol-font~ :: the font used to display unicode symbols. This is
+  ignored if the [[rmcs-module::ui unicode]] module is enabled.
 
 #+begin_src emacs-lisp
-(setq doom-font (font-spec :family "Fira Mono" :size 12)
-      doom-variable-pitch-font (font-spec :family "Fira Sans")
-      doom-symbol-font (font-spec :family "JuliaMono")
-      doom-big-font (font-spec :family "Fira Mono" :size 19))
+(setq rmcs-font (font-spec :family "Fira Mono" :size 12)
+      rmcs-variable-pitch-font (font-spec :family "Fira Sans")
+      rmcs-symbol-font (font-spec :family "JuliaMono")
+      rmcs-big-font (font-spec :family "Fira Mono" :size 19))
 #+end_src
 
 * Troubleshooting
-[[doom-report:][Report an issue?]]
+[[rmcs-report:][Report an issue?]]
 
 ** Strange font symbols
 If you're seeing strange unicode symbols, this is likely because you don't have
@@ -90,7 +90,7 @@ If you're seeing strange unicode symbols, this is likely because you don't have
 nerd-icons-install-fonts~.
 
 ** Ugly background colors in tty Emacs for daemon users
-[[doom-package:solaire-mode]] is an aesthetic plugin that makes non-file-visiting buffers darker
+[[rmcs-package:solaire-mode]] is an aesthetic plugin that makes non-file-visiting buffers darker
 than the rest of the Emacs' frame (to visually differentiate temporary windows
 or sidebars from editing windows). This looks great in GUI Emacs, but can look
 questionable in the terminal.
@@ -107,9 +107,9 @@ solaire-mode package:
 #+end_src
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

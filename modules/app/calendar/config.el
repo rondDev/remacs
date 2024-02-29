@@ -66,7 +66,7 @@
            :m "C-k" #'cfw:details-navi-prev-item-command
            :m "C-j" #'cfw:details-navi-next-item-command)))
 
-  (add-hook 'cfw:calendar-mode-hook #'doom-mark-buffer-as-real-h)
+  (add-hook 'cfw:calendar-mode-hook #'rmcs-mark-buffer-as-real-h)
   (add-hook 'cfw:calendar-mode-hook #'hide-mode-line-mode)
 
   (advice-add #'cfw:render-button :override #'+calendar-cfw:render-button-a))
@@ -90,5 +90,5 @@
 (use-package! org-gcal
   :defer t
   :init
-  (defvar org-gcal-dir (concat doom-cache-dir "org-gcal/"))
+  (defvar org-gcal-dir (concat rmcs-cache-dir "org-gcal/"))
   (defvar org-gcal-token-file (concat org-gcal-dir "token.gpg")))

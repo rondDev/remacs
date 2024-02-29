@@ -17,7 +17,7 @@
 (defun +ivy-rich-buffer-name (candidate)
   "Display the buffer name.
 
-Buffers that are considered unreal (see `doom-real-buffer-p') are dimmed with
+Buffers that are considered unreal (see `rmcs-real-buffer-p') are dimmed with
 `+ivy-buffer-unreal-face'."
   (let ((b (get-buffer candidate)))
     (when (null uniquify-buffer-name-style)
@@ -26,7 +26,7 @@ Buffers that are considered unreal (see `doom-real-buffer-p') are dimmed with
              (file-remote-p
               (buffer-local-value 'default-directory b)))
            (ivy-append-face candidate 'ivy-remote))
-          ((doom-unreal-buffer-p b)
+          ((rmcs-unreal-buffer-p b)
            (ivy-append-face candidate +ivy-buffer-unreal-face))
           ((not (buffer-file-name b))
            (ivy-append-face candidate 'ivy-subdir))
@@ -224,11 +224,11 @@ The point of this is to avoid Emacs locking up indexing massive file trees."
     (call-interactively
      (cond ((or (file-equal-p default-directory "~")
                 (file-equal-p default-directory "/")
-                (when-let (proot (doom-project-root))
+                (when-let (proot (rmcs-project-root))
                   (file-equal-p proot "~")))
             #'counsel-find-file)
 
-           ((doom-project-p)
+           ((rmcs-project-p)
             (let ((files (projectile-current-project-files)))
               (if (<= (length files) ivy-sort-max-size)
                   #'counsel-projectile-find-file
@@ -252,7 +252,7 @@ The point of this is to avoid Emacs locking up indexing massive file trees."
     (user-error "Couldn't find ripgrep in your PATH"))
   (require 'counsel)
   (let* ((this-command 'counsel-rg)
-         (project-root (or (doom-project-root) default-directory))
+         (project-root (or (rmcs-project-root) default-directory))
          (directory (or in project-root))
          (args (concat (if all-files " -uu")
                        (unless recursive " --maxdepth 1")
@@ -261,7 +261,7 @@ The point of this is to avoid Emacs locking up indexing massive file trees."
     (setq deactivate-mark t)
     (counsel-rg
      (or query
-         (when (doom-region-active-p)
+         (when (rmcs-region-active-p)
            (replace-regexp-in-string
             "[! |]" (lambda (substr)
                       (cond ((and (string= substr " ")
@@ -270,7 +270,7 @@ The point of this is to avoid Emacs locking up indexing massive file trees."
                             ((string= substr "|")
                              "\\\\\\\\|")
                             ((concat "\\\\" substr))))
-            (rxt-quote-pcre (doom-thing-at-point-or-region)))))
+            (rxt-quote-pcre (rmcs-thing-at-point-or-region)))))
      directory args
      (or prompt
          (format "Search project [%s]: "

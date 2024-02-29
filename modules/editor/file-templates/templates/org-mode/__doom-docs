@@ -2,7 +2,7 @@
 # name: Doom documentation
 # --
 :PROPERTIES:
-:ID:       `(doom-docs-generate-id)`
+:ID:       `(rmcs-docs-generate-id)`
 :END:
 #+title:    ${1:Title}
 #+subtitle: ${2:Subtitle}

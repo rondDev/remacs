@@ -19,20 +19,20 @@ don't have a :trigger property in `+file-templates-alist'.")
     ("/Makefile$"             :mode makefile-gmake-mode)
     ;; elisp
     ("/\\.dir-locals\\.el$")
-    ("/\\.doomrc$"
-     :trigger "__doomrc"
+    ("/\\.rmcsrc$"
+     :trigger "__rmcsrc"
      :mode emacs-lisp-mode)
     ("/packages\\.el$" :when +file-templates-in-emacs-dirs-p
-     :trigger "__doom-packages"
+     :trigger "__rmcs-packages"
      :mode emacs-lisp-mode)
     ("/doctor\\.el$" :when +file-templates-in-emacs-dirs-p
-     :trigger "__doom-doctor"
+     :trigger "__rmcs-doctor"
      :mode emacs-lisp-mode)
     ("/test/.+\\.el$" :when +file-templates-in-emacs-dirs-p
-     :trigger "__doom-test"
+     :trigger "__rmcs-test"
      :mode emacs-lisp-mode)
     ("\\.el$" :when +file-templates-in-emacs-dirs-p
-     :trigger "__doom-module"
+     :trigger "__rmcs-module"
      :mode emacs-lisp-mode)
     ("-test\\.el$" :mode emacs-ert-mode)
     (emacs-lisp-mode :trigger "__package")
@@ -74,8 +74,8 @@ don't have a :trigger property in `+file-templates-alist'.")
     ("/shell\\.nix$" :trigger "__shell.nix")
     (nix-mode)
     ;; Org
-    (doom-docs-org-mode
-     :trigger +file-templates-insert-doom-docs-fn
+    (rmcs-docs-org-mode
+     :trigger +file-templates-insert-rmcs-docs-fn
      :mode org-mode)
     (org-journal-mode :ignore t)
     (org-mode)
@@ -116,8 +116,8 @@ information.")
 
 (defun +file-templates-in-emacs-dirs-p (file)
   "Returns t if FILE is in Doom or your private directory."
-  (or (file-in-directory-p file doom-user-dir)
-      (file-in-directory-p file doom-emacs-dir)))
+  (or (file-in-directory-p file rmcs-user-dir)
+      (file-in-directory-p file rmcs-emacs-dir)))
 
 (defun +file-template-p (rule)
   "Return t if RULE applies to the current buffer."
@@ -159,9 +159,9 @@ must be non-read-only, empty, and there must be a rule in
     (setq yas-prompt-functions (delq #'yas-dropdown-prompt yas-prompt-functions)
           yas-snippet-dirs '(+file-templates-dir))
     ;; Exit snippets on ESC from normal mode
-    (add-hook 'doom-escape-hook #'yas-abort-snippet)
+    (add-hook 'rmcs-escape-hook #'yas-abort-snippet)
     ;; Ensure file templates in `+file-templates-dir' are visible
     (yas-reload-all)))
 
 ;;
-(add-hook 'doom-switch-buffer-hook #'+file-templates-check-h)
+(add-hook 'rmcs-switch-buffer-hook #'+file-templates-check-h)

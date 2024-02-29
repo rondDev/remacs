@@ -4,24 +4,24 @@
 #+since:    2.0.0
 
 * Description :unfold:
-This module adds snippet expansions to Emacs, powered by [[doom-package:yasnippet]].
+This module adds snippet expansions to Emacs, powered by [[rmcs-package:yasnippet]].
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[rmcs-user:][@hlissner]]
   
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 /This module exposes no flags./
 
 ** Packages
-- [[doom-package:yasnippet]]
-- [[doom-package:auto-yasnippet]]
-- [[doom-package:doom-snippets]]
+- [[rmcs-package:yasnippet]]
+- [[rmcs-package:auto-yasnippet]]
+- [[rmcs-package:rmcs-snippets]]
 
 ** TODO Hacks
 #+begin_quote
- 󱌣 This module's hacks haven't been documented yet. [[doom-contrib-module:][Document them?]]
+ 󱌣 This module's hacks haven't been documented yet. [[rmcs-contrib-module:][Document them?]]
 #+end_quote
 
 ** TODO Changelog
@@ -29,24 +29,24 @@ This module adds snippet expansions to Emacs, powered by [[doom-package:yasnippe
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 /This module has no external requirements./
 
 * TODO Usage
 #+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no usage documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * TODO Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Disabling the built-in snippets
 #+begin_src emacs-lisp
 ;; in $DOOMDIR/packages.el
-(package! doom-snippets :ignore t)
+(package! rmcs-snippets :ignore t)
 ;; If you want to replace it with yasnippet's default snippets
 (package! yasnippet-snippets)
 #+end_src
@@ -55,12 +55,12 @@ This module adds snippet expansions to Emacs, powered by [[doom-package:yasnippe
 Custom snippets should be added under =$DOOMDIR/snippets/= directory. Refer to [[http://joaotavora.github.io/yasnippet/snippet-development.html][yasnippet-documentation]] on how to write snippets.
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

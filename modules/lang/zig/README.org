@@ -8,13 +8,13 @@ This module adds [[https://ziglang.org/][Zig]] support, with optional (but recom
 [[https://github.com/zigtools/zls][zls]].
 
 - Syntax highlighting
-- Syntax-checking ([[doom-package:flycheck]])
+- Syntax-checking ([[rmcs-package:flycheck]])
 - Code completion and LSP integration (~zls~)
 
 ** Maintainers
-- [[doom-user:][@bnjmnt4n]]
+- [[rmcs-user:][@bnjmnt4n]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +lsp ::
@@ -22,10 +22,10 @@ This module adds [[https://ziglang.org/][Zig]] support, with optional (but recom
   this.
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
-  editing. Requires [[doom-module::tools tree-sitter]].
+  editing. Requires [[rmcs-module::tools tree-sitter]].
 
 ** Packages
-- [[doom-package:zig-mode]]
+- [[rmcs-package:zig-mode]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -35,7 +35,7 @@ This module adds [[https://ziglang.org/][Zig]] support, with optional (but recom
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 To get started with Zig, you need the ~zig~ tool. Pre-built binaries for most
 systems are available for download from [[https://ziglang.org/download/]] or from
@@ -45,15 +45,15 @@ systems are available for download from [[https://ziglang.org/download/]] or fro
 
 * TODO Usage
 #+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's usage documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** LSP support
 This module supports LSP integration. For it to work you'll need:
 
 1. zls installed,
-2. The [[doom-module::tools lsp]] module enabled. Only [[doom-package:lsp-mode]] is supported for now,
-3. The [[doom-module:+lsp]] flag on this module enabled.
+2. The [[rmcs-module::tools lsp]] module enabled. Only [[rmcs-package:lsp-mode]] is supported for now,
+3. The [[rmcs-module:+lsp]] flag on this module enabled.
 
 ** Keybinds
 | Binding           | Description         |
@@ -65,7 +65,7 @@ This module supports LSP integration. For it to work you'll need:
 
 * TODO Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Customize zls path
@@ -76,12 +76,12 @@ To customize the path of the =zls= executable, modify ~lsp-zig-zls-executable~:
 #+end_src
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

@@ -14,8 +14,8 @@
 
 ;; Make SPC u SPC u [...] possible (#747)
 (map! :map universal-argument-map
-      :prefix doom-leader-key     "u" #'universal-argument-more
-      :prefix doom-leader-alt-key "u" #'universal-argument-more)
+      :prefix rmcs-leader-key     "u" #'universal-argument-more
+      :prefix rmcs-leader-alt-key "u" #'universal-argument-more)
 
 (when (modulep! +bindings)
   (load! "+evil-bindings"))

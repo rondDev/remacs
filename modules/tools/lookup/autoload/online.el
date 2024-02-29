@@ -34,7 +34,7 @@ provider.
 QUERY must be a string, and PROVIDER must be a key of
 `+lookup-provider-url-alist'."
   (interactive
-   (list (if (use-region-p) (doom-thing-at-point-or-region))
+   (list (if (use-region-p) (rmcs-thing-at-point-or-region))
          (+lookup--online-provider current-prefix-arg)))
   (let ((backends (cdr (assoc provider +lookup-provider-url-alist))))
     (unless backends

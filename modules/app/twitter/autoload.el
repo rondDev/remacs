@@ -33,7 +33,7 @@ that works with the ui/popup module."
             (+workspace/new +twitter-workspace-name)
           (setq +twitter--old-wconf (current-window-configuration))
           (delete-other-windows)
-          (switch-to-buffer (doom-fallback-buffer)))
+          (switch-to-buffer (rmcs-fallback-buffer)))
         (call-interactively #'twit)
         (unless (get-buffer (car twittering-initial-timeline-spec-string))
           (error "Failed to open twitter"))
@@ -65,14 +65,14 @@ that works with the ui/popup module."
   (when +twitter--old-wconf
     (set-window-configuration +twitter--old-wconf)
     (setq +twitter--old-wconf nil))
-  (dolist (buf (doom-buffers-in-mode 'twittering-mode (buffer-list) t))
+  (dolist (buf (rmcs-buffers-in-mode 'twittering-mode (buffer-list) t))
     (twittering-kill-buffer buf)))
 
 ;;;###autoload
 (defun +twitter/rerender-all ()
   "Rerender all `twittering-mode' buffers."
   (interactive)
-  (dolist (buf (doom-buffers-in-mode 'twittering-mode (buffer-list) t))
+  (dolist (buf (rmcs-buffers-in-mode 'twittering-mode (buffer-list) t))
     (with-current-buffer buf
       (twittering-rerender-timeline-all buf)
       (setq-local line-spacing 0.2)

@@ -17,16 +17,16 @@
 (evil-ex-define-cmd "l[ine]diff"   #'evil-quick-diff)
 
 ;;; External resources
-;; TODO (evil-ex-define-cmd "db"          #'doom:db)
-;; TODO (evil-ex-define-cmd "dbu[se]"     #'doom:db-select)
-;; TODO (evil-ex-define-cmd "go[ogle]"    #'doom:google-search)
+;; TODO (evil-ex-define-cmd "db"          #'rmcs:db)
+;; TODO (evil-ex-define-cmd "dbu[se]"     #'rmcs:db-select)
+;; TODO (evil-ex-define-cmd "go[ogle]"    #'rmcs:google-search)
 (evil-ex-define-cmd "lo[okup]"    #'+lookup:online)
 (evil-ex-define-cmd "dash"        #'+lookup:dash)
 (evil-ex-define-cmd "http"        #'httpd-start)            ; start http server
 (evil-ex-define-cmd "repl"        #'+eval:repl)             ; invoke or send to repl
 (evil-ex-define-cmd "h[elp]"      #'+evil:help)
 
-;; TODO (evil-ex-define-cmd "rx"          'doom:regex)             ; open re-builder
+;; TODO (evil-ex-define-cmd "rx"          'rmcs:regex)             ; open re-builder
 (evil-ex-define-cmd "sh[ell]"     #'+eshell:run)
 (evil-ex-define-cmd "pad"         #'+evil:open-scratch-buffer)
 
@@ -42,11 +42,11 @@
 (evil-ex-define-cmd "grevert"     #'git-gutter:revert-hunk)
 
 ;;; Dealing with buffers
-(evil-ex-define-cmd "k[ill]"      #'doom/kill-current-buffer)
+(evil-ex-define-cmd "k[ill]"      #'rmcs/kill-current-buffer)
 (evil-ex-define-cmd "k[ill]all"   #'+evil:kill-all-buffers)
 (evil-ex-define-cmd "k[ill]m"     #'+evil:kill-matching-buffers)
-(evil-ex-define-cmd "k[ill]o"     #'doom/kill-other-buffers)
-(evil-ex-define-cmd "k[ill]b"     #'doom/kill-buried-buffers)
+(evil-ex-define-cmd "k[ill]o"     #'rmcs/kill-other-buffers)
+(evil-ex-define-cmd "k[ill]b"     #'rmcs/kill-buried-buffers)
 (evil-ex-define-cmd "l[ast]"      #'+popup/restore)
 (evil-ex-define-cmd "messages"    #'view-echo-area-messages)
 (evil-ex-define-cmd "pop[up]"     #'+popup/buffer)
@@ -87,10 +87,10 @@
 
 ;;; Sessions/tabs
 (evil-ex-define-cmd "sclear"      #'+workspace/kill-session)
-(evil-ex-define-cmd "sl[oad]"     #'doom/quickload-session)
-(evil-ex-define-cmd "ss[ave]"     #'doom/quicksave-session)
+(evil-ex-define-cmd "sl[oad]"     #'rmcs/quickload-session)
+(evil-ex-define-cmd "ss[ave]"     #'rmcs/quicksave-session)
 (evil-ex-define-cmd "tabc[lose]"  #'+workspace:delete)
-(evil-ex-define-cmd "tabclear"    #'doom/kill-all-buffers)
+(evil-ex-define-cmd "tabclear"    #'rmcs/kill-all-buffers)
 (evil-ex-define-cmd "tabl[ast]"   #'+workspace/switch-to-last)
 (evil-ex-define-cmd "tabload"     #'+workspace:load)
 (evil-ex-define-cmd "tabn[ew]"    #'+workspace:new)

@@ -138,7 +138,7 @@ Updates the date to today."
                (completing-read
                 "Clone transaction: "
                 (string-lines (buffer-string))
-                (doom-partial #'string-match-p "^[0-9]\\{4\\}-[0-9]\\{2\\}-[0-9]\\{2\\} [*!] ")
+                (rmcs-partial #'string-match-p "^[0-9]\\{4\\}-[0-9]\\{2\\}-[0-9]\\{2\\} [*!] ")
                 t))
       (goto-char (point-min))
       (re-search-forward (concat "^" (regexp-quote transaction)))

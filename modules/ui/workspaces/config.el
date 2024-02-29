@@ -10,7 +10,7 @@
 (defvar +workspaces-main "main"
   "The name of the primary and initial workspace, which cannot be deleted.")
 
-(defvar +workspaces-switch-project-function #'doom-project-find-file
+(defvar +workspaces-switch-project-function #'rmcs-project-find-file
   "The function to run after `projectile-switch-project' or
 `counsel-projectile-switch-project'. This function must take one argument: the
 new project directory.")
@@ -39,13 +39,13 @@ stored in `persp-save-dir'.")
 (use-package! persp-mode
   :unless noninteractive
   :commands persp-switch-to-buffer
-  :hook (doom-init-ui . persp-mode)
+  :hook (rmcs-init-ui . persp-mode)
   :config
   (setq persp-autokill-buffer-on-remove 'kill-weak
         persp-reset-windows-on-nil-window-conf nil
         persp-nil-hidden t
         persp-auto-save-fname "autosave"
-        persp-save-dir (concat doom-data-dir "workspaces/")
+        persp-save-dir (concat rmcs-data-dir "workspaces/")
         persp-set-last-persp-for-new-frames t
         persp-switch-to-added-buffer nil
         persp-kill-foreign-buffer-behaviour 'kill
@@ -100,11 +100,11 @@ stored in `persp-save-dir'.")
              (remove-hook 'kill-buffer-query-functions #'persp-kill-buffer-query-function)
              (add-hook 'kill-buffer-query-functions #'persp-kill-buffer-query-function t)
              ;; Restrict buffer list to workspace
-             (advice-add #'doom-buffer-list :override #'+workspace-buffer-list))
+             (advice-add #'rmcs-buffer-list :override #'+workspace-buffer-list))
             (t
              (when +workspace--old-uniquify-style
                (setq uniquify-buffer-name-style +workspace--old-uniquify-style))
-             (advice-remove #'doom-buffer-list #'+workspace-buffer-list)))))
+             (advice-remove #'rmcs-buffer-list #'+workspace-buffer-list)))))
 
   ;; Per-workspace `winner-mode' history
   (add-to-list 'window-persistent-parameters '(winner-ring . t))
@@ -130,7 +130,7 @@ stored in `persp-save-dir'.")
                 winner-pending-undo-ring pending-undo-ring)))))
 
   ;;;; Registering buffers to perspectives
-  (add-hook! 'doom-switch-buffer-hook
+  (add-hook! 'rmcs-switch-buffer-hook
     (defun +workspaces-add-current-buffer-h ()
       "Add current buffer to focused perspective."
       (or (not persp-mode)
@@ -141,7 +141,7 @@ stored in `persp-save-dir'.")
           (persp-add-buffer (current-buffer) (get-current-persp) nil nil))))
 
   (add-hook 'persp-add-buffer-on-after-change-major-mode-filter-functions
-            #'doom-unreal-buffer-p)
+            #'rmcs-unreal-buffer-p)
 
   (defadvice! +workspaces--evil-alternate-buffer-a (&optional window)
     "Make `evil-alternate-buffer' ignore buffers outside the current workspace."

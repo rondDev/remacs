@@ -1,6 +1,6 @@
 ;;; term/eshell/autoload/eshell.el -*- lexical-binding: t; -*-
 
-(defvar eshell-buffer-name "*doom:eshell*")
+(defvar eshell-buffer-name "*rmcs:eshell*")
 
 (defvar +eshell-buffers (make-ring 25)
   "List of open eshell buffers.")
@@ -23,9 +23,9 @@
 (defun +eshell--bury-buffer (&optional dedicated-p)
   (let ((directory default-directory))
     (unless (switch-to-prev-buffer nil 'bury)
-      (switch-to-buffer (doom-fallback-buffer)))
+      (switch-to-buffer (rmcs-fallback-buffer)))
     (when (eq major-mode 'eshell-mode)
-      (switch-to-buffer (doom-fallback-buffer)))
+      (switch-to-buffer (rmcs-fallback-buffer)))
     (when +eshell-enable-new-shell-on-split
       (let ((default-directory directory))
         (when-let (win (get-buffer-window (+eshell/here)))
@@ -85,7 +85,7 @@
   (interactive "P")
   (let ((eshell-buffer
          (get-buffer-create
-          (format "*doom:eshell-popup:%s*"
+          (format "*rmcs:eshell-popup:%s*"
                   (if (bound-and-true-p persp-mode)
                       (safe-persp-name (get-current-persp))
                     "main"))))
@@ -103,7 +103,7 @@
           (delete-window win)
           (ignore-errors (kill-buffer eshell-buffer)))
       (with-current-buffer eshell-buffer
-        (doom-mark-buffer-as-real-h)
+        (rmcs-mark-buffer-as-real-h)
         (if (eq major-mode 'eshell-mode)
             (run-hooks 'eshell-mode-hook)
           (eshell-mode))
@@ -244,7 +244,7 @@ delete."
 (defun +eshell/switch-to (buffer)
   "Interactively switch to another eshell buffer."
   (interactive
-   (let ((buffers (doom-buffers-in-mode
+   (let ((buffers (rmcs-buffers-in-mode
                    'eshell-mode (delq (current-buffer) (+eshell-buffers)))))
      (if (not buffers)
          (user-error "No eshell buffers are available")
@@ -297,8 +297,8 @@ delete."
                (set-frame-parameter nil 'saved-wconf nil))
               ((one-window-p)
                (let ((prev (save-window-excursion (previous-buffer))))
-                 (unless (and prev (doom-real-buffer-p prev))
-                   (switch-to-buffer (doom-fallback-buffer)))))
+                 (unless (and prev (rmcs-real-buffer-p prev))
+                   (switch-to-buffer (rmcs-fallback-buffer)))))
               ((or (window-dedicated-p win)
                    +eshell-kill-window-on-exit)
                (let ((ignore-window-parameters t)

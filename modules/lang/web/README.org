@@ -11,34 +11,34 @@ ReactJS, Wordpress, Jekyll, Phaser, AngularJS, Djano, and more.
 ** Maintainers
 - @hlissner
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~web-mode~ and ~css-mode~. Requires [[doom-module::tools lsp]] and a
+  Enable LSP support for ~web-mode~ and ~css-mode~. Requires [[rmcs-module::tools lsp]] and a
   langserver.
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
-  editing. Requires [[doom-module::tools tree-sitter]].
+  editing. Requires [[rmcs-module::tools tree-sitter]].
 
 ** Packages
-- [[doom-package:company-web]] if [[doom-module::completion company]]
-- [[doom-package:counsel-css]] if [[doom-module::completion ivy]]
-- [[doom-package:emmet-mode]]
-- [[doom-package:haml-mode]]
-- [[doom-package:helm-css-scss]] if [[doom-module::completion helm]]
-- [[doom-package:less-css-mode]]
-- [[doom-package:pug-mode]]
-- [[doom-package:rainbow-mode]]
-- [[doom-package:sass-mode]]
-- [[doom-package:slim-mode]]
-- [[doom-package:stylus-mode]]
-- [[doom-package:sws-mode]]
-- [[doom-package:web-mode]]
+- [[rmcs-package:company-web]] if [[rmcs-module::completion company]]
+- [[rmcs-package:counsel-css]] if [[rmcs-module::completion ivy]]
+- [[rmcs-package:emmet-mode]]
+- [[rmcs-package:haml-mode]]
+- [[rmcs-package:helm-css-scss]] if [[rmcs-module::completion helm]]
+- [[rmcs-package:less-css-mode]]
+- [[rmcs-package:pug-mode]]
+- [[rmcs-package:rainbow-mode]]
+- [[rmcs-package:sass-mode]]
+- [[rmcs-package:slim-mode]]
+- [[rmcs-package:stylus-mode]]
+- [[rmcs-package:sws-mode]]
+- [[rmcs-package:web-mode]]
 
 ** TODO Hacks
 #+begin_quote
- 󱌣 This module's hacks haven't been documented yet. [[doom-contrib-module:][Document them?]]
+ 󱌣 This module's hacks haven't been documented yet. [[rmcs-contrib-module:][Document them?]]
 #+end_quote
 
 ** TODO Changelog
@@ -46,33 +46,33 @@ ReactJS, Wordpress, Jekyll, Phaser, AngularJS, Djano, and more.
 /This module does not have a changelog yet./
 
 * TODO Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 ** Formatter
 
-Formatting is handled using the [[doom-module::editor format]] module via [[https://prettier.io/docs/en/install.html][prettier]].
+Formatting is handled using the [[rmcs-module::editor format]] module via [[https://prettier.io/docs/en/install.html][prettier]].
 
 #+begin_quote
- 󱌣 /No installation steps have been documented./ [[doom-contrib-module:][Document them?]]
+ 󱌣 /No installation steps have been documented./ [[rmcs-contrib-module:][Document them?]]
 #+end_quote
 
 * TODO Usage
 #+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no usage documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * TODO Configuration
 #+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no configuration documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

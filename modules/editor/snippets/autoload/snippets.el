@@ -2,7 +2,7 @@
 
 (defun +snippets--remove-p (x y)
   (and (equal (yas--template-key x) (yas--template-key y))
-       (file-in-directory-p (yas--template-get-file x) doom-emacs-dir)))
+       (file-in-directory-p (yas--template-get-file x) rmcs-emacs-dir)))
 
 ;;;###autoload
 (defun +snippets-prompt-private (prompt choices &optional display-fn)
@@ -10,8 +10,8 @@
 choices.
 
 There are two groups of snippets in Doom Emacs. The built in ones (under
-`doom-emacs-dir'; provided by Doom or its plugins) or your private snippets
-(outside of `doom-eamcs-dir').
+`rmcs-emacs-dir'; provided by Doom or its plugins) or your private snippets
+(outside of `rmcs-eamcs-dir').
 
 If there are multiple snippets with the same key in either camp (but not both),
 you will be prompted to select one.
@@ -164,12 +164,12 @@ buggy behavior when <delete> is pressed in an empty field."
 (defun +snippets/find ()
   "Open a snippet file (in all of `yas-snippet-dirs')."
   (interactive)
-  (let* ((dirs (doom-files-in (cl-loop for dir in yas-snippet-dirs
+  (let* ((dirs (rmcs-files-in (cl-loop for dir in yas-snippet-dirs
                                        if (symbolp dir)
                                        collect (symbol-value dir)
                                        else collect dir)
                               :depth 0 :type 'dirs))
-         (files (doom-files-in dirs :depth 0 :full t)))
+         (files (rmcs-files-in dirs :depth 0 :full t)))
     (let ((template-path (completing-read "Find snippet: " (mapcar #'abbreviate-file-name files))))
       (unless (file-readable-p template-path)
         (user-error "Cannot read %S" template-path))
@@ -183,7 +183,7 @@ buggy behavior when <delete> is pressed in an empty field."
 (defun +snippets/find-private ()
   "Open a private snippet file in `+snippets-dir'."
   (interactive)
-  (doom-project-find-file +snippets-dir))
+  (rmcs-project-find-file +snippets-dir))
 
 ;;;###autoload
 (defun +snippets/find-for-current-mode (template-uuid)
@@ -238,8 +238,8 @@ You will be prompted for a snippet to alias."
    (list
     (+snippet--completing-read-uuid "Select snippet to alias: "
                                     current-prefix-arg)))
-  (unless (require 'doom-snippets nil t)
-    (user-error "This command requires the `doom-snippets' library bundled with Doom Emacs"))
+  (unless (require 'rmcs-snippets nil t)
+    (user-error "This command requires the `rmcs-snippets' library bundled with Doom Emacs"))
   (let* ((default-directory (+snippet--ensure-dir (expand-file-name
                                                    (symbol-name major-mode)
                                                    +snippets-dir)))
@@ -257,7 +257,7 @@ You will be prompted for a snippet to alias."
                  "# condition: t}\n"
                  "# type: command\n"
                  "# --\n"
-                 "(doom-snippets-expand :uuid \"${4:" (or template-uuid "uuid") "}\")"))
+                 "(rmcs-snippets-expand :uuid \"${4:" (or template-uuid "uuid") "}\")"))
         (when (bound-and-true-p evil-local-mode)
           (evil-insert-state))))))
 
@@ -311,7 +311,7 @@ shadow the default snippet)."
 ;;;###autoload
 (defun +snippets-read-only-maybe-h ()
   "Enable `read-only-mode' if snippet is built-in."
-  (when (file-in-directory-p default-directory doom-local-dir)
+  (when (file-in-directory-p default-directory rmcs-local-dir)
     (read-only-mode 1)
     (message "This is a built-in snippet, enabling read only mode. Use `yas-new-snippet' to redefine snippets")))
 

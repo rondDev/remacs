@@ -8,42 +8,42 @@ This module adds a multiple cursors implementation to Emacs (two, if you use
 evil) that loosely take after multi-cursors in Atom or Sublime Text.
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[rmcs-user:][@hlissner]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 /This module has no flags./
 
 ** Packages
-- if [[doom-module::editor evil]]
-  - [[doom-package:evil-multiedit]]
-  - [[doom-package:evil-mc]]
+- if [[rmcs-module::editor evil]]
+  - [[rmcs-package:evil-multiedit]]
+  - [[rmcs-package:evil-mc]]
 - else
-  - [[doom-package:multiple-cursors]]
+  - [[rmcs-package:multiple-cursors]]
 
 ** Hacks
-- Attempts to smooth over [[doom-package:multiple-cursors]]' incompatibilities with [[doom-package:evil]], which
+- Attempts to smooth over [[rmcs-package:multiple-cursors]]' incompatibilities with [[rmcs-package:evil]], which
   is used internally in some third party plugins.
-- Attempts to smooth over [[doom-package:evil-mc]]'s incompatibilities with other packages, like
-  [[doom-package:lispy]].
+- Attempts to smooth over [[rmcs-package:evil-mc]]'s incompatibilities with other packages, like
+  [[rmcs-package:lispy]].
 
 ** TODO Changelog
 # This section will be machine generated. Don't edit it by hand.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 /This module has no external requirements./
 
 * TODO Usage
 #+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's usage documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** evil-mc
-- The [[doom-package:evil-mc]] keys are under the [[kbd:][gz]] prefix, e.g.
+- The [[rmcs-package:evil-mc]] keys are under the [[kbd:][gz]] prefix, e.g.
   - [[kbd:][gzz]] to toggle new (frozen) cursors at point.
   - [[kbd:][gzt]] to toggle mirroring on and off (or switch to insert mode to activate
     them).
@@ -63,16 +63,16 @@ Designates "interactive edit" regions. Only the textual changes to them are mirr
 
 * TODO Configuration
 #+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no configuration documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

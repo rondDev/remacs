@@ -29,7 +29,7 @@ d s= (or =C-h d s=).
   - [[#asking-for-help][Asking for help]]
   - [[#project-roadmap][Project roadmap]]
   - [[#tutorials--guides][Tutorials & guides]]
-  - [[#projects-that-supportcomplement-doom][Projects that support/complement Doom]]
+  - [[#projects-that-supportcomplement-rmcs][Projects that support/complement Doom]]
   - [[#similar-projects][Similar projects]]
 
 * TODO Release Notes
@@ -65,23 +65,23 @@ d s= (or =C-h d s=).
 * Community Resources
 ** Asking for help
 - [[https://discord.gg/qvGgnVx][Our Discord server]]
-- [[https://github.com/hlissner/doom-emacs/issues][Our issue tracker]]
+- [[https://github.com/hlissner/rmcs-emacs/issues][Our issue tracker]]
 
 ** Project roadmap
-- [[https://github.com/hlissner/doom-emacs/projects/3][Development roadmap]] - A timeline outlining what's being worked on and when it
+- [[https://github.com/hlissner/rmcs-emacs/projects/3][Development roadmap]] - A timeline outlining what's being worked on and when it
   is expected to be done.
-- [[https://github.com/hlissner/doom-emacs/projects/2][Plugins under review]] - A sitrep on third party plugins that we've considered,
+- [[https://github.com/hlissner/rmcs-emacs/projects/2][Plugins under review]] - A sitrep on third party plugins that we've considered,
   rejected, or awaiting integration into Doom.
-- [[https://github.com/hlissner/doom-emacs/projects/5][Upstream bugs]] - Tracks issues originating from plugins and external programs
+- [[https://github.com/hlissner/rmcs-emacs/projects/5][Upstream bugs]] - Tracks issues originating from plugins and external programs
   that Doom relies on.
 
 ** Tutorials & guides
 + *Doom Emacs*
   - (videos) [[https://www.youtube.com/playlist?list=PLyy8KUDC8P7X6YkegqrnEnymzMWCNB4bN][Doom Emacs Tutorials]] by [[https://www.youtube.com/channel/UCVls1GmFKf6WlTraIb_IaJg][DistroTube]]
   - (videos) [[https://www.youtube.com/playlist?list=PLhXZp00uXBk4np17N39WvB80zgxlZfVwj][DoomCasts]] by @zaiste
-  - [[https://noelwelsh.com/posts/doom-emacs][Noel's crash course on Doom Emacs]]
-  - [[https://medium.com/@aria_39488/getting-started-with-doom-emacs-a-great-transition-from-vim-to-emacs-9bab8e0d8458][Getting Started with Doom Emacs -- a great transition from Vim to Emacs]]
-  - [[https://medium.com/@aria_39488/the-niceties-of-evil-in-doom-emacs-cabb46a9446b][The Niceties of evil in Doom Emacs]]
+  - [[https://noelwelsh.com/posts/rmcs-emacs][Noel's crash course on Doom Emacs]]
+  - [[https://medium.com/@aria_39488/getting-started-with-rmcs-emacs-a-great-transition-from-vim-to-emacs-9bab8e0d8458][Getting Started with Doom Emacs -- a great transition from Vim to Emacs]]
+  - [[https://medium.com/@aria_39488/the-niceties-of-evil-in-rmcs-emacs-cabb46a9446b][The Niceties of evil in Doom Emacs]]
   - (video) [[https://www.youtube.com/watch?v=GK3fij-D1G8][Org-mode, literate programming in (Doom) Emacs]]
 + *Emacs & Emacs Lisp*
   - [[https://www.gnu.org/software/emacs/manual/html_node/elisp/index.html][The Official Emacs manual]]

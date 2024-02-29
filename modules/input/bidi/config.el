@@ -5,7 +5,7 @@
 
 (defvar +bidi-hebrew-font (font-spec :family "DejaVu Sans")
   "Overriding font for hebrew script.
-Must be a `font-spec', see `doom-font' for examples.
+Must be a `font-spec', see `rmcs-font' for examples.
 
 WARNING: if you specify a size for this font it will hard-lock any usage of this
 font to that size. It's rarely a good idea to do so!")
@@ -14,7 +14,7 @@ font to that size. It's rarely a good idea to do so!")
 
 (defvar +bidi-arabic-font (font-spec :family "DejaVu Sans")
   "Overriding font for arabic and arabic-derived scripts.
-Must be a `font-spec', see `doom-font' for examples.
+Must be a `font-spec', see `rmcs-font' for examples.
 
 WARNING: if you specify a size for this font it will hard-lock any usage of this
 font to that size. It's rarely a good idea to do so!")

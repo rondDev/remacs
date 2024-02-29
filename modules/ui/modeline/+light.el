@@ -1,6 +1,6 @@
 ;;; ui/modeline/+default.el -*- lexical-binding: t; -*-
 
-;; This is a slimmed down version of `doom-modeline' that manipulates
+;; This is a slimmed down version of `rmcs-modeline' that manipulates
 ;; `mode-line-format' directly. Its purpose is to be truer to the original goal
 ;; of Doom's modeline: to be more performant and minimalistic alternative to
 ;; other modeline packages and to be abstraction-light. Too much abstraction is
@@ -50,17 +50,17 @@ side of the modeline, and whose CDR is the right-hand side.")
 ;;
 ;;; Faces
 
-(defface doom-modeline-bar '((t (:inherit highlight)))
+(defface rmcs-modeline-bar '((t (:inherit highlight)))
   "Face used for left-most bar on the mode-line of an active window.")
 
-(defface doom-modeline-bar-inactive '((t (:inherit mode-line-inactive)))
+(defface rmcs-modeline-bar-inactive '((t (:inherit mode-line-inactive)))
   "Face used for left-most bar on the mode-line of an inactive window.")
 
-(defface doom-modeline-highlight
+(defface rmcs-modeline-highlight
   '((t (:inherit mode-line-highlight)))
   "Face used for highlighted modeline panels (like search counts).")
 
-(defface doom-modeline-alternate-highlight
+(defface rmcs-modeline-alternate-highlight
   '((t (:inherit mode-line-highlight)))
   "Alternative face used for highlighted modeline panels (like search counts).")
 
@@ -187,12 +187,12 @@ LHS and RHS will accept."
 (defvar +modeline-active-bar "")
 (defvar +modeline-inactive-bar "")
 
-(add-hook! '(doom-init-ui-hook doom-load-theme-hook) :append
+(add-hook! '(rmcs-init-ui-hook rmcs-load-theme-hook) :append
   (defun +modeline-refresh-bars-h ()
     (let ((width (or +modeline-bar-width 1))
           (height (max +modeline-height 0))
-          (active-bg (face-background 'doom-modeline-bar nil t))
-          (inactive-bg (face-background 'doom-modeline-bar-inactive nil t)))
+          (active-bg (face-background 'rmcs-modeline-bar nil t))
+          (inactive-bg (face-background 'rmcs-modeline-bar-inactive nil t)))
       (when (or (null +modeline-bar-width)
                 (= +modeline-bar-width 0))
         (setq active-bg nil
@@ -208,7 +208,7 @@ LHS and RHS will accept."
                         +modeline-active-bar
                       +modeline-inactive-bar))))))
 
-(add-hook! 'doom-change-font-size-hook
+(add-hook! 'rmcs-change-font-size-hook
   (defun +modeline-adjust-height-h ()
     (defvar +modeline--old-height +modeline-height)
     (let ((default-height +modeline--old-height)
@@ -216,9 +216,9 @@ LHS and RHS will accept."
       (setq +modeline-height
             (if (> scale 0)
                 (+ default-height (* (or (frame-parameter nil 'font-scale) 1)
-                                     doom-font-increment))
+                                     rmcs-font-increment))
               default-height))
-      (when doom-init-time
+      (when rmcs-init-time
         (+modeline-refresh-bars-h)))))
 
 
@@ -262,7 +262,7 @@ Requires `anzu', also `evil-anzu' if using `evil-mode' for compatibility with
               (format " %s+ " total))
              (t
               (format " %s/%d " here total))))
-     'face (if (+modeline-active) 'doom-modeline-highlight))))
+     'face (if (+modeline-active) 'rmcs-modeline-highlight))))
 
 (defun +modeline--evil-substitute ()
   "Show number of matches for evil-ex substitutions and highlights in real time."
@@ -278,7 +278,7 @@ Requires `anzu', also `evil-anzu' if using `evil-mode' for compatibility with
        (if pattern
            (format " %s matches " (how-many pattern (car range) (cdr range)))
          " - "))
-     'face (if (+modeline-active) 'doom-modeline-highlight))))
+     'face (if (+modeline-active) 'rmcs-modeline-highlight))))
 
 (defun +modeline--multiple-cursors ()
   "Show the number of multiple cursors."
@@ -286,8 +286,8 @@ Requires `anzu', also `evil-anzu' if using `evil-mode' for compatibility with
     (let ((count (length evil-mc-cursor-list)))
       (when (> count 0)
         (let ((face (cond ((not (+modeline-active)) 'mode-line-inactive)
-                          (evil-mc-frozen 'doom-modeline-highlight)
-                          ('doom-modeline-alternate-highlight))))
+                          (evil-mc-frozen 'rmcs-modeline-highlight)
+                          ('rmcs-modeline-alternate-highlight))))
           (concat (propertize " " 'face face)
                   (nerd-icons-faicon "nf-fa-i_cursor" :face face :v-adjust -0.0575)
                   (propertize " " 'face `(:inherit (variable-pitch ,face)))
@@ -317,22 +317,22 @@ Requires `anzu', also `evil-anzu' if using `evil-mode' for compatibility with
                       -1)
                  "-")
                length))
-     'face (if (+modeline-active) 'doom-modeline-highlight))))
+     'face (if (+modeline-active) 'rmcs-modeline-highlight))))
 
 (defun +modeline--macro-recording ()
   "Display current Emacs or evil macro being recorded."
   (when (and (+modeline-active)
              (or defining-kbd-macro
                  executing-kbd-macro))
-    (let ((sep (propertize " " 'face 'doom-modeline-highlight)))
+    (let ((sep (propertize " " 'face 'rmcs-modeline-highlight)))
       (concat sep
               (propertize (if (bound-and-true-p evil-this-macro)
                               (char-to-string evil-this-macro)
                             "Macro")
-                          'face 'doom-modeline-highlight)
+                          'face 'rmcs-modeline-highlight)
               sep
               (nerd-icons-octicon "nf-oct-triangle_right"
-                                     :face 'doom-modeline-highlight
+                                     :face 'rmcs-modeline-highlight
                                      :v-adjust -0.05)
               sep))))
 
@@ -352,7 +352,7 @@ Requires `anzu', also `evil-anzu' if using `evil-mode' for compatibility with
   '(""
     (:propertize mode-name
      face bold
-     mouse-face doom-modeline-highlight)
+     mouse-face rmcs-modeline-highlight)
     mode-line-process
     "%n"
     " "))
@@ -382,7 +382,7 @@ Requires `anzu', also `evil-anzu' if using `evil-mode' for compatibility with
               (unless (or (null default-directory)
                           (null file-name)
                           (file-remote-p file-name))
-                (when-let (project-root (doom-project-root))
+                (when-let (project-root (rmcs-project-root))
                   (file-relative-name (or buffer-file-truename (file-truename file-name))
                                       (concat project-root "..")))))))))
 
@@ -567,7 +567,7 @@ lines are selected, or the NxM dimensions of a block selection.")
 
 ;; Other modes
 (set-modeline! :main 'default)
-(set-modeline-hook! '+doom-dashboard-mode-hook 'project)
+(set-modeline-hook! '+rmcs-dashboard-mode-hook 'project)
 (set-modeline-hook! 'pdf-tools-enabled-hook 'pdf)
 (set-modeline-hook! '(special-mode-hook
                       image-mode-hook
@@ -609,4 +609,4 @@ lines are selected, or the NxM dimensions of a block selection.")
 (define-global-minor-mode +modeline-global-mode +modeline-mode +modeline-mode)
 
 (add-hook '+modeline-global-mode-hook #'size-indication-mode)
-(add-hook 'doom-init-ui-hook #'+modeline-global-mode)
+(add-hook 'rmcs-init-ui-hook #'+modeline-global-mode)

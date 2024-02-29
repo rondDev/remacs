@@ -42,11 +42,11 @@ Is converted to: net.lissner.game
 It does this by ignoring everything before the nearest package root (see
 `+java-project-package-roots' to control what this function considers a package
 root)."
-  (cond ((doom-special-buffer-p (current-buffer))
+  (cond ((rmcs-special-buffer-p (current-buffer))
          "{PackageName}")
         ((not (eq major-mode 'java-mode))
          (user-error "Not in java-mode"))
-        ((when-let (project-root (doom-project-root))
+        ((when-let (project-root (rmcs-project-root))
            (let* ((project-root (file-truename project-root))
                   (file-path
                    (file-name-sans-extension
@@ -71,7 +71,7 @@ root)."
 ;;;###autoload
 (defun +java-current-class ()
   "Get the class name for the current file."
-  (cond ((doom-special-buffer-p (current-buffer))
+  (cond ((rmcs-special-buffer-p (current-buffer))
          "{ClassName}")
         ((not (eq major-mode 'java-mode))
          (user-error "Not in java-mode"))

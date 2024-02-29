@@ -2,7 +2,7 @@
 
 ;;;###autoload (add-hook 'org-mode-hook #'+literate-enable-recompile-h)
 
-(defvar +literate-config-file (file-name-concat doom-user-dir "config.org")
+(defvar +literate-config-file (file-name-concat rmcs-user-dir "config.org")
   "The file path of your literate config file.")
 
 (defvar +literate-tangle--async-proc nil)
@@ -40,7 +40,7 @@
                 ;; trust that you know what you're doing!
                 (org-confirm-babel-evaluate nil)
                 ;; Say a little more
-                (doom-print-message-level 'info))
+                (rmcs-print-message-level 'info))
             (if-let (files (org-babel-tangle-file target dest))
                 (always (print! (success "Done tangling %d file(s)!" (length files))))
               (print! (error "Failed to tangle any blocks from your config."))
@@ -50,8 +50,8 @@
   "Tangles `+literate-config-file' if it has changed."
   (or (getenv "__NOTANGLE")
       (and (+literate-tangle +literate-config-file
-                             doom-module-config-file
-                             doom-user-dir)
+                             rmcs-module-config-file
+                             rmcs-user-dir)
            (or (not noninteractive)
                (exit! "__NOTANGLE=1 $@")))))
 
@@ -73,14 +73,14 @@
                            (current-buffer))
                          "emacs" "--batch"
                          "-L" (file-name-directory (locate-library "org"))
-                         "--load" (doom-path doom-core-dir "doom")
-                         "--load" (doom-path doom-core-dir "lib/print")
+                         "--load" (rmcs-path rmcs-core-dir "rmcs")
+                         "--load" (rmcs-path rmcs-core-dir "lib/print")
                          "--eval"
                          (prin1-to-string
                           `(funcall #',(symbol-function #'+literate-tangle)
                                     ,+literate-config-file
-                                    ,doom-module-config-file
-                                    ,doom-user-dir))))
+                                    ,rmcs-module-config-file
+                                    ,rmcs-user-dir))))
     (add-hook 'kill-emacs-hook #'+literate-tangle-check-finished-h)
     (set-process-sentinel +literate-tangle--async-proc #'+literate-tangle--async-sentinel)
     (run-at-time nil nil (lambda () (message "Tangling config.org"))) ; ensure shown after a save message
@@ -104,7 +104,7 @@
 ;;; Commands
 
 ;;;###autoload
-(defalias '+literate/reload #'doom/reload)
+(defalias '+literate/reload #'rmcs/reload)
 
 
 ;;
@@ -135,9 +135,9 @@ This is performed with an asyncronous Emacs process, except when
 
 ;;;###autoload
 (defun +literate-recompile-maybe-h ()
-  "Recompile literate config to `doom-user-dir'.
+  "Recompile literate config to `rmcs-user-dir'.
 
-We assume any org file in `doom-user-dir' is connected to your literate
+We assume any org file in `rmcs-user-dir' is connected to your literate
 config, and should trigger a recompile if changed."
   (and (file-in-directory-p
         (buffer-file-name (buffer-base-buffer))

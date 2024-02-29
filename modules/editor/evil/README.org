@@ -7,9 +7,9 @@
 This holy module brings the Vim editing model to Emacs.
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[rmcs-user:][@hlissner]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +everywhere ::
@@ -17,24 +17,24 @@ This holy module brings the Vim editing model to Emacs.
   as a foundation.
 
 ** Packages
-- [[doom-package:evil]]
-- [[doom-package:evil-args]]
-- [[doom-package:evil-collection]] if [[doom-module:+everywhere]]
-- [[doom-package:evil-easymotion]]
-- [[doom-package:evil-embrace]]
-- [[doom-package:evil-escape]]
-- [[doom-package:evil-exchange]]
-- [[doom-package:evil-indent-plus]]
-- [[doom-package:evil-lion]]
-- [[doom-package:evil-nerd-commentary]]
-- [[doom-package:evil-numbers]]
-- [[doom-package:evil-quick-diff]]
-- [[doom-package:evil-snipe]]
-- [[doom-package:evil-surround]]
-- [[doom-package:evil-textobj-anyblock]]
-- [[doom-package:evil-vimish-fold]]
-- [[doom-package:evil-visualstar]]
-- [[doom-package:exato]]
+- [[rmcs-package:evil]]
+- [[rmcs-package:evil-args]]
+- [[rmcs-package:evil-collection]] if [[rmcs-module:+everywhere]]
+- [[rmcs-package:evil-easymotion]]
+- [[rmcs-package:evil-embrace]]
+- [[rmcs-package:evil-escape]]
+- [[rmcs-package:evil-exchange]]
+- [[rmcs-package:evil-indent-plus]]
+- [[rmcs-package:evil-lion]]
+- [[rmcs-package:evil-nerd-commentary]]
+- [[rmcs-package:evil-numbers]]
+- [[rmcs-package:evil-quick-diff]]
+- [[rmcs-package:evil-snipe]]
+- [[rmcs-package:evil-surround]]
+- [[rmcs-package:evil-textobj-anyblock]]
+- [[rmcs-package:evil-vimish-fold]]
+- [[rmcs-package:evil-visualstar]]
+- [[rmcs-package:exato]]
 
 ** Hacks
 - The o/O keys will respect and continue commented lines (can be disabled by
@@ -52,13 +52,13 @@ This holy module brings the Vim editing model to Emacs.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 /This module has no external requirements./
 
 * TODO Usage
 #+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's usage documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Ported vim plugins
@@ -71,16 +71,16 @@ The following vim plugins have been ported to evil:
 | vim-lion              | evil-lion                      | omap [[kbd:][gl]] / [[kbd:][gL]]                   |
 | vim-seek or vim-sneak | evil-snipe                     | mmap [[kbd:][s]] / [[kbd:][S]], omap [[kbd:][z]] / [[kbd:][Z]] & [[kbd:][x]] / [[kbd:][X]] |
 | vim-surround          | evil-embrace and evil-surround | vmap [[kbd:][S]], omap [[kbd:][ys]]                |
-| vim-unimpaired        | (provided by Doom)             | [[https://github.com/hlissner/doom-emacs/blob/develop/modules/editor/evil/config.el#L413-L460][see the list]]                   |
+| vim-unimpaired        | (provided by Doom)             | [[https://github.com/hlissner/rmcs-emacs/blob/develop/modules/editor/evil/config.el#L413-L460][see the list]]                   |
 
 This module has also ported vim-unimpaired keybinds to Emacs.
 
 In other modules:
-- The [[doom-module::ui neotree]] & [[doom-module::ui treemacs]] modules provide a =NERDTree= equivalent.
-- The [[doom-module::editor multiple-cursors]] module contains functionality equal to the
+- The [[rmcs-module::ui neotree]] & [[rmcs-module::ui treemacs]] modules provide a =NERDTree= equivalent.
+- The [[rmcs-module::editor multiple-cursors]] module contains functionality equal to the
   following vim plugins:
-  - [[doom-package:evil-multiedit]] => [[github:hlissner/vim-multiedit][vim-multiedit]]
-  - [[doom-package:evil-mc]] => [[https://github.com/terryma/vim-multiple-cursors][vim-multiple-cursors]]
+  - [[rmcs-package:evil-multiedit]] => [[github:hlissner/vim-multiedit][vim-multiedit]]
+  - [[rmcs-package:evil-mc]] => [[https://github.com/terryma/vim-multiple-cursors][vim-multiple-cursors]]
 
 ** Custom Text Objects
 This module provides a couple extra text objects, along with the built-in ones.
@@ -138,11 +138,11 @@ And these are text objects added by this module:
 
 * TODO Configuration
 #+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no configuration documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
-[[doom-report:][Report an issue?]]
+[[rmcs-report:][Report an issue?]]
 
 ** Can't access the universal argument key ([[kbd:][C-u]])
 For maximum Vim emulation, this module commandeers the C-u key for scrolling (as
@@ -157,13 +157,13 @@ To undo this, use:
 #+end_src
 
 ** The [[kbd:][s]]/[[kbd:][S]] keys behave differently from Vim
-Doom replaces the [[kbd:][s]] and [[kbd:][S]] keys with the [[doom-package:evil-snipe]] package (a port of
+Doom replaces the [[kbd:][s]] and [[kbd:][S]] keys with the [[rmcs-package:evil-snipe]] package (a port of
 vim-seek/vim-sneak for 2-character versions of f/F/t/T).
 
 To disable evil-snipe on s/S, you can either:
-1. Disable ~evil-snipe-mode~ by adding ~(remove-hook 'doom-first-input-hook
+1. Disable ~evil-snipe-mode~ by adding ~(remove-hook 'rmcs-first-input-hook
    #'evil-snipe-mode)~ to =$DOOMDIR/config.el=,
-2. Or disable [[doom-package:evil-snipe]] completely with ~(package! evil-snipe :disable t)~
+2. Or disable [[rmcs-package:evil-snipe]] completely with ~(package! evil-snipe :disable t)~
    added to =$DOOMDIR/packages.el=, but this will also disable incremental
    highlighting for the f/F/t/T motions keys.
 3. Or use [[kbd:][cl]] and [[kbd:][cc]], respectively; they do the same thing.
@@ -180,25 +180,25 @@ If you prefer the old behavior, it can be reversed with:
 #+end_src
 
 * Frequently asked questions
-[[doom-suggest-faq:][Ask a question?]]
+[[rmcs-suggest-faq:][Ask a question?]]
 
 ** How do I remove evil?
 :PROPERTIES:
 :ID:       f3925da6-5f0b-4d11-aa08-7bb58bea1982
 :END:
 1. [[id:01cffea4-3329-45e2-a892-95a384ab2338][Disable this module]].
-2. Run ~$ doom sync~ to clean up lingering dependencies and regenerate your
+2. Run ~$ rmcs sync~ to clean up lingering dependencies and regenerate your
    autoloads files.
-3. [OPTIONAL] Change ~doom-leader-alt-key~ and ~doom-localleader-alt-key~. These
+3. [OPTIONAL] Change ~rmcs-leader-alt-key~ and ~rmcs-localleader-alt-key~. These
    are bound to [[kbd:][C-c]] and [[kbd:][C-c l]] by default.
 
 #+begin_quote
-  Ignore ~doom-leader-key~ and ~doom-localleader-key~, they don't apply to
+  Ignore ~rmcs-leader-key~ and ~rmcs-localleader-key~, they don't apply to
     non-evil sessions.
 #+end_quote
 
 Evil-specific configuration and keybindings (defined with ~map!~) will be
-ignored without [[doom-module::editor evil]] present (and omitted when byte-compiling).
+ignored without [[rmcs-module::editor evil]] present (and omitted when byte-compiling).
 
 ** Include underscores in evil word motions?
 A more in-depth answer and explanation for this can be found [[https://evil.readthedocs.io/en/latest/faq.html#underscore-is-not-a-word-character][in Evil's
@@ -241,5 +241,5 @@ Like in vim, the clipboard can still be accessed by using the [[kbd:][+]] regist
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

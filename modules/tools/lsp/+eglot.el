@@ -38,7 +38,7 @@
     :type-definition #'eglot-find-typeDefinition
     :documentation   #'+eglot-lookup-documentation)
 
-  (add-to-list 'doom-debug-variables '(eglot-events-buffer-size . 2000000))
+  (add-to-list 'rmcs-debug-variables '(eglot-events-buffer-size . 2000000))
 
   (defadvice! +lsp--defer-server-shutdown-a (fn &optional server)
     "Defer server shutdown for a few seconds.

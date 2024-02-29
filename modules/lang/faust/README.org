@@ -20,23 +20,23 @@ Add support to [[https://faust.grame.fr/][Faust language]] inside emacs.
   shortcuts, etc.)
 - Automatic keyword completion (if Auto-Complete is installed)
 - Automatic objets (functions, operators, etc.) template insertion with default
-  sensible values (if [[doom-module::editor snippets]] is enabled)
+  sensible values (if [[rmcs-module::editor snippets]] is enabled)
 - Modeline indicator of the state of the code
 
 ** Maintainers
-*This module needs a maintainer.* [[doom-contrib-maintainer:][Become a maintainer?]]
+*This module needs a maintainer.* [[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Packages
-- [[doom-package:faustine]]
+- [[rmcs-package:faustine]]
 
 ** Hacks
-- Both ~faust-mode~ and ~faustine-mode~ are hardcoded to use [[doom-package:auto-complete]],
+- Both ~faust-mode~ and ~faustine-mode~ are hardcoded to use [[rmcs-package:auto-complete]],
   which Doom does not use. Its obnoxious 'You really should install and use
   auto-complete' warnings have been silenced.
 
 * TODO Usage
 #+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's usage documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 | Binding           | Description          |
@@ -54,16 +54,16 @@ Add support to [[https://faust.grame.fr/][Faust language]] inside emacs.
 
 * TODO Configuration
 #+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no configuration documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

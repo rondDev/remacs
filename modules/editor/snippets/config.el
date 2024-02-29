@@ -1,6 +1,6 @@
 ;;; editor/snippets/config.el -*- lexical-binding: t; -*-
 
-(defvar +snippets-dir (expand-file-name "snippets/" doom-user-dir)
+(defvar +snippets-dir (expand-file-name "snippets/" rmcs-user-dir)
   "Directory where `yasnippet' will search for your private snippets.")
 
 
@@ -31,16 +31,16 @@
   (add-transient-hook! #'company-yasnippet (require 'yasnippet))
 
   :config
-  (add-to-list 'doom-debug-variables '(yas-verbosity . 3))
+  (add-to-list 'rmcs-debug-variables '(yas-verbosity . 3))
 
   ;; Allow private snippets in DOOMDIR/snippets
   (add-to-list 'yas-snippet-dirs '+snippets-dir)
 
   ;; default snippets library, if available
   (add-to-list 'load-path +snippets-dir)
-  (require 'doom-snippets nil t)
+  (require 'rmcs-snippets nil t)
 
-  ;; HACK In case `+snippets-dir' and `doom-snippets-dir' are the same, or
+  ;; HACK In case `+snippets-dir' and `rmcs-snippets-dir' are the same, or
   ;;      duplicates exist in `yas-snippet-dirs'.
   (advice-add #'yas-snippet-dirs :filter-return #'delete-dups)
 
@@ -52,10 +52,10 @@
 
   ;; Register `def-project-mode!' modes with yasnippet. This enables project
   ;; specific snippet libraries (e.g. for Laravel, React or Jekyll projects).
-  (add-hook 'doom-project-hook #'+snippets-enable-project-modes-h)
+  (add-hook 'rmcs-project-hook #'+snippets-enable-project-modes-h)
 
   ;; Exit snippets on ESC from normal mode
-  (add-hook 'doom-escape-hook #'yas-abort-snippet)
+  (add-hook 'rmcs-escape-hook #'yas-abort-snippet)
 
   (after! smartparens
     ;; tell smartparens overlays not to interfere with yasnippet keybinds
@@ -67,7 +67,7 @@
 
   ;; Show keybind hints in snippet header-line
   (add-hook 'snippet-mode-hook #'+snippets-show-hints-in-header-line-h)
-  ;; Enable `read-only-mode' for built-in snippets (in `doom-local-dir')
+  ;; Enable `read-only-mode' for built-in snippets (in `rmcs-local-dir')
   (add-hook 'snippet-mode-hook #'+snippets-read-only-maybe-h)
 
   (map! (:map yas-keymap

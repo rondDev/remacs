@@ -10,8 +10,8 @@
 If in a project, returns the configuration of the last debugging session in the
 project, if any. Else, returns the last debugging configuration of the current
 buffer, if any."
-  (if (doom-project-p)
-      (doom-store-get (doom-project-root) "+debugger")
+  (if (rmcs-project-p)
+      (rmcs-store-get (rmcs-project-root) "+debugger")
     +debugger--last-config))
 
 (defun +debugger--set-config (config)
@@ -19,8 +19,8 @@ buffer, if any."
 
 If in a project, sets the project's debugging session configuration. Else, sets
 the debugging configuration of the current buffer."
-  (if (doom-project-p)
-      (doom-store-put (doom-project-root) config
+  (if (rmcs-project-p)
+      (rmcs-store-put (rmcs-project-root) config
                       (lambda (key _cfg) (file-directory-p key))
                       "+debugger")
     (setq +debugger--last-config config)))
@@ -80,7 +80,7 @@ infromation."
   (let ((configuration (+debugger--get-last-config)))
     (unless configuration
       (user-error "No last debugger%s to invoke"
-                  (if (doom-project-p)
+                  (if (rmcs-project-p)
                       " of this project"
                     "")))
     (let ((launch-args (cdr configuration)))

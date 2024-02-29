@@ -15,8 +15,8 @@ Can be a list of backends; accepts any value `company-backends' accepts.")
   :commands lsp-install-server
   :init
   ;; Don't touch ~/.emacs.d, which could be purged without warning
-  (setq lsp-session-file (concat doom-cache-dir "lsp-session")
-        lsp-server-install-dir (concat doom-data-dir "lsp"))
+  (setq lsp-session-file (concat rmcs-cache-dir "lsp-session")
+        lsp-server-install-dir (concat rmcs-data-dir "lsp"))
   ;; Don't auto-kill LSP server after last workspace buffer is killed, because I
   ;; will do it for you, after `+lsp-defer-shutdown' seconds.
   (setq lsp-keep-workspace-alive nil)
@@ -39,25 +39,25 @@ Can be a list of backends; accepts any value `company-backends' accepts.")
   (when (modulep! :checkers syntax +flymake)
     (setq lsp-diagnostics-provider :flymake))
 
-  ;; Let doom bind the lsp keymap.
+  ;; Let rmcs bind the lsp keymap.
   (when (modulep! :config default +bindings)
     (setq lsp-keymap-prefix nil))
 
   :config
-  (add-to-list 'doom-debug-variables 'lsp-log-io)
+  (add-to-list 'rmcs-debug-variables 'lsp-log-io)
 
-  (setq lsp-intelephense-storage-path (concat doom-data-dir "lsp-intelephense/")
+  (setq lsp-intelephense-storage-path (concat rmcs-data-dir "lsp-intelephense/")
         lsp-vetur-global-snippets-dir
         (expand-file-name
          "vetur" (or (bound-and-true-p +snippets-dir)
-                     (concat doom-user-dir "snippets/")))
+                     (concat rmcs-user-dir "snippets/")))
         lsp-xml-jar-file (expand-file-name "org.eclipse.lsp4xml-0.3.0-uber.jar" lsp-server-install-dir)
         lsp-groovy-server-file (expand-file-name "groovy-language-server-all.jar" lsp-server-install-dir))
 
   ;; REVIEW Remove this once this is fixed upstream.
   (add-to-list 'lsp-client-packages 'lsp-racket)
 
-  (add-hook! 'doom-escape-hook
+  (add-hook! 'rmcs-escape-hook
     (defun +lsp-signature-stop-maybe-h ()
       "Close the displayed `lsp-signature'."
       (when lsp-signature-mode

@@ -19,15 +19,15 @@ This module integrates direnv into Emacs.
 #+end_quote
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[rmcs-user:][@hlissner]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 /This module has no flags./
 
 ** Packages
-- [[doom-package:envrc]]
+- [[rmcs-package:envrc]]
 
 ** Hacks
 - ~envrc-mode~ has been modified to fail gracefully if ~direnv~ isn't available.
@@ -41,7 +41,7 @@ This module integrates direnv into Emacs.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module requires [[https://direnv.net/][direnv]].
 
@@ -65,20 +65,20 @@ Or ~$ nix-env -i direnv~
 
 * TODO Usage
 #+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's usage documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 To make use of direnv you need a =.envrc= file in a directory. Any time you open
-a file or buffer in said directory, the [[doom-package:envrc]] Emacs package will kick in,
+a file or buffer in said directory, the [[rmcs-package:envrc]] Emacs package will kick in,
 activate the local env, and inject it into Emacs for the current buffer.
 
 * TODO Configuration
 #+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no configuration documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
-[[doom-report:][Report an issue?]]
+[[rmcs-report:][Report an issue?]]
 
 ** direnv + nix is slow
 Consider augmenting direnv with [[https://github.com/nix-community/lorri][lorri]], which will cache nix builds and speed up
@@ -88,9 +88,9 @@ services.lorri.enable = true;
 #+end_src
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

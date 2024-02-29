@@ -7,14 +7,14 @@
 This module turns Emacs into an IRC client, capable of OS notifications.
 
 ** Maintainers
-/This module has no dedicated maintainers./ [[doom-contrib-maintainer:][Become a maintainer?]]
+/This module has no dedicated maintainers./ [[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 /This module has no flags./
 
 ** Packages
-- [[doom-package:circe]]
-- [[doom-package:circe-notifications]]
+- [[rmcs-package:circe]]
+- [[rmcs-package:circe-notifications]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -24,7 +24,7 @@ This module turns Emacs into an IRC client, capable of OS notifications.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module requires:
 - [[https://www.gnutls.org/][GnuTLS]], for secure IRC connections to work.
@@ -52,7 +52,7 @@ environment.systemPackages = [ pkgs.gnutls ];
 
 * TODO Usage
 #+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's usage documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 To connect to IRC use ~M-x =irc~.
@@ -70,7 +70,7 @@ When in a circe buffer these keybindings will be available:
 
 * TODO Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 Use ~set-irc-server! SERVER PLIST~ to configure IRC servers. Its second argument
@@ -81,7 +81,7 @@ Use ~set-irc-server! SERVER PLIST~ to configure IRC servers. Its second argument
   (set-irc-server! "irc.libera.chat"
     `(:tls t
       :port 6697
-      :nick "doom"
+      :nick "rmcs"
       :sasl-username "myusername"
       :sasl-password "mypassword"
       :channels ("#emacs"))))
@@ -92,11 +92,11 @@ here are ways to avoid that:
 
 ** TODO Pass: the unix password manager
 #+begin_quote
- 󱌣 /This section is outdated and needs to be rewritten./ [[doom-contrib-module:][Rewrite it?]]
+ 󱌣 /This section is outdated and needs to be rewritten./ [[rmcs-contrib-module:][Rewrite it?]]
 #+end_quote
 
 [[https://www.passwordstore.org/][Pass]] is my tool of choice. I use it to manage my passwords. If you activate the
-[[doom-module::tools pass]] module you get an elisp API through which to access your password
+[[rmcs-module::tools pass]] module you get an elisp API through which to access your password
 store.
 
 ~set-irc-server!~ accepts a plist can use functions instead of strings.
@@ -105,7 +105,7 @@ store.
 (set-irc-server! "irc.libera.chat"
   `(:tls t
     :port 6697
-    :nick "doom"
+    :nick "rmcs"
     :sasl-username ,(+pass-get-user   "irc/libera.chat")
     :sasl-password ,(+pass-get-secret "irc/libera.chat")
     :channels ("#emacs")))
@@ -117,7 +117,7 @@ could be accessed or appear in backtraces. Not good! So we go a step further:
 (set-irc-server! "irc.libera.chat"
   `(:tls t
     :port 6697
-    :nick "doom"
+    :nick "rmcs"
     :sasl-username ,(+pass-get-user "irc/libera.chat")
     :sasl-password (lambda (&rest _) (+pass-get-secret "irc/libera.chat"))
     :channels ("#emacs")))
@@ -156,18 +156,18 @@ username: myusername
 (set-irc-server! "irc.libera.chat"
   '(:tls t
     :port 6697
-    :nick "doom"
+    :nick "rmcs"
     :sasl-password my-nickserver-password
     :channels ("#emacs")))
 #+end_src
 
 * TODO Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

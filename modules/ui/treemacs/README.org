@@ -4,32 +4,32 @@
 #+since:    21.12.0 (#669)
 
 * Description :unfold:
-[[doom-package:treemacs][Treemacs]] is a file and project explorer similar to NeoTree or vim's NerdTree,
+[[rmcs-package:treemacs][Treemacs]] is a file and project explorer similar to NeoTree or vim's NerdTree,
 but largely inspired by the Project Explorer in Eclipse. It shows the file
 system outlines of your projects in a simple tree layout allowing quick
 navigation and exploration, while also possessing basic file management
 utilities. It includes:
 
-- Integration with Git (if [[doom-module::tools magit]] is enabled)
-- Integration with Evil (if [[doom-module::editor evil +everywhere]] is enabled)
-- Workspace awareness (if [[doom-module::ui workspaces]] is enabled)
+- Integration with Git (if [[rmcs-module::tools magit]] is enabled)
+- Integration with Evil (if [[rmcs-module::editor evil +everywhere]] is enabled)
+- Workspace awareness (if [[rmcs-module::ui workspaces]] is enabled)
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[rmcs-user:][@hlissner]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +lsp ::
   Enable ~lsp-treemacs~ integration and add shortcuts for common commands.
 
 ** Packages
-- [[doom-package:lsp-treemacs]] if [[doom-module:+lsp]]
-- [[doom-package:treemacs]]
-- [[doom-package:treemacs-evil]] if [[doom-module::editor evil +everywhere]]
-- [[doom-package:treemacs-magit]] if [[doom-module::tools magit]]
-- [[doom-package:treemacs-persp]] if [[doom-module::ui workspaces]]
-- [[doom-package:treemacs-projectile]]
+- [[rmcs-package:lsp-treemacs]] if [[rmcs-module:+lsp]]
+- [[rmcs-package:treemacs]]
+- [[rmcs-package:treemacs-evil]] if [[rmcs-module::editor evil +everywhere]]
+- [[rmcs-package:treemacs-magit]] if [[rmcs-module::tools magit]]
+- [[rmcs-package:treemacs-persp]] if [[rmcs-module::ui workspaces]]
+- [[rmcs-package:treemacs-projectile]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -39,14 +39,14 @@ utilities. It includes:
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
-If =python3= is present on your =$PATH=, [[doom-package:treemacs]] will use it to display git
+If =python3= is present on your =$PATH=, [[rmcs-package:treemacs]] will use it to display git
 status for files.
 
 * TODO Usage
 #+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's usage documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 The project bar can be opened using [[kbd:][SPC o p]].
@@ -58,7 +58,7 @@ The project bar can be opened using [[kbd:][SPC o p]].
 
 * TODO Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 The variable ~+treemacs-git-mode~ sets the type of git integration that treemacs
@@ -76,12 +76,12 @@ There are 3 possible values:
 #+end_quote
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

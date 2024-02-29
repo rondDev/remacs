@@ -1,7 +1,7 @@
 ;;; ui/tabs/config.el -*- lexical-binding: t; -*-
 
 (use-package! centaur-tabs
-  :hook (doom-first-file . centaur-tabs-mode)
+  :hook (rmcs-first-file . centaur-tabs-mode)
   :init
   (setq centaur-tabs-set-icons t
         centaur-tabs-gray-out-icons 'buffer
@@ -16,7 +16,7 @@
         centaur-tabs-cycle-scope 'tabs)
 
   :config
-  (add-hook! '(+doom-dashboard-mode-hook +popup-buffer-mode-hook)
+  (add-hook! '(+rmcs-dashboard-mode-hook +popup-buffer-mode-hook)
     (defun +tabs-disable-centaur-tabs-mode-maybe-h ()
       "Disable `centaur-tabs-mode' in current buffer."
       (when (centaur-tabs-mode-on-p)

@@ -16,11 +16,11 @@ This module has no dedicated maintainers.
 /This module has no flags./
 
 ** Packages
-- [[doom-package:crystal-mode]]
-- [[doom-package:inf-crystal]]
-- if [[doom-module::checkers syntax]]
-  - [[doom-package:flycheck-ameba]]
-  - [[doom-package:flycheck-crystal]]
+- [[rmcs-package:crystal-mode]]
+- [[rmcs-package:inf-crystal]]
+- if [[rmcs-module::checkers syntax]]
+  - [[rmcs-package:flycheck-ameba]]
+  - [[rmcs-package:flycheck-crystal]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -30,7 +30,7 @@ This module has no dedicated maintainers.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module requires:
 - [[https://crystal-lang.org/install/][The crystal compiler]]
@@ -45,27 +45,27 @@ This module requires:
 
 * TODO Usage
 #+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no usage documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 ** formatter
-By enabling [[doom-module::editor format]], [[doom-package:apheleia]] will be
+By enabling [[rmcs-module::editor format]], [[rmcs-package:apheleia]] will be
 used to format the current buffer.
 
-Enable [[doom-module::editor format +onsave]] to format the buffer on save.
+Enable [[rmcs-module::editor format +onsave]] to format the buffer on save.
 
 * TODO Configuration
 #+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no configuration documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

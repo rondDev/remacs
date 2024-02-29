@@ -7,7 +7,7 @@
 This module provides reasonable defaults and augmentations for dired.
 
 ** Maintainers
-/This module has no dedicated maintainers./ [[doom-contrib-maintainer:][Become a maintainer?]]
+/This module has no dedicated maintainers./ [[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +icons ::
@@ -16,16 +16,16 @@ This module provides reasonable defaults and augmentations for dired.
   Enables dired to be more like [[https://github.com/ranger/ranger][ranger]].
 
 ** Packages
-- [[doom-package:nerd-icons-dired]] if [[doom-module:+icons]]
-- [[doom-package:diff-hl]]
-- [[doom-package:diredfl]]
-- [[doom-package:dired-rsync]]
-- [[doom-package:fd-dired]]
-- [[doom-package:ranger]] if [[doom-module:+ranger]]
+- [[rmcs-package:nerd-icons-dired]] if [[rmcs-module:+icons]]
+- [[rmcs-package:diff-hl]]
+- [[rmcs-package:diredfl]]
+- [[rmcs-package:dired-rsync]]
+- [[rmcs-package:fd-dired]]
+- [[rmcs-package:ranger]] if [[rmcs-module:+ranger]]
 
 ** TODO Hacks
 #+begin_quote
- 󱌣 This module's hacks haven't been documented yet. [[doom-contrib-module:][Document them?]]
+ 󱌣 This module's hacks haven't been documented yet. [[rmcs-contrib-module:][Document them?]]
 #+end_quote
 
 ** TODO Changelog
@@ -33,42 +33,42 @@ This module provides reasonable defaults and augmentations for dired.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module has no requirements *except on BSDs* like MacOS or FreeBSD, where
 =GNU ls= (aka ~gls~) is required.
 
 * TODO Usage
 #+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's usage documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 | Keybind           | Description                                 |
 |-------------------+---------------------------------------------|
 | [[kbd:][SPC f d]] | Find directory with dired                   |
 | [[kbd:][q]]       | Exit dired buffer                           |
-| [[kbd:][C-c C-r]] | Run [[doom-package:dired-rsync]]            |
-| [[kbd:][C-c C-e]] | Rename entries with [[doom-package:wdired]] |
+| [[kbd:][C-c C-r]] | Run [[rmcs-package:dired-rsync]]            |
+| [[kbd:][C-c C-e]] | Rename entries with [[rmcs-package:wdired]] |
 
 Other keybindings can be found on the official [[https://www.gnu.org/software/emacs/refcards/pdf/dired-ref.pdf][Dired reference card]].
 
 ** Ranger
-If [[doom-module:+ranger]] is enabled often a buffer will be opened in minimal ranger mode
+If [[rmcs-module:+ranger]] is enabled often a buffer will be opened in minimal ranger mode
 (~deer-mode~). In this case [[kbd:][z P]] can be used to toggle between full ranger and
 ~deer-mode~.
 
 * TODO Configuration
 #+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no configuration documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

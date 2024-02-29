@@ -15,7 +15,7 @@ For folks with a habit of using \"emacs\" to open files, even in eshell."
 ;;;###autoload
 (defun eshell/cd-to-project ()
   "Change to the project root of the current directory."
-  (eshell/cd (doom-project-root (eshell/pwd))))
+  (eshell/cd (rmcs-project-root (eshell/pwd))))
 
 ;;;###autoload
 (defun eshell/quit-and-close (&rest _)

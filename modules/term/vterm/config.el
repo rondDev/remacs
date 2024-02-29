@@ -3,7 +3,7 @@
 (use-package! vterm
   :when (featurep 'dynamic-modules)
   :commands vterm-mode
-  :hook (vterm-mode . doom-mark-buffer-as-real-h)
+  :hook (vterm-mode . rmcs-mark-buffer-as-real-h)
   :hook (vterm-mode . hide-mode-line-mode) ; modeline serves no purpose in vterm
   :preface
   ;; HACK Because vterm clusmily forces vterm-module.so's compilation on us when

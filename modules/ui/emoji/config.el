@@ -1,7 +1,7 @@
 ;;; ui/emoji/config.el -*- lexical-binding: t; -*-
 
 (use-package! emojify
-  :hook (doom-first-buffer . global-emojify-mode)
+  :hook (rmcs-first-buffer . global-emojify-mode)
   :config
   (setq emojify-styles
         (delq

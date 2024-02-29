@@ -3,7 +3,7 @@
 (defface +fold-hideshow-folded-face
   `((t (:inherit font-lock-comment-face :weight light)))
   "Face to hightlight `hideshow' overlays."
-  :group 'doom-themes)
+  :group 'rmcs-themes)
 
 ;;;###autoload
 (defun +fold-hideshow-haml-forward-sexp-fn (arg)

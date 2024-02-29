@@ -12,9 +12,9 @@
 (use-package! expand-region
   :commands (er/contract-region er/mark-symbol er/mark-word)
   :config
-  (defadvice! doom--quit-expand-region-a (&rest _)
+  (defadvice! rmcs--quit-expand-region-a (&rest _)
     "Properly abort an expand-region region."
-    :before '(evil-escape doom/escape)
+    :before '(evil-escape rmcs/escape)
     (when (memq last-command '(er/expand-region er/contract-region))
       (er/contract-region 0))))
 

@@ -86,8 +86,8 @@
   ;; Whitelist more commands
   (dolist (fn '((backward-kill-word)
                 (company-complete-common . evil-mc-execute-default-complete)
-                (doom/backward-to-bol-or-indent . evil-mc-execute-default-call)
-                (doom/forward-to-last-non-comment-or-eol . evil-mc-execute-default-call)
+                (rmcs/backward-to-bol-or-indent . evil-mc-execute-default-call)
+                (rmcs/forward-to-last-non-comment-or-eol . evil-mc-execute-default-call)
                 ;; :emacs undo
                 (undo-fu-only-undo . evil-mc-execute-default-undo)
                 (undo-fu-only-redo . evil-mc-execute-default-redo)
@@ -139,7 +139,7 @@
             ;; is fine though.
             'lispy-mode)
 
-  (add-hook! 'doom-escape-hook
+  (add-hook! 'rmcs-escape-hook
     (defun +multiple-cursors-escape-multiple-cursors-h ()
       "Clear evil-mc cursors and restore state."
       (when (evil-mc-has-cursors-p)
@@ -161,7 +161,7 @@
 
 
 (after! multiple-cursors-core
-  (setq mc/list-file (concat doom-data-dir "mc-lists.el"))
+  (setq mc/list-file (concat rmcs-data-dir "mc-lists.el"))
 
   ;; Can't use `mc/cmds-to-run-once' because mc-lists.el overwrites it
   (add-to-list 'mc--default-cmds-to-run-once 'swiper-mc)

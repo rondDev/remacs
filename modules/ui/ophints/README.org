@@ -8,19 +8,19 @@ This module provides op-hints (operation hinting), i.e. visual feedback for
 certain operations. It highlights regions of text that the last operation (like
 yank) acted on.
 
-Uses [[doom-package:evil-goggles]] for evil users and [[doom-package:volatile-highlights]] otherwise.
+Uses [[rmcs-package:evil-goggles]] for evil users and [[rmcs-package:volatile-highlights]] otherwise.
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[rmcs-user:][@hlissner]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 /This module has no flags./
 
 ** Packages
-- [[doom-package:evil-goggles]] if [[doom-module::editor evil]]
-- [[doom-package:volatile-highlights]] unless [[doom-module::editor evil]]
+- [[rmcs-package:evil-goggles]] if [[rmcs-module::editor evil]]
+- [[rmcs-package:volatile-highlights]] unless [[rmcs-module::editor evil]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -30,27 +30,27 @@ Uses [[doom-package:evil-goggles]] for evil users and [[doom-package:volatile-hi
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 /This module has no external requirements./
 
 * TODO Usage
 #+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no usage documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * TODO Configuration
 #+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no configuration documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

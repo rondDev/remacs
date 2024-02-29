@@ -12,34 +12,34 @@ This module adds [[https://golang.org][Go]] support, with optional (but recommen
 - Eldoc support (~go-eldoc~)
 - REPL (~gore~)
 - Syntax-checking (~flycheck~)
-- Auto-formatting on save (~gofmt~) (requires [[doom-module::editor format +onsave]])
+- Auto-formatting on save (~gofmt~) (requires [[rmcs-module::editor format +onsave]])
 - Code navigation & refactoring (~go-guru~)
 - [[../../editor/file-templates/templates/go-mode][File templates]]
-- [[https://github.com/hlissner/doom-snippets/tree/master/go-mode][Snippets]]
+- [[https://github.com/hlissner/rmcs-snippets/tree/master/go-mode][Snippets]]
 - Generate testing code (~go-gen-test~)
 - Code checking (~flycheck-golangci-lint~)
 
 ** Maintainers
-*This module needs a maintainer.* [[doom-contrib-maintainer:][Become a maintainer?]]
+*This module needs a maintainer.* [[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~go-mode~. Requires [[doom-module::tools lsp]] and a langserver
+  Enable LSP support for ~go-mode~. Requires [[rmcs-module::tools lsp]] and a langserver
   (supports gopls). Highly recommended, as the non-LSP experience is deprecated
   (and poor).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
-  editing. Requires [[doom-module::tools tree-sitter]].
+  editing. Requires [[rmcs-module::tools tree-sitter]].
 
 ** Packages
-- [[doom-package:company-go]] if [[doom-module::completion company]] (DEPRECATED)
-- [[doom-package:flycheck-golangci-lint]] if [[doom-module::checkers syntax]]
-- [[doom-package:go-eldoc]]
-- [[doom-package:go-gen-test]]
-- [[doom-package:go-guru]]
-- [[doom-package:go-mode]]
-- [[doom-package:gorepl-mode]]
-- [[doom-package:go-tag]]
+- [[rmcs-package:company-go]] if [[rmcs-module::completion company]] (DEPRECATED)
+- [[rmcs-package:flycheck-golangci-lint]] if [[rmcs-module::checkers syntax]]
+- [[rmcs-package:go-eldoc]]
+- [[rmcs-package:go-gen-test]]
+- [[rmcs-package:go-guru]]
+- [[rmcs-package:go-mode]]
+- [[rmcs-package:gorepl-mode]]
+- [[rmcs-package:go-tag]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -49,7 +49,7 @@ This module adds [[https://golang.org][Go]] support, with optional (but recommen
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module requires Go, a valid =$GOPATH=, and a number of go packages, listed
 below.
@@ -88,7 +88,7 @@ go install github.com/fatih/gomodifytags@latest
 
 * TODO Usage
 #+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no usage documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 ** Keybinds
@@ -126,16 +126,16 @@ go install github.com/fatih/gomodifytags@latest
 
 * TODO Configuration
 #+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no configuration documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

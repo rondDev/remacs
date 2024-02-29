@@ -104,7 +104,7 @@ info in the `header-line-format' is a more visible indicator."
 
 
 (use-package! git-commit
-  :hook (doom-first-file . global-git-commit-mode)
+  :hook (rmcs-first-file . global-git-commit-mode)
   :config
   (set-yas-minor-mode! 'git-commit-mode)
 

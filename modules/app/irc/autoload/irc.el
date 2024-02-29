@@ -6,13 +6,13 @@
   (when (and (modulep! :ui workspaces)
              (not inhibit-workspace))
     (+workspace-switch +irc--workspace-name 'auto-create))
-  (let ((buffers (doom-buffers-in-mode 'circe-mode nil t)))
+  (let ((buffers (rmcs-buffers-in-mode 'circe-mode nil t)))
     (if (not (member (window-buffer) buffers))
         (if buffers
             (ignore (switch-to-buffer (car buffers)))
           (require 'circe)
           (delete-other-windows)
-          (switch-to-buffer (doom-fallback-buffer))
+          (switch-to-buffer (rmcs-fallback-buffer))
           t))))
 
 ;;;###autoload
@@ -23,7 +23,7 @@ If INHIBIT-WORKSPACE (the universal argument) is non-nil, don't spawn a new
 workspace for it."
   (interactive "P")
   (+irc-setup-wconf inhibit-workspace)
-  (cond ((doom-buffers-in-mode 'circe-mode (doom-buffer-list) t)
+  (cond ((rmcs-buffers-in-mode 'circe-mode (rmcs-buffer-list) t)
          (message "Circe buffers are already open"))
         (circe-network-options
          (mapc #'circe (mapcar #'car circe-network-options)))
@@ -57,7 +57,7 @@ workspace for it."
       (cancel-timer +irc--defer-timer))
     (when (fboundp #'disable-circe-notifications)
       (disable-circe-notifications))
-    (mapc #'kill-buffer (doom-buffers-in-mode 'circe-mode (buffer-list) t))
+    (mapc #'kill-buffer (rmcs-buffers-in-mode 'circe-mode (buffer-list) t))
     (when (modulep! :ui workspaces)
       (when (equal (+workspace-current-name) +irc--workspace-name)
         (+workspace/delete +irc--workspace-name)))))

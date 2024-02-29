@@ -8,46 +8,46 @@ Provide a helping hand when working with LaTeX documents.
 
 - Sane defaults
 - Fontification of many popular commands
-- Pretty indentation of wrapped lines using the [[doom-package:adaptive-wrap]] package
-- Spell checking with [[doom-package:flycheck]]
-- Change PDF viewer to Okular or [[doom-package:latex-preview-pane]]
+- Pretty indentation of wrapped lines using the [[rmcs-package:adaptive-wrap]] package
+- Spell checking with [[rmcs-package:flycheck]]
+- Change PDF viewer to Okular or [[rmcs-package:latex-preview-pane]]
 - Bibtex editor
-- Autocompletion using [[doom-package:company-mode]]
+- Autocompletion using [[rmcs-package:company-mode]]
 - Compile your =.tex= code only once using LatexMk
 
 ** Maintainers
-- [[doom-user:][@tecosaur]]
-- [[doom-user:][@ymarco]]
+- [[rmcs-user:][@tecosaur]]
+- [[rmcs-user:][@ymarco]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +cdlatex ::
-  Enable [[doom-package:cdlatex]] for fast math insertion.
+  Enable [[rmcs-package:cdlatex]] for fast math insertion.
 - +fold ::
-  Use TeX-fold (from [[doom-package:auctex]]) to fold LaTeX macros to unicode, and make folding
+  Use TeX-fold (from [[rmcs-package:auctex]]) to fold LaTeX macros to unicode, and make folding
   hook-based and less manual.
 - +latexmk ::
   Use LatexMk instead of LaTeX to compile documents.
 - +lsp ::
-  Enable LSP support in latex buffers. Requires [[doom-module::tools lsp]] and a langserver
+  Enable LSP support in latex buffers. Requires [[rmcs-module::tools lsp]] and a langserver
   (supports digestif and TexLab).
 
 ** Packages
-- [[doom-package:adaptive-wrap]]
-- [[doom-package:auctex]]
-- [[doom-package:auctex-latexmk]] if [[doom-module:+latexmk]]
-- [[doom-package:cdlatex]] if [[doom-module:+cdlatex]]
-- [[doom-package:evil-tex]] if [[doom-module::editor evil +everywhere]]
-- [[doom-package:latex-preview-pane]]
-- if [[doom-module::completion company]]
-  - [[doom-package:company-auctex]]
-  - [[doom-package:company-math]]
-  - [[doom-package:company-reftex]]
+- [[rmcs-package:adaptive-wrap]]
+- [[rmcs-package:auctex]]
+- [[rmcs-package:auctex-latexmk]] if [[rmcs-module:+latexmk]]
+- [[rmcs-package:cdlatex]] if [[rmcs-module:+cdlatex]]
+- [[rmcs-package:evil-tex]] if [[rmcs-module::editor evil +everywhere]]
+- [[rmcs-package:latex-preview-pane]]
+- if [[rmcs-module::completion company]]
+  - [[rmcs-package:company-auctex]]
+  - [[rmcs-package:company-math]]
+  - [[rmcs-package:company-reftex]]
 
 ** TODO Hacks
 #+begin_quote
- 󱌣 This module's hacks haven't been documented yet. [[doom-contrib-module:][Document them?]]
+ 󱌣 This module's hacks haven't been documented yet. [[rmcs-contrib-module:][Document them?]]
 #+end_quote
 
 ** TODO Changelog
@@ -55,7 +55,7 @@ Provide a helping hand when working with LaTeX documents.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module requires ghostscript and a latex compiler. These are provided by the
 =texlive= bundle, available through many OS package managers.
@@ -95,11 +95,11 @@ environment.systemPackages = [ pkgs.texlive.combined.scheme-medium ];
 
 ** Formatter
 
-Formatting is handled using the [[doom-module::editor format]] module via [[https://github.com/cmhughes/latexindent.pl][latexindent]].
+Formatting is handled using the [[rmcs-module::editor format]] module via [[https://github.com/cmhughes/latexindent.pl][latexindent]].
 
 * TODO Usage
 #+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no usage documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * Configuration
@@ -119,7 +119,7 @@ This module provides integration for four supported pdf viewers. They are
 + Sumatra PDF
 + Zathura
 + Okular
-+ pdf-tools (requires [[doom-module::tools pdf]] module)
++ pdf-tools (requires [[rmcs-module::tools pdf]] module)
 
 They are searched for in this order. See ~+latex-viewers~ to change the order,
 or remove tools from the search altogether. If you want to exclusively use one
@@ -134,8 +134,8 @@ is used as a fallback. You can use this exclusively by setting ~+latex-viewers~
 to ~nil~.
 
 ** Using cdlatex's snippets despite having yasnippet
-[[doom-package:cdlatex]] has a snippet insertion capability which is disabled in favor of
-[[doom-package:yasnippet]] when using [[doom-module::editor snippets]]. If you still wanna use it, simply rebind
+[[rmcs-package:cdlatex]] has a snippet insertion capability which is disabled in favor of
+[[rmcs-package:yasnippet]] when using [[rmcs-module::editor snippets]]. If you still wanna use it, simply rebind
 the [[kbd:][TAB]] key for cdlatex, which takes care of snippet-related stuff:
 #+begin_src emacs-lisp
 ;; in $DOOMDIR/config.el
@@ -148,12 +148,12 @@ expansion and movement, but that shouldn't matter if you're not using yasnippet
 in latex buffers.
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

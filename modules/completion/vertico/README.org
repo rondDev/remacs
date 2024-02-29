@@ -9,7 +9,7 @@ provides a united interface for project search and replace, powered by [[https:/
 
 It does this with several modular packages focused on enhancing the built-in
 ~completing-read~ interface, rather than replacing it with a parallel ecosystem
-like [[doom-package:ivy]] and [[doom-package:helm]] do. The primary packages are:
+like [[rmcs-package:ivy]] and [[rmcs-package:helm]] do. The primary packages are:
 
 - Vertico, which provides the vertical completion user interface
 - Consult, which provides a suite of useful commands using ~completing-read~
@@ -18,9 +18,9 @@ like [[doom-package:ivy]] and [[doom-package:helm]] do. The primary packages are
 - Orderless, which provides better filtering methods
 
 ** Maintainers
-- [[doom-user:][@iyefrat]]
+- [[rmcs-user:][@iyefrat]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +childframe ::
@@ -31,16 +31,16 @@ like [[doom-package:ivy]] and [[doom-package:helm]] do. The primary packages are
   Add icons to =file= and =buffer= category completion selections.
 
 ** Packages
-- [[doom-package:nerd-icons-completion]] if [[doom-module:+icons]]
-- [[doom-package:consult]]
-- [[doom-package:consult-flycheck]] if [[doom-module::checkers syntax]]
-- [[doom-package:embark]]
-- [[doom-package:embark-consult]]
-- [[doom-package:marginalia]]
-- [[doom-package:orderless]]
-- [[doom-package:vertico]]
-- [[doom-package:vertico-posframe]] if [[doom-module:+childframe]]
-- [[doom-package:wgrep]]
+- [[rmcs-package:nerd-icons-completion]] if [[rmcs-module:+icons]]
+- [[rmcs-package:consult]]
+- [[rmcs-package:consult-flycheck]] if [[rmcs-module::checkers syntax]]
+- [[rmcs-package:embark]]
+- [[rmcs-package:embark-consult]]
+- [[rmcs-package:marginalia]]
+- [[rmcs-package:orderless]]
+- [[rmcs-package:vertico]]
+- [[rmcs-package:vertico-posframe]] if [[rmcs-module:+childframe]]
+- [[rmcs-package:wgrep]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -50,10 +50,10 @@ like [[doom-package:ivy]] and [[doom-package:helm]] do. The primary packages are
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module has only one requirement: [[https://github.com/BurntSushi/ripgrep][Ripgrep]] (built with [[https://www.pcre.org/][PCRE]] support; run ~$
-doom doctor~ to determine if your build meets this requirement), which is a hard
+rmcs doctor~ to determine if your build meets this requirement), which is a hard
 dependency of Doom itself, so you should already have it installed.
 
 Otherwise, Consult (a plugin this module installs) provides many commands to
@@ -63,7 +63,7 @@ intend to use their associated Helm command or plugin.
 
 * TODO Usage
 #+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's usage documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 The packages in this module modify and use the built-in ~completing-read~
@@ -73,7 +73,7 @@ encouraged to go and read their excellent documentation. We will detail
 Doom-specific additions:
 
 ** Vertico keybindings
-When in an active Vertico completion session, the following doom added
+When in an active Vertico completion session, the following rmcs added
 keybindings are available:
 
 | Keybind                               | Description                                                  |
@@ -95,9 +95,9 @@ due to Marginalia annotations.
 
 ** Jump-to navigation
 This module provides an interface to navigate within a project using
-[[doom-package:projectile]]:
+[[rmcs-package:projectile]]:
 
-https://assets.doomemacs.org/completion/vertico/projectile.png
+https://assets.rmcsemacs.org/completion/vertico/projectile.png
 
 | Keybind                              | Description                         |
 |--------------------------------------+-------------------------------------|
@@ -115,7 +115,7 @@ This module provides interactive text search and replace using ripgrep.
 | [[kbd:][<leader> s d]] | Search this directory    |
 | [[kbd:][<leader> s D]] | Search another directory |
 
-https://assets.doomemacs.org/completion/vertico/search.png
+https://assets.rmcsemacs.org/completion/vertico/search.png
 
 Prefixing these keys with the universal argument ([[kbd:][SPC u]] for evil users; [[kbd:][C-u]]
 otherwise) changes the behavior of these commands, instructing the underlying
@@ -135,10 +135,10 @@ commands.
 On top of the usual Vertico keybindings, search commands also offer support for
 exporting the current candidate list to an editable buffer [[kbd:][C-c C-e]]. After
 editing the changes can be committed with [[kbd:][C-c C-c]] and aborted with [[kbd:][C-c C-k]]
-(alternatively [[kbd:][ZZ]] and [[kbd:][ZQ]], for evil users). It uses [[doom-package:wgrep]] for grep searches,
-[[doom-package:wdired]] for file searches, and =occur= for buffer searches.
+(alternatively [[kbd:][ZZ]] and [[kbd:][ZQ]], for evil users). It uses [[rmcs-package:wgrep]] for grep searches,
+[[rmcs-package:wdired]] for file searches, and =occur= for buffer searches.
 
-https://assets.doomemacs.org/completion/vertico/search-replace.png
+https://assets.rmcsemacs.org/completion/vertico/search-replace.png
 
 ** In-buffer searching
 This module provides some in buffer searching bindings:
@@ -147,7 +147,7 @@ This module provides some in buffer searching bindings:
 - [[kbd:][SPC s S]] (~+vertico/search-symbol-at-point~ via ~consult-line~)
 - [[kbd:][SPC s b]] (~consult-line~)
 
-https://assets.doomemacs.org/completion/vertico/buffer-search.png
+https://assets.rmcsemacs.org/completion/vertico/buffer-search.png
 
 An ~occur-edit~ buffer can be opened from ~consult-line~ with [[kbd:][C-c C-e]].
 
@@ -213,7 +213,7 @@ Consult async commands (e.g. ~consult-ripgrep~) will have a preceding separator
 character (usually ~#~) before the search input. This is known as the =perl=
 splitting style. Input typed after the separator will be fed to the async
 command until you type a second seperator, afterwhich the candidate list will be
-filtered with Emacs instead (and can be filtered using [[doom-package:orderless]], for example).
+filtered with Emacs instead (and can be filtered using [[rmcs-package:orderless]], for example).
 The specific seperator character can be changed by editing it, and might be
 different if the initial input already contains =#=.
 
@@ -260,7 +260,7 @@ you can use to further specify each space separated input in the following ways:
 
 * TODO Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 If you want to further configure this module, here are some good places to
@@ -292,15 +292,15 @@ You can change the available commands in Embark for category ~$cat~ by editing
 defining them [[https://github.com/minad/marginalia/#adding-custom-annotators-or-classifiers][through marginalia]], and embark picks up on them.
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-[[doom-suggest-faq:][Ask a question?]]
+[[rmcs-suggest-faq:][Ask a question?]]
 
 ** Helm vs Ivy vs Ido vs Vertico
 See [[id:4f36ae11-1da8-4624-9c30-46b764e849fc][this answer]].
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

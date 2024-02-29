@@ -27,8 +27,8 @@ prompt."
 
 (defun +shell-unused-buffer ()
   "TODO"
-  (or (cl-find-if #'+shell-idle-p (doom-buffers-in-mode 'shell-mode))
-      (generate-new-buffer "*doom:shell*")))
+  (or (cl-find-if #'+shell-idle-p (rmcs-buffers-in-mode 'shell-mode))
+      (generate-new-buffer "*rmcs:shell*")))
 
 (defun +shell-tramp-hosts ()
   "Ask tramp for a list of hosts that we can reach through ssh."
@@ -63,7 +63,7 @@ If popup is focused, kill it."
   (interactive)
   (let ((buffer
          (get-buffer-create
-          (format "*doom:shell-popup:%s*"
+          (format "*rmcs:shell-popup:%s*"
                   (if (bound-and-true-p persp-mode)
                       (safe-persp-name (get-current-persp))
                     "main"))))

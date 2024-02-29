@@ -12,22 +12,22 @@ This module wraps ~dart-mode~, with [[https://microsoft.github.io/language-serve
 =.dart= files, syntax highlighting, debugging, closing labels, etc.
 
 ** Maintainers
-- [[doom-user:][@ericdallo]]
+- [[rmcs-user:][@ericdallo]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +flutter ::
   Enable ~flutter~ integration and some sane defaults for Flutter development
   along with ~hover~ for desktop development.
 - +lsp ::
-  Enable LSP support for ~dart-mode~. Requires [[doom-module::tools lsp]] and a langserver
+  Enable LSP support for ~dart-mode~. Requires [[rmcs-module::tools lsp]] and a langserver
   (supports flutter).
 
 ** Packages
-- [[doom-package:dart-mode]]
-- [[doom-package:flutter.el]]
-- [[doom-package:hover.el]]
+- [[rmcs-package:dart-mode]]
+- [[rmcs-package:flutter.el]]
+- [[rmcs-package:hover.el]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -37,7 +37,7 @@ This module wraps ~dart-mode~, with [[https://microsoft.github.io/language-serve
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 Make sure that the Dart SDK is on your =$PATH=, and if using Flutter, make sure
 the Flutter binary is on your =$PATH= as well.
@@ -84,20 +84,20 @@ flutter doctor # for Dependency check and further instructions
 
 * TODO Usage
 #+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's usage documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
-- Syntax highlighting and formatting for ~.dart~ files provided by LSP or [[doom-module::editor format]].
+- Syntax highlighting and formatting for ~.dart~ files provided by LSP or [[rmcs-module::editor format]].
 - Auto import.
 - Widget guide lines for Flutter.
 - Closing labels for constructors.
 - Run tests interactively.
-- Outline support via [[doom-package:lsp-treemacs]].
+- Outline support via [[rmcs-package:lsp-treemacs]].
 - Emacs functions for running and debugging Flutter projects.
 
 * TODO Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Dart & Flutter
@@ -122,7 +122,7 @@ makes the mobile development a lot easier without the need to setup an Android
 emulator.
 
 * Troubleshooting
-[[doom-report:][Report an issue?]]
+[[rmcs-report:][Report an issue?]]
 
 See the configuration section for information on the binaries for Dart and
 Flutter. On new installs to the =/opt= directory, you will likely need to edit
@@ -130,9 +130,9 @@ the permissions of the =/opt/dart-sdk= and =/opt/flutter= directories (not to
 mention the Android SDK, as discussed above).
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

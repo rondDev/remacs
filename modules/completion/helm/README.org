@@ -12,7 +12,7 @@ For official documentation about Helm, see:
 - [[https://tuhdo.github.io/helm-intro.html]]
 
 ** Maintainers
-/This module has no dedicated maintainers./ [[doom-contrib-maintainer:][Become a maintainer?]]
+/This module has no dedicated maintainers./ [[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +childframe ::
@@ -22,25 +22,25 @@ For official documentation about Helm, see:
   Enable fuzzy completion for Helm searches.
 - +icons ::
   Display icons on completion results (where possible) using either
-  [[doom-package:nerd-icons]] or [[doom-package:treemacs]] iconsets.
+  [[rmcs-package:nerd-icons]] or [[rmcs-package:treemacs]] iconsets.
 
 ** Packages
-- [[doom-package:helm]]
-- [[doom-package:helm-company]]
-- [[doom-package:helm-c-yasnippet]]
-- [[doom-package:helm-descbinds]]
-- [[doom-package:helm-describe-modes]]
-- [[doom-package:helm-flx]]* if [[doom-module:+fuzzy]]
-- [[doom-package:helm-icons]]* if [[doom-module:+icons]]
-- [[doom-package:helm-org]]* if [[doom-module::lang org]]
-- [[doom-package:helm-posframe]]* if [[doom-module:+childframe]]
-- [[doom-package:helm-projectile]]
-- [[doom-package:helm-rg]]
-- [[doom-package:helm-swiper]]
+- [[rmcs-package:helm]]
+- [[rmcs-package:helm-company]]
+- [[rmcs-package:helm-c-yasnippet]]
+- [[rmcs-package:helm-descbinds]]
+- [[rmcs-package:helm-describe-modes]]
+- [[rmcs-package:helm-flx]]* if [[rmcs-module:+fuzzy]]
+- [[rmcs-package:helm-icons]]* if [[rmcs-module:+icons]]
+- [[rmcs-package:helm-org]]* if [[rmcs-module::lang org]]
+- [[rmcs-package:helm-posframe]]* if [[rmcs-module:+childframe]]
+- [[rmcs-package:helm-projectile]]
+- [[rmcs-package:helm-rg]]
+- [[rmcs-package:helm-swiper]]
 
 ** TODO Hacks
 #+begin_quote
- 󱌣 This module's hacks haven't been documented yet. [[doom-contrib-module:][Document them?]]
+ 󱌣 This module's hacks haven't been documented yet. [[rmcs-contrib-module:][Document them?]]
 #+end_quote
 
 ** TODO Changelog
@@ -48,7 +48,7 @@ For official documentation about Helm, see:
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module has only one requirement: [[https://github.com/BurntSushi/ripgrep][Ripgrep]], which is a hard dependency of
 Doom itself, so you should already have it installed.
@@ -67,13 +67,13 @@ programs are optional for this module, but must be installed if you intend to
 use their associated Helm command or package.
 
 * TODO Usage
-Much like [[doom-package:ivy]] and [[doom-package:vertico]], [[doom-package:helm]] is a /large/ framework. Covering
+Much like [[rmcs-package:ivy]] and [[rmcs-package:vertico]], [[rmcs-package:helm]] is a /large/ framework. Covering
 all its features is not within the scope of this module's documentation, so only
 its highlights will be covered here.
 
 ** Jump-to navigation
 Similar to Ivy, this module provides an interface to navigate within a project
-using [[doom-package:projectile]]:
+using [[rmcs-package:projectile]]:
 | Keybind                              | Description                                           |
 |--------------------------------------+-------------------------------------------------------|
 | [[kbd:][SPC p f]], [[kbd:][SPC SPC]] | Jump to file in project (~+helm/projectile-find-file~)  |
@@ -113,19 +113,19 @@ These keybindings are available while a search is active:
 | [[kbd:][C-SPC]]   | Preview the current candidate                 |
 | [[kbd:][C-RET]]   | Open the selected candidate in other-window   |
 
-Changes to the resulting [[doom-package:wgrep]] buffer (opened by [[kbd:][C-c C-e]]) can be
+Changes to the resulting [[rmcs-package:wgrep]] buffer (opened by [[kbd:][C-c C-e]]) can be
 committed with [[kbd:][C-c C-c]] and aborted with [[kbd:][C-c C-k]] (alternatively [[kbd:][ZZ]] and [[kbd:][ZQ]], for
 evil users).
 
 ** In-buffer searching
-The [[doom-package:swiper]] package provides an interactive buffer search powered by helm. It can
+The [[rmcs-package:swiper]] package provides an interactive buffer search powered by helm. It can
 be invoked with:
 - [[kbd:][SPC s s]] ([[cmd:][swiper-isearch]])
 - [[kbd:][SPC s S]] ([[cmd:][swiper-isearch-thing-at-point]])
 - [[kbd:][SPC s b]] ([[cmd:][swiper]])
 - ~:sw[iper] [QUERY]~
 
-A [[doom-package:wgrep]] buffer can be opened from swiper with [[kbd:][C-c C-e]].
+A [[rmcs-package:wgrep]] buffer can be opened from swiper with [[kbd:][C-c C-e]].
 
 ** Helm integration for various completing commands
 Helm also has a number of overrides for built-in functionality:
@@ -162,7 +162,7 @@ Helm also has a number of overrides for built-in functionality:
 
 * TODO Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** helm-mode
@@ -182,9 +182,9 @@ makes sense to exempt ~foo~ with the following:
 
 ** Icons
 There are two icon "themes" available for this module:
-[[doom-package:nerd-icons]] and [[doom-package:treemacs]]. By default, and to
+[[rmcs-package:nerd-icons]] and [[rmcs-package:treemacs]]. By default, and to
 maintain consistency with other icons across Doom's modules,
-[[doom-package:nerd-icons]] is used. To change this:
+[[rmcs-package:nerd-icons]] is used. To change this:
 #+begin_src emacs-lisp
 ;; add to $DOOMDIR/config.el
 (after! helm
@@ -192,15 +192,15 @@ maintain consistency with other icons across Doom's modules,
 #+end_src
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-[[doom-suggest-faq:][Ask a question?]]
+[[rmcs-suggest-faq:][Ask a question?]]
 
 ** Helm vs Ivy vs Ido vs Vertico
 See [[id:4f36ae11-1da8-4624-9c30-46b764e849fc][this answer]].
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

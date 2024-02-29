@@ -22,7 +22,7 @@
 ;; this in an OS check, in case you're using WSL or Cygwin, which *might*
 ;; support it.
 (add-hook! 'tty-setup-hook
-  (defun doom-init-clipboard-in-tty-emacs-h ()
+  (defun rmcs-init-clipboard-in-tty-emacs-h ()
     ;; Fix the clipboard in tty Emacs by...
     (if (modulep! +osc)
         ;; ...communicating with the clibpoard through OSC escape codes (must

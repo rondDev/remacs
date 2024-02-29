@@ -14,8 +14,8 @@
 
 Returns nil if 'love' executable can't be found."
   (when (executable-find "love")
-    (when-let ((dir (or dir (doom-project-root))))
-      (if (doom-project-p dir)
+    (when-let ((dir (or dir (rmcs-project-root))))
+      (if (rmcs-project-p dir)
           (file-name-directory
            (or (file-exists-p! (or "main.lua" "src/main.lua") dir)
                (and (modulep! +moonscript)

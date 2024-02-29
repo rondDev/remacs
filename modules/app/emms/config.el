@@ -3,8 +3,8 @@
 (use-package! emms
   :defer t
   :init
-  (setq emms-directory (concat doom-data-dir "emms")
-        emms-cache-file (concat doom-cache-dir "emms"))
+  (setq emms-directory (concat rmcs-data-dir "emms")
+        emms-cache-file (concat rmcs-cache-dir "emms"))
   :config
   (emms-all)
   (emms-default-players)

@@ -12,7 +12,7 @@
         (when (modulep! :ui workspaces)
           (+workspace-switch +notmuch-workspace-name t))
         (if-let* ((win (cl-find-if (lambda (it) (string-match-p "^\\*notmuch" (buffer-name (window-buffer it))))
-                                   (doom-visible-windows))))
+                                   (rmcs-visible-windows))))
             (select-window win)
           (funcall +notmuch-home-function))
         (when (modulep! :ui workspaces)
@@ -30,7 +30,7 @@
   "TODO"
   (interactive)
   ;; (+popup/close (get-buffer-window "*notmuch-hello*"))
-  (doom-kill-matching-buffers "^\\*notmuch")
+  (rmcs-kill-matching-buffers "^\\*notmuch")
   (when (modulep! :ui workspaces)
     (+workspace/delete +notmuch-workspace-name)))
 
@@ -45,7 +45,7 @@
                  `mbsync-xdg) ; DEPRECATED `mbsync-xdg' is now just `mbsync'
              (format "mbsync %s -a && notmuch new"
                      (if-let (config-file
-                              (doom-glob (or (getenv "XDG_CONFIG_HOME")
+                              (rmcs-glob (or (getenv "XDG_CONFIG_HOME")
                                              "~/.config")
                                          "isync/mbsyncrc"))
                          (format "-c %S" (car config-file))
@@ -123,7 +123,7 @@
   (interactive)
   (let* ((msg-path (car (plist-get (notmuch-tree-get-message-properties) :filename)))
          (temp (make-temp-file "notmuch-message-" nil ".eml")))
-    (doom-call-process "cp" msg-path temp)
+    (rmcs-call-process "cp" msg-path temp)
     (start-process-shell-command "email" nil (format "xdg-open '%s'" temp))))
 
 ;;;###autoload
@@ -131,7 +131,7 @@
   (interactive)
   (let* ((msg-path (car (plist-get (notmuch-show-get-message-properties) :filename)))
          (temp (make-temp-file "notmuch-message-" nil ".eml")))
-    (doom-call-process "cp" msg-path temp)
+    (rmcs-call-process "cp" msg-path temp)
     (start-process-shell-command "email" nil (format "xdg-open '%s'" temp))))
 
 

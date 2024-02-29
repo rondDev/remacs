@@ -17,7 +17,7 @@
 (defun +word-wrap--calc-extra-indent (p)
   "Calculate extra word-wrap indentation at point."
   (if (not (or +word-wrap--major-mode-is-text
-               (doom-point-in-string-or-comment-p p)))
+               (rmcs-point-in-string-or-comment-p p)))
       (pcase +word-wrap-extra-indent
         ('double
          (* 2 (symbol-value +word-wrap--major-mode-indent-var)))

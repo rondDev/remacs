@@ -7,7 +7,7 @@
   (interactive)
   (call-interactively
    (if (or (file-equal-p default-directory "~")
-           (if-let* ((proot (doom-project-root)))
+           (if-let* ((proot (rmcs-project-root)))
                (file-equal-p proot "~")
              t))
        #'helm-find-files
@@ -53,7 +53,7 @@ workspace."
     (user-error "Couldn't find ripgrep in your PATH"))
   (require 'helm-rg)
   (let ((this-command 'helm-rg)
-        (helm-rg-default-directory (or in (doom-project-root) default-directory))
+        (helm-rg-default-directory (or in (rmcs-project-root) default-directory))
         (helm-rg-default-extra-args
          (delq nil (append (list (when all-files "-z -uu")
                                  (unless recursive "--maxdepth 1")

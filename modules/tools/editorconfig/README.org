@@ -9,15 +9,15 @@ style on a per-project basis with an =.editorconfig= file ([[https://editorconfi
 specification]]).
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[rmcs-user:][@hlissner]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 /This module has no flags./
 
 ** Packages
-- [[doom-package:editorconfig-emacs]]
+- [[rmcs-package:editorconfig-emacs]]
  
 ** Hacks
 - Added logic to guess an extension-less file's type from its shebang line. For
@@ -25,9 +25,9 @@ specification]]).
   assuming its first line is ~#!/usr/bin/env python~. See
   ~+editorconfig-mode-alist~ for adding support for more languages.
 - *Special integration for =dtrt-indent=:* If the local editorconfig file
-  specifies ~indent_style~ or ~indent_size~, the [[doom-package:dtrt-indent]] (which tries to
+  specifies ~indent_style~ or ~indent_size~, the [[rmcs-package:dtrt-indent]] (which tries to
   guess your indent settings by analyzing your text file) will bow out.
-- *Special integration for =ws-butler=:* this module will use [[doom-package:ws-butler]] to
+- *Special integration for =ws-butler=:* this module will use [[rmcs-package:ws-butler]] to
   enforce ~trim_trailing_whitespace~.
 
 ** TODO Changelog
@@ -35,7 +35,7 @@ specification]]).
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module has one optional dependency: the ~editorconfig~ native binary.
 Without it, a built-in elisp implementation will be used, but it has fewer
@@ -50,7 +50,7 @@ in the root of your project) you can find out about all the properties [[https:/
 
 * TODO Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Adding support for more major modes
@@ -76,12 +76,12 @@ session of Emacs. Look for variables that have the words =indent=, =offset= or
 ~rustic-indent-offset~).
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

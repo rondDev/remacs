@@ -7,9 +7,9 @@
 This module provides Magit, an interface to the Git version control system.
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[rmcs-user:][@hlissner]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +forge ::
@@ -17,19 +17,19 @@ This module provides Magit, an interface to the Git version control system.
   Emacs. Will take a while on first run to build =emacsql-sqlite=.
 
 ** Packages
-- [[doom-package:evil-magit]] if [[doom-module::editor evil +everywhere]]
-- [[doom-package:forge]] if [[doom-module:+forge]]
-- [[doom-package:code-review]] if [[doom-module:+forge]]
-- [[doom-package:magit]]
-- [[doom-package:magit-todos]]
+- [[rmcs-package:evil-magit]] if [[rmcs-module::editor evil +everywhere]]
+- [[rmcs-package:forge]] if [[rmcs-module:+forge]]
+- [[rmcs-package:code-review]] if [[rmcs-module:+forge]]
+- [[rmcs-package:magit]]
+- [[rmcs-package:magit-todos]]
 
 ** Hacks
-- [[doom-package:magit]] has been modified to recognize =$XDG_CACHE_HOME/git/credential/socket=.
-- [[doom-package:magit]] has been modified to invalidate the projectile cache when you check out
+- [[rmcs-package:magit]] has been modified to recognize =$XDG_CACHE_HOME/git/credential/socket=.
+- [[rmcs-package:magit]] has been modified to invalidate the projectile cache when you check out
   a new branch or commit.
-- [[doom-package:magit]] has been modified to revert repo buffers (e.g. after changing branches)
+- [[rmcs-package:magit]] has been modified to revert repo buffers (e.g. after changing branches)
   when you later switch to them, rather than all at once.
-- [[doom-package:forge]] was modified to defer compilation of emacsql-sqlite until you try to use
+- [[rmcs-package:forge]] was modified to defer compilation of emacsql-sqlite until you try to use
   forge, rather than when magit first loads (which could be as soon as startup).
 
 ** TODO Changelog
@@ -37,16 +37,16 @@ This module provides Magit, an interface to the Git version control system.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module requires:
 - [[https://git-scm.com/][Git]]
-- [[doom-module:+forge]] requires [[https://magit.vc/manual/forge/Token-Creation.html#Token-Creation][a Github API token]]
-- [[doom-package:code-review]] will also require a token setup (see [[https://github.com/wandersoncferreira/code-review#configuration][configuration]] for your particular forge)
+- [[rmcs-module:+forge]] requires [[https://magit.vc/manual/forge/Token-Creation.html#Token-Creation][a Github API token]]
+- [[rmcs-package:code-review]] will also require a token setup (see [[https://github.com/wandersoncferreira/code-review#configuration][configuration]] for your particular forge)
 
 * TODO Usage
 #+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's usage documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 Start magit with [[kbd:][<leader> g g]] (~M-x magit-status~).
@@ -55,7 +55,7 @@ If you are new to Magit, see the [[https://github.com/magit/magit#getting-starte
 
 * TODO Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Enable Gravatars
@@ -77,7 +77,7 @@ This is so for [[https://magit.vc/manual/magit/Performance.html][performance rea
 #+end_src
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
 ** "I recently updated and now I get 'deferred error : (wrong-type-argument sequencep code-review--auth-token-set\?)' whenever I try to review'"
@@ -95,5 +95,5 @@ machine api.github.com login yourlogin^code-review password MYTOKENGOESHERE
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

@@ -199,7 +199,7 @@ to tide."
                   (and (require 'tide nil t)
                        (progn (tide-setup) tide-mode))
                 (ignore
-                 (doom-log "Couldn't start tide because 'node' is missing"))))
+                 (rmcs-log "Couldn't start tide because 'node' is missing"))))
           (remove-hook 'after-save-hook #'+javascript-init-lsp-or-tide-maybe-h
                        'local))))))
 
@@ -223,7 +223,7 @@ to tide."
         ;; We'll handle it
         tide-completion-setup-company-backend nil)
 
-  ;; Resolve to `doom-project-root' if `tide-project-root' fails
+  ;; Resolve to `rmcs-project-root' if `tide-project-root' fails
   (advice-add #'tide-project-root :override #'+javascript-tide-project-root-a)
 
   ;; Cleanup tsserver when no tide buffers are left
@@ -271,7 +271,7 @@ to tide."
   (when (modulep! :editor evil +everywhere)
     (add-hook 'js2-refactor-mode-hook #'evil-normalize-keymaps)
     (let ((js2-refactor-mode-map (evil-get-auxiliary-keymap js2-refactor-mode-map 'normal t t)))
-      (js2r-add-keybindings-with-prefix (format "%s r" doom-localleader-key)))))
+      (js2r-add-keybindings-with-prefix (format "%s r" rmcs-localleader-key)))))
 
 
 ;;;###package skewer-mode

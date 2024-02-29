@@ -6,8 +6,8 @@
 #+property: header-args:elisp :results pp
 
 #+begin_quote
- 󰐃 Our documentation was designed to be read in Doom Emacs ([[kbd:][M-x doom/help]]) or
-    online at https://docs.doomemacs.org. Avoid reading it elsewhere (like
+ 󰐃 Our documentation was designed to be read in Doom Emacs ([[kbd:][M-x rmcs/help]]) or
+    online at https://docs.rmcsemacs.org. Avoid reading it elsewhere (like
     Github), where it will be rendered incorrectly.
 #+end_quote
 
@@ -20,8 +20,8 @@ examples; where the former can also be useful to users who don't use Doom.
 Some of Doom's components will read this file to generate documentation for you,
 for example:
 
-- Doom's [[doom-module:][:lang emacs-lisp]] module installs the [[doom-package:elisp-demos]] package. This displays
-  usage examples alongside documentation in [[doom-package:help]] and [[doom-package:helpful]] buffers (produced
+- Doom's [[rmcs-module:][:lang emacs-lisp]] module installs the [[rmcs-package:elisp-demos]] package. This displays
+  usage examples alongside documentation in [[rmcs-package:help]] and [[rmcs-package:helpful]] buffers (produced
   by =describe-*= and =helpful-*= commands; e.g. [[kbd:][<help> h f]]). Doom has extended
   this package to search this file as well.
 - [[id:1b8b8fa9-6233-4ed8-95c7-f46f8e4e2592][Some Doom's CLI commands]] will emit documentation informed by Doom's org files,
@@ -52,8 +52,8 @@ This file can live in any of:
 
 - =$DOOMDIR/profiles.el=
 - =$EMACSDIR/profiles.el=
-- =~/.config/doom-profiles.el=
-- =~/.doom-profiles.el=
+- =~/.config/rmcs-profiles.el=
+- =~/.rmcs-profiles.el=
 
 Here is an exhaustive example of all its syntax and capabilities:
 #+begin_src emacs-lisp
@@ -68,28 +68,28 @@ Here is an exhaustive example of all its syntax and capabilities:
   ;; Emacs knows where this profile lives. If you don't, it'll use the config
   ;; living in the default locations (~/.config/emacs or ~/.emacs.d).
   (user-emacs-directory . "~/another/emacs/config/")
-  ;; If this is a Doom config, you'll also want to set `doom-user-dir', which
-  ;; defaults to ~/.config/doom or ~/.doom.d:
-  (doom-user-dir . "~/another/doom/config/")
+  ;; If this is a Doom config, you'll also want to set `rmcs-user-dir', which
+  ;; defaults to ~/.config/rmcs or ~/.rmcs.d:
+  (rmcs-user-dir . "~/another/rmcs/config/")
   ;; If a CAR is a string, it is assumed you want to set an environment
   ;; variable. (Side-note: setting DOOMDIR will be unnecessary if you're setting
-  ;; `doom-user-dir' above).
-  ("DOOMDIR" . "~/another/doom/config/")
+  ;; `rmcs-user-dir' above).
+  ("DOOMDIR" . "~/another/rmcs/config/")
 
   ;; Doom profiles support a number of special directives. They are:
   ;;
   ;; (VAR :path SEGMENTS...) -- set VAR to an exapnded path built from SEGMENTS,
   ;; relative to `user-emacs-directory', unless an absolute path is in SEGMENTS.
-  (doom-cache-dir :path doom-user-dir ".local/cache")
-  (doom-data-dir  :path doom-user-dir ".local/data")
-  (doom-state-dir :path doom-user-dir ".local/state")
+  (rmcs-cache-dir :path rmcs-user-dir ".local/cache")
+  (rmcs-data-dir  :path rmcs-user-dir ".local/data")
+  (rmcs-state-dir :path rmcs-user-dir ".local/state")
   ;; (VAR :plist VALUE) -- use VALUE as a literal plist; ignoring any profile
   ;; directives that may be in it.
   (some-plist :plist (:foo bar :baz womp))
   ;; (VAR :eval FORMS...) -- use to evaluate arbitrary elisp forms. Note that
   ;; his runs early in early-init.el. It's wise to assume no APIs are available
   ;; or loaded, only the previous bindings in this profile.
-  (doom-theme :eval (if (equal (system-name) "foo") 'doom-one 'doom-dracula))
+  (rmcs-theme :eval (if (equal (system-name) "foo") 'rmcs-one 'rmcs-dracula))
   ;; Though discouraged, you may evaluate forms without a binding by using `_'.
   ;; You really should be doing this in the profile though...
   (_ :eval (message "Hello world!"))
@@ -97,10 +97,10 @@ Here is an exhaustive example of all its syntax and capabilities:
   ;; (VAR :prepend FORMS...) or (VAR :append FORMS...) -- prepend or append the
   ;; evaluated result of each form in FORMS to VAR (a list). If VAR is undefined
   ;; at startup, it will be deferred until the variable is available.
-  (load-path :prepend (expand-file-name "packages/" doom-user-dir))
-  (load-path :prepend (expand-file-name "lisp/" doom-user-dir))
-  (load-path :append  (expand-file-name "fallback/" doom-user-dir))
-  (exec-path :prepend (expand-file-name "bin/" doom-user-dir))
+  (load-path :prepend (expand-file-name "packages/" rmcs-user-dir))
+  (load-path :prepend (expand-file-name "lisp/" rmcs-user-dir))
+  (load-path :append  (expand-file-name "fallback/" rmcs-user-dir))
+  (exec-path :prepend (expand-file-name "bin/" rmcs-user-dir))
   (auto-mode-alist :prepend '("\\.el\\'" . lisp-mode)))
 
  (profile2
@@ -110,7 +110,7 @@ Here is an exhaustive example of all its syntax and capabilities:
   ...))
 #+end_src
 
-*** =.doomprofile=
+*** =.rmcsprofile=
 :PROPERTIES:
 :ID:       ac37ac6f-6082-4c34-b98c-962bc1e528c9
 :END:
@@ -119,17 +119,17 @@ complete example in [[id:f9bce7da-d155-4727-9b6f-b566b5b8d824][the previous sect
 
 #+begin_src emacs-lisp
 ;;; -*- mode: emacs-lisp -*-
-;; A .doomprofile can be placed under an implicit profile. Same rules as
-;; .doom-profiles.el, but one level deeper.
+;; A .rmcsprofile can be placed under an implicit profile. Same rules as
+;; .rmcs-profiles.el, but one level deeper.
 
 ((var . value)
  ("envvar" . value)
  (var :directive values...))
 #+end_src
 
-*** TODO =.doomrc=
-*** TODO =.doomproject=
-*** TODO =.doommodule=
+*** TODO =.rmcsrc=
+*** TODO =.rmcsproject=
+*** TODO =.rmcsmodule=
 ** TODO Templates
 *** TODO User configuration
 *** TODO Module
@@ -138,18 +138,18 @@ complete example in [[id:f9bce7da-d155-4727-9b6f-b566b5b8d824][the previous sect
 *** TODO Command-line interface
 **** Unix utilities, rewritten as Doom scripts
 To show off the syntax and capabilities of Doom's CLI framework, here are some
-popular scripts ported to doomscripts for reference. They will all operate under
+popular scripts ported to rmcsscripts for reference. They will all operate under
 these assumptions:
 
 1. The script lives somewhere in your =$PATH=,
-2. =$EMACSDIR/bin/doomscript= lives in your =$PATH=.
+2. =$EMACSDIR/bin/rmcsscript= lives in your =$PATH=.
 3. The script is executable,
 4. The script's filename matches the first argument of ~run!~ (by convention,
    not a requirement),
 
 ***** ~mkdir~
 #+begin_src emacs-lisp :eval no
-#!/usr/bin/env doomscript
+#!/usr/bin/env rmcsscript
 
 (defcli! mkdir
     ((mode     ("-m" "--mode" mode))
@@ -216,7 +216,7 @@ SEE ALSO:
 - The ~mode~ option takes one argument, a chmod mask. I indicate this with
   ~"`MODE'"~. This is a special syntax for highlighting arguments in the help
   docs of this command. If I had used a symbol, instead (one of the predefined
-  types in [[var:][doom-cli-argument-value-types]]), I would've gotten free type-checking
+  types in [[var:][rmcs-cli-argument-value-types]]), I would've gotten free type-checking
   and error handling, but there is no predefined type for chmod masks (yet), so
   I'd have to do my own checks:
 
@@ -243,7 +243,7 @@ SEE ALSO:
 
 ***** TODO ~say~
 #+begin_src emacs-lisp :eval no
-#!/usr/bin/env doomscript
+#!/usr/bin/env rmcsscript
 
 (defcli! say
     ((name ("--speaker" name) "Who is speaking?")
@@ -272,8 +272,8 @@ OPTIONS:
 #+begin_src bash :eval no
 $ say hello world
 Emacs says: "Hello world"
-$ say --speaker Henrik "I've doomed us all"
-Henrik says: "I've doomed us all"
+$ say --speaker Henrik "I've rmcsed us all"
+Henrik says: "I've rmcsed us all"
 $ say --help
 TODO
 #+end_src
@@ -288,7 +288,7 @@ Since I don't want to override the real ~emacs~ in the ~$PATH~, I'll just call
 it ~demacs~:
 
 #+begin_src emacs-lisp :eval no
-#!/usr/bin/env doomscript
+#!/usr/bin/env rmcsscript
 
 (defcli! demacs
     ((cd ("--chdir" dir))

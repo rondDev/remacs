@@ -60,13 +60,13 @@ exist, and `org-link' otherwise."
    (+org-link-read-desc-at-point default context)))
 
 (defun +org-link--describe-kbd (keystr)
-  (dolist (key `(("<leader>" . ,doom-leader-key)
-                 ("<localleader>" . ,doom-localleader-key)
+  (dolist (key `(("<leader>" . ,rmcs-leader-key)
+                 ("<localleader>" . ,rmcs-localleader-key)
                  ("<prefix>" . ,(if (bound-and-true-p evil-mode)
-                                    (concat doom-leader-key " u")
+                                    (concat rmcs-leader-key " u")
                                   "C-u"))
                  ("<help>" . ,(if (bound-and-true-p evil-mode)
-                                  (concat doom-leader-key " h")
+                                  (concat rmcs-leader-key " h")
                                 "C-h"))
                  ("\\<M-" . "alt-")
                  ("\\<S-" . "shift-")
@@ -153,13 +153,13 @@ exist, and `org-link' otherwise."
      start end (list 'display (+org-link--command-keys command)))))
 
 ;;;###autoload
-(defun +org-link--doom-module-link-follow-fn (module-path _arg)
+(defun +org-link--rmcs-module-link-follow-fn (module-path _arg)
   (cl-destructuring-bind (&key category module flag)
       (+org-link--read-module-spec module-path)
     (when category
-      (let ((doom-modules-dirs (list doom-modules-dir)))
-        (if-let* ((path (doom-module-locate-path category module))
-                  (path (or (car (doom-glob path "README.org"))
+      (let ((rmcs-modules-dirs (list rmcs-modules-dir)))
+        (if-let* ((path (rmcs-module-locate-path category module))
+                  (path (or (car (rmcs-glob path "README.org"))
                             path)))
             (find-file path)
           (user-error "Can't find Doom module '%s'" module-path))))
@@ -174,18 +174,18 @@ exist, and `org-link' otherwise."
         (recenter)))))
 
 ;;;###autoload
-(defun +org-link--doom-module-link-activate-fn (start end module-path _bracketed-p)
+(defun +org-link--rmcs-module-link-activate-fn (start end module-path _bracketed-p)
   (when buffer-read-only
     (cl-destructuring-bind (&key category module flag)
         (+org-link--read-module-spec module-path)
       (let ((overall-face
-             (if (and category (doom-module-locate-path category module))
+             (if (and category (rmcs-module-locate-path category module))
                  '((:underline nil) org-link org-block bold)
                '(shadow org-block bold)))
             (icon-face
              (cond
-              ((doom-module-p category module flag) 'success)
-              ((and category (doom-module-locate-path category module)) 'warning)
+              ((rmcs-module-p category module flag) 'success)
+              ((and category (rmcs-module-locate-path category module)) 'warning)
               (t 'error))))
         (add-text-properties
          start end
@@ -197,7 +197,7 @@ exist, and `org-link' otherwise."
                 " " module-path)))))))
 
 ;;;###autoload
-(defun +org-link--doom-package-link-activate-fn (start end package _bracketed-p)
+(defun +org-link--rmcs-package-link-activate-fn (start end package _bracketed-p)
   (when buffer-read-only
     (let ((overall-face
            (if (locate-library package)
@@ -218,12 +218,12 @@ exist, and `org-link' otherwise."
               " " package))))))
 
 ;;;###autoload
-(defun +org-link--doom-package-link-follow-fn (pkg _prefixarg)
+(defun +org-link--rmcs-package-link-follow-fn (pkg _prefixarg)
   "TODO"
-  (doom/describe-package (intern-soft pkg)))
+  (rmcs/describe-package (intern-soft pkg)))
 
 ;;;###autoload
-(defun +org-link--doom-executable-link-activate-fn (start end executable _bracketed-p)
+(defun +org-link--rmcs-executable-link-activate-fn (start end executable _bracketed-p)
   (when buffer-read-only
     (let ((found (executable-find executable)))
       (add-text-properties
@@ -239,27 +239,27 @@ exist, and `org-link' otherwise."
 ;;
 ;;; Help-echo / eldoc
 
-(defadvice! doom-docs--display-docs-link-in-eldoc-a (&rest _)
-  "Display help for doom-*: links in minibuffer when cursor/mouse is over it."
+(defadvice! rmcs-docs--display-docs-link-in-eldoc-a (&rest _)
+  "Display help for rmcs-*: links in minibuffer when cursor/mouse is over it."
   :before-until #'org-eldoc-documentation-function
-  (and (bound-and-true-p doom-docs-mode)
+  (and (bound-and-true-p rmcs-docs-mode)
        (eq (get-text-property (point) 'help-echo)
-           #'+org-link-doom--help-echo-from-textprop)
-       (+org-link-doom--help-echo-from-textprop nil (current-buffer) (point))))
+           #'+org-link-rmcs--help-echo-from-textprop)
+       (+org-link-rmcs--help-echo-from-textprop nil (current-buffer) (point))))
 
-(defvar +org-link-doom--help-echo-cache nil)
+(defvar +org-link-rmcs--help-echo-cache nil)
 
-(defun +org-link-doom--help-echo-from-textprop (_window object pos)
+(defun +org-link-rmcs--help-echo-from-textprop (_window object pos)
   (let ((link (with-current-buffer object
                 (save-excursion (goto-char pos) (org-element-context)))))
-    (if (eq (car +org-link-doom--help-echo-cache)
+    (if (eq (car +org-link-rmcs--help-echo-cache)
             (org-element-property :begin link))
-        (cdr +org-link-doom--help-echo-cache)
-      (cdr (setq +org-link-doom--help-echo-cache
+        (cdr +org-link-rmcs--help-echo-cache)
+      (cdr (setq +org-link-rmcs--help-echo-cache
                  (cons (org-element-property :begin link)
-                       (+org-link-doom--help-string link)))))))
+                       (+org-link-rmcs--help-string link)))))))
 
-(defun +org-link-doom--help-string (link)
+(defun +org-link-rmcs--help-string (link)
   (if (not buffer-read-only)
       (format "LINK: %s" (org-element-property :raw-link link))
     (pcase (org-element-property :type link)
@@ -275,7 +275,7 @@ exist, and `org-link' otherwise."
         " can be invoked with the key sequence "
         (propertize (+org-link--command-keys (org-element-property :path link))
                     'face 'help-key-binding)))
-      ("doom-package"
+      ("rmcs-package"
        (concat
         (propertize "Emacs package " 'face 'bold)
         (propertize (org-element-property :path link) 'face 'font-lock-keyword-face)
@@ -286,7 +286,7 @@ exist, and `org-link' otherwise."
          ((locate-library (org-element-property :path link))
           (propertize "installed but not loaded" 'face 'warning))
          (t (propertize "not installed" 'face 'error )))))
-      ("doom-module"
+      ("rmcs-module"
        (concat
         (propertize "Doom module " 'face 'bold)
         (propertize (org-element-property :path link) 'face 'font-lock-keyword-face)
@@ -294,12 +294,12 @@ exist, and `org-link' otherwise."
         (cl-destructuring-bind (&key category module flag)
             (+org-link--read-module-spec (org-element-property :path link))
           (cond
-           ((doom-module-p category module)
+           ((rmcs-module-p category module)
             (propertize "enabled" 'face 'success))
-           ((and category (doom-module-locate-path category module))
+           ((and category (rmcs-module-locate-path category module))
             (propertize "disabled" 'face 'error))
            (t (propertize "unknown" 'face '(bold error)))))))
-      ("doom-executable"
+      ("rmcs-executable"
        (concat
         (propertize "System executable " 'face 'bold)
         (propertize (org-element-property :path link) 'face 'font-lock-keyword-face)

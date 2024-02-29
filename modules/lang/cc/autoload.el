@@ -105,7 +105,7 @@ simpler."
              (executable-find rtags-rc-binary-name))
     (with-temp-buffer
       (message "Reloaded compile commands for rtags daemon")
-      (rtags-call-rc :silent t "-J" (or (doom-project-root) default-directory))))
+      (rtags-call-rc :silent t "-J" (or (rmcs-project-root) default-directory))))
   ;; then irony
   (when (and (featurep 'irony) irony-mode)
     (+cc-init-irony-compile-options-h))
@@ -192,7 +192,7 @@ compilation dbs."
   (when (memq major-mode '(c-mode c++-mode objc-mode))
     (require 'irony-cdb)
     (unless (irony-cdb-autosetup-compile-options)
-      (let ((project-root (doom-project-root))
+      (let ((project-root (rmcs-project-root))
             (include-paths (+cc-resolve-include-paths)))
         (setf (alist-get project-root +cc--project-includes-alist)
               include-paths)
@@ -210,7 +210,7 @@ compilation dbs."
 ;;       (let ((args (delq nil (cdr-safe (assq major-mode +cc-default-compiler-options)))))
 ;;         (setf (alist-get (or (lsp-workspace-root)
 ;;                              (lsp--suggest-project-root)
-;;                              (doom-project-root))
+;;                              (rmcs-project-root))
 ;;                          +cc--project-includes-alist)
 ;;               include-paths)
 ;;         (setq ccls-initialization-options
@@ -226,7 +226,7 @@ header files."
   (when-let (project-root (or (bound-and-true-p irony--working-directory)
                               (and (featurep 'lsp)
                                    (or (lsp-workspace-root)
-                                       (doom-project-root)))))
+                                       (rmcs-project-root)))))
     (require 'ffap)
     (make-local-variable 'ffap-c-path)
     (make-local-variable 'ffap-c++-path)

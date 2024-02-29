@@ -10,7 +10,7 @@
 ;;            (ssh-deploy-on-explicit-save . 1))))
 ;;
 ;; Note: `ssh-deploy-root-local' is optional, and will resort to
-;; `doom-project-root' if unspecified.
+;; `rmcs-project-root' if unspecified.
 
 (use-package! ssh-deploy
   :commands (ssh-deploy-upload-handler
@@ -19,7 +19,7 @@
              ssh-deploy-browse-remote-handler
              ssh-deploy-remote-changes-handler)
   :init
-  (setq ssh-deploy-revision-folder (concat doom-cache-dir "ssh-revisions/")
+  (setq ssh-deploy-revision-folder (concat rmcs-cache-dir "ssh-revisions/")
         ssh-deploy-on-explicit-save 1
         ssh-deploy-automatically-detect-remote-changes nil)
 
@@ -48,6 +48,6 @@
       (when (bound-and-true-p ssh-deploy-root-remote)
         (require 'ssh-deploy)
         (unless ssh-deploy-root-local
-          (setq ssh-deploy-root-local (doom-project-root)))
+          (setq ssh-deploy-root-local (rmcs-project-root)))
         (when ssh-deploy-automatically-detect-remote-changes
           (ssh-deploy-remote-changes-handler))))))

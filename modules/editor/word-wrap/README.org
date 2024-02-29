@@ -8,16 +8,16 @@ This module adds a minor-mode [[fn:+word-wrap-mode]], which intelligently wraps 
 lines in the buffer without modifying the buffer content.
 
 ** Maintainers
-- [[doom-user:][@flatwhatson]]
+- [[rmcs-user:][@flatwhatson]]
   
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 /This module has no flags./
 
 ** Packages
-- [[doom-package:adaptive-wrap]]
-- [[doom-package:visual-fill-column]]
+- [[rmcs-package:adaptive-wrap]]
+- [[rmcs-package:visual-fill-column]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -27,25 +27,25 @@ lines in the buffer without modifying the buffer content.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 /This module has no external requirements./
 
 * TODO Usage
 #+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no usage documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * TODO Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Activation
 Word wrapping is not enabled by default.
 
 Wrapping can be toggled in the current buffer with ~M-x +word-wrap-mode~. The
-default doom bindings bind this to [[kbd:][SPC t w]] for ~evil~ users.
+default rmcs bindings bind this to [[kbd:][SPC t w]] for ~evil~ users.
 
 To enable wrapping in a specific mode, add it to the appropriate hook in
 ~$DOOMDIR/config.el~:
@@ -109,12 +109,12 @@ The ~+word-wrap-visual-modes~ variable lists modes which should only enable
 modes like ~org-mode~ which handle prefix indentation themselves.
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

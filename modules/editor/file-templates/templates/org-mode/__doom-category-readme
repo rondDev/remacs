@@ -2,11 +2,11 @@
 # name: Doom category readme
 # --
 :PROPERTIES:
-:ID:       `(doom-docs-generate-id)`
+:ID:       `(rmcs-docs-generate-id)`
 :END:
 #+title:   `(+file-templates-module-for-path)`
 #+created: `(format-time-string "%B %d, %Y")`
-#+since:   `(car (split-string doom-version "-"))`
+#+since:   `(car (split-string rmcs-version "-"))`
 $0
 * Description
 Replace this with a description of what modules in this category are for,

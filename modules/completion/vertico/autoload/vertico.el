@@ -21,7 +21,7 @@
     (user-error "Couldn't find ripgrep in your PATH"))
   (require 'consult)
   (setq deactivate-mark t)
-  (let* ((project-root (or (doom-project-root) default-directory))
+  (let* ((project-root (or (rmcs-project-root) default-directory))
          (directory (or in project-root))
          (consult-ripgrep-args
           (concat "rg "
@@ -34,8 +34,8 @@
                   (mapconcat #'identity args " ")))
          (prompt (if (stringp prompt) (string-trim prompt) "Search"))
          (query (or query
-                    (when (doom-region-active-p)
-                      (regexp-quote (doom-thing-at-point-or-region)))))
+                    (when (rmcs-region-active-p)
+                      (regexp-quote (rmcs-thing-at-point-or-region)))))
          (consult-async-split-style consult-async-split-style)
          (consult-async-split-styles-alist consult-async-split-styles-alist))
     ;; Change the split style if the initial query contains the separator.
@@ -213,17 +213,17 @@ targets."
   "Runs consult-fd if fd version > 8.6.0 exists, consult-find otherwise.
 See URL `https://github.com/minad/consult/issues/770'."
   (interactive "P")
-  ;; TODO this condition was adapted from a similar one in lisp/doom-projects.el, to be replaced with a more robust check post v3
+  ;; TODO this condition was adapted from a similar one in lisp/rmcs-projects.el, to be replaced with a more robust check post v3
   (if (when-let*
           ((bin (if (ignore-errors (file-remote-p default-directory nil t))
-                    (cl-find-if (doom-rpartial #'executable-find t)
+                    (cl-find-if (rmcs-rpartial #'executable-find t)
                                 (list "fdfind" "fd"))
-                  doom-projectile-fd-binary))
-           (version (with-memoization doom-projects--fd-version
-                      (cadr (split-string (cdr (doom-call-process bin "--version"))
+                  rmcs-projectile-fd-binary))
+           (version (with-memoization rmcs-projects--fd-version
+                      (cadr (split-string (cdr (rmcs-call-process bin "--version"))
                                           " " t))))
            ((ignore-errors (version-to-list version))))
-        ;; TODO remove once fd 8.6.0 is widespread enough to be the minimum version for doom
+        ;; TODO remove once fd 8.6.0 is widespread enough to be the minimum version for rmcs
         (version< "8.6.0" version))
       (consult-fd dir initial)
     (consult-find dir initial)))

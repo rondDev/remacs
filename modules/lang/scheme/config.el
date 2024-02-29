@@ -13,8 +13,8 @@
   :init
   (setq geiser-autodoc-identifier-format "%s → %s"
         geiser-repl-per-project-p t
-        geiser-repl-current-project-function #'doom-project-root
-        geiser-repl-history-filename (concat doom-cache-dir "geiser-history"))
+        geiser-repl-current-project-function #'rmcs-project-root
+        geiser-repl-history-filename (concat rmcs-cache-dir "geiser-history"))
 
   (after! scheme  ; built-in
     (set-repl-handler! 'scheme-mode #'+scheme/open-repl

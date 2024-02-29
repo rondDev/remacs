@@ -10,7 +10,7 @@
 :; export __DOOMGPIPE=${__DOOMGPIPE:-$__DOOMPIPE}
 :; export __DOOMPIPE=; [ -t 0 ] || __DOOMPIPE="${__DOOMPIPE}0"; [ -t 1 ] || __DOOMPIPE="${__DOOMPIPE}1"
 :; $emacs --load "$0" -- "$@" || exit=$?
-:; [ "${exit:-0}" -eq 254 ] && { sh "${tmpdir}/doom.${__DOOMPID}.${__DOOMSTEP}.sh" "$0" "$@" && true; exit="$?"; }
+:; [ "${exit:-0}" -eq 254 ] && { sh "${tmpdir}/rmcs.${__DOOMPID}.${__DOOMSTEP}.sh" "$0" "$@" && true; exit="$?"; }
 :; exit $exit
 
 ;; This magical mess of a shebang is necessary for any script that relies on
@@ -62,7 +62,7 @@
 ;;   Put together, plus a strategically placed exit call, the shell will read
 ;;   one part of this file and ignore the rest, while the elisp interpreter will
 ;;   do the opposite.
-;; - I intentionally avoid loading site files, so lisp/doom-cli.el can load them
+;; - I intentionally avoid loading site files, so lisp/rmcs-cli.el can load them
 ;;   by hand later. There, I can suppress and deal with unhelpful warnings (e.g.
 ;;   "package cl is deprecated"), "Loading X...DONE" spam, and any other
 ;;   disasterous side-effects.
@@ -77,23 +77,23 @@
 ;; In CLI sessions, prefer correctness over performance.
 (setq load-prefer-newer t)
 
-;; Doom's core sets up everything we need; including `doom-*-dir' variables,
-;; universal defaults, and autoloads for doom-*-initialize functions.
+;; Doom's core sets up everything we need; including `rmcs-*-dir' variables,
+;; universal defaults, and autoloads for rmcs-*-initialize functions.
 (condition-case e
     (let* ((bin-dir (file-name-directory (file-truename load-file-name)))
            (init-file (expand-file-name "../early-init.el" bin-dir)))
       (or (and (load init-file nil 'nomessage 'nosuffix)
-               (featurep 'doom))
+               (featurep 'rmcs))
           (user-error "Failed to load Doom from %s" init-file)))
   ;; Prevent ugly backtraces for trivial errors
   (user-error (message "Error: %s" (cadr e))
               (kill-emacs 2)))
 
-;; UX: Abort if the user is using 'doom' as root, unless ~/.config/emacs is
+;; UX: Abort if the user is using 'rmcs' as root, unless ~/.config/emacs is
 ;;   owned by root, in which case we assume the user genuinely wants root to be
 ;;   their primary user account for Emacs.
 (when (equal 0 (user-real-uid))
-  (unless (equal 0 (file-attribute-user-id (file-attributes doom-emacs-dir)))
+  (unless (equal 0 (file-attribute-user-id (file-attributes rmcs-emacs-dir)))
     (message
      (concat
       "Error: this script was executed as root, which is likely not what you want.\n"
@@ -102,7 +102,7 @@
       "If this really *is* what you want, then change the owner of your Emacs\n"
       "config to root:\n\n"
       ;; TODO Add cmd.exe/powershell commands
-      "  chown root:root -R " (abbreviate-file-name doom-emacs-dir) "\n\n"
+      "  chown root:root -R " (abbreviate-file-name rmcs-emacs-dir) "\n\n"
       "Aborting..."))
     (kill-emacs 2)))
 
@@ -110,7 +110,7 @@
 ;;
 ;;; Entry point
 
-(defcli! doom (&args _command)
+(defcli! rmcs (&args _command)
   "A command line interface to Doom Emacs.
 
 Includes package management, diagnostics, unit tests, and byte-compilation.
@@ -130,8 +130,8 @@ ENVIRONMENT VARIABLES:
 
   `$DOOMDIR'
     The location of your private configuration for Doom Emacs (defaults to
-    ~/.config/doom or ~/.doom.d; whichever it finds first). This is *not* the
-    place you've cloned doomemacs/doomemacs to. The `--doomdir' option also sets
+    ~/.config/rmcs or ~/.rmcs.d; whichever it finds first). This is *not* the
+    place you've cloned rmcsemacs/rmcsemacs to. The `--rmcsdir' option also sets
     this variable.
 
   `$DOOMPAGER'
@@ -143,7 +143,7 @@ ENVIRONMENT VARIABLES:
     also sets this variable.
 
   `$DOOMPROFILELOADFILE'
-    Doom generates a profile loader script on 'doom sync' or 'doom profiles
+    Doom generates a profile loader script on 'rmcs sync' or 'rmcs profiles
     sync'. By default, this file is written to and loaded from
     $EMACSDIR/profiles/load.el. Set this envvar to change that. Note that this
     envvar must be in scope for both interactive and non-interactive sessions
@@ -156,7 +156,7 @@ ENVIRONMENT VARIABLES:
   `$DOOMPROFILELOADPATH'
     A colon-delimited (semi-colon on Windows) list of profile config files or
     directories under which Doom will search for implicit profiles. See
-    `var:doom-profile-load-path' for its default value.
+    `var:rmcs-profile-load-path' for its default value.
 
 EXIT CODES:
   0        Successful run
@@ -167,24 +167,24 @@ EXIT CODES:
   5        Invalid, missing, or extra options/arguments
   6-49     Reserved for Doom
   50-200   Reserved for custom user codes
-  254      Successful run (but then execute `doom-cli-restart-script')
+  254      Successful run (but then execute `rmcs-cli-restart-script')
   255      Uncaught internal errors
 
 SEE ALSO:
-  https://doomemacs.org               Homepage
-  https://docs.doomemacs.org          Official documentation
-  https://discourse.doomemacs.org     Discourse (discussion & support forum)
-  https://doomemacs.org/discord       Discord chat server
-  https://doomemacs.org/roadmap       Development roadmap
-  https://git.doomemacs.org           Shortcut to Github org
-  https://git.doomemacs.org/todo      Global issue tracker"
+  https://rmcsemacs.org               Homepage
+  https://docs.rmcsemacs.org          Official documentation
+  https://discourse.rmcsemacs.org     Discourse (discussion & support forum)
+  https://rmcsemacs.org/discord       Discord chat server
+  https://rmcsemacs.org/roadmap       Development roadmap
+  https://git.rmcsemacs.org           Shortcut to Github org
+  https://git.rmcsemacs.org/todo      Global issue tracker"
   :partial t)
 
 (defcli! :before
     ((force?   ("-!" "--force")   "Suppress prompts by auto-accepting their consequences")
      (debug?   ("-D" "--debug")   "Enable debug output")
      (verbose? ("-v" "--verbose") "Enable verbose output")
-     (doomdir  ("--doomdir" dir)  "Use Doom config living in `DIR' (e.g. ~/.doom.d)")
+     (rmcsdir  ("--rmcsdir" dir)  "Use Doom config living in `DIR' (e.g. ~/.rmcs.d)")
      (emacsdir ("--emacsdir" dir) "Use Doom install living in `DIR' (e.g. ~/.emacs.d)")
      (pager    ("--pager" cmd)    "Pager command to use for large output")
      (profile  ("--profile" name) "Use profile named NAME")
@@ -207,23 +207,23 @@ SEE ALSO:
 
     Warning: files loaded this way load too late to define new commands. To
     define commands, do so from `$DOOMDIR'/cli.el, `$DOOMDIR'/init.el, or a
-    .doomrc file in the current project tree."
+    .rmcsrc file in the current project tree."
   (when bench?
-    (setq doom-cli-benchmark-threshold 'always))
+    (setq rmcs-cli-benchmark-threshold 'always))
   (unless init-file-debug ; debug-mode implies verbose
     (when verbose?
-      (setq doom-print-minimum-level 'info)))
+      (setq rmcs-print-minimum-level 'info)))
   (when color?
-    (setq doom-print-backend (if (eq color? :yes) 'ansi)))
+    (setq rmcs-print-backend (if (eq color? :yes) 'ansi)))
   (when pager
-    (setq doom-cli-pager pager))
+    (setq rmcs-cli-pager pager))
   (when force?
-    (setf (doom-cli-context-suppress-prompts-p context) t))
+    (setf (rmcs-cli-context-suppress-prompts-p context) t))
   ;; For these settings to take full effect, the script must be restarted:
   (when (or debug?
             profile
             emacsdir
-            doomdir)
+            rmcsdir)
     (let (omit)
       (when debug?
         (setenv "DEBUG" "1")
@@ -235,13 +235,13 @@ SEE ALSO:
       (when emacsdir
         (setenv "EMACSDIR" emacsdir)
         (push "--emacsdir=" omit))
-      (when doomdir
-        (setenv "DOOMDIR" doomdir)
-        (push "--doomdir=" omit))
+      (when rmcsdir
+        (setenv "DOOMDIR" rmcsdir)
+        (push "--rmcsdir=" omit))
       (exit! :restart :omit omit)))
   ;; Load extra files and forms, as per given options.
   (dolist (file loads)
-    (load (doom-path (cdr file))
+    (load (rmcs-path (cdr file))
           (not (equal (car file) "--strict-load"))
           (not init-file-debug) t))
   (dolist (form evals)
@@ -251,19 +251,19 @@ SEE ALSO:
 ;;
 ;;; Load user config + commands
 
-;; Load $DOOMDIR/init.el, to read the user's `doom!' block and give users an
+;; Load $DOOMDIR/init.el, to read the user's `rmcs!' block and give users an
 ;; opportunity to customize the CLI environment, if they like. Otherwise, they
-;; can do so in .doomrc or .doomproject.
-(load! doom-module-init-file doom-user-dir t)
+;; can do so in .rmcsrc or .rmcsproject.
+(load! rmcs-module-init-file rmcs-user-dir t)
 
 ;; There are a lot of CLIs, and some have expensive initialization, so best we
 ;; load them lazily.
 (defcli-group!
-  :prefix 'doom
+  :prefix 'rmcs
   ;; Import this for implicit 'X help' commands for your script:
   (defcli-alias! ((help h)) (:root :help))
   ;; And suggest its use when errors occur.
-  (add-to-list 'doom-help-commands "%p h[elp] %c")
+  (add-to-list 'rmcs-help-commands "%p h[elp] %c")
 
   (defcli-group! "Config Management"
     :docs "Commands for maintaining your Doom Emacs configuration."
@@ -304,24 +304,24 @@ SEE ALSO:
 
   (let ((cli-file "cli.el"))
     (defcli-group! "Module commands"
-      (doom-context-with 'modules
-        (dolist (key (doom-module-list))
-          (when-let (path (doom-module-locate-path (car key) (cdr key) cli-file))
+      (rmcs-context-with 'modules
+        (dolist (key (rmcs-module-list))
+          (when-let (path (rmcs-module-locate-path (car key) (cdr key) cli-file))
             (defcli-group! :prefix (if (cdr key) (format "+%s" (cdr key)))
-              (doom-load (file-name-sans-extension path))))))))
+              (rmcs-load (file-name-sans-extension path))))))))
 
-  ;; Allow per-project Doom settings in .doom files.
-  (let (doomrc)
+  ;; Allow per-project Doom settings in .rmcs files.
+  (let (rmcsrc)
     (cond
-     ((setq doomrc (getenv "DOOMRC"))
-      (load! doomrc default-directory))
-     ((setq doomrc (locate-dominating-file default-directory ".doomrc"))
-      (load! ".doomrc" doomrc)))))
+     ((setq rmcsrc (getenv "DOOMRC"))
+      (load! rmcsrc default-directory))
+     ((setq rmcsrc (locate-dominating-file default-directory ".rmcsrc"))
+      (load! ".rmcsrc" rmcsrc)))))
 
 
 ;;
 ;;; Let 'er rip
 
-(run! "doom" (cdr (member "--" argv)))
+(run! "rmcs" (cdr (member "--" argv)))
 
-;;; doom ends here, unless...
+;;; rmcs ends here, unless...

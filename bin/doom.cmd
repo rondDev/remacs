@@ -1,4 +1,4 @@
-:: Forward the ./doom script to Emacs
+:: Forward the ./rmcs script to Emacs
 
 @ECHO OFF
 SETLOCAL ENABLEDELAYEDEXPANSION
@@ -16,9 +16,9 @@ IF NOT [%1]==[] (
 )
 
 IF [%command%]==[run] (
-   start runemacs -Q %args% -l ..\init.el -f "doom-run-all-startup-hooks-h"
+   start runemacs -Q %args% -l ..\init.el -f "rmcs-run-all-startup-hooks-h"
 ) ELSE (
-   emacs --quick --script .\doom -- %*
+   emacs --quick --script .\rmcs -- %*
 )
 
 POPD >NUL

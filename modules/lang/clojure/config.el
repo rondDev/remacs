@@ -5,7 +5,7 @@
 
 ;; Large clojure buffers tend to be slower than large buffers of other modes, so
 ;; it should have a lower threshold too.
-(add-to-list 'doom-large-file-size-alist '("\\.\\(?:clj[sc]?\\|dtm\\|edn\\)\\'" . 0.5))
+(add-to-list 'rmcs-large-file-size-alist '("\\.\\(?:clj[sc]?\\|dtm\\|edn\\)\\'" . 0.5))
 
 (defvar +clojure-load-clj-refactor-with-lsp nil
   "Whether or not to include clj-refactor along with clojure-lsp.")
@@ -82,7 +82,7 @@
         cider-prompt-for-symbol nil
         cider-repl-history-display-duplicates nil
         cider-repl-history-display-style 'one-line
-        cider-repl-history-file (concat doom-cache-dir "cider-repl-history")
+        cider-repl-history-file (concat rmcs-cache-dir "cider-repl-history")
         cider-repl-history-highlight-current-entry t
         cider-repl-history-quit-action 'delete-and-restore
         cider-repl-history-highlight-inserted-item t

@@ -12,30 +12,30 @@ This module adds Lua support to Doom Emacs.
 - Fennel support
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[rmcs-user:][@hlissner]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +fennel ::
   Enable support for the Fennel language.
 - +lsp ::
-  Enable LSP support for ~lua-mode~. Requires [[doom-module::tools lsp]] and a langserver
+  Enable LSP support for ~lua-mode~. Requires [[rmcs-module::tools lsp]] and a langserver
   (supports EmmyLua, lua-language-server, and lua-lsp).
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
-  editing. Requires [[doom-module::tools tree-sitter]]. Has support for both Lua and
+  editing. Requires [[rmcs-module::tools tree-sitter]]. Has support for both Lua and
   Fennel.
 - +moonscript ::
   Enable support for the Moonscript language.
 
 ** Packages
-- [[doom-package:company-lua]] if [[doom-module::completion company]]
-- [[doom-package:fennel-mode]] if [[doom-module:+fennel]]
-- [[doom-package:lua-mode]]
-- if [[doom-module:+moonscript]]
-  - [[doom-package:flycheck-moonscript]] if [[doom-module::checkers syntax]]
-  - [[doom-package:moonscript-mode]]
+- [[rmcs-package:company-lua]] if [[rmcs-module::completion company]]
+- [[rmcs-package:fennel-mode]] if [[rmcs-module:+fennel]]
+- [[rmcs-package:lua-mode]]
+- if [[rmcs-module:+moonscript]]
+  - [[rmcs-package:flycheck-moonscript]] if [[rmcs-module::checkers syntax]]
+  - [[rmcs-package:moonscript-mode]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -45,15 +45,15 @@ This module adds Lua support to Doom Emacs.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module requires Lua 5.1+ for most of its capabilities and, optionally, the
 fennel and moonscript transpilers. An LSP server is also required for LSP
 support.
 
 ** Language Server Protocol servers
-LSP server support depends on which flavor of the [[doom-module::tools lsp]] module you have
-installed ([[doom-package:eglot]] or [[doom-package:lsp-mode]]).
+LSP server support depends on which flavor of the [[rmcs-module::tools lsp]] module you have
+installed ([[rmcs-package:eglot]] or [[rmcs-package:lsp-mode]]).
 
 *** LSP-mode
 Three servers are supported, ordered from highest to lowest priority:
@@ -77,33 +77,33 @@ Eglot currently only supports one of the above servers out of the box:
 
 ** Formatter
 
-Formatting is handled using the [[doom-module::editor format]] module via [[https://github.com/JohnnyMorganz/StyLua#installation][Stylua]].
+Formatting is handled using the [[rmcs-module::editor format]] module via [[https://github.com/JohnnyMorganz/StyLua#installation][Stylua]].
 
 * TODO Usage
 #+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no usage documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * TODO Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
-- lua-lsp-dir :: This must be set when using [[doom-module:+lsp]] and using [[https://github.com/sumneko/lua-language-server][lua-language-server]].
+- lua-lsp-dir :: This must be set when using [[rmcs-module:+lsp]] and using [[https://github.com/sumneko/lua-language-server][lua-language-server]].
   This controls where the repository has been cloned and built to finish the
   configuration of the server.
 
 * Troubleshooting
-[[doom-report:][Report an issue?]]
+[[rmcs-report:][Report an issue?]]
 
 ** Install lua-language-server
 A [[https://github.com/sumneko/lua-language-server/issues/60][catch-all issue]] has been created to gather help for installing
 lua-language-server on non-VSCode platforms.
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

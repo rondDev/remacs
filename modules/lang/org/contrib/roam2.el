@@ -26,7 +26,7 @@ of org-mode to properly utilize ID links.")
   (defvar org-roam-directory nil)
 
   :init
-  (doom-load-packages-incrementally
+  (rmcs-load-packages-incrementally
    '(ansi-color dash f rx seq magit-section emacsql emacsql-sqlite))
 
   ;; Don't display warning message dedicated for v1 users. Need to be set early.
@@ -76,16 +76,16 @@ In case of failure, fail gracefully."
           (file-truename)
           (file-name-as-directory))
         org-roam-node-display-template
-        (format "${doom-hierarchy:*} %s %s"
-                (propertize "${doom-type:12}" 'face 'font-lock-keyword-face)
-                (propertize "${doom-tags:42}" 'face '(:inherit org-tag :box nil)))
+        (format "${rmcs-hierarchy:*} %s %s"
+                (propertize "${rmcs-type:12}" 'face 'font-lock-keyword-face)
+                (propertize "${rmcs-tags:42}" 'face '(:inherit org-tag :box nil)))
         org-roam-completion-everywhere t
         org-roam-db-gc-threshold most-positive-fixnum
         ;; Reverse the default to favor faster searchers over slower ones.
         org-roam-list-files-commands '(fd fdfind rg find))
 
-  (add-to-list 'org-roam-node-template-prefixes '("doom-tags" . "#"))
-  (add-to-list 'org-roam-node-template-prefixes '("doom-type" . "@"))
+  (add-to-list 'org-roam-node-template-prefixes '("rmcs-tags" . "#"))
+  (add-to-list 'org-roam-node-template-prefixes '("rmcs-type" . "@"))
 
   ;; REVIEW Remove when addressed upstream. See org-roam/org-roam#2066.
   (defadvice! +org--roam-fix-completion-width-for-vertico-a (fn &rest args)
@@ -109,7 +109,7 @@ In case of failure, fail gracefully."
   ;; `org-roam-directory' is visited and closed when no org-roam buffers remain.
   (add-hook! 'org-roam-find-file-hook :append
     (defun +org-roam-enable-auto-backlinks-buffer-h ()
-      (add-hook 'doom-switch-buffer-hook #'+org-roam-manage-backlinks-buffer-h)))
+      (add-hook 'rmcs-switch-buffer-hook #'+org-roam-manage-backlinks-buffer-h)))
 
   (set-popup-rules!
     `((,(regexp-quote org-roam-buffer) ; persistent org-roam buffer

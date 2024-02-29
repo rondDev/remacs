@@ -4,12 +4,12 @@
 #+since:    2.0.0
 
 * Description :unfold:
-This module adds file templates for blank files, powered by [[doom-package:yasnippet]].
+This module adds file templates for blank files, powered by [[rmcs-package:yasnippet]].
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[rmcs-user:][@hlissner]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 /This module has no flags./
@@ -18,20 +18,20 @@ This module adds file templates for blank files, powered by [[doom-package:yasni
 /This module doesn't install any packages./
 
 ** Hacks
-- [[doom-package:yasnippet]]
+- [[rmcs-package:yasnippet]]
 
 ** TODO Changelog
 # This section will be machine generated. Don't edit it by hand.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 /This module has no external requirements./
 
 * TODO Usage
 #+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's usage documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 File templates are automatically expanded when opening empty files who match one
@@ -53,7 +53,7 @@ A special command is available for inserting software licenses: ~M-x
 
 * TODO Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Adding new or changing existing file templates
@@ -75,11 +75,11 @@ prefix and [[fn:+file-templates/insert-license]] will recognize them. E.g.
   apply for the correct file.
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 /This module's appendix is incomplete./ [[doom-contrib-module:][Write more?]]
+ 󱌣 /This module's appendix is incomplete./ [[rmcs-contrib-module:][Write more?]]
 #+end_quote
 
 ** API

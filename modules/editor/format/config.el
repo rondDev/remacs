@@ -44,7 +44,7 @@ including Apheleia itself.")
 ;;; Bootstrap
 
 (when (modulep! +onsave)
-  (add-hook 'doom-first-file-hook #'apheleia-global-mode))
+  (add-hook 'rmcs-first-file-hook #'apheleia-global-mode))
 
 (defun +format-maybe-inhibit-h ()
   "Check if formatting should be disabled for current buffer.
@@ -56,7 +56,7 @@ This is controlled by `+format-on-save-disabled-modes'."
 
 
 (after! apheleia
-  (add-to-list 'doom-debug-variables '(apheleia-log-only-errors . nil))
+  (add-to-list 'rmcs-debug-variables '(apheleia-log-only-errors . nil))
 
   (when (modulep! +onsave)
     (add-to-list 'apheleia-inhibit-functions #'+format-maybe-inhibit-h)))

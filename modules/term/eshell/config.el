@@ -8,11 +8,11 @@
 ;;   is restored.
 
 (defvar +eshell-config-dir
-  (expand-file-name "eshell/" doom-user-dir)
+  (expand-file-name "eshell/" rmcs-user-dir)
   "Where to store eshell configuration files, as opposed to
 `eshell-directory-name', which is where Doom will store temporary/data files.")
 
-(defvar eshell-directory-name (concat doom-data-dir "eshell")
+(defvar eshell-directory-name (concat rmcs-data-dir "eshell")
   "Where to store temporary/data files, as opposed to `eshell-config-dir',
 which is where Doom will store eshell configuration files.")
 
@@ -76,7 +76,7 @@ You should use `set-eshell-alias!' to change this.")
         eshell-error-if-no-glob t)
 
   ;; Consider eshell buffers real
-  (add-hook 'eshell-mode-hook #'doom-mark-buffer-as-real-h)
+  (add-hook 'eshell-mode-hook #'rmcs-mark-buffer-as-real-h)
 
   ;; Keep track of open eshell buffers
   (add-hook 'eshell-mode-hook #'+eshell-init-h)
@@ -193,8 +193,8 @@ Emacs versions < 29."
         "C-c x" #'+eshell/kill-and-close
         [remap split-window-below]  #'+eshell/split-below
         [remap split-window-right]  #'+eshell/split-right
-        [remap doom/backward-to-bol-or-indent] #'eshell-bol
-        [remap doom/backward-kill-to-bol-and-indent] #'eshell-kill-input
+        [remap rmcs/backward-to-bol-or-indent] #'eshell-bol
+        [remap rmcs/backward-kill-to-bol-and-indent] #'eshell-kill-input
         [remap evil-delete-back-to-indentation] #'eshell-kill-input
         [remap evil-window-split]   #'+eshell/split-below
         [remap evil-window-vsplit]  #'+eshell/split-right
@@ -213,7 +213,7 @@ Emacs versions < 29."
 (use-package! eshell-z
   :after eshell
   :config
-  ;; Use zsh's db if it exists, otherwise, store it in `doom-cache-dir'
+  ;; Use zsh's db if it exists, otherwise, store it in `rmcs-cache-dir'
   (unless (file-exists-p eshell-z-freq-dir-hash-table-file-name)
     (setq eshell-z-freq-dir-hash-table-file-name
           (expand-file-name "z" eshell-directory-name))))

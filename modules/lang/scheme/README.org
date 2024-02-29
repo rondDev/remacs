@@ -8,7 +8,7 @@ This module provides support for the Scheme family of Lisp languages, powered by
 [[https://www.nongnu.org/geiser/geiser_1.html#introduction][geiser]].
 
 ** Maintainers
-/This module has no dedicated maintainers./ [[doom-contrib-maintainer:][Become a maintainer?]]
+/This module has no dedicated maintainers./ [[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +chez ::
@@ -22,18 +22,18 @@ This module provides support for the Scheme family of Lisp languages, powered by
 - +racket ::
 
 ** Packages
-- [[doom-package:flycheck-guile]] if [[doom-module:+guile]] and [[doom-module::checkers syntax]]
-- [[doom-package:geiser]]
-- [[doom-package:geiser-chez]] if [[doom-module:+chez]]
-- [[doom-package:geiser-chibi]] if [[doom-module:+chibi]]
-- [[doom-package:geiser-chicken]] if [[doom-module:+chicken]]
-- [[doom-package:geiser-gambit]] if [[doom-module:+gambit]]
-- [[doom-package:geiser-gauche]] if [[doom-module:+gauche]]
-- [[doom-package:geiser-guile]] if [[doom-module:+guile]]
-- [[doom-package:geiser-kawa]] if [[doom-module:+kawa]]
-- [[doom-package:geiser-mit]] if [[doom-module:+mit]]
-- [[doom-package:geiser-racket]] if [[doom-module:+racket]]
-- [[doom-package:macrostep-geiser]]
+- [[rmcs-package:flycheck-guile]] if [[rmcs-module:+guile]] and [[rmcs-module::checkers syntax]]
+- [[rmcs-package:geiser]]
+- [[rmcs-package:geiser-chez]] if [[rmcs-module:+chez]]
+- [[rmcs-package:geiser-chibi]] if [[rmcs-module:+chibi]]
+- [[rmcs-package:geiser-chicken]] if [[rmcs-module:+chicken]]
+- [[rmcs-package:geiser-gambit]] if [[rmcs-module:+gambit]]
+- [[rmcs-package:geiser-gauche]] if [[rmcs-module:+gauche]]
+- [[rmcs-package:geiser-guile]] if [[rmcs-module:+guile]]
+- [[rmcs-package:geiser-kawa]] if [[rmcs-module:+kawa]]
+- [[rmcs-package:geiser-mit]] if [[rmcs-module:+mit]]
+- [[rmcs-package:geiser-racket]] if [[rmcs-module:+racket]]
+- [[rmcs-package:macrostep-geiser]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -43,7 +43,7 @@ This module provides support for the Scheme family of Lisp languages, powered by
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 Depending on which flags you have enabled on this module, you'll need the
 associated Schemes, namely:
@@ -53,11 +53,11 @@ associated Schemes, namely:
 - [[https://synthcode.com/scheme/chibi][Chibi Scheme]] 0.7.3 or better
 - [[https://www.scheme.com][Chez Scheme]] 9.4 or better
 
-Their executables must be present in your =$PATH= for [[doom-package:geiser]] to work properly.
+Their executables must be present in your =$PATH= for [[rmcs-package:geiser]] to work properly.
 
 * TODO Usage
 #+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's usage documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 | command             | key / ex command      | description          |
@@ -66,16 +66,16 @@ Their executables must be present in your =$PATH= for [[doom-package:geiser]] to
 
 * TODO Configuration
 #+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no configuration documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

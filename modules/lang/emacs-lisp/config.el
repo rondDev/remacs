@@ -30,7 +30,7 @@ See `+emacs-lisp-non-package-mode' for details.")
 
 (use-package! elisp-mode
   :mode ("\\.Cask\\'" . emacs-lisp-mode)
-  :interpreter ("doomscript" . emacs-lisp-mode)
+  :interpreter ("rmcsscript" . emacs-lisp-mode)
   :config
   (set-repl-handler! '(emacs-lisp-mode lisp-interaction-mode) #'+emacs-lisp/open-repl)
   (set-eval-handler! '(emacs-lisp-mode lisp-interaction-mode) #'+emacs-lisp-eval)
@@ -81,7 +81,7 @@ See `+emacs-lisp-non-package-mode' for details.")
 
   ;; Variable-width indentation is superior in elisp. Otherwise, `dtrt-indent'
   ;; and `editorconfig' would force fixed indentation on elisp.
-  (add-to-list 'doom-detect-indentation-excluded-modes 'emacs-lisp-mode)
+  (add-to-list 'rmcs-detect-indentation-excluded-modes 'emacs-lisp-mode)
 
   (add-hook! 'emacs-lisp-mode-hook
              ;; Allow folding of outlines in comments
@@ -220,7 +220,7 @@ See `+emacs-lisp-non-package-mode' for details.")
   ;; Add Doom's core and module demo files, so additional demos can be specified
   ;; by end-users (in $DOOMDIR/demos.org), by modules (modules/X/Y/demos.org),
   ;; or Doom's core (lisp/demos.org).
-  (dolist (file (doom-module-locate-paths (doom-module-list) "demos.org"))
+  (dolist (file (rmcs-module-locate-paths (rmcs-module-list) "demos.org"))
     (add-to-list 'elisp-demos-user-files file))
 
   ;; HACK: These functions open Org files non-interactively without any

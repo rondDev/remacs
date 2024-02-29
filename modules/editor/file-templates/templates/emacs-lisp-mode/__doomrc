@@ -1,8 +1,8 @@
-;;; .doomrc --- doom runtime config -*- mode: emacs-lisp; lexical-binding: t; -*-
+;;; .rmcsrc --- rmcs runtime config -*- mode: emacs-lisp; lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
-(require 'doom) ; be silent, byte-compiler
+(require 'rmcs) ; be silent, byte-compiler
 
 $0`%`
 
-;;; .doomrc ends here
+;;; .rmcsrc ends here

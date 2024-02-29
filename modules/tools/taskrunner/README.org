@@ -9,19 +9,19 @@
 #+end_quote
 
 * Description :unfold:
-This module integrates [[doom-package:taskrunner]] into Doom Emacs, which scraps runnable tasks
+This module integrates [[rmcs-package:taskrunner]] into Doom Emacs, which scraps runnable tasks
 from build systems like make, gradle, npm and the like.
 
 ** Maintainers
-/This module has no dedicated maintainers./ [[doom-contrib-maintainer:][Become a maintainer?]]
+/This module has no dedicated maintainers./ [[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 /This module has no flags./
 
 ** Packages
-- [[doom-package:emacs-taskrunner]]
-- [[doom-package:helm-taskrunner]] if [[doom-module::completion helm]]
-- [[doom-package:ivy-taskrunner]] if [[doom-module::completion ivy]]
+- [[rmcs-package:emacs-taskrunner]]
+- [[rmcs-package:helm-taskrunner]] if [[rmcs-module::completion helm]]
+- [[rmcs-package:ivy-taskrunner]] if [[rmcs-module::completion ivy]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -31,13 +31,13 @@ from build systems like make, gradle, npm and the like.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 /This module has no external requirements./
 
 * TODO Usage
 #+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's usage documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 Keybindings:
@@ -46,16 +46,16 @@ Keybindings:
 
 * TODO Configuration
 #+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no configuration documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

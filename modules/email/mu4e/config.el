@@ -94,7 +94,7 @@ is non-nil."
         mu4e-attachment-dir
         (concat
          (if-let ((xdg-download-query (and (executable-find "xdg-user-dir")
-                                           (doom-call-process "xdg-user-dir" "DOWNLOAD")))
+                                           (rmcs-call-process "xdg-user-dir" "DOWNLOAD")))
                   (xdg-download-dir (and (= 0 (car xdg-download-query)) (cdr xdg-download-query))))
              xdg-download-dir
            (expand-file-name (or (getenv "XDG_DOWNLOAD_DIR")
@@ -678,7 +678,7 @@ See `+mu4e-msg-gmail-p' and `mu4e-sent-messages-behavior'.")
 (use-package! mu4e-alert
   :after mu4e
   :config
-  (setq doom-modeline-mu4e t)
+  (setq rmcs-modeline-mu4e t)
 
   (mu4e-alert-enable-mode-line-display)
   (mu4e-alert-enable-notifications)

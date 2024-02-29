@@ -4,30 +4,30 @@
 #+since:    2.0.0
 
 * Description :unfold:
-Introduces a code debugger to Emacs, powered by [[doom-package:realgud]] or [[doom-package:dap-mode]] (LSP).
+Introduces a code debugger to Emacs, powered by [[rmcs-package:realgud]] or [[rmcs-package:dap-mode]] (LSP).
 
-This document will help you to configure [[doom-package:dap-mode]] [[https://emacs-lsp.github.io/dap-mode/page/configuration/#native-debug-gdblldb][Native Debug(GDB/LLDB)]] as
+This document will help you to configure [[rmcs-package:dap-mode]] [[https://emacs-lsp.github.io/dap-mode/page/configuration/#native-debug-gdblldb][Native Debug(GDB/LLDB)]] as
 there is still not *enough* documentation for it.
 
 ** Maintainers
-/This module has no dedicated maintainers./ [[doom-contrib-maintainer:][Become a maintainer?]]
+/This module has no dedicated maintainers./ [[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +lsp ::
   Enable support for [[https://microsoft.github.io/debug-adapter-protocol/][Debug Adapter Protocol]] (DAP) debuggers.
 
 ** Packages
-- [[doom-package:realgud]]
-- [[doom-package:realgud-trepan-ni]] if [[doom-module::lang javascript]]
-- if [[doom-module:+lsp]]
-  - [[doom-package:dap-mode]] 
-  - [[doom-package:posframe]] 
+- [[rmcs-package:realgud]]
+- [[rmcs-package:realgud-trepan-ni]] if [[rmcs-module::lang javascript]]
+- if [[rmcs-module:+lsp]]
+  - [[rmcs-package:dap-mode]] 
+  - [[rmcs-package:posframe]] 
 
 ** Hacks
 - Enables ~gdb-many-windows-mode~ in ~gdb-mode~ by default
-- Patches [[doom-package:realgud]] to open in a popup window. This causes realgud
+- Patches [[rmcs-package:realgud]] to open in a popup window. This causes realgud
   bindings to focus the command window.
-- Closes [[doom-package:realgud]]'s command buffer after the session ends.
+- Closes [[rmcs-package:realgud]]'s command buffer after the session ends.
 
 ** TODO Changelog
 # This section will be machine generated. Don't edit it by hand.
@@ -35,10 +35,10 @@ there is still not *enough* documentation for it.
 
 * TODO Installation
 #+begin_quote
- 󱌣 /This module's prerequisites documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's prerequisites documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 Make sure all of these pre-requirements is in your ~$PATH~:
 - =nodejs=
@@ -127,7 +127,7 @@ using the mode-specific way.
 
 ** TODO realgud
 #+begin_quote
- 󱌣 Instructions for realgud haven't been written yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 Instructions for realgud haven't been written yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 ** dap-mode
@@ -198,7 +198,7 @@ The hydra is defined as follows:
 
 * TODO Configuration
 #+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no configuration documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
@@ -206,12 +206,12 @@ The hydra is defined as follows:
   [[kbd:][SPC o d]] right now. It prints "No debugging session to quit" no matter what.
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 ** Setting breakpoints in realgud does not work outside a session
 This currently is not supported by realgud.
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

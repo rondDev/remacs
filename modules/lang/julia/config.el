@@ -57,7 +57,7 @@
 
   (when (modulep! :ui workspaces)
     (defadvice! +julia--namespace-repl-buffer-to-workspace-a (&optional executable-key suffix)
-      "Name for a Julia REPL inferior buffer. Uses workspace name for doom emacs"
+      "Name for a Julia REPL inferior buffer. Uses workspace name for rmcs emacs"
       :override #'julia-repl--inferior-buffer-name
       (concat julia-repl-inferior-buffer-name-base ":" (+workspace-current-name))))
 
@@ -82,7 +82,7 @@
   ;; falling back to `lsp-julia-default-environment's default.
   (unless lsp-julia-default-environment
     (setq lsp-julia-default-environment
-          (or (car (last (doom-glob "~/.julia/environments/v*")))
+          (or (car (last (rmcs-glob "~/.julia/environments/v*")))
               "~/.julia/environments/v1.6"))))
 
 
@@ -93,7 +93,7 @@
   :preface
   ;; Prevent auto-install of LanguageServer.jl
   (setq eglot-jl-language-server-project
-        (or (car (last (doom-glob "~/.julia/environments/v*")))
+        (or (car (last (rmcs-glob "~/.julia/environments/v*")))
             "~/.julia/environments/v1.6"))
   :init
   ;; Prevent timeout while installing LanguageServer.jl

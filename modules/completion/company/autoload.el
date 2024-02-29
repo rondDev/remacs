@@ -69,7 +69,7 @@ Examples:
   "Set `company-backends' for the current buffer."
   (or (memq major-mode '(fundamental-mode special-mode))
       buffer-read-only
-      (doom-temp-buffer-p (or (buffer-base-buffer) (current-buffer)))
+      (rmcs-temp-buffer-p (or (buffer-base-buffer) (current-buffer)))
       (setq-local company-backends (+company--backends))))
 
 (put '+company-init-backends-h 'permanent-local-hook t)

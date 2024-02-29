@@ -7,14 +7,14 @@
 This module provides extra functionality for macOS.
 
 ** Maintainers
-/This module has no dedicated maintainers./ [[doom-contrib-maintainer:][Become a maintainer?]]
+/This module has no dedicated maintainers./ [[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 /This module has no flags./
 
 ** Packages
-- [[doom-package:ns-auto-titlebar]]
-- [[doom-package:osx-trash]]
+- [[rmcs-package:ns-auto-titlebar]]
+- [[rmcs-package:osx-trash]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -24,21 +24,21 @@ This module provides extra functionality for macOS.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module requires a macOS environment.
 
 * TODO Usage
 #+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's usage documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** "Open with X"
 This module adds various macOS-specific launchers under the [[kbd:][SPC o]] prefix ([[kbd:][C-c
 o]] for users with Evil disabled).
 
-It also enables Keychain integration for [[doom-package:auth-source]]. This is used by our [[doom-module::app
-irc]] and [[doom-module::tools magit]] modules, for instance.
+It also enables Keychain integration for [[rmcs-package:auth-source]]. This is used by our [[rmcs-module::app
+irc]] and [[rmcs-module::tools magit]] modules, for instance.
 
 To support GitHub Forge add an internet password like this to your keychain:
 | Field    | Value                   |
@@ -51,16 +51,16 @@ To support GitHub Forge add an internet password like this to your keychain:
 
 * TODO Configuration
 #+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no configuration documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

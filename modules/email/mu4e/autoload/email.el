@@ -66,7 +66,7 @@ default/fallback account."
         (+workspace-switch +mu4e-workspace-name t))
     (setq +mu4e--old-wconf (current-window-configuration))
     (delete-other-windows)
-    (switch-to-buffer (doom-fallback-buffer)))
+    (switch-to-buffer (rmcs-fallback-buffer)))
   ;; At this point, we're going to guess what the user wants to do.
   ;; To help with this, we'll collect potentially-useful buffers.
   ;; Then we'll try to jump to in order of preference:

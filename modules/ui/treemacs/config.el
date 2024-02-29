@@ -23,8 +23,8 @@ This must be set before `treemacs' has loaded.")
   (setq treemacs-follow-after-init t
         treemacs-is-never-other-window t
         treemacs-sorting 'alphabetic-case-insensitive-asc
-        treemacs-persist-file (concat doom-cache-dir "treemacs-persist")
-        treemacs-last-error-persist-file (concat doom-cache-dir "treemacs-last-error-persist"))
+        treemacs-persist-file (concat rmcs-cache-dir "treemacs-persist")
+        treemacs-last-error-persist-file (concat rmcs-cache-dir "treemacs-last-error-persist"))
   :config
   ;; Don't follow the cursor
   (treemacs-follow-mode -1)
@@ -53,7 +53,7 @@ This must be set before `treemacs' has loaded.")
   :defer t
   :init
   (after! treemacs (require 'treemacs-evil))
-  (add-to-list 'doom-evil-state-alist '(?T . treemacs))
+  (add-to-list 'rmcs-evil-state-alist '(?T . treemacs))
   :config
   (define-key! evil-treemacs-state-map
     [return] #'treemacs-RET-action

@@ -6,20 +6,20 @@
 * Description :unfold:
 This module adds [[https://github.com/ethereum/solidity][Solidity]] support to Doom Emacs.
 
-- Syntax-checking ([[doom-package:flycheck]])
-- Code completion ([[doom-package:company-solidity]])
+- Syntax-checking ([[rmcs-package:flycheck]])
+- Code completion ([[rmcs-package:company-solidity]])
 - Gas estimation (~C-c C-g~)
 
 ** Maintainers
-*This module needs a maintainer.* [[doom-contrib-maintainer:][Become a maintainer?]]
+*This module needs a maintainer.* [[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 /This module has no flags./
 
 ** Packages
-- [[doom-package:company-solidity]] if [[doom-module::completion company]]
-- [[doom-package:solidity-flycheck]] if [[doom-module::checkers syntax]]
-- [[doom-package:solidity-mode]]
+- [[rmcs-package:company-solidity]] if [[rmcs-module::completion company]]
+- [[rmcs-package:solidity-flycheck]] if [[rmcs-module::checkers syntax]]
+- [[rmcs-package:solidity-mode]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -29,7 +29,7 @@ This module adds [[https://github.com/ethereum/solidity][Solidity]] support to D
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module requires one or both linters for syntax checking:
 - [[https://github.com/ethereum/solc-js][Solc]]
@@ -57,25 +57,25 @@ can set it to your own =.soliumrc.json= with:
 
 ** Formatter
 
-Formatting is handled using the [[doom-module::editor format]] module via [[https://github.com/prettier-solidity/prettier-plugin-solidity#installation-and-usage][prettier]].
+Formatting is handled using the [[rmcs-module::editor format]] module via [[https://github.com/prettier-solidity/prettier-plugin-solidity#installation-and-usage][prettier]].
 
 * TODO Usage
 #+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no usage documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * TODO Configuration
 #+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no configuration documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

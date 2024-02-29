@@ -13,7 +13,7 @@
          (fennel-mode . lispy-mode))
   :init
   (add-hook! 'eval-expression-minibuffer-setup-hook
-    (defun doom-init-lispy-in-eval-expression-h ()
+    (defun rmcs-init-lispy-in-eval-expression-h ()
       "Enable `lispy-mode' in the minibuffer for `eval-expression'."
       (lispy-mode)
       ;; When `lispy-key-theme' has `parinfer', the TAB key doesn't do

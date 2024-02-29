@@ -8,7 +8,7 @@
 ;;; Packages
 
 (use-package! ido
-  :hook (doom-first-input . ido-mode)
+  :hook (rmcs-first-input . ido-mode)
   :hook (ido-mode . ido-ubiquitous-mode)
   :preface
   ;; HACK `ido' is a really old package. It defines `ido-mode' manually and
@@ -17,7 +17,7 @@
     :after #'ido-mode
     (run-hooks 'ido-mode-hook))
   :init
-  (setq ido-save-directory-list-file (concat doom-cache-dir "ido.last"))
+  (setq ido-save-directory-list-file (concat rmcs-cache-dir "ido.last"))
   :config
   (pushnew! ido-ignore-files "\\`.DS_Store$" "Icon\\?$")
   (setq ido-ignore-buffers

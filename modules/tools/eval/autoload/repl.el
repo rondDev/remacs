@@ -13,7 +13,7 @@
              (unless (buffer-live-p buffer)
                (remhash key +eval-repl-buffers)))
            +eval-repl-buffers)
-  (let* ((project-root (doom-project-root))
+  (let* ((project-root (rmcs-project-root))
          (key (cons major-mode project-root))
          (buffer (gethash key +eval-repl-buffers)))
     (cl-check-type buffer (or buffer null))
@@ -52,7 +52,7 @@
   "Yield the available repl functions as a list of symbols."
   (seq-uniq (mapcar (pcase-lambda (`(,mode ,fn . _)) (list mode fn)) +eval-repls)))
 
-(defun +doom-pretty-mode-name (mode)
+(defun +rmcs-pretty-mode-name (mode)
   "Convert a mode name into a variant nicer for human eyes."
   (let ((mode (if (symbolp mode) (symbol-name mode) mode)))
     (if (not (string-match "^\\([a-z-]+\\)-mode$" mode))
@@ -82,7 +82,7 @@ human-readable variant of its associated major mode name."
 
 (defun +eval-repl-prompt ()
   "Prompt the user for the choice of a repl to open."
-  (let* ((knowns (mapcar (pcase-lambda (`(,mode ,fn)) (list (+doom-pretty-mode-name mode) fn))
+  (let* ((knowns (mapcar (pcase-lambda (`(,mode ,fn)) (list (+rmcs-pretty-mode-name mode) fn))
                          (+eval-repl-known-repls)))
          (founds (mapcar (lambda (fn) (list (+eval-pretty-mode-name-from-fn fn) fn))
                          (+eval-repl-found-repls)))
@@ -172,8 +172,8 @@ immediately after."
                (if (bound-and-true-p evil-local-mode)
                    (evil-save-state
                      (evil-insert-state)
-                     (doom-lookup-key (kbd "RET")))
-                 (doom-lookup-key (kbd "RET")))))
+                     (rmcs-lookup-key (kbd "RET")))
+                 (rmcs-lookup-key (kbd "RET")))))
             (sit-for 0.001)
             (redisplay 'force)))
         (when (and (eq origin-window (selected-window))

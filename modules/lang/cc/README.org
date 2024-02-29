@@ -11,43 +11,43 @@ This module adds support for the C-family of languages: C, C++, and Objective-C.
 - Syntax-checking (~flycheck-irony~)
 - Code navigation (~rtags~)
 - File Templates ([[../../editor/file-templates/templates/c-mode][c-mode]], [[../../editor/file-templates/templates/c++-mode][c++-mode]])
-- Snippets ([[https://github.com/hlissner/doom-snippets/tree/master/cc-mode][cc-mode]], [[https://github.com/hlissner/doom-snippets/tree/master/c-mode][c-mode]], [[https://github.com/hlissner/doom-snippets/tree/master/c++-mode][c++-mode]])
+- Snippets ([[https://github.com/hlissner/rmcs-snippets/tree/master/cc-mode][cc-mode]], [[https://github.com/hlissner/rmcs-snippets/tree/master/c-mode][c-mode]], [[https://github.com/hlissner/rmcs-snippets/tree/master/c++-mode][c++-mode]])
 - Several improvements to C++11 indentation and syntax highlighting.
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[rmcs-user:][@hlissner]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~c-mode~, ~c++-mode~, and ~objc-mode~. Requires [[doom-module::tools
+  Enable LSP support for ~c-mode~, ~c++-mode~, and ~objc-mode~. Requires [[rmcs-module::tools
   lsp]] and a langserver (supports ccls, clangd, and cquery). Replaces irony &
   rtags.
 - +tree-sitter ::
   Leverages tree-sitter for better syntax highlighting and structural text
-  editing. Requires [[doom-module::tools tree-sitter]].
+  editing. Requires [[rmcs-module::tools tree-sitter]].
 
 ** Packages
-- [[doom-package:cmake-mode]]
-- [[doom-package:company-glsl]]
-- [[doom-package:cuda-mode]]
-- [[doom-package:demangle-mode]]
-- [[doom-package:disaster]]
-- [[doom-package:glsl-mode]]
-- [[doom-package:modern-cpp-font-lock]]
-- [[doom-package:opencl-mode]]
-- if [[doom-module:+lsp]]
-  - [[doom-package:ccls]] if [[doom-module::tools lsp -eglot]]
+- [[rmcs-package:cmake-mode]]
+- [[rmcs-package:company-glsl]]
+- [[rmcs-package:cuda-mode]]
+- [[rmcs-package:demangle-mode]]
+- [[rmcs-package:disaster]]
+- [[rmcs-package:glsl-mode]]
+- [[rmcs-package:modern-cpp-font-lock]]
+- [[rmcs-package:opencl-mode]]
+- if [[rmcs-module:+lsp]]
+  - [[rmcs-package:ccls]] if [[rmcs-module::tools lsp -eglot]]
 - else
-  - [[doom-package:company-irony]]
-  - [[doom-package:company-irony-c-headers]]
-  - [[doom-package:flycheck-irony]]
-  - [[doom-package:helm-rtags]] if [[doom-module::completion helm]]
-  - [[doom-package:irony]]
-  - [[doom-package:irony-eldoc]]
-  - [[doom-package:ivy-rtags]] if [[doom-module::completion ivy]]
-  - [[doom-package:rtags]]
+  - [[rmcs-package:company-irony]]
+  - [[rmcs-package:company-irony-c-headers]]
+  - [[rmcs-package:flycheck-irony]]
+  - [[rmcs-package:helm-rtags]] if [[rmcs-module::completion helm]]
+  - [[rmcs-package:irony]]
+  - [[rmcs-package:irony-eldoc]]
+  - [[rmcs-package:ivy-rtags]] if [[rmcs-module::completion ivy]]
+  - [[rmcs-package:rtags]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -57,12 +57,12 @@ This module adds support for the C-family of languages: C, C++, and Objective-C.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module's requirements change depending on how you use it.
 
-- If [[doom-module:+lsp]] is enabled, you need one of *clangd v9+* or *ccls*.
-- If [[doom-module:+lsp]] is *not* enabled, you need *irony-server* and *rtags*.
+- If [[rmcs-module:+lsp]] is enabled, you need one of *clangd v9+* or *ccls*.
+- If [[rmcs-module:+lsp]] is *not* enabled, you need *irony-server* and *rtags*.
 - Other features in this module depend on:
   - (optional) glslangValidator, for GLSL completion in ~glsl-mode~
   - (optional) cmake, for code completion in ~cmake-mode~
@@ -134,13 +134,13 @@ rc -J $PROJECT_ROOT  # loads PROJECT_ROOT's compile_commands.json
 #+end_src
 
 ** =:editor format=
-The formatter used is [[doom-executable:clang-format]] which should be installed alongside =clang=.
+The formatter used is [[rmcs-executable:clang-format]] which should be installed alongside =clang=.
 
-For more info, see [[doom-module::editor format]].
+For more info, see [[rmcs-module::editor format]].
 
 * TODO Usage
 #+begin_quote
- 󱌣 /This module's usage documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's usage documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 1. Enable this module.
@@ -148,10 +148,10 @@ For more info, see [[doom-module::editor format]].
    (e.g. ~:lang (python +lsp)~ or ~:lang (rust +lsp)~),
 3. Install the prerequisite LSP servers through your package manager or other
    means. You can find a list of supported servers on [[https://github.com/emacs-lsp/lsp-mode#supported-languages][the lsp-mode project page]].
-4. Run ~$ doom sync~ on the command line and restart Emacs.
+4. Run ~$ rmcs sync~ on the command line and restart Emacs.
 
 ** Eglot-specific bindings
-When using [[doom-module:+lsp]] and [[doom-module::tools lsp +eglot]], [[doom-package:lsp-mode]] is replaced with [[doom-package:eglot]], and an
+When using [[rmcs-module:+lsp]] and [[rmcs-module::tools lsp +eglot]], [[rmcs-package:lsp-mode]] is replaced with [[rmcs-package:eglot]], and an
 additional function to get inheritance type hierarchy is added:
 | Binding                    | Description                                    |
 |----------------------------+------------------------------------------------|
@@ -160,7 +160,7 @@ additional function to get inheritance type hierarchy is added:
 
 * TODO Configure
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** Project compile settings
@@ -224,7 +224,7 @@ Additional info:
 
 ** Configure LSP servers
 Search for your combination of =(LSP client package, LSP server)=. You are using
-[[doom-package:lsp-mode]] by default, [[doom-package:eglot]] if you have [[doom-module::tools lsp +eglot]] active in
+[[rmcs-package:lsp-mode]] by default, [[rmcs-package:eglot]] if you have [[rmcs-module::tools lsp +eglot]] active in
 =$DOOMDIR/init.el= file.
 
 *** LSP-mode with clangd
@@ -272,12 +272,12 @@ is the last =set-eglot-client! 'cc-mode= in your config). [[https://github.com/M
 lists available options
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

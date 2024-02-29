@@ -17,23 +17,23 @@ In particular, this module features:
 - Auto-formatting via =fprettier=.
 - Integration with the =fpm= package manager.
 - LSP support via [[https://github.com/gnikit/fortls][fortls]].
-- Optional Intel Fortran support via the [[doom-module:+intel]] flag.
+- Optional Intel Fortran support via the [[rmcs-module:+intel]] flag.
 
 #+begin_quote
  󰟶 After a career of writing Fortran on Mainframes and Windows machines, my
     now-retired Dad is switching to Linux. Imagine my surprise when I learned
     that off-the-shelf setups for Fortran on Linux basically don't exist! Well,
-    until now... Cheers Dad, hope this helps. --[[doom-user:][fosskers]]
+    until now... Cheers Dad, hope this helps. --[[rmcs-user:][fosskers]]
 #+end_quote
 
 ** Maintainers
-- [[doom-user:][@fosskers]]
+- [[rmcs-user:][@fosskers]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +lsp ::
-  Enable LSP support for ~fortran-mode~. Requires [[doom-module::tools lsp]] and a langserver
+  Enable LSP support for ~fortran-mode~. Requires [[rmcs-module::tools lsp]] and a langserver
   (fortls).
 - +intel ::
   Use the =ifort= compiler by default.
@@ -49,7 +49,7 @@ In particular, this module features:
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 ** General
 For minimum functionality, this module requires =gfortran=. For most project
@@ -68,7 +68,7 @@ $ sudo aura -A fortran-fpm fortls
 #+end_src bash
 
 ** Installing Intel Fortran
-Activating the [[doom-module:+intel]] flag won't automatically install Intel Fortan for you.
+Activating the [[rmcs-module:+intel]] flag won't automatically install Intel Fortan for you.
 Here's how to do it on *nix systems.
 
 You can of course install the entire High-performance Computing kit from Intel,
@@ -98,15 +98,15 @@ your Bash Profile, etc., and log out and in again._ Now Doom will be able to use
 Good luck and happy computing!
 
 ** Auto-formatting
-When [[doom-module::editor format]] is enabled and [[doom-executable:fprettify]] is installed, buffers can be formatted with [[fn:apheleia-format-buffer]].
+When [[rmcs-module::editor format]] is enabled and [[rmcs-executable:fprettify]] is installed, buffers can be formatted with [[fn:apheleia-format-buffer]].
 
-Enable [[doom-module::editor format +onsave]] to format the buffer on save.
+Enable [[rmcs-module::editor format +onsave]] to format the buffer on save.
 
 See below for advanced configuration.
 
 * TODO Usage
 #+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no usage documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * Configuration
@@ -121,12 +121,12 @@ If you want different arguments to be passed to =fprettier=, follow this example
 #+end_src
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

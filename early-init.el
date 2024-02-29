@@ -5,7 +5,7 @@
 ;; - Determines where `user-emacs-directory' is by:
 ;;   - Processing `--init-directory DIR' (backported from Emacs 29),
 ;;   - Processing `--profile NAME' (see
-;;     `https://docs.doomemacs.org/-/developers' or docs/developers.org),
+;;     `https://docs.rmcsemacs.org/-/developers' or docs/developers.org),
 ;;   - Or assume that it's the directory this file lives in.
 ;; - Loads Doom as efficiently as possible, with only the essential startup
 ;;   optimizations, and prepares it for interactive or non-interactive sessions.
@@ -27,12 +27,12 @@
 ;;; Code:
 
 ;; PERF: Garbage collection is a big contributor to startup times. This fends it
-;;   off, but will be reset later by `gcmh-mode' (or in doom-cli.el, if in a
+;;   off, but will be reset later by `gcmh-mode' (or in rmcs-cli.el, if in a
 ;;   noninteractive session). Not resetting it later causes stuttering/freezes.
 (setq gc-cons-threshold most-positive-fixnum)
 
 ;; PERF: Don't use precious startup time checking mtime on elisp bytecode.
-;;   Ensuring correctness is 'doom sync's job, not the interactive session's.
+;;   Ensuring correctness is 'rmcs sync's job, not the interactive session's.
 ;;   Still, stale byte-code will cause *heavy* losses in startup efficiency, but
 ;;   performance is unimportant when Emacs is in an error state.
 (setq load-prefer-newer noninteractive)
@@ -50,7 +50,7 @@
 (or
  ;; PERF: `file-name-handler-alist' is consulted often. Unsetting it offers a
  ;;   notable saving in startup time. This is just a stopgap though; this
- ;;   optimization is continued more comprehensively in lisp/doom.el.
+ ;;   optimization is continued more comprehensively in lisp/rmcs.el.
  (let (file-name-handler-alist)
    (let (;; FIX: Unset `command-line-args' in noninteractive sessions, to
          ;;   ensure upstream switches aren't misinterpreted.
@@ -66,7 +66,7 @@
                              (getenv-internal "EMACSDIR"))))
            (if (null init-dir)
                ;; FIX: If we've been loaded directly (via 'emacs -batch -l
-               ;;   early-init.el') or by a doomscript (like bin/doom), and Doom
+               ;;   early-init.el') or by a rmcsscript (like bin/rmcs), and Doom
                ;;   is in a non-standard location (and/or Chemacs is used), then
                ;;   `user-emacs-directory' will be wrong.
                (when noninteractive
@@ -77,9 +77,9 @@
              (setq user-emacs-directory (expand-file-name init-dir))))
        ;; FIX: Discard the switch to prevent "invalid option" errors later.
        (push (cons "--profile" (lambda (_) (pop argv))) command-switch-alist)
-       ;; Running 'doom sync' or 'doom profile sync' (re)generates a light
+       ;; Running 'rmcs sync' or 'rmcs profile sync' (re)generates a light
        ;; profile loader in $EMACSDIR/profiles/load.el (or
-       ;; $DOOMPROFILELOADFILE), after reading `doom-profile-load-path'. This
+       ;; $DOOMPROFILELOADFILE), after reading `rmcs-profile-load-path'. This
        ;; loader requires `$DOOMPROFILE' be set to function.
        (setenv "DOOMPROFILE" profile)
        (or (load (expand-file-name
@@ -94,7 +94,7 @@
                           emacs-major-version)
                   user-emacs-directory)
                  'noerror (not init-file-debug) 'nosuffix)
-           (user-error "Profiles not initialized yet; run 'doom sync' first"))))
+           (user-error "Profiles not initialized yet; run 'rmcs sync' first"))))
 
    ;; PERF: When `load'ing or `require'ing files, each permutation of
    ;;   `load-suffixes' and `load-file-rep-suffixes' (then `load-suffixes' +
@@ -111,7 +111,7 @@
          ;; interpreted as "this is not a Doom config".
          (condition-case _
              ;; Load the heart of Doom Emacs.
-             (load (expand-file-name "lisp/doom" user-emacs-directory)
+             (load (expand-file-name "lisp/rmcs" user-emacs-directory)
                    nil (not init-file-debug) nil 'must-suffix)
            ;; Failing that, assume that we're loading a non-Doom config.
            (file-missing
@@ -138,7 +138,7 @@
             (setq gc-cons-threshold (* 16 1024 1024))
             nil)))
        ;; ...Otherwise, we're loading a Doom config, so continue as normal.
-       (doom-require (if noninteractive 'doom-cli 'doom-start))))
+       (rmcs-require (if noninteractive 'rmcs-cli 'rmcs-start))))
 
  ;; Then continue on to the config/profile we want to load.
  (load user-init-file 'noerror (not init-file-debug) nil 'must-suffix))

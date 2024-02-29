@@ -8,7 +8,7 @@
         migemo-user-dictionary nil
         migemo-regex-dictionary nil
         migemo-coding-system 'utf-8-unix
-        migemo-directory (concat doom-data-dir "migemo/")
+        migemo-directory (concat rmcs-data-dir "migemo/")
         migemo-dictionary "/usr/local/share/migemo/utf-8/migemo-dict")
   :config
   (when (executable-find migemo-command)
@@ -37,7 +37,7 @@
 (use-package! skk
   :general ("C-x j" #'skk-mode)
   :config
-  (add-hook 'doom-escape-hook #'skk-mode-exit))
+  (add-hook 'rmcs-escape-hook #'skk-mode-exit))
 
 
 ;;

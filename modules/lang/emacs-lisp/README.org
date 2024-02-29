@@ -9,26 +9,26 @@ This module extends support for Emacs Lisp in Doom Emacs.
 - Macro expansion
 - Go-to-definitions or references functionality
 - Syntax highlighting for defined and quoted symbols
-- Replaces the built-in help with the more powerful [[doom-package:helpful]]
+- Replaces the built-in help with the more powerful [[rmcs-package:helpful]]
 - Adds function example uses to documentation
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[rmcs-user:][@hlissner]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 /This module has no flags./
 
 ** Packages
-- [[doom-package:buttercup]]
-- [[doom-package:elisp-def]]
-- [[doom-package:elisp-demos]]
-- [[doom-package:flycheck-cask]] if [[doom-module::checkers syntax]]
-- [[doom-package:flycheck-package]] if [[doom-module::checkers syntax]]
-- [[doom-package:highlight-quoted]]
-- [[doom-package:macrostep]]
-- [[doom-package:overseer]]
+- [[rmcs-package:buttercup]]
+- [[rmcs-package:elisp-def]]
+- [[rmcs-package:elisp-demos]]
+- [[rmcs-package:flycheck-cask]] if [[rmcs-module::checkers syntax]]
+- [[rmcs-package:flycheck-package]] if [[rmcs-module::checkers syntax]]
+- [[rmcs-package:highlight-quoted]]
+- [[rmcs-package:macrostep]]
+- [[rmcs-package:overseer]]
 
 ** Hacks
 - Symbols that are defined in the current session are highlighted with
@@ -46,34 +46,34 @@ This module extends support for Emacs Lisp in Doom Emacs.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module's sole dependency is Emacs. It's very obscure, you wouldn't know
 about it.
 
 * TODO Usage
 #+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no usage documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 ** formatter
-By enabling [[doom-module::editor format]], [[doom-package:apheleia]] will be
+By enabling [[rmcs-module::editor format]], [[rmcs-package:apheleia]] will be
 used to format the current buffer.
 
-Enable [[doom-module::editor format +onsave]] to format the buffer on save.
+Enable [[rmcs-module::editor format +onsave]] to format the buffer on save.
 
 * TODO Configuration
 #+begin_quote
- 󱌣 This module has no configuration documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no configuration documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

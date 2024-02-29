@@ -7,18 +7,18 @@
 This module adds support for the [[https://www.racket-lang.org/][Racket programming language]] to Doom Emacs.
 
 ** Maintainers
-*This module needs a maintainer.* [[doom-contrib-maintainer:][Become a maintainer?]]
+*This module needs a maintainer.* [[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 - +lsp ::
-  Enable support for ~racket-mode~. Requires [[doom-module::tools lsp]] and a langserver
+  Enable support for ~racket-mode~. Requires [[rmcs-module::tools lsp]] and a langserver
   (supports [[https://github.com/jeapostrophe/racket-langserver][racket-langserver]]).
 - +xp ::
   Enable the explore mode (~racket-xp-mode~), which "analyzes expanded code to
   explain and explore."
 
 ** Packages
-- [[doom-package:racket-mode]]
+- [[rmcs-package:racket-mode]]
 
 ** Hacks
 /No hacks documented for this module./
@@ -28,7 +28,7 @@ This module adds support for the [[https://www.racket-lang.org/][Racket programm
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module requires ~racket~. Install it from the [[https://download.racket-lang.org/][racket website]] or through
 your OS package manger.
@@ -45,16 +45,16 @@ pacman -S racket-minimal
 
 ** Formatter
 
-Formatting is handled using the [[doom-module::editor format]] module via [[https://docs.racket-lang.org/fmt/][fmt]].
+Formatting is handled using the [[rmcs-module::editor format]] module via [[https://docs.racket-lang.org/fmt/][fmt]].
 
 * TODO Usage
 #+begin_quote
- 󱌣 This module has no usage documentation yet. [[doom-contrib-module:][Write some?]]
+ 󱌣 This module has no usage documentation yet. [[rmcs-contrib-module:][Write some?]]
 #+end_quote
 
 * TODO Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** racket-smart-open-bracket-mode
@@ -81,12 +81,12 @@ Once enabled, unicode input can be toggled by pressing C-\ or running
 ~toggle-input-method~.
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

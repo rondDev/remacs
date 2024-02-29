@@ -67,7 +67,7 @@ the only window, use evil-window-move-* (e.g. `evil-window-move-far-left')."
                               ('down 'below)
                               (_ direction))))
         (with-selected-window that-window
-          (switch-to-buffer (doom-fallback-buffer)))
+          (switch-to-buffer (rmcs-fallback-buffer)))
         (setq that-buffer (window-buffer that-window)))
       (window-swap-states this-window that-window)
       (select-window that-window))))
@@ -133,10 +133,10 @@ If `evil-vsplit-window-right' is non-nil, the new window isn't focused."
 
 ;;;###autoload (autoload '+evil:retab "editor/evil/autoload/evil" nil t)
 (evil-define-operator +evil:retab (&optional beg end)
-  "Wrapper around `doom/retab'."
+  "Wrapper around `rmcs/retab'."
   :motion nil :move-point nil :type line
   (interactive "<r>")
-  (doom/retab nil beg end))
+  (rmcs/retab nil beg end))
 
 ;;;###autoload (autoload '+evil:narrow-buffer "editor/evil/autoload/evil" nil t)
 (evil-define-operator +evil:narrow-buffer (beg end &optional bang)
@@ -150,8 +150,8 @@ Widens narrowed buffers first. If BANG, use indirect buffer clones instead."
           (widen)
         (narrow-to-region beg end))
     (when (buffer-narrowed-p)
-      (doom/widen-indirectly-narrowed-buffer t))
-    (doom/narrow-buffer-indirectly beg end)))
+      (rmcs/widen-indirectly-narrowed-buffer t))
+    (rmcs/narrow-buffer-indirectly beg end)))
 
 ;;;###autoload (autoload '+evil:yank-unindented "editor/evil/autoload/evil" nil t)
 (evil-define-operator +evil:yank-unindented (beg end _type _register _yank-handler)

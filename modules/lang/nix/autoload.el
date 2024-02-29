@@ -19,7 +19,7 @@
    (list
     ;; REVIEW Must be a better way to do this
     (when (and (looking-at-p "[a-zA-Z0-9-_\\.]")
-               (not (doom-point-in-string-or-comment-p)))
+               (not (rmcs-point-in-string-or-comment-p)))
       (buffer-substring-no-properties
        (save-excursion
          (skip-chars-backward "^ ")

@@ -46,7 +46,7 @@
     (setq diff-hl-draw-borders nil)
     (add-hook! 'diff-hl-mode-hook
       (defun +vc-gutter-fix-diff-hl-faces-h ()
-        (mapc (doom-rpartial #'set-face-background nil)
+        (mapc (rmcs-rpartial #'set-face-background nil)
               '(diff-hl-insert
                 diff-hl-delete
                 diff-hl-change)))))
@@ -121,10 +121,10 @@ is deferred until the file is saved. Respects `git-gutter:disabled-modes'."
   (advice-remove #'quit-window #'git-gutter:quit-window)
   (advice-remove #'switch-to-buffer #'git-gutter:switch-to-buffer)
 
-  (add-hook! '(doom-escape-hook doom-switch-window-hook) :append
+  (add-hook! '(rmcs-escape-hook rmcs-switch-window-hook) :append
     (defun +vc-gutter-update-h (&rest _)
       "Refresh git-gutter on ESC. Return nil to prevent shadowing other
-`doom-escape-hook' hooks."
+`rmcs-escape-hook' hooks."
       (ignore (or (memq this-command '(git-gutter:stage-hunk
                                        git-gutter:revert-hunk))
                   inhibit-redisplay
@@ -186,9 +186,9 @@ is deferred until the file is saved. Respects `git-gutter:disabled-modes'."
           :n "}" #'diff-hl-show-hunk-next
           :n "S" #'diff-hl-show-hunk-stage-hunk))
   ;; UX: Refresh git-gutter on ESC or refocusing the Emacs frame.
-  (add-hook! '(doom-escape-hook doom-switch-window-hook) :append
+  (add-hook! '(rmcs-escape-hook rmcs-switch-window-hook) :append
     (defun +vc-gutter-update-h (&rest _)
-      "Return nil to prevent shadowing other `doom-escape-hook' hooks."
+      "Return nil to prevent shadowing other `rmcs-escape-hook' hooks."
       (ignore (or inhibit-redisplay
                   (and (or (bound-and-true-p diff-hl-mode)
                            (bound-and-true-p diff-hl-dir-mode))

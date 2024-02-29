@@ -76,13 +76,13 @@
   (put 'pdf-view-midnight-colors 'custom-set
        (lambda (sym value)
          (set-default sym value)
-         (dolist (buffer (doom-buffers-in-mode 'pdf-view-mode))
+         (dolist (buffer (rmcs-buffers-in-mode 'pdf-view-mode))
            (with-current-buffer buffer
              (if (get-buffer-window buffer)
                  (+pdf-reload-midnight-minor-mode-h)
                ;; Defer refresh for buffers that aren't visible, to avoid
                ;; blocking Emacs for too long while changing themes.
-               (add-hook 'doom-switch-buffer-hook #'+pdf-reload-midnight-minor-mode-h
+               (add-hook 'rmcs-switch-buffer-hook #'+pdf-reload-midnight-minor-mode-h
                          nil 'local))))))
 
   ;; Silence "File *.pdf is large (X MiB), really open?" prompts for pdfs

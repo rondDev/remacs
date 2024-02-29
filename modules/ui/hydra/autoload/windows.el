@@ -5,9 +5,9 @@
   "
       Text zoom: _j_:zoom in, _k_:zoom out, _0_:reset
 "
-  ("j" doom/increase-font-size "in")
-  ("k" doom/decrease-font-size "out")
-  ("0" doom/reset-font-size "reset"))
+  ("j" rmcs/increase-font-size "in")
+  ("k" rmcs/decrease-font-size "out")
+  ("0" rmcs/reset-font-size "reset"))
 
 ;;;###autoload (autoload '+hydra/window-nav/body "ui/hydra/autoload/windows" nil t)
 (defhydra +hydra/window-nav (:hint nil)

@@ -6,7 +6,7 @@
 (defun +javascript-npm-conf (&optional project-root refresh-p)
   "Retrieves an alist of this project's 'package.json'. If REFRESH-P is non-nil
 ignore the cache."
-  (let ((project-root (or project-root (doom-project-root))))
+  (let ((project-root (or project-root (rmcs-project-root))))
     (or (and (not refresh-p)
              (gethash project-root +javascript-npm-conf))
         (let ((package-file (expand-file-name "package.json" project-root)))
@@ -34,12 +34,12 @@ ignore the cache."
 ;;;###autoload
 (defun +javascript-add-npm-path-h ()
   "Add node_modules/.bin to `exec-path'."
-  (when-let ((search-directory (or (doom-project-root) default-directory))
+  (when-let ((search-directory (or (rmcs-project-root) default-directory))
              (node-modules-parent (locate-dominating-file search-directory "node_modules/"))
              (node-modules-dir (expand-file-name "node_modules/.bin/" node-modules-parent)))
     (make-local-variable 'exec-path)
     (add-to-list 'exec-path node-modules-dir)
-    (doom-log ":lang:javascript: add %s to $PATH" (expand-file-name "node_modules/" node-modules-parent))))
+    (rmcs-log ":lang:javascript: add %s to $PATH" (expand-file-name "node_modules/" node-modules-parent))))
 
 
 ;;
@@ -122,9 +122,9 @@ Run this for any buffer you want to skewer."
 
 ;;;###autoload
 (defun +javascript-tide-project-root-a ()
-  "Resolve to `doom-project-root' if `tide-project-root' fails."
+  "Resolve to `rmcs-project-root' if `tide-project-root' fails."
   (or tide-project-root
       (or (locate-dominating-file default-directory "tsconfig.json")
           (locate-dominating-file default-directory "jsconfig.json"))
-      (or (doom-project-root)
+      (or (rmcs-project-root)
           default-directory)))

@@ -22,7 +22,7 @@ Can be negative.")
 ;;; Packages
 
 (use-package! helm-mode
-  :hook (doom-first-input . helm-mode)
+  :hook (rmcs-first-input . helm-mode)
   :config
   ;; helm is too heavy for `find-file-at-point'
   (add-to-list 'helm-completing-read-handlers-alist (cons #'find-file-at-point nil)))
@@ -104,7 +104,7 @@ Can be negative.")
 
   ;; Use helpful instead of describe-* to display documentation
   (dolist (fn '(helm-describe-variable helm-describe-function))
-    (advice-add fn :around #'doom-use-helpful-a)))
+    (advice-add fn :around #'rmcs-use-helpful-a)))
 
 
 (use-package! helm-posframe
@@ -184,7 +184,7 @@ Can be negative.")
         swiper-helm-display-function
         (lambda (buf &optional _resume) (pop-to-buffer buf)))
   (global-set-key [remap swiper] #'swiper-helm)
-  (add-to-list 'swiper-font-lock-exclude #'+doom-dashboard-mode nil #'eq))
+  (add-to-list 'swiper-font-lock-exclude #'+rmcs-dashboard-mode nil #'eq))
 
 
 (use-package! helm-descbinds

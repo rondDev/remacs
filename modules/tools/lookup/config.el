@@ -15,8 +15,8 @@
 ;; `dumb-jump' to find what you want.
 
 (defvar +lookup-provider-url-alist
-  (append '(("Doom issues"       "https://github.com/orgs/doomemacs/projects/2/views/30?filterQuery=%s")
-            ("Doom discourse"    "https://discourse.doomemacs.org/search?q=%s")
+  (append '(("Doom issues"       "https://github.com/orgs/rmcsemacs/projects/2/views/30?filterQuery=%s")
+            ("Doom discourse"    "https://discourse.rmcsemacs.org/search?q=%s")
             ("Google"            +lookup--online-backend-google "https://google.com/search?q=%s")
             ("Google images"     "https://www.google.com/images?q=%s")
             ("Google maps"       "https://maps.google.com/maps?q=%s")
@@ -136,7 +136,7 @@ Dictionary.app behind the scenes to get definitions.")
 (use-package! dumb-jump
   :commands dumb-jump-result-follow
   :config
-  (setq dumb-jump-default-project doom-emacs-dir
+  (setq dumb-jump-default-project rmcs-emacs-dir
         dumb-jump-prefer-searcher 'rg
         dumb-jump-aggressive nil
         dumb-jump-selector
@@ -167,7 +167,7 @@ Dictionary.app behind the scenes to get definitions.")
   ;; This integration is already built into evil
   (unless (modulep! :editor evil)
     ;; Use `better-jumper' instead of xref's marker stack
-    (advice-add #'xref-push-marker-stack :around #'doom-set-jump-a))
+    (advice-add #'xref-push-marker-stack :around #'rmcs-set-jump-a))
 
   (use-package! ivy-xref
     :when (modulep! :completion ivy)
@@ -206,7 +206,7 @@ Dictionary.app behind the scenes to get definitions.")
   (add-hook '+lookup-documentation-functions #'+lookup-dash-docsets-backend-fn)
   :config
   (setq dash-docs-enable-debugging init-file-debug
-        dash-docs-docsets-path (concat doom-data-dir "docsets/")
+        dash-docs-docsets-path (concat rmcs-data-dir "docsets/")
         dash-docs-min-length 2
         dash-docs-browser-func #'eww)
 

@@ -1,4 +1,4 @@
-#+title:    :ui doom-quit
+#+title:    :ui rmcs-quit
 #+subtitle: One does not simply quit Emacs
 #+created:  February 19, 2017
 #+since:    2.0.0
@@ -10,9 +10,9 @@ random, nerdy references that no decent human being has any business
 recognizing.
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[rmcs-user:][@hlissner]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 /This module has no flags./
@@ -28,7 +28,7 @@ recognizing.
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 /This module has no external requirements./
 
@@ -43,10 +43,10 @@ have (real) buffers open.
 
 * Configurations
 The messages presented by this module can be customized by changing the
-~+doom-quit-messages~ variable:
+~+rmcs-quit-messages~ variable:
 #+begin_src emacs-lisp
-(setq +doom-quit-messages
-      '(;;from doom 2
+(setq +rmcs-quit-messages
+      '(;;from rmcs 2
         "Don't go now, there's a dimensional shambler waiting at the dos prompt!"
         "Get outta here and go back to your boring programs."
         "If I were your boss, I'd deathmatch ya in a minute!"
@@ -58,11 +58,11 @@ The messages presented by this module can be customized by changing the
 If you have any issues with this module do let me know
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * Appendix
 ** Variables
-- [[var:+doom-quit-messages]]
+- [[var:+rmcs-quit-messages]]
 
 ** Functions
-- [[fn:+doom-quit-fn]]
+- [[fn:+rmcs-quit-fn]]

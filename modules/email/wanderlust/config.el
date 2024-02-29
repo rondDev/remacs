@@ -17,8 +17,8 @@
 
   (setq wl-demo nil
         wl-stay-folder-window t
-        wl-init-file (expand-file-name "wl.el" doom-user-dir)
-        wl-folders-file (expand-file-name "folders.wl" doom-user-dir))
+        wl-init-file (expand-file-name "wl.el" rmcs-user-dir)
+        wl-folders-file (expand-file-name "folders.wl" rmcs-user-dir))
 
   ;; macOS allows file names up to 255 characters,
   ;; use half of that size as threshold to switch to hashing

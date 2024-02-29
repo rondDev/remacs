@@ -3,13 +3,13 @@
 #
 # Usage examples:
 #
-# To create a doom environment with the test config:
+# To create a rmcs environment with the test config:
 #
 #   nix-shell
 #
 # With your own DOOMDIR:
 #
-#   nix-shell --argstr doomdir ~/.config/other-doom-config
+#   nix-shell --argstr rmcsdir ~/.config/other-rmcs-config
 #
 # With a specific version of Emacs
 #
@@ -47,8 +47,8 @@
   }
 , emacs ? "29.1"
 , emacsdir ? "$(pwd)"
-, doomdir ? ""
-, doomlocaldir ? "$EMACSDIR/.local" }:
+, rmcsdir ? ""
+, rmcslocaldir ? "$EMACSDIR/.local" }:
 
 let emacsPkg = (if      emacs == "26.3"     then pkgs.emacs26
                 else if emacs == "27.1"     then pkgs.emacs27-1
@@ -66,7 +66,7 @@ let emacsPkg = (if      emacs == "26.3"     then pkgs.emacs26
                 else if emacs == "ci-head"  then pkgs.emacs-snapshot
                 else pkgs.emacs);
 in pkgs.stdenv.mkDerivation {
-  name = "doom-emacs";
+  name = "rmcs-emacs";
 
   buildInputs = [
     emacsPkg
@@ -80,11 +80,11 @@ in pkgs.stdenv.mkDerivation {
     if [[ -n "${emacsdir}" ]]; then
       export EMACSDIR="$(readlink -f "${emacsdir}")/"
     fi
-    if [[ -n "${doomdir}" ]]; then
-      export DOOMDIR="$(readlink -f "${doomdir}")/"
+    if [[ -n "${rmcsdir}" ]]; then
+      export DOOMDIR="$(readlink -f "${rmcsdir}")/"
     fi
-    if [[ -n "${doomlocaldir}" ]]; then
-      export DOOMLOCALDIR="$(readlink -f "${doomlocaldir}").$EMACSVERSION/"
+    if [[ -n "${rmcslocaldir}" ]]; then
+      export DOOMLOCALDIR="$(readlink -f "${rmcslocaldir}").$EMACSVERSION/"
     fi
     export DOOMNOCOMPILE=1
     export PATH="$EMACSDIR/bin:$PATH"
@@ -103,6 +103,6 @@ in pkgs.stdenv.mkDerivation {
       cp -r "$EMACSDIR/.local/straight/repos" ./repos
     fi
     popd >/dev/null
-    echo "Ready! Remember to 'doom sync'!"
+    echo "Ready! Remember to 'rmcs sync'!"
   '';
 }

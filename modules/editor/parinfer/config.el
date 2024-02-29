@@ -12,7 +12,7 @@
   :init
   (setq parinfer-rust-library
         (file-name-concat
-         doom-data-dir "parinfer-rust/"
+         rmcs-data-dir "parinfer-rust/"
          (cond ((featurep :system 'macos)   "parinfer-rust-darwin.so")
                ((featurep :system 'linux)   "parinfer-rust-linux.so")
                ((featurep :system 'windows) "parinfer-rust-windows.dll")

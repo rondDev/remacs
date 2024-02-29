@@ -89,7 +89,7 @@ playback.")
         circe-format-server-lurker-activity
         (+irc--pad "Lurk" "{nick} joined {joindelta} ago"))
 
-  (add-hook 'doom-real-buffer-functions #'+circe-buffer-p)
+  (add-hook 'rmcs-real-buffer-functions #'+circe-buffer-p)
   (add-hook 'circe-channel-mode-hook #'turn-on-visual-line-mode)
   (add-hook 'circe-mode-hook #'+irc--add-circe-buffer-to-persp-h)
   (add-hook 'circe-mode-hook #'turn-off-smartparens-mode)

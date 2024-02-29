@@ -1,5 +1,5 @@
-#+title:    :ui doom-dashboard
-#+subtitle: Welcome to your doom
+#+title:    :ui rmcs-dashboard
+#+subtitle: Welcome to your rmcs
 #+created:  February 20, 2017
 #+since:    2.0.0
 
@@ -21,9 +21,9 @@ Besides eye candy, the dashboard serves two other purposes:
    expect.
 
 ** Maintainers
-- [[doom-user:][@hlissner]]
+- [[rmcs-user:][@hlissner]]
 
-[[doom-contrib-maintainer:][Become a maintainer?]]
+[[rmcs-contrib-maintainer:][Become a maintainer?]]
 
 ** Module flags
 /This module has no flags./
@@ -39,21 +39,21 @@ Besides eye candy, the dashboard serves two other purposes:
 /This module does not have a changelog yet./
 
 * Installation
-[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~doom!~ block.]]
+[[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module only requires that ~nerd-icons~'s icon fonts are installed, which
-should've been installed when you ran ~$ doom install~. Otherwise, use ~M-x
+should've been installed when you ran ~$ rmcs install~. Otherwise, use ~M-x
 nerd-icons-install-fonts~ to install them.
 
 * Usage
 Once this module is enabled, the dashboard will present itself after opening a
 fresh instance of Emacs, or after killing all real buffers.
 
-You can forcibly open the dashboard with ~M-x +doom-dashboard/open~.
+You can forcibly open the dashboard with ~M-x +rmcs-dashboard/open~.
 
 * TODO Configuration
 #+begin_quote
- 󱌣 /This module's configuration documentation is incomplete./ [[doom-contrib-module:][Complete it?]]
+ 󱌣 /This module's configuration documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
 ** A custom banner
@@ -64,13 +64,13 @@ To use a custom image as your banner, change ~fancy-splash-image~:
 
 #+begin_quote
  󰐃 Doom will fall back to its ASCII banner in Terminal Emacs. To replace the
-    ASCII banner, replace the ~doom-dashboard-widget-banner~ function in
-    ~+doom-dashboard-functions~ with a function that inserts your new banner
+    ASCII banner, replace the ~rmcs-dashboard-widget-banner~ function in
+    ~+rmcs-dashboard-functions~ with a function that inserts your new banner
     into the current file.
 #+end_quote
 
 ** Adding text to the dashboard
-Doom's dashboard iterates over ~+doom-dashboard-functions~ when it is told to
+Doom's dashboard iterates over ~+rmcs-dashboard-functions~ when it is told to
 redraw. Add your own functions to operate on the buffer and potentially add
 whatever you like to Doom's splash screen.
 
@@ -86,32 +86,32 @@ color from the theme) you can make use of ~custom-set-faces!~ or
 ~custom-theme-set-faces!~:
 #+begin_src emacs-lisp
 (custom-set-faces!
-  '(doom-dashboard-banner :foreground "red" :background "#000000" :weight bold)
-  '(doom-dashboard-footer :inherit font-lock-constant-face)
-  '(doom-dashboard-footer-icon :inherit nerd-icons-red)
-  '(doom-dashboard-loaded :inherit font-lock-warning-face)
-  '(doom-dashboard-menu-desc :inherit font-lock-string-face)
-  '(doom-dashboard-menu-title :inherit font-lock-function-name-face))
+  '(rmcs-dashboard-banner :foreground "red" :background "#000000" :weight bold)
+  '(rmcs-dashboard-footer :inherit font-lock-constant-face)
+  '(rmcs-dashboard-footer-icon :inherit nerd-icons-red)
+  '(rmcs-dashboard-loaded :inherit font-lock-warning-face)
+  '(rmcs-dashboard-menu-desc :inherit font-lock-string-face)
+  '(rmcs-dashboard-menu-title :inherit font-lock-function-name-face))
 #+end_src
 
 or for a per-theme setting
 #+begin_src emacs-lisp
-(custom-theme-set-faces! 'doom-tomorrow-night
-  '(doom-dashboard-banner :foreground "red" :background "#000000" :weight bold)
-  '(doom-dashboard-footer :inherit font-lock-constant-face)
-  '(doom-dashboard-footer-icon :inherit nerd-icons-red)
-  '(doom-dashboard-loaded :inherit font-lock-warning-face)
-  '(doom-dashboard-menu-desc :inherit font-lock-string-face)
-  '(doom-dashboard-menu-title :inherit font-lock-function-name-face))
+(custom-theme-set-faces! 'rmcs-tomorrow-night
+  '(rmcs-dashboard-banner :foreground "red" :background "#000000" :weight bold)
+  '(rmcs-dashboard-footer :inherit font-lock-constant-face)
+  '(rmcs-dashboard-footer-icon :inherit nerd-icons-red)
+  '(rmcs-dashboard-loaded :inherit font-lock-warning-face)
+  '(rmcs-dashboard-menu-desc :inherit font-lock-string-face)
+  '(rmcs-dashboard-menu-title :inherit font-lock-function-name-face))
 #+end_src
 
 * Troubleshooting
-/There are no known problems with this module./ [[doom-report:][Report one?]]
+/There are no known problems with this module./ [[rmcs-report:][Report one?]]
 
 * Frequently asked questions
-/This module has no FAQs yet./ [[doom-suggest-faq:][Ask one?]]
+/This module has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]
 
 * TODO Appendix
 #+begin_quote
- 󱌣 This module has no appendix yet. [[doom-contrib-module:][Write one?]]
+ 󱌣 This module has no appendix yet. [[rmcs-contrib-module:][Write one?]]
 #+end_quote

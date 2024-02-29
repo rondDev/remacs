@@ -25,7 +25,7 @@
     (add-hook 'ruby-mode-local-vars-hook #'tree-sitter! 'append))
 
   (after! inf-ruby
-    (add-hook 'inf-ruby-mode-hook #'doom-mark-buffer-as-real-h)
+    (add-hook 'inf-ruby-mode-hook #'rmcs-mark-buffer-as-real-h)
     ;; switch to inf-ruby from compile if we detect a breakpoint has been hit
     (add-hook 'compilation-filter-hook #'inf-ruby-auto-enter))
 
@@ -96,7 +96,7 @@
 (use-package! rake
   :defer t
   :init
-  (setq rake-cache-file (concat doom-cache-dir "rake.cache"))
+  (setq rake-cache-file (concat rmcs-cache-dir "rake.cache"))
   (setq rake-completion-system 'default)
   (map! :after ruby-mode
         :localleader
@@ -184,7 +184,7 @@
 (use-package! projectile-rails
   :when (modulep! +rails)
   :hook ((ruby-mode inf-ruby-mode projectile-rails-server-mode) . projectile-rails-mode)
-  :hook (projectile-rails-server-mode . doom-mark-buffer-as-real-h)
+  :hook (projectile-rails-server-mode . rmcs-mark-buffer-as-real-h)
   :hook (projectile-rails-mode . auto-insert-mode)
   :init
   (setq auto-insert-query nil)
