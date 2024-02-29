@@ -4,7 +4,7 @@
 #+since:    2.0.0
 
 * Description :unfold:
-This module provides an Atom-inspired, minimalistic modeline for Doom Emacs,
+This module provides an Atom-inspired, minimalistic modeline for Rmcs Emacs,
 powered by the [[rmcs-package:rmcs-modeline]] package (where you can find screenshots).
 
 ** Maintainers
@@ -63,7 +63,7 @@ powered by the [[rmcs-package:rmcs-modeline]] package (where you can find screen
 
 ** TODO Defining a modeline segment
 
-** TODO Extracting Doom's modeline into your config
+** TODO Extracting Rmcs's modeline into your config
 
 * Troubleshooting
 [[rmcs-report:][Report an issue?]]

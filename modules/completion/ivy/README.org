@@ -55,7 +55,7 @@ lighter, simpler and faster in many cases.
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module has only one requirement: [[https://github.com/BurntSushi/ripgrep][Ripgrep]], which is a hard dependency of
-Doom itself, so you should already have it installed.
+Rmcs itself, so you should already have it installed.
 
 Otherwise, Counsel (an Ivy plugin) provides many commands to interface with a
 variety of programs from [[https://github.com/junegunn/fzf][fzf]] to [[https://kapeli.com/dash][Dash docsets]] to [[https://www.passwordstore.org/][pass]] and /much/ more. These
@@ -178,12 +178,12 @@ A wgrep buffer can be opened from swiper with [[kbd:][C-c C-e]].
 * TODO Troubleshooting
 ** Sorting is not applied at all sometimes
 If the number of candidates is greater than ~ivy-sort-max-size~, sorting will be
-disabled completely. Doom lowers the default value to prevent performance
+disabled completely. Rmcs lowers the default value to prevent performance
 issues, so increasing the value may fix your issue:
 #+begin_src elisp
 ;;; add to $RMCSDIR/config.el
 (after! ivy
-  (setq ivy-sort-max-size 30000))  ; Doom sets this to 7500, but Ivy's default is 30k
+  (setq ivy-sort-max-size 30000))  ; Rmcs sets this to 7500, but Ivy's default is 30k
 #+end_src
 
 

@@ -20,7 +20,7 @@ relative to `+rmcs-dashboard-banner-dir'. If nil, always use the ASCII banner.")
   "Where to look for `+rmcs-dashboard-banner-file'.")
 
 (defvar +rmcs-dashboard-ascii-banner-fn #'rmcs-dashboard-draw-ascii-banner-fn
-  "The function used to generate the ASCII banner on Doom's dashboard.")
+  "The function used to generate the ASCII banner on Rmcs's dashboard.")
 
 (defvar +rmcs-dashboard-banner-padding '(0 . 4)
   "Number of newlines to pad the banner with, above and below, respectively.")
@@ -102,7 +102,7 @@ PLIST can have the following properties:
 ;;; Bootstrap
 
 (defun +rmcs-dashboard-init-h ()
-  "Initializes Doom's dashboard."
+  "Initializes Rmcs's dashboard."
   (unless noninteractive
     ;; Ensure the dashboard becomes Emacs' go-to buffer when there's nothing
     ;; else to show.
@@ -294,7 +294,7 @@ whose dimensions may not be fully initialized by the time this is run."
   "Set dashboard's PWD to current persp's `last-project-root', if it exists.
 
 This and `+rmcs-dashboard--persp-record-project-h' provides `persp-mode'
-integration with the Doom dashboard. It ensures that the dashboard is always in
+integration with the Rmcs dashboard. It ensures that the dashboard is always in
 the correct project (which may be different across perspective)."
   (when (bound-and-true-p persp-mode)
     (when-let (pwd (persp-parameter 'last-project-root))
@@ -319,7 +319,7 @@ See `+rmcs-dashboard--persp-detect-project-h' for more information."
   (eq buffer (get-buffer +rmcs-dashboard-name)))
 
 (defun +rmcs-dashboard-update-pwd-h (&optional pwd)
-  "Update `default-directory' in the Doom dashboard buffer.
+  "Update `default-directory' in the Rmcs dashboard buffer.
 What it is set to is controlled by `+rmcs-dashboard-pwd-policy'."
   (if pwd
       (with-current-buffer (rmcs-fallback-buffer)
@@ -332,7 +332,7 @@ What it is set to is controlled by `+rmcs-dashboard-pwd-policy'."
                  "/"))))))
 
 (defun +rmcs-dashboard-reload-on-theme-change-h ()
-  "Forcibly reload the Doom dashboard when theme changes post-startup."
+  "Forcibly reload the Rmcs dashboard when theme changes post-startup."
   (when after-init-time
     (+rmcs-dashboard-reload 'force)))
 
@@ -515,6 +515,6 @@ What it is set to is controlled by `+rmcs-dashboard-pwd-policy'."
                               (propertize "github" 'face 'rmcs-dashboard-footer))
                           'action (lambda (_) (browse-url "https://github.com/hlissner/rmcs-emacs"))
                           'follow-link t
-                          'help-echo "Open Doom Emacs github page")
+                          'help-echo "Open Rmcs Emacs github page")
       (buffer-string)))
    "\n"))

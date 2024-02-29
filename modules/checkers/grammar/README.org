@@ -36,7 +36,7 @@ manager. E.g.
 - NixOS: [[https://search.nixos.org/packages?show=languagetool&from=0&size=50&sort=relevance&type=packages&query=languagetool][nixpkgs.languagetool]]
 
 This module tries to guess the location of =languagetool-commandline.jar=. If
-you get a warning that Doom ~couldn't find languagetool-commandline.jar~, you
+you get a warning that Rmcs ~couldn't find languagetool-commandline.jar~, you
 will need to set ~langtool-language-tool-jar~ to its location.
 
 * TODO Usage

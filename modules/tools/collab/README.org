@@ -135,4 +135,4 @@ You have a lot of options here, but some of the most common are:
 All collaborators must be using the same version of the crdt package in order to
 guarantee stability & support for all features. These types of errors should not
 occur if everyone is up to date, so ensure that all collaborators have upgraded
-Doom Emacs to the latest version and have not pinned =crdt=.
+Rmcs Emacs to the latest version and have not pinned =crdt=.

@@ -169,7 +169,7 @@ function and open its documentation with `helpful-function'. Otherwise, it will
 search for it with `apropos'.
 
 If QUERY is empty, this runs the equivalent of 'M-x apropos'. If BANG is
-non-nil, a search is preformed against Doom's manual (with
+non-nil, a search is preformed against Rmcs's manual (with
 `rmcs/help-search-headings')."
   (interactive "<!><a>")
   (if bang

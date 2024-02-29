@@ -32,7 +32,7 @@ persist across Emacs sessions.
     "silenced". i.e. It's visible in \*Messages\*, but won't appear in your
     minibuffer.
 - undo-fu only
-  - Doom defines ~undo-fu-mode~ to make it easier to add hooks/mode-local
+  - Rmcs defines ~undo-fu-mode~ to make it easier to add hooks/mode-local
     keybinds.
 
 ** TODO Changelog
@@ -71,7 +71,7 @@ persist across Emacs sessions.
 
 ** undo-tree
 - Has been known to truncate undo history unpredictably, due to Emacs' undo
-  cleanup imposing linear undo limits on non-linear undo tree data. Doom already
+  cleanup imposing linear undo limits on non-linear undo tree data. Rmcs already
   sets ~undo-limit~, ~undo-strong-limit~, and ~undo-outer-limit~ absurdly high
   to mitigate this somewhat.
 

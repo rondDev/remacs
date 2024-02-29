@@ -5,12 +5,12 @@
 
 #+begin_quote
   *This module is deprecated.* The module is too trivially small, and it's
-    always been unclear how hydra fits into Doom's vision for its UI. It's been
-    decided that Doom will head toward Embark, transient, or hercules instead.
+    always been unclear how hydra fits into Rmcs's vision for its UI. It's been
+    decided that Rmcs will head toward Embark, transient, or hercules instead.
 #+end_quote
 
 * Description :unfold:
-This module adds hydra to Doom Emacs, as well as a few custom built hydras to
+This module adds hydra to Rmcs Emacs, as well as a few custom built hydras to
 start with:
 
 - A hydra to control windows ~+hydra/window-nav/body~.

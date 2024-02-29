@@ -4,7 +4,7 @@
 #+since:    1.3
 
 * Description :unfold:
-This module adds [[https://www.java.com][Java]] support to Doom Emacs, including ~android-mode~ and
+This module adds [[https://www.java.com][Java]] support to Rmcs Emacs, including ~android-mode~ and
 ~groovy-mode~.
 
 ** Maintainers

@@ -162,7 +162,7 @@ exist, and `org-link' otherwise."
                   (path (or (car (rmcs-glob path "README.org"))
                             path)))
             (find-file path)
-          (user-error "Can't find Doom module '%s'" module-path))))
+          (user-error "Can't find Rmcs module '%s'" module-path))))
     (when flag
       (goto-char (point-min))
       (when (and (re-search-forward "^\\*+ \\(?:TODO \\)?Module flags")
@@ -288,7 +288,7 @@ exist, and `org-link' otherwise."
          (t (propertize "not installed" 'face 'error )))))
       ("rmcs-module"
        (concat
-        (propertize "Doom module " 'face 'bold)
+        (propertize "Rmcs module " 'face 'bold)
         (propertize (org-element-property :path link) 'face 'font-lock-keyword-face)
         ", currently "
         (cl-destructuring-bind (&key category module flag)

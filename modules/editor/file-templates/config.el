@@ -115,7 +115,7 @@ information.")
 ;;; Library
 
 (defun +file-templates-in-emacs-dirs-p (file)
-  "Returns t if FILE is in Doom or your private directory."
+  "Returns t if FILE is in Rmcs or your private directory."
   (or (file-in-directory-p file rmcs-user-dir)
       (file-in-directory-p file rmcs-emacs-dir)))
 

@@ -1,10 +1,10 @@
 #+title:    :ui rmcs
-#+subtitle: Make Doom fabulous again
+#+subtitle: Make Rmcs fabulous again
 #+created:  February 20, 2017
 #+since:    2.0.0
 
 * Description :unfold:
-This module gives Doom its signature look: powered by the [[rmcs-package:rmcs-themes][rmcs-one]] theme
+This module gives Rmcs its signature look: powered by the [[rmcs-package:rmcs-themes][rmcs-one]] theme
 (loosely inspired by [[https://github.com/atom/one-dark-syntax][Atom's One Dark theme]]) and [[rmcs-package:solaire-mode]]. Includes:
 
 - A custom folded-region indicator for [[rmcs-package:hideshow]].
@@ -67,7 +67,7 @@ This can be changed by changing the ~rmcs-theme~ variable, e.g.
 ** Changing fonts
 core/core-ui.el has four relevant variables:
 
-- ~rmcs-font~ :: the default font to use in Doom Emacs.
+- ~rmcs-font~ :: the default font to use in Rmcs Emacs.
 - ~rmcs-big-font~ :: the font to use when ~rmcs-big-font-mode~ is enabled.
 - ~rmcs-variable-pitch-font~ :: the font to use when ~variable-pitch-mode~ is active
   (or where the ~variable-pitch~ face is used).

@@ -253,7 +253,7 @@ composing the first message. To disable ~org-msg-mode~ by default:
 To toggle org-msg for a single message, just apply the universal argument to the
 compose or reply command ([[kbd:][SPC u]] with [[rmcs-package:evil]], [[kbd:][C-u]] otherwise).
 
-The accent color that Doom uses can be customised by setting
+The accent color that Rmcs uses can be customised by setting
 ~+org-msg-accent-color~ to a CSS color string.
 
 ** mu4e-alert
@@ -302,7 +302,7 @@ find / -type d -iname '*mu4e*' 2> /dev/null
 Gentoo users will see this error because [[https://gitweb.gentoo.org/repo/gentoo.git/tree/net-mail/mu/files/70mu-gentoo.el#n2][the =net-mail/mu= package eagerly loads
 =mu4e= (which pulls in =org=) much too early]]; before Emacs reads =~/.emacs.d=.
 So early, that it loads the built-in version of org-mode, rather than the newer
-version that Doom installs.
+version that Rmcs installs.
 
 Later versions of the =net-mail/mu= package have [[https://gitweb.gentoo.org/repo/gentoo.git/commit/net-mail/mu?id=770e1fccb119fbce8ba6d16021a3598123f212ff][fixed this issue]], but you may
 need to switch to the unstable build of =net-mail/mu= to see it.

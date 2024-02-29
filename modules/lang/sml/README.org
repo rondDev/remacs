@@ -4,7 +4,7 @@
 #+since:    21.12.0
 
 * Description :unfold:
-THis module adds [[https://smlfamily.github.io/][SML (Standard ML) programming language]] support to Doom Emacs.
+THis module adds [[https://smlfamily.github.io/][SML (Standard ML) programming language]] support to Rmcs Emacs.
 
 ** Maintainers
 *This module needs a maintainer.* [[rmcs-contrib-maintainer:][Become a maintainer?]]

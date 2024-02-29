@@ -4,7 +4,7 @@
 #+since:    1.0
 
 * Description :unfold:
-This module adds [[https://www.scala-lang.org][scala]] and [[https://www.scala-sbt.org/][sbt]] support to Doom Emacs.
+This module adds [[https://www.scala-lang.org][scala]] and [[https://www.scala-sbt.org/][sbt]] support to Rmcs Emacs.
 
 Through the power of [[https://scalameta.org/metals/docs/editors/overview.html][Metals]] (LSP) this module offers:
 - Goto Definition

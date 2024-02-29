@@ -90,7 +90,7 @@ See `+emacs-lisp-non-package-mode' for details.")
              #'rainbow-delimiters-mode
              ;; Make quoted symbols easier to distinguish from free variables
              #'highlight-quoted-mode
-             ;; Extend imenu support to Doom constructs
+             ;; Extend imenu support to Rmcs constructs
              #'+emacs-lisp-extend-imenu-h
              ;; Ensure straight sees modifications to installed packages
              #'+emacs-lisp-init-straight-maybe-h)
@@ -109,11 +109,11 @@ See `+emacs-lisp-non-package-mode' for details.")
            (append elisp-flymake-byte-compile-load-path load-path)))
       (apply orig-fn args)))
 
-  ;; Enhance elisp syntax highlighting, by highlighting Doom-specific
+  ;; Enhance elisp syntax highlighting, by highlighting Rmcs-specific
   ;; constructs, defined symbols, and truncating :pin's in `package!' calls.
   (font-lock-add-keywords
    'emacs-lisp-mode
-   (append `(;; custom Doom cookies
+   (append `(;; custom Rmcs cookies
              ("^;;;###\\(autodef\\|if\\|package\\)[ \n]" (1 font-lock-warning-face t)))
            ;; Shorten the :pin of `package!' statements to 10 characters
            `(("(package!\\_>" (0 (+emacs-lisp-truncate-pin))))
@@ -217,9 +217,9 @@ See `+emacs-lisp-non-package-mode' for details.")
   (advice-add #'describe-function-1 :after #'elisp-demos-advice-describe-function-1)
   (advice-add #'helpful-update :after #'elisp-demos-advice-helpful-update)
   :config
-  ;; Add Doom's core and module demo files, so additional demos can be specified
+  ;; Add Rmcs's core and module demo files, so additional demos can be specified
   ;; by end-users (in $RMCSDIR/demos.org), by modules (modules/X/Y/demos.org),
-  ;; or Doom's core (lisp/demos.org).
+  ;; or Rmcs's core (lisp/demos.org).
   (dolist (file (rmcs-module-locate-paths (rmcs-module-list) "demos.org"))
     (add-to-list 'elisp-demos-user-files file))
 

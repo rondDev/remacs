@@ -222,7 +222,7 @@ Math faces should stay fixed by the mixed-pitch blacklist, this is mostly for
   :config
   ;; Use \( ... \) instead of $ ... $.
   (setq cdlatex-use-dollar-to-ensure-math nil)
-  ;; Disabling keys that have overlapping functionality with other parts of Doom.
+  ;; Disabling keys that have overlapping functionality with other parts of Rmcs.
   (map! :map cdlatex-mode-map
         ;; Smartparens takes care of inserting closing delimiters, and if you
         ;; don't use smartparens you probably don't want these either.

@@ -9,7 +9,7 @@
 #+end_quote
 
 * Description :unfold:
-This module integrates [[rmcs-package:taskrunner]] into Doom Emacs, which scraps runnable tasks
+This module integrates [[rmcs-package:taskrunner]] into Rmcs Emacs, which scraps runnable tasks
 from build systems like make, gradle, npm and the like.
 
 ** Maintainers

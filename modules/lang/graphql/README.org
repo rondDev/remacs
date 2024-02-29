@@ -4,7 +4,7 @@
 #+since:    22.04.0 (#6226)
 
 * Description :unfold:
-This module adds [[https://www.graphql.org][GraphQL]] support to Doom Emacs.
+This module adds [[https://www.graphql.org][GraphQL]] support to Rmcs Emacs.
 
 It includes:
 - Code completion

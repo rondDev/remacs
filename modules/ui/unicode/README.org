@@ -4,8 +4,8 @@
 #+since:    2.0.0
 
 * Description :unfold:
-This module extends Doom's ability to display non-English unicode. It is
-primarily useful for non-English Emacs users, for whom Doom's built-in unicode
+This module extends Rmcs's ability to display non-English unicode. It is
+primarily useful for non-English Emacs users, for whom Rmcs's built-in unicode
 support in insufficient.
 
 This module relies on the [[https://github.com/rolandwalker/unicode-fonts][unicode-fonts]] package. It tries to setup the default
@@ -125,7 +125,7 @@ This is a known issue with an unidentified cause. See
 [[rmcs-ref:][rolandwalker/unicode-fonts#36]]. A workaround is to delete your
 unicode-fonts cache and restart Emacs:
 #+begin_src bash
-# $EMACSDIR == where you cloned Doom Emacs
+# $EMACSDIR == where you cloned Rmcs Emacs
 rm -f $EMACSDIR/.local/cache/pcache/unicode-fonts
 #+end_src
 

@@ -4,7 +4,7 @@
 #+since:    2.0.3 (#75)
 
 * Description :unfold:
-This module adds [[https://www.purescript.org/][Purescript]] support to Doom Emacs.
+This module adds [[https://www.purescript.org/][Purescript]] support to Rmcs Emacs.
 
 ** Maintainers
 *This module needs a maintainer.* [[rmcs-contrib-maintainer:][Become a maintainer?]]

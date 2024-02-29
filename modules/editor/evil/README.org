@@ -44,7 +44,7 @@ This holy module brings the Vim editing model to Emacs.
 - The ~:g[lobal]~ ex command has been modified to highlight matches.
 - More of vim's filename modifiers are supported in ex commands (like ~:p~,
   ~:p:h~ or ~:t~) than vanilla evil-mode offers.
-- A custom filename modifier is available in Doom: ~:P~, which expands to the
+- A custom filename modifier is available in Rmcs: ~:P~, which expands to the
   project root (throws an error if not in a project).
 
 ** TODO Changelog
@@ -71,7 +71,7 @@ The following vim plugins have been ported to evil:
 | vim-lion              | evil-lion                      | omap [[kbd:][gl]] / [[kbd:][gL]]                   |
 | vim-seek or vim-sneak | evil-snipe                     | mmap [[kbd:][s]] / [[kbd:][S]], omap [[kbd:][z]] / [[kbd:][Z]] & [[kbd:][x]] / [[kbd:][X]] |
 | vim-surround          | evil-embrace and evil-surround | vmap [[kbd:][S]], omap [[kbd:][ys]]                |
-| vim-unimpaired        | (provided by Doom)             | [[https://github.com/hlissner/rmcs-emacs/blob/develop/modules/editor/evil/config.el#L413-L460][see the list]]                   |
+| vim-unimpaired        | (provided by Rmcs)             | [[https://github.com/hlissner/rmcs-emacs/blob/develop/modules/editor/evil/config.el#L413-L460][see the list]]                   |
 
 This module has also ported vim-unimpaired keybinds to Emacs.
 
@@ -157,7 +157,7 @@ To undo this, use:
 #+end_src
 
 ** The [[kbd:][s]]/[[kbd:][S]] keys behave differently from Vim
-Doom replaces the [[kbd:][s]] and [[kbd:][S]] keys with the [[rmcs-package:evil-snipe]] package (a port of
+Rmcs replaces the [[kbd:][s]] and [[kbd:][S]] keys with the [[rmcs-package:evil-snipe]] package (a port of
 vim-seek/vim-sneak for 2-character versions of f/F/t/T).
 
 To disable evil-snipe on s/S, you can either:
@@ -169,7 +169,7 @@ To disable evil-snipe on s/S, you can either:
 3. Or use [[kbd:][cl]] and [[kbd:][cc]], respectively; they do the same thing.
 
 ** The [[kbd:][Y]] key behaves differently from Vim (should yank the whole line)
-Doom changes the behavior of the [[kbd:][Y]] key in normal mode to yank-to-EOL (equivalent
+Rmcs changes the behavior of the [[kbd:][Y]] key in normal mode to yank-to-EOL (equivalent
 to [[kbd:][y$]]). This was to make it consistent with the [[kbd:][C]] and [[kbd:][D]] capital operators, and
 because it was redundant with [[kbd:][yy]], which is easier to type than [[kbd:][y$]].
 

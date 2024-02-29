@@ -4,7 +4,7 @@
 #+since:    2.0.8 (#280)
 
 * Description :unfold:
-This module adds support for the Nix language to Doom Emacs, along with tools
+This module adds support for the Nix language to Rmcs Emacs, along with tools
 for managing [[https://nixos.org/][Nix(OS)]].
 
 Includes:

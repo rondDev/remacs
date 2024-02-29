@@ -15,8 +15,8 @@
 ;; `dumb-jump' to find what you want.
 
 (defvar +lookup-provider-url-alist
-  (append '(("Doom issues"       "https://github.com/orgs/rmcsemacs/projects/2/views/30?filterQuery=%s")
-            ("Doom discourse"    "https://discourse.rmcsemacs.org/search?q=%s")
+  (append '(("Rmcs issues"       "https://github.com/orgs/rmcsemacs/projects/2/views/30?filterQuery=%s")
+            ("Rmcs discourse"    "https://discourse.rmcsemacs.org/search?q=%s")
             ("Google"            +lookup--online-backend-google "https://google.com/search?q=%s")
             ("Google images"     "https://www.google.com/images?q=%s")
             ("Google maps"       "https://maps.google.com/maps?q=%s")

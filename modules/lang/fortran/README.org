@@ -92,7 +92,7 @@ $ . ~/intel/oneapi/setvars.sh
 
 (Modify according to where you installed Intel Fortran.) Now =ifort= should be
 runnable in your terminal as you'd expect. _To persist this, add that line to
-your Bash Profile, etc., and log out and in again._ Now Doom will be able to use
+your Bash Profile, etc., and log out and in again._ Now Rmcs will be able to use
 =ifort= too.
 
 Good luck and happy computing!

@@ -4,7 +4,7 @@
 #+since:    2.0.3 (#74)
 
 * Description :unfold:
-This module adds [[https://elm-lang.org/][Elm]] support to Doom Emacs.
+This module adds [[https://elm-lang.org/][Elm]] support to Rmcs Emacs.
 
 ** Maintainers
 /This module has no dedicated maintainers./ [[rmcs-contrib-maintainer:][Become a maintainer?]]

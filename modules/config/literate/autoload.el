@@ -36,7 +36,7 @@
                 (org-mode-hook nil)
                 (org-inhibit-startup t)
                 ;; Allow evaluation of src blocks at tangle-time (would abort
-                ;; them otherwise). This is a security hazard, but Doom will
+                ;; them otherwise). This is a security hazard, but Rmcs will
                 ;; trust that you know what you're doing!
                 (org-confirm-babel-evaluate nil)
                 ;; Say a little more

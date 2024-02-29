@@ -4,7 +4,7 @@
 #+since:    1.3
 
 * Description :unfold:
-This module adds [[https://www.javascript.com/][JavaScript]] and [[https://www.typescriptlang.org/][TypeScript]] support to Doom Emacs.
+This module adds [[https://www.javascript.com/][JavaScript]] and [[https://www.typescriptlang.org/][TypeScript]] support to Rmcs Emacs.
 
 - Code completion ([[rmcs-package:tide]])
 - REPL support ([[rmcs-package:nodejs-repl]])

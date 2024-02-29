@@ -4,11 +4,11 @@
 #+since:    21.12.0
 
 * Description :unfold:
-This module integrates [[https://langserver.org/][language servers]] into Doom Emacs. They provide features
+This module integrates [[https://langserver.org/][language servers]] into Rmcs Emacs. They provide features
 you'd expect from IDEs, like code completion, realtime linting, language-aware
 [[rmcs-package:imenu]]/[[rmcs-package:xref]] integration, jump-to-definition/references support, and more.
 
-As of this writing, this is the state of LSP support in Doom Emacs:
+As of this writing, this is the state of LSP support in Rmcs Emacs:
 
 | Module           | Major modes                                             | Default language server                                       |
 |------------------+---------------------------------------------------------+---------------------------------------------------------------|
@@ -131,7 +131,7 @@ them off.
 [[rmcs-report:][Report an issue?]]
 
 ** My language server is not found
-Check the entry in the [[../../../docs/faq.org][FAQ]] about "Doom can't find my executables/doesn't inherit
+Check the entry in the [[../../../docs/faq.org][FAQ]] about "Rmcs can't find my executables/doesn't inherit
 the correct ~PATH~"
 
 ** LSP/Eglot is not started automatically in my buffer

@@ -2,29 +2,29 @@
 :ID:       e103c1bc-be8e-4451-8e43-a93d9e35e692
 :END:
 #+title:    Examples
-#+subtitle: Samples of Emacs/Doom dotfiles, concepts, and sub-projects
+#+subtitle: Samples of Emacs/Rmcs dotfiles, concepts, and sub-projects
 #+property: header-args:elisp :results pp
 
 #+begin_quote
- 󰐃 Our documentation was designed to be read in Doom Emacs ([[kbd:][M-x rmcs/help]]) or
+ 󰐃 Our documentation was designed to be read in Rmcs Emacs ([[kbd:][M-x rmcs/help]]) or
     online at https://docs.rmcsemacs.org. Avoid reading it elsewhere (like
     Github), where it will be rendered incorrectly.
 #+end_quote
 
 * Introduction
 Examples speak louder than technical explanations, so this file exists to house
-examples of Doom's (and Emacs') concepts, libraries, dotfiles, and more, for
-your own reference. They are divided into Emacs-specific and Doom-specific
-examples; where the former can also be useful to users who don't use Doom.
+examples of Rmcs's (and Emacs') concepts, libraries, dotfiles, and more, for
+your own reference. They are divided into Emacs-specific and Rmcs-specific
+examples; where the former can also be useful to users who don't use Rmcs.
 
-Some of Doom's components will read this file to generate documentation for you,
+Some of Rmcs's components will read this file to generate documentation for you,
 for example:
 
-- Doom's [[rmcs-module:][:lang emacs-lisp]] module installs the [[rmcs-package:elisp-demos]] package. This displays
+- Rmcs's [[rmcs-module:][:lang emacs-lisp]] module installs the [[rmcs-package:elisp-demos]] package. This displays
   usage examples alongside documentation in [[rmcs-package:help]] and [[rmcs-package:helpful]] buffers (produced
-  by =describe-*= and =helpful-*= commands; e.g. [[kbd:][<help> h f]]). Doom has extended
+  by =describe-*= and =helpful-*= commands; e.g. [[kbd:][<help> h f]]). Rmcs has extended
   this package to search this file as well.
-- [[id:1b8b8fa9-6233-4ed8-95c7-f46f8e4e2592][Some Doom's CLI commands]] will emit documentation informed by Doom's org files,
+- [[id:1b8b8fa9-6233-4ed8-95c7-f46f8e4e2592][Some Rmcs's CLI commands]] will emit documentation informed by Rmcs's org files,
   including this file.
 
 If you're interested in adding to this document, read [[id:9ac0c15c-29e7-43f8-8926-5f0edb1098f0][the documentation section]]
@@ -32,15 +32,15 @@ of our contributing guide first.
 
 * TODO Emacs
 This section is dedicated to examples of concepts and libraries that can benefit
-all Emacs users, whether or not they use Doom.
+all Emacs users, whether or not they use Rmcs.
 
 ** TODO Templates
 *** TODO Emacs package
 *** TODO Dynamic module
 
-* TODO Doom Emacs
+* TODO Rmcs Emacs
 This section is dedicated to examples of concepts and libraries only relevant to
-Doom and its users. These are intended to be demonstrations, not substitutes for
+Rmcs and its users. These are intended to be demonstrations, not substitutes for
 documentation.
 
 ** TODO Configuration files
@@ -68,7 +68,7 @@ Here is an exhaustive example of all its syntax and capabilities:
   ;; Emacs knows where this profile lives. If you don't, it'll use the config
   ;; living in the default locations (~/.config/emacs or ~/.emacs.d).
   (user-emacs-directory . "~/another/emacs/config/")
-  ;; If this is a Doom config, you'll also want to set `rmcs-user-dir', which
+  ;; If this is a Rmcs config, you'll also want to set `rmcs-user-dir', which
   ;; defaults to ~/.config/rmcs or ~/.rmcs.d:
   (rmcs-user-dir . "~/another/rmcs/config/")
   ;; If a CAR is a string, it is assumed you want to set an environment
@@ -76,7 +76,7 @@ Here is an exhaustive example of all its syntax and capabilities:
   ;; `rmcs-user-dir' above).
   ("RMCSDIR" . "~/another/rmcs/config/")
 
-  ;; Doom profiles support a number of special directives. They are:
+  ;; Rmcs profiles support a number of special directives. They are:
   ;;
   ;; (VAR :path SEGMENTS...) -- set VAR to an exapnded path built from SEGMENTS,
   ;; relative to `user-emacs-directory', unless an absolute path is in SEGMENTS.
@@ -136,8 +136,8 @@ complete example in [[id:f9bce7da-d155-4727-9b6f-b566b5b8d824][the previous sect
 *** TODO Project
 *** TODO Theme
 *** TODO Command-line interface
-**** Unix utilities, rewritten as Doom scripts
-To show off the syntax and capabilities of Doom's CLI framework, here are some
+**** Unix utilities, rewritten as Rmcs scripts
+To show off the syntax and capabilities of Rmcs's CLI framework, here are some
 popular scripts ported to rmcsscripts for reference. They will all operate under
 these assumptions:
 
@@ -170,7 +170,7 @@ OPTIONS:
     print a message for each created directory
 
 AUTHOR:
-  Original program by David MacKenzie. Doomscript port by Henrik Lissner.
+  Original program by David MacKenzie. Rmcsscript port by Henrik Lissner.
 
 SEE ALSO:
   `mkdir(2)`
@@ -194,7 +194,7 @@ SEE ALSO:
 #+end_src
 
 ****** Notes
-- Docstrings for Doom CLIs recognize indented sections with a capitalized
+- Docstrings for Rmcs CLIs recognize indented sections with a capitalized
   heading followed by a colon (like ~SEE ALSO:~, ~OPTIONS:~, etc). They will be
   appended to the --help output for this command. ~OPTIONS~ and ~ARGUMENTS~ are
   special, in that they decorate pre-existing documentation for referenced
@@ -210,7 +210,7 @@ SEE ALSO:
   #+end_src
 
   Either is acceptable, but for long docs like this, it's better suited to the
-  docstring. If both were present, Doom's help docs would have concatenated them
+  docstring. If both were present, Rmcs's help docs would have concatenated them
   (separated by two newlines).
 
 - The ~mode~ option takes one argument, a chmod mask. I indicate this with
@@ -250,9 +250,9 @@ SEE ALSO:
      &args args)
   "This command repeats what you say to it.
 
-It serves as an example of the bare minimum you need to write a Doom-based CLI.
+It serves as an example of the bare minimum you need to write a Rmcs-based CLI.
 Naturally, it could be more useful; it could process more complex options and
-arguments, call other Doom CLIs, read/write data from files or over networks --
+arguments, call other Rmcs CLIs, read/write data from files or over networks --
 but that can wait for more complicated examples.
 
 ARGUMENTS:
@@ -280,7 +280,7 @@ TODO
 
 ***** emacs
 This isn't useful, but it should hopefully demonstrate the full spectrum of
-Doom's CLI, by reimplementing a subset of ~emacs~'s options and arguments (and
+Rmcs's CLI, by reimplementing a subset of ~emacs~'s options and arguments (and
 none of its documentation). It will simply forward them to the real program
 afterwards.
 
@@ -305,7 +305,7 @@ it ~demacs~:
                  (("--kill")))
      (script     ("--script" (file)))
      &args (args (file linecol)))
-  "Demacs is a thin wrapper around Emacs, made to demo of Doom's CLI Framework.
+  "Demacs is a thin wrapper around Emacs, made to demo of Rmcs's CLI Framework.
 
 Since documentation isn't the focus of this example, this is all you'll get!"
   (cond (script (load script))

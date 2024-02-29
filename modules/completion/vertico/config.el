@@ -292,7 +292,7 @@ orderless."
         '+vertico-embark-target-package-fn
         (nthcdr pos embark-target-finders)))
   (defvar-keymap +vertico/embark-rmcs-package-map
-    :doc "Keymap for Embark package actions for packages installed by Doom."
+    :doc "Keymap for Embark package actions for packages installed by Rmcs."
     :parent embark-general-map
     "h" #'rmcs/help-packages
     "b" #'rmcs/bump-package

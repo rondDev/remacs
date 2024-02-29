@@ -5,7 +5,7 @@
 
 * Description :unfold:
 This module adds support for shell scripting languages (including Powershell and
-Fish script) to Doom Emacs.
+Fish script) to Rmcs Emacs.
 
 - Code completion ([[rmcs-package:company-shell]])
 - Syntax Checking ([[rmcs-package:flycheck]])

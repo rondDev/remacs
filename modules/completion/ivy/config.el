@@ -206,7 +206,7 @@ results buffer.")
   (setq ivy-initial-inputs-alist nil)
 
   ;; REVIEW Counsel allows `counsel-rg-base-command' to be a string or list.
-  ;;        This backwards compatibility complicates things for Doom. Simpler to
+  ;;        This backwards compatibility complicates things for Rmcs. Simpler to
   ;;        just force it to always be a list.
   (when (stringp counsel-rg-base-command)
     (setq counsel-rg-base-command (split-string counsel-rg-base-command)))

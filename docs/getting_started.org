@@ -1,15 +1,15 @@
 #+TITLE: Getting Started Guide
 #+STARTUP: nofold
 
-GNU Emacs is one grand ol' adventure, let alone Doom Emacs. Before you start
-you'll need to set up Emacs, Doom, and its packages, then learn how to take care
+GNU Emacs is one grand ol' adventure, let alone Rmcs Emacs. Before you start
+you'll need to set up Emacs, Rmcs, and its packages, then learn how to take care
 of your new puppy/operating system. This guide will walk you through installing,
 using, configuring and troubleshooting all of these things, to smooth you into
 your Emacs journey.
 
 This guide will gloss over many technicalities so you can get up and running as
 soon as possible. A more technical user manual is in the works for aspiring
-contributors who want a deeper understanding of how Doom Emacs works.
+contributors who want a deeper understanding of how Rmcs Emacs works.
 
 #+begin_quote
 If you feel like we've missed something, [[https://discord.gg/qvGgnVx][join us on our Discord server]] and let
@@ -33,10 +33,10 @@ us know!
       - [[#with-chocolatey--scoop][With chocolatey / scoop]]
       - [[#with-a-precompiled-binary--git-bash][With a precompiled binary + Git Bash]]
       - [[#with-wsl--ubuntu-1804-lts][With WSL + Ubuntu 18.04 LTS]]
-  - [[#rmcs-emacs][Doom Emacs]]
+  - [[#rmcs-emacs][Rmcs Emacs]]
     - [[#the-binrmcs-utility][The ~bin/rmcs~ utility]]
-    - [[#install-rmcs-manually][Install Doom Manually]]
-    - [[#install-rmcs-alongside-other-configs-with-chemacs2][Install Doom alongside other configs (with Chemacs2)]]
+    - [[#install-rmcs-manually][Install Rmcs Manually]]
+    - [[#install-rmcs-alongside-other-configs-with-chemacs2][Install Rmcs alongside other configs (with Chemacs2)]]
   - [[#externalsystem-dependencies][External/system dependencies]]
 - [[#update--rollback][Update & Rollback]]
   - [[#rollback][Rollback]]
@@ -53,7 +53,7 @@ us know!
     - [[#disabling-packages][Disabling packages]]
     - [[#changing-a-recipe-for-an-included-package][Changing a recipe for an included package]]
     - [[#usingloading-local-packages][Using/loading local packages]]
-  - [[#configuring-rmcs][Configuring Doom]]
+  - [[#configuring-rmcs][Configuring Rmcs]]
     - [[#configuring-packages][Configuring packages]]
     - [[#reloading-your-config][Reloading your config]]
     - [[#binding-keys][Binding keys]]
@@ -69,11 +69,11 @@ us know!
       - [[#additional-files][Additional files]]
     - [[#load-order][Load order]]
     - [[#flags][Flags]]
-    - [[#rmcs-cookies][Doom cookies]]
+    - [[#rmcs-cookies][Rmcs cookies]]
       - [[#if][~;;;###if~]]
       - [[#package][~;;;###package~]]
       - [[#autodef][~;;;###autodef~]]
-  - [[#common-mistakes-when-configuring-rmcs-emacs][Common mistakes when configuring Doom Emacs]]
+  - [[#common-mistakes-when-configuring-rmcs-emacs][Common mistakes when configuring Rmcs Emacs]]
     - [[#packages-are-eagerly-loaded][Packages are eagerly loaded]]
     - [[#manual-package-management][Manual package management]]
     - [[#using-org-babel-do-load-languages-to-load-your-babel-packages][Using ~org-babel-do-load-languages~ to load your babel packages]]
@@ -81,18 +81,18 @@ us know!
 - [[#troubleshoot][Troubleshoot]]
   - [[#looking-up-documentation-and-state-from-within-emacs][Looking up documentation and state from within Emacs]]
     - [[#variables-functions-faces-etc][Variables, functions, faces, etc.]]
-    - [[#for-rmcs-modules-packages-autodefs-etc][For Doom Modules, packages, autodefs, etc.]]
+    - [[#for-rmcs-modules-packages-autodefs-etc][For Rmcs Modules, packages, autodefs, etc.]]
   - [[#how-to-extract-a-backtrace-from-an-error][How to extract a backtrace from an error]]
     - [[#enabling-debug-on-error][Enabling ~debug-on-error~]]
     - [[#a-backtrace-from-binrmcs][A backtrace from ~bin/rmcs~]]
   - [[#evaluating-elisp-on-the-fly][Evaluating Elisp on-the-fly]]
   - [[#how-to-determine-the-origin-of-a-bug][How to determine the origin of a bug]]
-  - [[#testing-in-rmcss-sandbox][Testing in Doom's sandbox]]
+  - [[#testing-in-rmcss-sandbox][Testing in Rmcs's sandbox]]
     - [[#opening-the-sandbox][Opening the sandbox]]
     - [[#launching-the-sandbox][Launching the sandbox]]
     - [[#testing-packages-in-the-sandbox][Testing packages in the sandbox]]
   - [[#bisecting-your-private-config][Bisecting your private config]]
-  - [[#bisecting-rmcs-emacs][Bisecting Doom Emacs]]
+  - [[#bisecting-rmcs-emacs][Bisecting Rmcs Emacs]]
 
 * Install
 This is what you'll have installed by the end of this section:
@@ -137,7 +137,7 @@ sudo apt autoremove
 #+END_SRC
 
 ***** Other dependencies
-Then install Doom's other dependencies:
+Then install Rmcs's other dependencies:
 #+BEGIN_SRC bash
 apt-get install ripgrep fd-find
 
@@ -237,7 +237,7 @@ To use Emacs graphically, enable the =gui= USE flag. And enable the =xft= USE fl
 echo "app-editors/emacs gui xft" >> /etc/portage/package.use/emacs
 #+end_src
 
-To install the latest unmasked version compatible with Doom:
+To install the latest unmasked version compatible with Rmcs:
 #+begin_src sh
 emerge '>=app-editors/emacs-27.0'
 #+end_src
@@ -269,14 +269,14 @@ emerge '>=sys-apps/fd-7.3.0'
 
 *** On macOS
 MacOS users have many options for installing Emacs, but not all of them are well
-suited to Doom. Before we get to that you'll need either the Homebrew or
+suited to Rmcs. Before we get to that you'll need either the Homebrew or
 MacPorts package manager installed (you only need one):
 
 + [[http://brew.sh/][How to install Homebrew]]
 + [[https://www.macports.org/install.php][How to install MacPorts]]
 
 **** With Homebrew
-First, Doom's dependencies:
+First, Rmcs's dependencies:
 #+BEGIN_SRC bash
 # required dependencies
 brew install git ripgrep
@@ -287,7 +287,7 @@ xcode-select --install
 #+END_SRC
 
 For Emacs itself, these three formulas are the best options, ordered from most
-to least recommended for Doom (based on compatibility).
+to least recommended for Rmcs (based on compatibility).
 
 - [[https://bitbucket.org/mituharu/emacs-mac/overview][emacs-mac]]. It offers good integration
   with macOS, native emojis and better childframe support.
@@ -311,7 +311,7 @@ to least recommended for Doom (based on compatibility).
   #+END_SRC
 
 ***** Where *not* to install Emacs from
-These builds/forks have known compatibility issues with Doom and are *very
+These builds/forks have known compatibility issues with Rmcs and are *very
 likely* to cause issues later on. They are not recommended:
 
 + emacsformacosx.com
@@ -328,7 +328,7 @@ are all acceptable options:
 + [[https://ports.macports.org/port/emacs-mac-app/summary][emacs-mac-app]] (27.2) -- the [[https://bitbucket.org/mituharu/emacs-mac][Mitsuharu Yamamoto mac port]]
 
 Some of these ports do not add an =emacs= binary to your ~PATH~, which is
-necessary for Doom's installation process. You'll have to do so yourself by
+necessary for Rmcs's installation process. You'll have to do so yourself by
 adding this to your shell config:
 
 #+BEGIN_SRC sh
@@ -386,7 +386,7 @@ Now we're ready to move on!
 
 **** With [[https://chocolatey.org/][chocolatey]] / scoop
 [[https://chocolatey.org/][Chocolatey]] is a package manager for Windows, and is the simplest way to install
-Emacs and Doom's dependencies:
+Emacs and Rmcs's dependencies:
 #+BEGIN_SRC sh
 choco install git emacs ripgrep
 # Optional dependencies
@@ -450,7 +450,7 @@ bin/rmcs command.
    sudo apt update
    sudo apt install emacs27
    #+END_SRC
-7. Then Doom's dependencies:
+7. Then Rmcs's dependencies:
    #+BEGIN_SRC sh
    # required dependencies
    sudo apt-get install git ripgrep
@@ -460,8 +460,8 @@ bin/rmcs command.
 
 And done! Keep Ubuntu open, you'll need it for the rest of this guide.
 
-** Doom Emacs
-With Emacs and Doom's dependencies installed, next is to install Doom Emacs
+** Rmcs Emacs
+With Emacs and Rmcs's dependencies installed, next is to install Rmcs Emacs
 itself:
 
 #+BEGIN_SRC bash
@@ -470,7 +470,7 @@ git clone https://github.com/hlissner/rmcs-emacs ~/.emacs.d
 #+END_SRC
 
 =rmcs install= will set up your =RMCSDIR= at =~/.rmcs.d= (if it doesn't already
-exist) and will work you through the first-time setup of Doom Emacs. Carefully
+exist) and will work you through the first-time setup of Rmcs Emacs. Carefully
 follow any instructions it puts out.
 
 If this is your first time, you should run ~rmcs doctor~. This will diagnose
@@ -478,31 +478,31 @@ common issues with your system or config.
 
 #+BEGIN_QUOTE
 If you'd like a more technical break down of ~rmcs install~, it's been
-translated into shell commands below, in the "Install Doom Manually" section.
+translated into shell commands below, in the "Install Rmcs Manually" section.
 #+END_QUOTE
 
 *** The ~bin/rmcs~ utility
 This utility is your new best friend. It won't spot you a beer, but it'll
-shoulder much of the work associated with managing and maintaining your Doom
+shoulder much of the work associated with managing and maintaining your Rmcs
 Emacs configuration, and then some. Not least of which is installation of and
-updating Doom and your installed packages.
+updating Rmcs and your installed packages.
 
 It exposes a variety of commands. ~bin/rmcs help~ will list them all, but here
 is a summary of the most important ones:
 
-+ ~rmcs sync~: This synchronizes your config with Doom Emacs. It ensures that
++ ~rmcs sync~: This synchronizes your config with Rmcs Emacs. It ensures that
   needed packages are installed, orphaned packages are removed and necessary
   metadata correctly generated. Run this whenever you modify your ~rmcs!~ block
   or =packages.el= file. You'll need ~rmcs sync -u~ if you override the recipe
   of package installed by another module.
-+ ~rmcs upgrade~: Updates Doom Emacs (if available) and all its packages.
++ ~rmcs upgrade~: Updates Rmcs Emacs (if available) and all its packages.
 + ~rmcs env~: (Re)generates an "envvar file", which is a snapshot of your
-  shell environment that Doom loads at startup. If your app launcher or OS
+  shell environment that Rmcs loads at startup. If your app launcher or OS
   launches Emacs in the wrong environment you will need this. **This is required
   for GUI Emacs users on MacOS.**
-+ ~rmcs doctor~: If Doom misbehaves, the doc will diagnose common issues with
++ ~rmcs doctor~: If Rmcs misbehaves, the doc will diagnose common issues with
   your installation, system and environment.
-+ ~rmcs purge~: Over time, the repositories for Doom's plugins will accumulate.
++ ~rmcs purge~: Over time, the repositories for Rmcs's plugins will accumulate.
   Run this command from time to time to delete old, orphaned packages, and with
   the ~-g~ switch to compact existing package repos.
 
@@ -516,8 +516,8 @@ directly and from anywhere. Accomplish this by adding this to your .bashrc or
 .zshrc file: ~export PATH="$HOME/.emacs.d/bin:$PATH"~
 #+end_quote
 
-*** Install Doom Manually
-If you'd rather install Doom yourself, instead of rely on the magic of =rmcs
+*** Install Rmcs Manually
+If you'd rather install Rmcs yourself, instead of rely on the magic of =rmcs
 install=, here is its equivalent in bash shell commands (assuming
 =hlissner/rmcs-emacs= has been cloned to =~/.emacs.d=):
 
@@ -528,7 +528,7 @@ PATH="$HOME/.emacs.d/bin:$PATH"
 # Create a directory for our private config
 mkdir ~/.rmcs.d  # or ~/.config/rmcs
 
-# The init.example.el file contains an example rmcs! call, which tells Doom what
+# The init.example.el file contains an example rmcs! call, which tells Rmcs what
 # modules to load and in what order.
 cp ~/.emacs.d/init.example.el ~/.rmcs.d/init.el
 cp ~/.emacs.d/core/templates/config.example.el ~/.rmcs.d/config.el
@@ -537,12 +537,12 @@ cp ~/.emacs.d/core/templates/packages.example.el ~/.rmcs.d/packages.el
 # You might want to edit ~/.rmcs.d/init.el here and make sure you only have the
 # modules you want enabled.
 
-# Then synchronize Doom with your config:
+# Then synchronize Rmcs with your config:
 rmcs sync
 
 # If you know Emacs won't be launched from your shell environment (e.g. you're
 # on macOS or use an app launcher that doesn't launch programs with the correct
-# shell) then create an envvar file to ensure Doom correctly inherits your shell
+# shell) then create an envvar file to ensure Rmcs correctly inherits your shell
 # environment.
 #
 # If you don't know whether you need this or not, there's no harm in doing it
@@ -550,19 +550,19 @@ rmcs sync
 # responded no, you can generate it later with the following command:
 rmcs env
 
-# Lastly, install the icon fonts Doom uses:
+# Lastly, install the icon fonts Rmcs uses:
 emacs --batch -f nerd-icons-install-fonts
 #+END_SRC
 
 To understand the purpose of the =~/.rmcs.d= directory and =~/.rmcs.d/init.el=
 file, see the [[#configure][Configure]] section further below.
 
-*** Install Doom alongside other configs (with Chemacs2)
+*** Install Rmcs alongside other configs (with Chemacs2)
 [[https://github.com/plexus/chemacs2][Chemacs2]] is a bootloader for Emacs. It allows you to switch between multiple
-Emacs configurations. Here is a quick guide for setting it up with Doom Emacs as
+Emacs configurations. Here is a quick guide for setting it up with Rmcs Emacs as
 the default config:
 
-1. First, install Doom somewhere:
+1. First, install Rmcs somewhere:
    #+BEGIN_SRC sh :eval no
    git clone https://github.com/hlissner/rmcs-emacs ~/rmcs-emacs
    ~/rmcs-emacs/bin/rmcs install
@@ -576,7 +576,7 @@ the default config:
    #+END_SRC
 
 3. Create =~/.emacs-profiles.el= with a list of your Emacs profiles. This file
-   is structured like a =.dir-locals.el= file. Here is an example with Doom (as
+   is structured like a =.dir-locals.el= file. Here is an example with Rmcs (as
    the default), Spacemacs, and Prelude:
    #+BEGIN_SRC emacs-lisp :eval no
    (("default"   . ((user-emacs-directory . "~/rmcs-emacs")))
@@ -593,54 +593,54 @@ emacs --with-profile spacemacs
 If no profile is specified, the =default= profile is used.
 
 ** External/system dependencies
-Doom is comprised of approximately 160 modules which provide its features,
+Rmcs is comprised of approximately 160 modules which provide its features,
 language support and integration with external tools. Many of these have
 external dependencies that you must install yourself. You'll find what a module
 needs and how to install them in that module's README.org file or by running
 ~bin/rmcs doctor~.
 
-The [[file:modules.org][Module Index]] lists all Doom's available modules, with links to their
+The [[file:modules.org][Module Index]] lists all Rmcs's available modules, with links to their
 documentation. Documentation is a work-in-progrees; some modules may not have
 README.org files yet!
 
 #+begin_quote
 Use ~M-x rmcs/help-modules~ (bound to =SPC h d m= or =C-h d m=) to jump to a
-module's documentation from within Doom, otherwise, place your cursor on a
+module's documentation from within Rmcs, otherwise, place your cursor on a
 module in your ~rmcs!~ block (in =~/.rmcs.d/init.el=) and press =K= to jump to
 its documentation (or =gd= to jump to its source code). =C-c g k= and =C-c g d=
 for non-evil users, respectively.
 #+end_quote
 
 * Update & Rollback
-Doom is an active project and many of its 300+ packages are in active
+Rmcs is an active project and many of its 300+ packages are in active
 development as well. It is wise to occasionally update:
 #+BEGIN_SRC bash
 rmcs upgrade   # or 'rmcs up'
 #+END_SRC
 
-If you want to update Doom manually, ~rmcs upgrade~ is equivalent to:
+If you want to update Rmcs manually, ~rmcs upgrade~ is equivalent to:
 #+BEGIN_SRC bash
 cd ~/.emacs.d
-git pull        # updates Doom
+git pull        # updates Rmcs
 rmcs clean      # Ensure your config isn't byte-compiled
-rmcs sync       # synchronizes your config with Doom Emacs
+rmcs sync       # synchronizes your config with Rmcs Emacs
 rmcs update     # updates installed packages
 #+END_SRC
 
-To upgrade only your packages (and not Doom itself):
+To upgrade only your packages (and not Rmcs itself):
 
 #+BEGIN_SRC bash
 rmcs upgrade --packages
 #+END_SRC
 
 #+begin_quote
-To minimize issues while upgrading, avoid modifying Doom's source files in
+To minimize issues while upgrading, avoid modifying Rmcs's source files in
 =~/.emacs.d=. All your customization should be kept in your =RMCSDIR= (e.g.
-=~/.rmcs.d=). Read the [[#Configure][Configure]] section for more on configuring Doom.
+=~/.rmcs.d=). Read the [[#Configure][Configure]] section for more on configuring Rmcs.
 #+end_quote
 
 ** TODO Rollback
-The =bin/rmcs= script doesn't currently offer rollback support for Doom or its
+The =bin/rmcs= script doesn't currently offer rollback support for Rmcs or its
 packages (yet).
 
 ** Up/Downgrading Emacs
@@ -657,9 +657,9 @@ the major version (e.g. 27 -> 28 or vice versa) run ~rmcs build~ too.
 
 * TODO Migrate
 If you're here from another Emacs distribution (or your own), here are a few
-things to be aware of while you convert your old config to Doom:
+things to be aware of while you convert your old config to Rmcs:
 
-+ Doom does not use =package.el= to manage its packages, but ~use-package~ does!
++ Rmcs does not use =package.el= to manage its packages, but ~use-package~ does!
   You will see errors if you have ~:ensure ...~ properties in your ~use-package~
   blocks. Remove these and, instead, add ~package!~ declarations to
   =~/.rmcs.d/packages.el= to install your packages.
@@ -683,29 +683,29 @@ server]].
 #+end_quote
 
 * Configure
-You can configure Doom by tweaking the files found in your =RMCSDIR=. Doom
+You can configure Rmcs by tweaking the files found in your =RMCSDIR=. Rmcs
 expects this directory to be found in one of:
 
 1. =~/.config/rmcs= (respects ~$XDG_CONFIG_HOME~)
 2. or =~/.rmcs.d=
 
 This directory is referred to as your =RMCSDIR=. Only one of these directories
-should exist (Doom will only recognize one).
+should exist (Rmcs will only recognize one).
 
 #+begin_quote
-Change the =RMCSDIR= environment variable to change where Doom looks for this
+Change the =RMCSDIR= environment variable to change where Rmcs looks for this
 directory. Symlinks will work as well.
 #+end_quote
 
-When you ran ~rmcs install~, it deployed a simple Doom configuration to your
+When you ran ~rmcs install~, it deployed a simple Rmcs configuration to your
 =RMCSDIR=, comprised of these three files:
 
-+ init.el :: Where you'll find your ~rmcs!~ block, which controls what Doom
++ init.el :: Where you'll find your ~rmcs!~ block, which controls what Rmcs
   modules are enabled and in what order they will be loaded.
 
   This file is evaluated early when Emacs is starting up; before any other
   module has loaded. You generally shouldn't add code to this file unless you're
-  targeting Doom's CLI or something that needs to be configured very early in
+  targeting Rmcs's CLI or something that needs to be configured very early in
   the startup process.
 + config.el :: Here is where 99.99% of your private configuration should go.
   Anything in here is evaluated /after/ all other modules have loaded, when
@@ -714,16 +714,16 @@ When you ran ~rmcs install~, it deployed a simple Doom configuration to your
   what packages to install and where from.
 
 #+begin_quote
-Note: do not use ~M-x customize~ or the customize API in general. Doom is
+Note: do not use ~M-x customize~ or the customize API in general. Rmcs is
 designed to be configured programmatically from your config.el, which can
 conflict with Customize's way of modifying variables.
 
-If you're concerned about ~defcustom~ setters, Doom has a ~setq!~ macro that
+If you're concerned about ~defcustom~ setters, Rmcs has a ~setq!~ macro that
 will trigger them.
 #+end_quote
 
 ** Modules
-Doom consists of around 160 modules and growing. A Doom module is a bundle of
+Rmcs consists of around 160 modules and growing. A Rmcs module is a bundle of
 packages, configuration and commands, organized into a unit that can be toggled
 easily by tweaking your ~rmcs!~ block (found in =$RMCSDIR/init.el=).
 
@@ -773,12 +773,12 @@ misspelled modules and flags.
 #+end_quote
 
 ** Package management
-**Doom Emacs does not use package.el** (the package manager built into Emacs).
+**Rmcs Emacs does not use package.el** (the package manager built into Emacs).
 Instead, it uses its own declarative package manager built on top of
 [[https://github.com/raxod502/straight.el][straight.el]].
 
 Packages are declared in ~packages.el~ files. You'll find one in your =RMCSDIR=
-and in many of Doom's modules. Read on to learn how to use this system to
+and in many of Rmcs's modules. Read on to learn how to use this system to
 install your own packages.
 
 #+begin_quote
@@ -875,7 +875,7 @@ ensure your changes take effect.
 #+end_quote
 
 *** Pinning packages to specific commits
-All of Doom's packages are pinned by default. A pinned package is a package
+All of Rmcs's packages are pinned by default. A pinned package is a package
 locked to a specific commit, like so:
 #+BEGIN_SRC elisp
 (package! evil :pin "e00626d9fd")
@@ -899,14 +899,14 @@ To unpin a package, use the ~unpin!~ macro:
 (package! helm :pin nil)
 #+END_SRC
 
-Though it is *highly* discouraged, you may unpin all packages and make Doom
+Though it is *highly* discouraged, you may unpin all packages and make Rmcs
 Emacs rolling release:
 #+BEGIN_SRC elisp
 (unpin! t)
 #+END_SRC
 
 #+begin_quote
-Unpinning all packages is discouraged because Doom's modules are designed
+Unpinning all packages is discouraged because Rmcs's modules are designed
 against the pinned versions of its packages. More volatile packages (like
 lsp-mode, ein and org) change rapidly, and are likely to cause breakages if
 unpinned.
@@ -924,7 +924,7 @@ The ~package!~ macro possesses a ~:disable~ property:
 
 Once a package is disabled, ~use-package!~ and ~after!~ blocks for it will be
 ignored, and the package is removed the next time you run ~bin/rmcs sync~. Use
-this to disable Doom's packages that you don't want or need.
+this to disable Rmcs's packages that you don't want or need.
 
 There is also the ~disable-packages!~ macro for conveniently disabling multiple
 packages:
@@ -938,7 +938,7 @@ ensure your changes take effect.
 #+end_quote
 
 *** Changing a recipe for an included package
-If a Doom module installs package X from one place, but you'd like to install it
+If a Rmcs module installs package X from one place, but you'd like to install it
 from another (say, a superior fork), add a ~package!~ declaration for it in your
 =RMCSDIR/packages.el=. Your private declarations always have precedence over
 modules (even your own).
@@ -991,7 +991,7 @@ live testing. To do this specify a ~:local-repo~ in that package's recipe:
 Alternatively, add the package's location to Emacs' ~load-path~. Do this if you
 don't need/care for autoload cookies or byte-compilation:
 #+BEGIN_SRC elisp
-;; Doom has modified `use-package's `:load-path' to expand relative paths from
+;; Rmcs has modified `use-package's `:load-path' to expand relative paths from
 ;; your RMCSDIR. e.g. ~/.rmcs.d/lisp/package
 (use-package my-package
   :load-path "lisp/package")
@@ -1006,7 +1006,7 @@ don't need/care for autoload cookies or byte-compilation:
 changed it, and to re-index any autoloads in it.
 #+end_quote
 
-** Configuring Doom
+** Configuring Rmcs
 *** Configuring packages
 If your configuration needs are simple, the ~use-package!~, ~after!~,
 ~add-hook!~ and ~setq-hook!~ macros are your bread and butter.
@@ -1042,7 +1042,7 @@ If your configuration needs are simple, the ~use-package!~, ~after!~,
 
 For more flexibility, the ~use-package-hook!~ is another option, but should be
 considered a last resort (because there is usually a better way). It allows you
-to disable, append/prepend to and/or overwrite Doom's ~use-package!~ blocks.
+to disable, append/prepend to and/or overwrite Rmcs's ~use-package!~ blocks.
 These are powered by ~use-package~'s inject-hooks under the hood.
 
 ~use-package-hook!~ *must be used before that package's ~use-package!~ block*.
@@ -1051,7 +1051,7 @@ Therefore it must be used from your private init.el file.
 #+BEGIN_SRC emacs-lisp
 ;;; ~/.rmcs.d/init.el (example)
 ;; If a :pre-init / :pre-config hook returns nil, it overwrites that package's
-;; original :init / :config block. Exploit this to overwrite Doom's config.
+;; original :init / :config block. Exploit this to overwrite Rmcs's config.
 (use-package-hook! rmcs-themes
   :pre-config
   (setq rmcs-neotree-file-icons t)
@@ -1068,7 +1068,7 @@ Therefore it must be used from your private init.el file.
 
 *** Reloading your config
 You may find it helpful to have your changes take effect immediately. For things
-that don't require a complete restart of Doom Emacs (like changing your enabled
+that don't require a complete restart of Rmcs Emacs (like changing your enabled
 modules or installed packages), you can evaluate Emacs Lisp code on-the-fly.
 
 + Evil users can use the =gr= operator to evaluate a segment of code. The return
@@ -1104,10 +1104,10 @@ To create your own module you need only create a directory for it in
 
 #+begin_quote
 In this example, =:abc= is called the category and =xyz= is the name of the
-module. Doom refers to modules in one of two formats: =:abc xyz= and =abc/xyz=.
+module. Rmcs refers to modules in one of two formats: =:abc xyz= and =abc/xyz=.
 #+end_quote
 
-If a private module possesses the same name as a built-in Doom module (say,
+If a private module possesses the same name as a built-in Rmcs module (say,
 =:lang org=), it replaces the built-in module. Use this fact to rewrite modules
 you don't agree with.
 
@@ -1121,10 +1121,10 @@ Of course, an empty module isn't terribly useful, but it goes to show that nothi
 These are a few exceptional examples of a well-rounded module:
 + [[file:../modules/completion/company/README.org][:completion company]]
 
-The remainder of this guide will go over the technical details of a Doom module.
+The remainder of this guide will go over the technical details of a Rmcs module.
 
 *** File structure
-Doom recognizes a handful of special file names, none of which are required for
+Rmcs recognizes a handful of special file names, none of which are required for
 a module to function. They are:
 
 #+begin_example
@@ -1141,14 +1141,14 @@ category/
 #+end_example
 
 **** =init.el=
-This file is loaded early, before anything else, but after Doom core is loaded.
+This file is loaded early, before anything else, but after Rmcs core is loaded.
 It is loaded in both interactive and non-interactive sessions (it's the only
 file, besides =cli.el= that is loaded when the =bin/rmcs= starts up).
 
 Do:
 + Configure Emacs or perform setup/teardown operations that must be set early;
   before other modules are (or this module is) loaded.
-+ Reconfigure packages defined in Doom modules with ~use-package-hook!~ (as a
++ Reconfigure packages defined in Rmcs modules with ~use-package-hook!~ (as a
   last resort, when ~after!~ and hooks aren't enough).
 + Configure behavior of =bin/rmcs= in a way that must also apply in
   interactive sessions.
@@ -1156,7 +1156,7 @@ Do:
 Don't:
 + Configure packages with ~use-package!~ or ~after!~ from here
 + Preform expensive or error-prone operations; these files are evaluated
-  whenever =bin/rmcs= is used; a fatal error in this file can make Doom
+  whenever =bin/rmcs= is used; a fatal error in this file can make Rmcs
   unbootable (but not irreversibly).
 + Define new =bin/rmcs= commands here. That's what =cli.el= is for.
 
@@ -1170,7 +1170,7 @@ Do:
   #+BEGIN_SRC emacs-lisp
   ;; from modules/completion/company/config.el
   (use-package! company  ; `use-package!' is a thin wrapper around `use-package'
-                         ; it is required that you use this in Doom's modules,
+                         ; it is required that you use this in Rmcs's modules,
                          ; but not required to be used in your private config.
     :commands (company-mode global-company-mode company-complete
                company-complete-common company-manual-begin company-grab-line)
@@ -1187,7 +1187,7 @@ Do:
 
 Don't:
 + Use ~package!~
-+ Install packages with =package.el= or ~use-package~'s ~:ensure~ property. Doom
++ Install packages with =package.el= or ~use-package~'s ~:ensure~ property. Rmcs
   has its own package manager. That's what =packages.el= is for.
 
 **** =packages.el=
@@ -1223,13 +1223,13 @@ at startup).
 This is all made possible thanks to these autoload cookie: ~;;;###autoload~.
 Placing this on top of a lisp form will do one of two things:
 
-1. Add a ~autoload~ call to Doom's autoload file (found in
+1. Add a ~autoload~ call to Rmcs's autoload file (found in
    =~/.emacs.d/.local/autoloads.el=, which is read very early in the startup
    process).
-2. Or copy that lisp form to Doom's autoload file verbatim (usually the case for
+2. Or copy that lisp form to Rmcs's autoload file verbatim (usually the case for
    anything other than ~def*~ forms, like ~defun~ or ~defmacro~).
 
-Doom's autoload file is generated by scanning these files when you execute ~rmcs
+Rmcs's autoload file is generated by scanning these files when you execute ~rmcs
 sync~.
 
 For example:
@@ -1273,13 +1273,13 @@ This file is read when =bin/rmcs= starts up. Use it to define your own CLI
 commands or reconfigure existing ones.
 
 **** TODO =test/**/test-*.el=
-Doom's unit tests go here. More information on them to come...
+Rmcs's unit tests go here. More information on them to come...
 
 **** Additional files
 Any files beyond the ones I have already named are not given special treatment.
 They must be loaded manually to be loaded at all. In this way modules can be
 organized in any way you wish. Still, there is one convention that has emerged
-in Doom's community that you may choose to adopt: extra files in the root of the
+in Rmcs's community that you may choose to adopt: extra files in the root of the
 module are prefixed with a plus, e.g. =+extra.el=. There is no syntactical or
 functional significance to this convention.
 
@@ -1297,7 +1297,7 @@ saving you the hassle of creating multiple modules.
 
 *** Load order
 A module's files have a precise load-order, which differs slightly depending on
-what kind of session it is. Doom has three types of sessions:
+what kind of session it is. Rmcs has three types of sessions:
 
 + Interactive session :: the typical session you open when you intend to use
   Emacs (e.g. for text editing). This loads the most, because you will likely be
@@ -1311,7 +1311,7 @@ what kind of session it is. Doom has three types of sessions:
 + CLI session :: this is the same as a batch session /except/ it is what starts
   up when you run any =bin/rmcs= command.
 
-With that out of the way, here is the load order of Doom's most important files:
+With that out of the way, here is the load order of Rmcs's most important files:
 
 | File                                        | Interactive | Batch | CLI |
 |---------------------------------------------+-------------+-------+-----|
@@ -1343,9 +1343,9 @@ using the ~featurep!~ macro:
 Use this fact to make aspects of a module conditional. e.g. Prevent company
 plugins from loading if the =:completion company= module isn't enabled.
 
-*** Doom cookies
+*** Rmcs cookies
 Autoload cookies were mentioned [[*=autoload/*.el= OR =autoload.el=][earlier]]. A couple more exist that are specific
-to Doom Emacs. This section will go over what they do and how to use them.
+to Rmcs Emacs. This section will go over what they do and how to use them.
 
 **** ~;;;###if~
 Any file in a module can have a ~;;;###if FORM~ cookie at or near the top of the
@@ -1353,7 +1353,7 @@ file (must be within the first 256 bytes of the file). =FORM= is evaluated to
 determine whether or not to include this file for autoloads scanning (on ~rmcs
 sync~) or byte-compilation (on ~rmcs compile~).
 
-i.e. if =FORM= returns ~nil~, Doom will neither index its ~;;;###autoload~
+i.e. if =FORM= returns ~nil~, Rmcs will neither index its ~;;;###autoload~
 cookies nor byte-compile the file.
 
 Use this to prevent errors that would occur if certain conditions aren't met.
@@ -1393,7 +1393,7 @@ Use it to let ~rmcs/help-packages~ know where to find config for packages where
 no ~after!~ or ~use-package!~ call is involved.
 
 **** ~;;;###autodef~
-An autodef is a special kind of autoloaded function (or macro) which Doom
+An autodef is a special kind of autoloaded function (or macro) which Rmcs
 guarantees will /always/ be defined, whether or not its containing module is
 enabled (but will no-op if it is disabled).
 
@@ -1422,8 +1422,8 @@ certain major modes. For instance:
 And if =:completion company= is disabled, this call and its arguments are left
 unprocessed and ignored.
 
-** Common mistakes when configuring Doom Emacs
-Having helped many users configure Doom, I've spotted a few recurring oversights
+** Common mistakes when configuring Rmcs Emacs
+Having helped many users configure Rmcs, I've spotted a few recurring oversights
 that I will list here, in the hopes that it will help you avoid the same
 mistakes:
 
@@ -1431,7 +1431,7 @@ mistakes:
 Using ~use-package!~ without a deferring keyword (one of: ~:defer :after
 :commands :defer-incrementally :after-call~) will load the package immediately.
 This causes other packages to be pulled in and loaded, which will compromise
-many of Doom's startup optimizations.
+many of Rmcs's startup optimizations.
 
 This is usually by accident. Choosing which keyword to use depends on the
 needs of the package, so there is no simple answer to this.
@@ -1439,20 +1439,20 @@ needs of the package, so there is no simple answer to this.
 *** Manual package management
 A lot of Emacs documentation and help will contain advice to install packages
 with package.el's API (e.g. ~package-install~) or with use-package's ~:ensure~
-keyword). You are free to do this, if it is your preference, but otherwise, Doom
+keyword). You are free to do this, if it is your preference, but otherwise, Rmcs
 has its own package management system.
 
-Migrating ~use-package~ code to Doom is usually a case of removing the ~:ensure~
+Migrating ~use-package~ code to Rmcs is usually a case of removing the ~:ensure~
 keyword and adding a ~(package! PACKAGENAME)~ to =~/.rmcs.d/packages.el= (and
 running ~rmcs sync~ to sync your config).
 
 *** Using ~org-babel-do-load-languages~ to load your babel packages
-You don't need ~org-babel-do-load-languages~. Doom lazy loads babel packages
+You don't need ~org-babel-do-load-languages~. Rmcs lazy loads babel packages
 based on the language name in ~#+BEGIN_SRC~ blocks needed. As long as the babel
 plugin is installed and the plugin is named after its language (e.g.
 ~#+BEGIN_SRC rust~ will load ~ob-rust~), you don't need to do anything else.
 
-There may be some special cases, however. Doom tries to handle a couple of them
+There may be some special cases, however. Rmcs tries to handle a couple of them
 (e.g. with ob-jupyter, ob-ipython and ob-async). If you are experiencing errors
 while trying to use a certain language in org src blocks, check out the [[file:../modules/lang/org/README.org][:lang
 org module documentation]] for details on how to add support for it.
@@ -1465,7 +1465,7 @@ org module documentation]] for details on how to add support for it.
 #+END_SRC
 
 These two lines are a common sight in Emacs configs, but they are unnecessary
-for Doom Emacs. We already use the more sophisticated =ws-butler= to manage
+for Rmcs Emacs. We already use the more sophisticated =ws-butler= to manage
 extraneous whitespace. However, you might have the impression that it isn't
 working. That's because =ws-butler= works in two unusual ways, meant to be less
 imposing than its alternatives:
@@ -1494,21 +1494,21 @@ imposing than its alternatives:
 
 * Troubleshoot
 When problems arise, you should be prepared to collect information in order to
-solve them, or for the bug report you're about to write. Both Emacs and Doom
+solve them, or for the bug report you're about to write. Both Emacs and Rmcs
 provide tools to make this easier. Here are a few things you can try, first:
 
 + Investigate the =*Messages*= log for warnings or error messages. This log can
   be opened with =SPC h e=, =C-h e= or =M-x view-echo-area-messages=.
 
-+ Look up errors/warnings [[file:faq.org::Common Issues][on the FAQ]] and [[https://github.com/hlissner/rmcs-emacs/issues][Doom's issue tracker]]. It is possible
++ Look up errors/warnings [[file:faq.org::Common Issues][on the FAQ]] and [[https://github.com/hlissner/rmcs-emacs/issues][Rmcs's issue tracker]]. It is possible
   that a solution for your issue already exists. The FAQ can be searched from
-  inside Doom with =SPC h d f= (or =C-h d f= for non-evil users).
+  inside Rmcs with =SPC h d f= (or =C-h d f= for non-evil users).
 
 + Run ~bin/rmcs doctor~ on the command line to diagnose common issues with your
   environment and config. It will suggest solutions for them as well.
 
 + ~bin/rmcs clean~ will ensure the problem isn't stale bytecode in your private
-  config or Doom core. If you haven't used ~bin/rmcs compile~, there's no need
+  config or Rmcs core. If you haven't used ~bin/rmcs compile~, there's no need
   to do this.
 
 + ~bin/rmcs sync~ will ensure the problem isn't missing packages or outdated
@@ -1525,11 +1525,11 @@ provide tools to make this easier. Here are a few things you can try, first:
   issue may be documented.
 
 + If possible, see if the issue can be reproduced in vanilla Emacs (Emacs
-  without Doom) and/or vanilla Doom (Doom without your private config). [[#testing-in-rmcss-sandbox][Doom's
+  without Rmcs) and/or vanilla Rmcs (Rmcs without your private config). [[#testing-in-rmcss-sandbox][Rmcs's
   sandbox can help you check]].
 
 + Ask for help on [[https://discord.gg/qvGgnVx][our Discord server]]. It is the quickest way to get help,
-  sometimes straight from Doom's maintainer, who is very active there.
+  sometimes straight from Rmcs's maintainer, who is very active there.
 
 If none of these things have helped you, then it's time to open a bug report.
 See "[[file:contributing.org::*Reporting issues][Reporting Issues]]" in the [[file:contributing.org][contributing guidelines]] on how to file an
@@ -1555,11 +1555,11 @@ Here are some of the more important ones:
 
 You can also evaluate code with ~eval-expression~ (=M-;= or =SPC ;=).
 
-*** TODO For Doom Modules, packages, autodefs, etc.
+*** TODO For Rmcs Modules, packages, autodefs, etc.
 + ~rmcs/open-news~ (=SPC h n=) ::
      ...
 + ~rmcs/help~ (=SPC h d h=) ::
-     Open the index of Doom's manual.
+     Open the index of Rmcs's manual.
 + ~rmcs/help-modules~ (=SPC h d m=) ::
      Jumps to a module's documentation.
 + ~rmcs/help-autodefs~ (=SPC h u=) ::
@@ -1573,7 +1573,7 @@ You can also evaluate code with ~eval-expression~ (=M-;= or =SPC ;=).
      ...
 
 ** How to extract a backtrace from an error
-If you encounter an error while using Doom Emacs, you're probably about to head
+If you encounter an error while using Rmcs Emacs, you're probably about to head
 off and file a bug report (or request help on [[https://discord.gg/qvGgnVx][our Discord server]]). Before you
 do, please generate a backtrace to include with it.
 
@@ -1616,17 +1616,17 @@ are couple things you can do:
   (=gR=) to evaluate code,
 
 ** How to determine the origin of a bug
-** Testing in Doom's sandbox
-"The sandbox" is one of Doom Emacs' features; it is a test bed for running elisp
-in a fresh instance of Emacs with varying amounts of Doom loaded (none at all,
+** Testing in Rmcs's sandbox
+"The sandbox" is one of Rmcs Emacs' features; it is a test bed for running elisp
+in a fresh instance of Emacs with varying amounts of Rmcs loaded (none at all,
 all of it, or somewhere in between). This can be helpful for isolating bugs to
 determine who you should report a bug to.
 
 If you can recreate a bug in vanilla Emacs then it should be reported to the
 developers of the relevant packages or, perhaps, the Emacs devs themselves.
 
-Otherwise, it is best to bring it up on the Doom Emacs issue list, rather than
-confusing and inundating the Emacs community with Doom-specific issues.
+Otherwise, it is best to bring it up on the Rmcs Emacs issue list, rather than
+confusing and inundating the Emacs community with Rmcs-specific issues.
 
 *** Opening the sandbox
 There are three common ways to access the sandbox:
@@ -1645,13 +1645,13 @@ You have four options when it comes to launching the sandbox:
 - =C-c C-c= :: This launches "vanilla Emacs". Vanilla means nothing is loaded;
   purely Emacs and nothing else. If you can reproduce an error here, then the
   issue likely lies in the plugin(s) you are testing or in Emacs itself.
-- =C-c C-d= :: This launches "vanilla Doom", which is vanilla Emacs plus Doom's
-  core. This does not load your private config, nor any of Doom's (or your)
+- =C-c C-d= :: This launches "vanilla Rmcs", which is vanilla Emacs plus Rmcs's
+  core. This does not load your private config, nor any of Rmcs's (or your)
   modules.
-- =C-c C-p= :: This launches "vanilla Doom+". That is, Doom core plus the
+- =C-c C-p= :: This launches "vanilla Rmcs+". That is, Rmcs core plus the
   modules that you have specified in the ~rmcs!~ block of your private config
   (in =~/.rmcs.d/init.el=). This *does not* load your private config, however.
-- =C-c C-f= :: This launches "full Doom". It loads Doom's core, your enabled
+- =C-c C-f= :: This launches "full Rmcs". It loads Rmcs's core, your enabled
   modules, and your private config. This instance should be identical to the
   instance you launched it from.
 
@@ -1672,4 +1672,4 @@ sandbox. e.g.
 #+END_SRC
 
 ** TODO Bisecting your private config
-** TODO Bisecting Doom Emacs
+** TODO Bisecting Rmcs Emacs

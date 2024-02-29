@@ -1,18 +1,18 @@
-#+title: Doom Emacs API Demos
+#+title: Rmcs Emacs API Demos
 #+property: header-args:elisp :results pp :exports both :eval never-export
 
 This module installs the elisp-demos package, which adds code examples to
 documentation buffers (the ones help.el or helpful produces). The built-in demos
-are great, but this file exists to add demos for Doom's API and beyond.
+are great, but this file exists to add demos for Rmcs's API and beyond.
 
 #+begin_quote
  󰐃 Please make sure new additions to this file are arranged alphabetically and
-    has a :PROPERTIES: drawer that includes in what version of Doom that the
+    has a :PROPERTIES: drawer that includes in what version of Rmcs that the
     symbol/function was added.
 #+end_quote
 
 #+begin_quote
- 󰐃 Please don't add demos for code outside of Doom Emacs. PR those to the parent
+ 󰐃 Please don't add demos for code outside of Rmcs Emacs. PR those to the parent
     project: https://github.com/xuchunyang/elisp-demos. And please don't add
     functions from modules, put those in that module's demo.org file, or your
     own in $RMCSDIR/demos.org.
@@ -282,7 +282,7 @@ Or to create aliases for functions that behave differently:
  (pin "v3.0.0")
 
  (source "modules/")  ; Modules in $RMCSDIR/modules/*/*
- (source :name rmcs :repo "rmcsemacs/modules" :pin "v21.12.0")  ; Doom's default modules
+ (source :name rmcs :repo "rmcsemacs/modules" :pin "v21.12.0")  ; Rmcs's default modules
  (source :name contrib :repo "rmcsemacs/contrib-modules" :pin "v21.12.0")  ; Community-contributed
  ;; Examples:
  (source :name my :repo "my/modules" :root "unorthodox/path/to/modules/")
@@ -485,7 +485,7 @@ These are side-by-side comparisons, showing how to bind keys with and without
 (package! js2-mode)
 (package! rainbow-delimiters)
 
-;; To disable a package included with Doom (which will no-op all its `after!'
+;; To disable a package included with Rmcs (which will no-op all its `after!'
 ;; and `use-package!' blocks):
 (package! evil :disable t)
 (package! rainbow-delimiters :disable t)

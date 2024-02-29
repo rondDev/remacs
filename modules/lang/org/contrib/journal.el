@@ -33,7 +33,7 @@
 
   ;; `org-journal' can't deal with symlinks, so resolve them here.
   (setq org-journal-dir (expand-file-name org-journal-dir org-directory)
-        ;; Doom opts for an "open in a popup or here" strategy as a default.
+        ;; Rmcs opts for an "open in a popup or here" strategy as a default.
         ;; Open in "other window" is less predictable, and can replace a window
         ;; we wanted to keep visible.
         org-journal-find-file #'find-file)

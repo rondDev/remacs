@@ -8,7 +8,7 @@
 #+end_quote
 
 * Description :unfold:
-Adds [[rmcs-package:god-mode]] support to Doom Emacs, allowing for entering commands without
+Adds [[rmcs-package:god-mode]] support to Rmcs Emacs, allowing for entering commands without
 modifier keys, similar to Vim's modality, separating command mode and insert
 mode.
 

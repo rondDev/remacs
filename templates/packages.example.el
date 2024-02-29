@@ -1,7 +1,7 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; $RMCSDIR/packages.el
 
-;; To install a package with Doom you must declare them here and run 'rmcs sync'
+;; To install a package with Rmcs you must declare them here and run 'rmcs sync'
 ;; on the command line, then restart Emacs for the changes to take effect -- or
 ;; use 'M-x rmcs/reload'.
 
@@ -22,13 +22,13 @@
 ;;   :recipe (:host github :repo "username/repo"
 ;;            :files ("some-file.el" "src/lisp/*.el")))
 
-;; If you'd like to disable a package included with Doom, you can do so here
+;; If you'd like to disable a package included with Rmcs, you can do so here
 ;; with the `:disable' property:
 ;; (package! builtin-package :disable t)
 
 ;; You can override the recipe of a built in package without having to specify
 ;; all the properties for `:recipe'. These will inherit the rest of its recipe
-;; from Doom or MELPA/ELPA/Emacsmirror:
+;; from Rmcs or MELPA/ELPA/Emacsmirror:
 ;; (package! builtin-package :recipe (:nonrecursive t))
 ;; (package! builtin-package-2 :recipe (:repo "myfork/package"))
 
@@ -41,7 +41,7 @@
 ;; (package! builtin-package :pin "1a2b3c4d5e")
 
 
-;; Doom's packages are pinned to a specific commit and updated from release to
+;; Rmcs's packages are pinned to a specific commit and updated from release to
 ;; release. The `unpin!' macro allows you to unpin single packages...
 ;; (unpin! pinned-package)
 ;; ...or multiple packages

@@ -8,7 +8,7 @@ This module adds a minimalistic, Atom-inspired dashboard to Emacs.
 
 Besides eye candy, the dashboard serves two other purposes:
 
-1. To improve Doom's startup times (the dashboard is lighter than the scratch
+1. To improve Rmcs's startup times (the dashboard is lighter than the scratch
    buffer in many cases).
 
 2. And to preserve the "last open directory" you were in. Occasionally, I kill
@@ -63,24 +63,24 @@ To use a custom image as your banner, change ~fancy-splash-image~:
 #+end_src
 
 #+begin_quote
- 󰐃 Doom will fall back to its ASCII banner in Terminal Emacs. To replace the
+ 󰐃 Rmcs will fall back to its ASCII banner in Terminal Emacs. To replace the
     ASCII banner, replace the ~rmcs-dashboard-widget-banner~ function in
     ~+rmcs-dashboard-functions~ with a function that inserts your new banner
     into the current file.
 #+end_quote
 
 ** Adding text to the dashboard
-Doom's dashboard iterates over ~+rmcs-dashboard-functions~ when it is told to
+Rmcs's dashboard iterates over ~+rmcs-dashboard-functions~ when it is told to
 redraw. Add your own functions to operate on the buffer and potentially add
-whatever you like to Doom's splash screen.
+whatever you like to Rmcs's splash screen.
 
 #+begin_quote
   Keep in mind that inserting text from expensive sources, e.g. your org
-    agenda, will negate most of Doom's startup benefits.
+    agenda, will negate most of Rmcs's startup benefits.
 #+end_quote
 
 ** Customizing Faces
-Doom's dashboard defaults to inheriting faces set by the current theme. If you
+Rmcs's dashboard defaults to inheriting faces set by the current theme. If you
 wish to customize it independently of the theme (or just inherit a different
 color from the theme) you can make use of ~custom-set-faces!~ or
 ~custom-theme-set-faces!~:

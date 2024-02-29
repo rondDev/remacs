@@ -54,7 +54,7 @@ This module requires one of three setups for ligatures to work:
 - A recent enough version of Emacs which will compose ligatures automatically
   (Emacs 28 with Harfbuzz support), or
 - Mitsuharu's =emacs-mac= build on macOS (available on Homebrew), or
-- A patched font for Doom's fallback ligature support.
+- A patched font for Rmcs's fallback ligature support.
 
   /This module does not have specific installation instructions/
 
@@ -153,7 +153,7 @@ are obtained automatically depending on the capabilities of the font, and no
 font-specific configuration is necessary.
 
 Emacs-mac port implements the same method natively in [[https://bitbucket.org/mituharu/emacs-mac/src/26c8fd9920db9d34ae8f78bceaec714230824dac/lisp/term/mac-win.el?at=master#lines-345:805][its code]], nothing is
-necessary on Doom side; otherwise, Doom uses the [[https://github.com/mickeynp/ligature.el][ligature.el]] package that
+necessary on Rmcs side; otherwise, Rmcs uses the [[https://github.com/mickeynp/ligature.el][ligature.el]] package that
 implements this method for Emacs 28+ built with Harfbuzz support. Therefore, the
 module will not work with Emacs 27 or previous.
 

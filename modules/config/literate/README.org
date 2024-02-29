@@ -104,10 +104,10 @@ If your literate needs are more complex (e.g. you want to make your init.el
 literate), this module won't cut it. =init.el= files in modules are loaded long
 before =config.org= is tangled in the ~$ rmcs sync~ process.
 
-However, Doom comes with a [[file:../../../bin/org-tangle][bin/org-tangle]] script which can be used to tangle
+However, Rmcs comes with a [[file:../../../bin/org-tangle][bin/org-tangle]] script which can be used to tangle
 arbitrary org files from the command line. Use it to create your own compilation
 workflows. This is /much/ faster than using ~org-babel-load-file~ directly to
-load your literate config every time Doom is started.
+load your literate config every time Rmcs is started.
 
 ** How do I disable tangle-on-save?
 There are occasions where tangling on save may be undesirable. Maybe it's too

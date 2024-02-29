@@ -2,7 +2,7 @@
 :ID:       ca20678f-0f1a-4462-a599-da03f0e16330
 :END:
 #+title:    Appendix
-#+subtitle: A glossary of (Doom) Emacs terms, acronyms, & concepts
+#+subtitle: A glossary of (Rmcs) Emacs terms, acronyms, & concepts
 #+startup:  nonum show2levels*
 
 * Glossary
@@ -15,15 +15,15 @@
 - localleader key :: TODO
 
 ** Environment Variables :category:
-- $RMCSDIR :: The location of the user's private configuration for Doom Emacs;
+- $RMCSDIR :: The location of the user's private configuration for Rmcs Emacs;
   usually found in =~/.config/rmcs= or =~/.rmcs.d=.
 
-- $EMACSDIR :: The location of your Emacs initfile. This is where Doom users
-  will have cloned Doom's core to (=~/.config/emacs= or =~/.emacs.d=).
+- $EMACSDIR :: The location of your Emacs initfile. This is where Rmcs users
+  will have cloned Rmcs's core to (=~/.config/emacs= or =~/.emacs.d=).
 
-** Doom Emacs :category:
-- Doom module :: A toggle-able collection of configuration, packages, and
-  functions, made for Doom Emacs.
+** Rmcs Emacs :category:
+- Rmcs module :: A toggle-able collection of configuration, packages, and
+  functions, made for Rmcs Emacs.
 
 ** Emacs :category:
 - ELPA :: Emacs-Lisp Package Archive. Used either to refer to the
@@ -173,7 +173,7 @@
   behaviour for known commands.
   
   #+begin_quote
-   󰐃 Doom users with evil enabled will find the universal argument on [[kbd:][SPC u]]
+   󰐃 Rmcs users with evil enabled will find the universal argument on [[kbd:][SPC u]]
       instead than [[kbd:][C-u]].
   #+end_quote
 

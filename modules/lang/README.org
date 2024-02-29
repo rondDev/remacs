@@ -4,7 +4,7 @@
 
 * Description
 These modules specialize in integration particular languages and their
-ecosystems into (Doom) Emacs.
+ecosystems into (Rmcs) Emacs.
 
 * Frequently asked questions
 /This category has no FAQs yet./ [[rmcs-suggest-faq:][Ask one?]]

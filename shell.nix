@@ -1,4 +1,4 @@
-# Builds a sandbox for Emacs (and optionally, Doom) with a particular version of
+# Builds a sandbox for Emacs (and optionally, Rmcs) with a particular version of
 # Emacs. Use this as a basis for module shell.nix's.
 #
 # Usage examples:

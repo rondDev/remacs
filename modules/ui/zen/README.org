@@ -37,7 +37,7 @@ These modes are:
 - [[rmcs-package:writeroom-mode]]
 
 ** Hacks
-+ Doom has disabled all of writeroom-mode's "global" effects
++ Rmcs has disabled all of writeroom-mode's "global" effects
   (~writeroom-global-effects~ and ~writeroom-maximize-window~ are set to ~nil~),
   and encapsulated them into the ~+zen/toggle-fullscreen~ command, whereas
   ~+zen/toggle~ will only operate on the current buffer. This way, the user may

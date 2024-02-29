@@ -1,4 +1,4 @@
-;;; early-init.el --- Doom's universal bootstrapper -*- lexical-binding: t -*-
+;;; early-init.el --- Rmcs's universal bootstrapper -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;
 ;; This file, in summary:
@@ -7,12 +7,12 @@
 ;;   - Processing `--profile NAME' (see
 ;;     `https://docs.rmcsemacs.org/-/developers' or docs/developers.org),
 ;;   - Or assume that it's the directory this file lives in.
-;; - Loads Doom as efficiently as possible, with only the essential startup
+;; - Loads Rmcs as efficiently as possible, with only the essential startup
 ;;   optimizations, and prepares it for interactive or non-interactive sessions.
-;; - If Doom isn't present, then we assume that Doom is being used as a
-;;   bootloader and the user wants to load a non-Doom config, so we undo all our
+;; - If Rmcs isn't present, then we assume that Rmcs is being used as a
+;;   bootloader and the user wants to load a non-Rmcs config, so we undo all our
 ;;   global side-effects, load `user-emacs-directory'/early-init.el, and carry
-;;   on as normal (without Doom).
+;;   on as normal (without Rmcs).
 ;; - Do all this without breaking compatibility with Chemacs.
 ;;
 ;; early-init.el was introduced in Emacs 27.1. It is loaded before init.el,
@@ -20,9 +20,9 @@
 ;; loaded. This is great place for startup optimizing, because only here can you
 ;; *prevent* things from loading, rather than turn them off after-the-fact.
 ;;
-;; Doom uses this file as its "universal bootstrapper" for both interactive and
+;; Rmcs uses this file as its "universal bootstrapper" for both interactive and
 ;; non-interactive sessions. That means: no matter what environment you want
-;; Doom in, load this file first.
+;; Rmcs in, load this file first.
 ;;
 ;;; Code:
 
@@ -66,7 +66,7 @@
                              (getenv-internal "EMACSDIR"))))
            (if (null init-dir)
                ;; FIX: If we've been loaded directly (via 'emacs -batch -l
-               ;;   early-init.el') or by a rmcsscript (like bin/rmcs), and Doom
+               ;;   early-init.el') or by a rmcsscript (like bin/rmcs), and Rmcs
                ;;   is in a non-standard location (and/or Chemacs is used), then
                ;;   `user-emacs-directory' will be wrong.
                (when noninteractive
@@ -102,18 +102,18 @@
    ;;   amounts to at least one file op, which is normally very fast, but can
    ;;   add up over the hundreds/thousands of files Emacs loads.
    ;;
-   ;;   To reduce that burden -- and since Doom doesn't load any dynamic modules
+   ;;   To reduce that burden -- and since Rmcs doesn't load any dynamic modules
    ;;   this early -- I remove `.so' from `load-suffixes' and pass the
    ;;   `must-suffix' arg to `load'. See the docs of `load' for details.
    (if (let ((load-suffixes '(".elc" ".el")))
          ;; I avoid `load's NOERROR argument because other, legitimate errors
          ;; (like permission or IO errors) should not be suppressed or
-         ;; interpreted as "this is not a Doom config".
+         ;; interpreted as "this is not a Rmcs config".
          (condition-case _
-             ;; Load the heart of Doom Emacs.
+             ;; Load the heart of Rmcs Emacs.
              (load (expand-file-name "lisp/rmcs" user-emacs-directory)
                    nil (not init-file-debug) nil 'must-suffix)
-           ;; Failing that, assume that we're loading a non-Doom config.
+           ;; Failing that, assume that we're loading a non-Rmcs config.
            (file-missing
             ;; HACK: `startup--load-user-init-file' resolves $EMACSDIR from a
             ;;   lexical (and so, not-trivially-modifiable)
@@ -137,7 +137,7 @@
             ;;   as a best fit guess. It's better than Emacs' 80kb default.
             (setq gc-cons-threshold (* 16 1024 1024))
             nil)))
-       ;; ...Otherwise, we're loading a Doom config, so continue as normal.
+       ;; ...Otherwise, we're loading a Rmcs config, so continue as normal.
        (rmcs-require (if noninteractive 'rmcs-cli 'rmcs-start))))
 
  ;; Then continue on to the config/profile we want to load.

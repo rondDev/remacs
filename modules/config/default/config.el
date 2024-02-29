@@ -444,7 +444,7 @@ Continues comments if executed from a commented line. Consults
     "M-x" #'execute-extended-command
     "A-x" #'execute-extended-command)
 
-  ;; A Doom convention where C-s on popups and interactive searches will invoke
+  ;; A Rmcs convention where C-s on popups and interactive searches will invoke
   ;; ivy/helm/vertico for their superior filtering.
   (when-let (command (cond ((modulep! :completion ivy)
                             #'counsel-minibuffer-history)

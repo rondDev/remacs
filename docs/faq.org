@@ -6,7 +6,7 @@
 #+startup:  nonum show2levels*
 
 #+begin_quote
- 󰐃 Our documentation was designed to be read in Doom Emacs ([[kbd:][M-x rmcs/help]]) or
+ 󰐃 Our documentation was designed to be read in Rmcs Emacs ([[kbd:][M-x rmcs/help]]) or
     online at https://docs.rmcsemacs.org. Avoid reading it elsewhere (like
     Github) where it will be rendered incorrectly.
 #+end_quote
@@ -15,10 +15,10 @@
 :PROPERTIES:
 :ID:       3c17177d-8ba9-4d1a-a279-b6dea21c8a9a
 :END:
-This section is for general questions about the Doom Emacs project and its
+This section is for general questions about the Rmcs Emacs project and its
 author.
 
-** Is Emacs (or Doom) for me?
+** Is Emacs (or Rmcs) for me?
 :PROPERTIES:
 :ID:       6f325ee8-228a-4b05-8ce9-4a997948d46a
 :END:
@@ -26,18 +26,18 @@ These four sections of [[id:a3bf32ae-8218-48c1-a7d9-a6fd61e5734a][our user manua
 
 - [[id:fba3642f-b01e-405b-80ac-2900df22e978][Why Emacs?]]
 - [[id:e3172459-abcb-45cb-9135-9692f320a836][Why /not/ Emacs?]]
-- [[id:46d2058d-249e-45a7-a7a2-58bade48df65][Why Doom?]]
-- [[id:da317a3c-1672-40e2-85d5-b4246482af2c][Why /not/ Doom?]]
+- [[id:46d2058d-249e-45a7-a7a2-58bade48df65][Why Rmcs?]]
+- [[id:da317a3c-1672-40e2-85d5-b4246482af2c][Why /not/ Rmcs?]]
 
-** How does Doom compare to <insert starter kit>?
+** How does Rmcs compare to <insert starter kit>?
 I've compiled comparisons to several starter kits in [[id:f2186c7b-9f48-4b0b-ac0b-d891b5b1e1b3][our migration guide]].
 
-** Is Doom a fork of another starter kit?
-No. I started Doom from scratch in 2013 to learn Emacs and Emacs Lisp, and to
+** Is Rmcs a fork of another starter kit?
+No. I started Rmcs from scratch in 2013 to learn Emacs and Emacs Lisp, and to
 write a private config for myself. Starter kits were brought to my attention
-later, when early Doom users vocally compared them.
+later, when early Rmcs users vocally compared them.
 
-That's not to say I've taken no inspiration from them since. Doom's earliest
+That's not to say I've taken no inspiration from them since. Rmcs's earliest
 file structure was inspired by Prelude's, until it was replaced with a module
 system. Other concepts (like [[kbd:][SPC]] as a leader key) came from Spacemacs or were
 PRed from migrating users, and were accepted because they seemed sensible.
@@ -45,9 +45,9 @@ PRed from migrating users, and were accepted because they seemed sensible.
 More similarities (and differences) will no doubt emerge as our userbase grows
 and more starter kits appear.
 
-** Doom claims to be an Emacs framework, not a starter kit. What's the difference?
-I don't claim to own these terms, but I use them to distinguish [[https://git.rmcsemacs.org/core][Doom's core]] (a
-framework) from [[https://git.rmcsemacs.org/modules][Doom's module library]] (a starter kit).
+** Rmcs claims to be an Emacs framework, not a starter kit. What's the difference?
+I don't claim to own these terms, but I use them to distinguish [[https://git.rmcsemacs.org/core][Rmcs's core]] (a
+framework) from [[https://git.rmcsemacs.org/modules][Rmcs's module library]] (a starter kit).
 
 My premise is: starter kits and Emacs frameworks have different goals. Where
 starter kits help you avoid work by doing it for you, an Emacs framework helps
@@ -55,7 +55,7 @@ you /do/ that work yourself, but more effectively (by providing extra tools,
 APIs, or organizational systems for writing/debugging). Of course, there will be
 some crossover.
 
-** Who maintains Doom Emacs?
+** Who maintains Rmcs Emacs?
 My name is [[https://github.com/hlissner][Henrik]], I'm this project's author and its sole maintainer, for the
 moment. I plan to onboard co-maintainers once the project has:
 
@@ -63,34 +63,34 @@ moment. I plan to onboard co-maintainers once the project has:
   maintainers. Many important organizational questions haven't been formally
   answered or committed to paper: such as our versioning scheme, git
   conventions, community policies, and code/documentation style guides. Even
-  Doom's goals aren't formally stated anywhere.
+  Rmcs's goals aren't formally stated anywhere.
 - More unit, integration, and package tests. Total coverage isn't required (or
   desired), but Emacs issues are complex and esoteric, so /some/ measure of
   automated sanity checks (and protocols for merges and releases) are needed to
   spare future maintainers a stroll through a minefield.
 - Resolved its stability, performance, and standardization issues that plague
   its CLI. Issues too esoteric for me to unleash onto unsuspecting
-  co-maintainers in good conscience. I could live with them when Doom was my
+  co-maintainers in good conscience. I could live with them when Rmcs was my
   private config, but that is no longer the case. It needs to be rewritten.
 
 Most of these issues will be resolved in the final 3.0.0 release.
 
 I am looking for [[id:29d9a145-8f2e-4d22-b4d0-de8a2c72698d][module maintainers]] though!
 
-** Why is the project called "Doom"?
+** Why is the project called "Rmcs"?
 As a kid in the Cretaceous period (1999), the [[https://github.com/id-Software/RMCS][source code]] of idsoftware's
-classic Doom was my first exposure to programming. Totally clueless about C and
+classic Rmcs was my first exposure to programming. Totally clueless about C and
 compilers, all I could do was peek at it from time to time and hope I'd absorb
 its secrets if I stared hard enough. It didn't work, but it sure jump-started by
 gamedev addiction.
 
-So "Doom Emacs" was what you got when you combined childhood, demon-carnage
+So "Rmcs Emacs" was what you got when you combined childhood, demon-carnage
 nostalgia, [[https://www.youtube.com/user/n4sco][terrible]] [[https://github.com/hlissner/emacs-solaire-mode][naming]] [[https://github.com/hlissner/vim-forrestgump][sense]], and the sneaking suspicion that Emacs is the
 unwritten tenth circle Dante censored for humanity's protection.
 
 I've rmcsed us all.
 
-** Why does Doom use straight.el and not package.el?
+** Why does Rmcs use straight.el and not package.el?
 =package.el= simply doesn't cut it. Its flaws become apparent the more packages
 you manage, the more complex your config becomes, and how often those packages
 see updates:
@@ -102,8 +102,8 @@ see updates:
   roll back, so you /have/ to deal with it, and now. Or hope your old config was
   backed up.
 
-  Though Doom doesn't have a 'rmcs rollback' command (yet), the ability to
-  quickly checkout an old commit of a problematic package (or Doom itself),
+  Though Rmcs doesn't have a 'rmcs rollback' command (yet), the ability to
+  quickly checkout an old commit of a problematic package (or Rmcs itself),
   without the overhead of forking and/or maintaining a local copy, is priceless.
 - Rolling release or bust ::
   =package.el= installs the latest version of every package, or none at all.
@@ -122,19 +122,19 @@ see updates:
 - Slow at startup (by default) ::
   Initializing =package.el= can be expensive, depending on the number (and
   complexity) of installed packages -- especially for batch scripts.
-  ~package-quickstart~ helps, up to a point, but Doom's package manager can do
+  ~package-quickstart~ helps, up to a point, but Rmcs's package manager can do
   better with the assumptions available to its monolithic ecosystem. All without
   imposing =straight.el= or =package.el= on your runtime environments.
 
 Package management needs to be easier, because Emacs is hard enough already.
-Doom fills these gaps with =straight.el='s help, and beyond.
+Rmcs fills these gaps with =straight.el='s help, and beyond.
 
 Granted, you /can/ get most of the above with a little Git know-how, but it
 stops being convenient as you reach package 5 or 15, your tenacity permitting.
 
 ** Why is startup time important? Why not use the daemon?
 It isn't, but it gets a disproportional amount of attention because it's the
-first thing Doom's users notice. Doom is perfectly compatible with the daemon
+first thing Rmcs's users notice. Rmcs is perfectly compatible with the daemon
 and I don't intend to discourage its use. If I had to say something about it,
 it's that I'm unhappy that a daemon is needed at all to get sane startup times
 out of Emacs.
@@ -145,7 +145,7 @@ a moving target (with a high cost-to-benefit). Who has the time to inspect, much
 less fix, all their packages? And maintain that effort across Emacs or package
 updates? It's easier to use the daemon, so people do.
 
-That said, there's no one to blame for that. I consider Doom's effort, the
+That said, there's no one to blame for that. I consider Rmcs's effort, the
 daemon, even native compilation (though all excellent endeavors) stop-gap
 measures for a deeper, underlying issue in Emacs that needs smarter people than
 I to address.
@@ -163,7 +163,7 @@ Our development resources are listed [[id:a20e3feb-f1e4-4bd3-92a9-6dfb17bcb24b][
 Check out [[id:2f277e96-654d-406f-8797-b9a7d2ccc218][our community resources]] for a complete list of communities and
 platforms. I'd recommend [[https://discourse.rmcsemacs.org/get-help][our Discourse]].
 
-** I don't like Discord. Can Doom move to IRC/Telegram/Matrix/other?
+** I don't like Discord. Can Rmcs move to IRC/Telegram/Matrix/other?
 This is requested *a lot*--and not always so kindly. We have [[https://discourse.rmcsemacs.org][a Discourse]] and
 [[https://discourse.rmcsemacs.org/t/a-matrix-space-for-rmcs-emacs/2664/12][there are plans for a Matrix space]], but that's as many platforms as I have
 bandwidth for. Please do not ask me to reconsider.
@@ -181,31 +181,31 @@ cut they will naturally find their way here.
 :PROPERTIES:
 :ID:       9c81ab2a-7da9-4b8e-9f90-d4ebff8bebbb
 :END:
-For common how-to and configuration questions from Doom users. You'll find more
+For common how-to and configuration questions from Rmcs users. You'll find more
 [[https://discourse.rmcsemacs.org/tags/faq][on our Discourse]].
 
-** Find out what version of Doom am I running?
+** Find out what version of Rmcs am I running?
 Use ~M-x rmcs/info~ or ~$ rmcs info~ to produce detailed information about your
 installation and environment.
 
 Alternatively, ~M-x rmcs/version~ or ~$ rmcs version~ will only list the
-versions of installed Doom components.
+versions of installed Rmcs components.
 
-The installed version of Doom core is also displayed in the Doom dashboard's
+The installed version of Rmcs core is also displayed in the Rmcs dashboard's
 mode-line.
 
-** Turn (Doom) Emacs into a <insert language here> IDE with LSP?
+** Turn (Rmcs) Emacs into a <insert language here> IDE with LSP?
 :PROPERTIES:
 :ID:       4cec77b2-bb1c-4b35-8ad1-d6dd9fcc1dbb
 :END:
-This is frequently asked: how to transform Doom Emacs into an IDE for some
+This is frequently asked: how to transform Rmcs Emacs into an IDE for some
 programming language. In almost all cases, it's recommended that you enable
-Doom's LSP support and install a supported LSP client.
+Rmcs's LSP support and install a supported LSP client.
 
 This provides code completion, lookup {definition,references,documentation}
 functionality, and syntax checking, all in one:
 
-1. Enable Doom's [[rmcs-module::tools lsp]] module. ([[id:01cffea4-3329-45e2-a892-95a384ab2338][How do I enable modules?]])
+1. Enable Rmcs's [[rmcs-module::tools lsp]] module. ([[id:01cffea4-3329-45e2-a892-95a384ab2338][How do I enable modules?]])
 2. Enable the ~+lsp~ flag on the ~:lang~ module corresponding to the language
    you want LSP support for. E.g. For python, enable [[rmcs-module::lang python +lsp]]. For
    rust, enable [[rmcs-module::lang rust +lsp]]. ([[id:01cffea4-3329-45e2-a892-95a384ab2338][How do I enable module flags?]])
@@ -229,7 +229,7 @@ functionality, and syntax checking, all in one:
    ;; E.g. `ruby-mode-local-vars-hook' or `python-mode-local-vars-hook'
    (add-hook 'MAJOR-MODE-local-vars-hook #'lsp! 'append)
 
-   ;; For Elisp gurus: Doom provides MAJOR-MODE-local-vars-hook, and we use it
+   ;; For Elisp gurus: Rmcs provides MAJOR-MODE-local-vars-hook, and we use it
    ;; instead of MAJOR-MODE-hook because it runs later in the mode's startup
    ;; process (giving other functionality or packages -- like direnv -- time to
    ;; configure the LSP client).
@@ -242,7 +242,7 @@ When in doubt, check that language module's documentation! Look up a module's
 documentation with [[kbd:][<help> d m]] (or ~M-x rmcs/help-modules~).
 
 ** Change my fonts
-Doom exposes a couple variables for setting fonts. They are:
+Rmcs exposes a couple variables for setting fonts. They are:
 
 - [[var:rmcs-font]]: the primary font for Emacs to use.
 - [[var:rmcs-variable-pitch-font]]: used for non-monospace fonts (e.g. when using
@@ -275,7 +275,7 @@ For example:
 #+begin_quote
  󰐃 If you or Emacs can't find your font, use ~M-x describe-font~ to look them
     up, or run ~$ fc-list~ to see all the available fonts on your system. *Font
-    issues are /rarely/ Doom issues!*
+    issues are /rarely/ Rmcs issues!*
 #+end_quote
 
 *** To change fonts on the fly:
@@ -292,8 +292,8 @@ Your changes should take effect immediately.
 - To switch themes on-the-fly, type [[kbd:][<help> t]] or ~M-x load-theme~.
 - To customize or write themes, see our guide on [[https://discourse.rmcsemacs.org/t/how-to-switch-customize-or-write-themes/37][the Discourse]].
 
-** Properly update Doom?
-You can update Doom one of two ways:
+** Properly update Rmcs?
+You can update Rmcs one of two ways:
 
 1. The correct way: by running ~$ rmcs upgrade~ in the shell and restarting
    Emacs.
@@ -301,8 +301,8 @@ You can update Doom one of two ways:
 
    #+begin_src bash
    $ cd ~/.emacs.d
-   $ git pull       # pull the latest version of Doom's source
-   $ rmcs sync -u   # update Doom's packages and 'rmcs sync'
+   $ git pull       # pull the latest version of Rmcs's source
+   $ rmcs sync -u   # update Rmcs's packages and 'rmcs sync'
    #+end_src
 
 This may change in the future, so ~$ rmcs upgrade~ will always be the safest
@@ -317,7 +317,7 @@ Emacs provides a couple functions to bind keys:
 - ~local-set-key KEY DEF~
 - ~evil-define-key STATES KEYMAP KEY DEF &rest ...~
 
-However, Doom provides a more general ~map!~ macro, to conveniently wrap up the
+However, Rmcs provides a more general ~map!~ macro, to conveniently wrap up the
 above four into a more succinct syntax. Comprehensive examples of ~map!~'s usage
 can be found in its documentation (keyboard shortcut: [[kbd:][<help> f map\!]]).
 
@@ -336,7 +336,7 @@ This is documented in more detail in our user manual:
 - [[id:8e0d2c05-6028-4e68-a50d-b81851f3f258][How to bind aliases for your leader / localleader prefix]]
 
 ** Change the style of (or disable) line-numbers?
-Doom uses the [[rmcs-package:display-line-numbers]] package, which is included with Emacs 26+.
+Rmcs uses the [[rmcs-package:display-line-numbers]] package, which is included with Emacs 26+.
 
 *** To disable line numbers entirely
 #+begin_src emacs-lisp
@@ -384,7 +384,7 @@ instructions.
 :END:
 As a rule of thumb, run ~$ rmcs sync~ whenever you:
 
-- Update Doom with ~$ git pull~ instead of ~$ rmcs upgrade~,
+- Update Rmcs with ~$ git pull~ instead of ~$ rmcs upgrade~,
 - Change your ~rmcs!~ block in =$RMCSDIR/init.el=,
 - Change =autoload.el= or =autoload/*.el= files in any module (or =$RMCSDIR=),
 - Change the =packages.el= file in any module (or =$RMCSDIR=).
@@ -436,16 +436,16 @@ For problems that come up especially often. You'll find more [[https://discourse
 and [[https://github.com/rmcsemacs/rmcsemacs/issues][Github issue tracker]]. Consult [[id:14040b81-3dd3-422e-abce-245f4c03d1b4][our troubleshooting guide]] for help debugging
 issues.
 
-** Doom and/or Emacs is slow
+** Rmcs and/or Emacs is slow
 :PROPERTIES:
 :ID:       643acc75-9717-4739-9c52-3947491e827e
 :END:
 The answer changes from version to version (of Emacs), and is often updated with
 new information, so [[https://discourse.rmcsemacs.org/t/why-is-emacs-rmcs-slow/83][this is answered on Discourse]] instead.
 
-** Doom starts up with a vanilla splash screen
+** Rmcs starts up with a vanilla splash screen
 The most common cause for this is a =~/.emacs= file. If it exists, Emacs will
-read this file instead of the =~/.emacs.d= directory, ignoring Doom altogether.
+read this file instead of the =~/.emacs.d= directory, ignoring Rmcs altogether.
 
 If this isn't the case, run ~$ rmcs doctor~. It can detect a variety of common
 issues and may offer you clues.
@@ -458,20 +458,20 @@ The common explanations for this are:
   has an =init.el= file with a ~rmcs!~ block. Running ~$ rmcs install~ will
   create these files and directories for you.
 
-- An error occurred while starting up Doom. Use [[kbd:][C-h e]] to inspect Emacs' log.
+- An error occurred while starting up Rmcs. Use [[kbd:][C-h e]] to inspect Emacs' log.
   Search it for errors or warnings. If you find one, [[id:aa116c29-b7d5-488a-860f-bdb22c1f4e8e][producing a backtrace]] from
   the error can shed more light on it (and will be required if you ask the
   community for help debugging it).
 
 - You have disabled the [[rmcs-module::ui rmcs-dashboard]] module. Read about
-  [[id:5e267107-81fa-45b4-8ff3-26d4b98e508e][what Doom modules are]] and [[id:01cffea4-3329-45e2-a892-95a384ab2338][how to
+  [[id:5e267107-81fa-45b4-8ff3-26d4b98e508e][what Rmcs modules are]] and [[id:01cffea4-3329-45e2-a892-95a384ab2338][how to
   toggle them]].
 
 If you're still stuck, run ~$ rmcs doctor~. It can detect a variety of common
 issues and may give you some clues as to what is wrong.
 
-** Doom fails to find executables (or inherit my shell's =$PATH=)
-The three most common causes for =$PATH= issues in Doom are:
+** Rmcs fails to find executables (or inherit my shell's =$PATH=)
+The three most common causes for =$PATH= issues in Rmcs are:
 
 1. Your shell configuration doesn't configure =$PATH= correctly. Run ~$ which
    <PROGRAM>~ in your shell. If it doesn't emit the path you expect (or any path
@@ -485,7 +485,7 @@ The three most common causes for =$PATH= issues in Doom are:
 
 As long as your shell is properly configured, there is a simple solution to
 issues #1 and #3: generate an envvar file by running ~$ rmcs env~. This scrapes
-your shell environment into a file that is loaded when Doom Emacs starts up. Run
+your shell environment into a file that is loaded when Rmcs Emacs starts up. Run
 ~$ rmcs help env~ for details on how this works.
 
 For issue #2, you'll need to investigate your launcher. There are too many
@@ -494,7 +494,7 @@ launchers write a walkthrough for, you'll have better luck asking about it on
 
 ** Changes to my config aren't taking effect
 1. Make sure you don't have both =~/.rmcs.d= and =~/.config/rmcs= directories.
-   Doom will ignore the first if the second exists.
+   Rmcs will ignore the first if the second exists.
 2. Remember to run ~$ rmcs sync~ after making [[id:594d2505-d3cb-4061-ab76-06e7c8a4e0b8][certain changes]] to your config.
    Run ~$ rmcs help sync~ to know exactly when you should use it.
 3. If you are reconfiguring a package, make sure you've deferred your settings
@@ -520,7 +520,7 @@ If none of these solve your issue, try ~$ rmcs doctor~. It will detect a variety
 of common issues, and may give you some clues as to what is wrong. Otherwise,
 consult [[id:2f277e96-654d-406f-8797-b9a7d2ccc218][the community]].
 
-** Doom crashes and/or freezes
+** Rmcs crashes and/or freezes
 Here are a few common causes for random crashes:
 
 - Some fonts cause Emacs to crash when they lack support for a particular glyph
@@ -531,7 +531,7 @@ Here are a few common causes for random crashes:
   the [[rmcs-module::ui ligatures]] module altogether.
 
 - On some systems (particularly MacOS), manipulating the fringes or window
-  margins can cause Emacs to crash. This is most prominent in Doom's Dashboard
+  margins can cause Emacs to crash. This is most prominent in Rmcs's Dashboard
   (which uses the margins to center its contents), in org-mode buffers (which
   uses ~org-indent-mode~ to create virtual indentation), or Magit (whose fringes
   are adjusted on the fly).
@@ -556,8 +556,8 @@ If these don't help, check our troubleshooting guides for [[id:f88eaf35-97c4-48d
 You'll find solutions [[https://www.emacswiki.org/emacs/TrampMode#toc7][on the emacswiki]].
 
 ** Why do I see ugly indentation highlights for tabs?
-[[https://github.com/rmcsemacs/rmcsemacs/blob/4eeb3c7a19c324f5a7839a2e3edb03fc87d23034/core/core-ui.el#L97-L116][Doom highlights non-standard indentation]]. i.e. Indentation that doesn't match
-the indent style you've set for that file. Spaces are Doom's default style for
+[[https://github.com/rmcsemacs/rmcsemacs/blob/4eeb3c7a19c324f5a7839a2e3edb03fc87d23034/core/core-ui.el#L97-L116][Rmcs highlights non-standard indentation]]. i.e. Indentation that doesn't match
+the indent style you've set for that file. Spaces are Rmcs's default style for
 most languages (excluding languages where tabs are the norm, like Go).
 
 There are a couple ways to address this:
@@ -582,10 +582,10 @@ There are a couple ways to address this:
    #+end_src
 
 3. Use [[https://editorconfig.org/][editorconfig]] to configure code style on a per-project basis. If you
-   enable Doom's [[rmcs-module::tools editorconfig]] module, Doom will recognize
+   enable Rmcs's [[rmcs-module::tools editorconfig]] module, Rmcs will recognize
    =.editorconfigrc= files.
 
-4. Or trust in [[rmcs-package:dtrt-indent]]; a plugin Doom uses to analyze and detect indentation
+4. Or trust in [[rmcs-package:dtrt-indent]]; a plugin Rmcs uses to analyze and detect indentation
    when you open a file (that isn't in a project with an editorconfig file).
    This isn't foolproof, and won't work for files that have no content in them,
    but it can help in one-off scenarios.
@@ -651,7 +651,7 @@ Then these are the three most common explanations:
 
 - =tar= and/or =gzip= aren't in your =$PATH=, somehow. Once you've corrected
   your shell config, run ~$ rmcs env~ to regenerate your envvar file (containing
-  the =$PATH= Doom will see), then restart Emacs.
+  the =$PATH= Rmcs will see), then restart Emacs.
 
 - *(macOS users only)* You've installed Emacs from one of the sources I
   recommend you avoid. For example, emacsformacosx.com. Our user manual outlines
@@ -721,7 +721,7 @@ problem because they pollute our search results, make it difficult for users and
 maintainers to track real issues, and cost much effort to process; taking away
 time from real issues or project development.
 
-Since Doom's "support team" only consists of one overworked maintainer and a
+Since Rmcs's "support team" only consists of one overworked maintainer and a
 handful of busy volunteers, we have to be strict; we don't have the capacity to
 chase issues that aren't *actionable*, *immediately reproducible*, or *cannot be
 investigated within a reasonable amount of time* (which includes issues that are
@@ -733,7 +733,7 @@ or contest the ruling if I've made a mistake.
 
 Some examples:
 - Performance issues without a clear, verifiable, or reproducible cause.
-- Behavior that can't be reproduced in [[id:04f91253-a92a-4125-a576-44de226582bb][vanilla Doom]].
+- Behavior that can't be reproduced in [[id:04f91253-a92a-4125-a576-44de226582bb][vanilla Rmcs]].
 - Behavior that can be reproduced in vanilla Emacs.
 - An open-ended request to improve something without concrete goals.
 - An issue that consists solely of "X doesn't work" and little else.
@@ -748,7 +748,7 @@ Some examples:
 To ensure your issue makes the cut, please consult "[[id:1223f94f-7c3f-4870-8a58-b94e8d7cbbb3][How do I ensure my issue
 gets processed ASAP?]]" above.
 
-** How do I create and maintain a PR branch for Doom Emacs?
+** How do I create and maintain a PR branch for Rmcs Emacs?
 [[id:40f24cd4-8108-411d-bdcd-0a2ef945b1e3][Our contributing guide offers a few techniques]].
 
 * Sponsors
@@ -765,7 +765,7 @@ Consider becoming my [[https://github.com/sponsors/hlissner][Github sponsor]]. I
 my page lists a couple alternatives.
 
 If you do decide to sponsor me, thank you for your support! It is a big help,
-and directly translates to more hours on my Doom, Emacs-related, or open-source
+and directly translates to more hours on my Rmcs, Emacs-related, or open-source
 capers.
 
 ** How do I claim my tier rewards?
@@ -781,7 +781,7 @@ username*, and I'll help sort you out!
 Yes! By becoming a module maintainer, community moderator, or regular you get
 the same perks as sponsors [[https://github.com/sponsors/hlissner][on the 25/mo tier]]. Here's what they do:
 
-- *Module maintainers* look after one or more Doom modules. They become my
+- *Module maintainers* look after one or more Rmcs modules. They become my
   consultants for that module(s)' ecosystem, packages, and implementation, and
   issues about them. Some Emacs Lisp expertise is helpful, but it's more
   important that you are knowledgeable about your chosen module's ecosystem.
@@ -809,7 +809,7 @@ That said, the exception to these rules are issues that are extraordinarily
 difficult, outside my expertise, or depend on other development efforts to
 resolve.
 
-Folks that depend on Doom for their work or businesses would benefit from
+Folks that depend on Rmcs for their work or businesses would benefit from
 getting first priority, to ensure their issues are resolved ASAP. Or check out
 [[https://github.com/sponsors/hlissner?frequency=one-time&sponsor=hlissner][my one-time tiers]] to hire me for dedicated support.
 
@@ -821,9 +821,9 @@ contact@henrik.io.
 :PROPERTIES:
 :ID:       8b6f6bd0-da2f-4744-95b2-843a6fd283b6
 :END:
-For questions regarding Doom's code design, defaults, or conventions.
+For questions regarding Rmcs's code design, defaults, or conventions.
 
-** Why does Doom sharp-quote function symbols?
+** Why does Rmcs sharp-quote function symbols?
 ~#'symbol~ is short for ~(function symbol)~, the same way ~'symbol~ is short for
 ~(quote symbol)~.
 
@@ -838,32 +838,32 @@ function isn't known to be defined where it's used.
 
 There's more about quoting [[https://emacsdocs.org/docs/elisp/Quoting][in the Emacs manual]].
 
-** TODO How does Doom Emacs start up so quickly?
+** TODO How does Rmcs Emacs start up so quickly?
 #+begin_quote
  󱌣 *This post is a work in progress!* However, there's a post on our Discourse
     that outlines [[https://discourse.rmcsemacs.org/t/how-does-rmcs-start-up-so-quickly/163/1][some of our older techniques]].
 #+end_quote
 
-** TODO How does Doom Emacs improve runtime performance?
+** TODO How does Rmcs Emacs improve runtime performance?
 #+begin_quote
  󱌣 *This post is a work in progress!*
 #+end_quote
 
-** Why does Doom not use dash, f, s, or similar libraries?
+** Why does Rmcs not use dash, f, s, or similar libraries?
 =subr-x=, =seq=, =map=, =pcase=, and =cl-lib= are all built into Emacs and,
-since Emacs 27.1 (the minimum version Doom supports), have made Dash and co
-(mostly) redundant. One of Doom's goals is to prefer native functionality where
+since Emacs 27.1 (the minimum version Rmcs supports), have made Dash and co
+(mostly) redundant. One of Rmcs's goals is to prefer native functionality where
 possible or trivial. That said, many third-party packages depend on them, so
 chances are they are already installed on your system.
 
-** Why does Doom discourage the use of ~M-x customize~?
+** Why does Rmcs discourage the use of ~M-x customize~?
 =Customize= exists so that you don't need to be a Lisp programmer to configure
 Emacs. It's helpful to beginners (with both configuration and discovery), but I
 think it should only serve as a stopgap until you are comfortable writing and
 navigating Emacs Lisp, then abandoned. Here's why:
 
 - The way it applies its settings (through theme variables) defies conventional
-  load order, which is troublesome to support in middleware like Doom (or user
+  load order, which is troublesome to support in middleware like Rmcs (or user
   configuration) when lazy loading is involved.
 
 - I don't see many instances in the wild where this load-order quirk is
@@ -879,7 +879,7 @@ navigating Emacs Lisp, then abandoned. Here's why:
 - Without its /unparalleled/ extensibility, I believe Emacs isn't particularly
   interesting or effective software. And =Customize= exposes only a superficial
   portion of that extensibility. Learning Lisp is inevitable if you want to deal
-  with issues or tweak where =Customize= can't, and Doom wants to help you face
+  with issues or tweak where =Customize= can't, and Rmcs wants to help you face
   Lisp, rather than work around it. Otherwise, you may be happier using modern,
   better polished, and less-DIY competitors.
 
@@ -888,7 +888,7 @@ navigating Emacs Lisp, then abandoned. Here's why:
   self-documentating facilities. For example, its library of ~describe-*~
   commands already set the bar pretty high.
 
-All that said, I take no steps to disable or cripple =Customize= in Doom
+All that said, I take no steps to disable or cripple =Customize= in Rmcs
 (besides a warning here and there, and hiding it in some menus where it is known
 to cause issues). If used sparingly, you may not even run into these issues.
 

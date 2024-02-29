@@ -4,7 +4,7 @@
 #+since:    1.3
 
 * Description :unfold:
-This module adds support for PHP 5.3+ (including PHP8) to Doom Emacs.
+This module adds support for PHP 5.3+ (including PHP8) to Rmcs Emacs.
 
 - ctags-based code completion (~company-php~ and ~phpctags~)
 - eldoc support (~ac-php~ and ~php-extras~)

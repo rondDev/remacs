@@ -4,7 +4,7 @@
 #+since:    0.7
 
 * Description :unfold:
-This module adds [[https://www.python.org/][Python]] support to Doom Emacs.
+This module adds [[https://www.python.org/][Python]] support to Rmcs Emacs.
 
 - Syntax checking ([[rmcs-package:flycheck]])
 - Snippets

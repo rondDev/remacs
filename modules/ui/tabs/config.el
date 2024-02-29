@@ -11,7 +11,7 @@
         centaur-tabs-modified-marker "•"
         centaur-tabs-icon-type 'nerd-icons
         ;; Scrolling (with the mouse wheel) past the end of the tab list
-        ;; replaces the tab list with that of another Doom workspace. This
+        ;; replaces the tab list with that of another Rmcs workspace. This
         ;; prevents that.
         centaur-tabs-cycle-scope 'tabs)
 

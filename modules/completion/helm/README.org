@@ -51,7 +51,7 @@ For official documentation about Helm, see:
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 This module has only one requirement: [[https://github.com/BurntSushi/ripgrep][Ripgrep]], which is a hard dependency of
-Doom itself, so you should already have it installed.
+Rmcs itself, so you should already have it installed.
 
 By enabling this module, it will enable helm-mode and remap many commands to
 their helm equivalents, such as:
@@ -183,7 +183,7 @@ makes sense to exempt ~foo~ with the following:
 ** Icons
 There are two icon "themes" available for this module:
 [[rmcs-package:nerd-icons]] and [[rmcs-package:treemacs]]. By default, and to
-maintain consistency with other icons across Doom's modules,
+maintain consistency with other icons across Rmcs's modules,
 [[rmcs-package:nerd-icons]] is used. To change this:
 #+begin_src emacs-lisp
 ;; add to $RMCSDIR/config.el

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # -*- coding: utf-8-unix -*-
-# This is a shebang interpreter for launching Emacs Lisp scripts with Doom's CLI
+# This is a shebang interpreter for launching Emacs Lisp scripts with Rmcs's CLI
 # framework preloaded, plus any environment variables it needs. Use it like so:
 #
 #   #!/usr/bin/env rmcsscript
@@ -26,7 +26,7 @@ case "$EMACS" in
 esac
 
 # Careful not to use -Q! It implies --no-site-lisp, which omits the site-lisp
-# directory from `load-path', which would prevent Doom from manually loading the
+# directory from `load-path', which would prevent Rmcs from manually loading the
 # site files later. These are important on some systems or deployment methods
 # (like Snap or NixOS).
 emacs="$EMACS -q --no-site-file --batch"
@@ -42,20 +42,20 @@ if [ -z "$TMPDIR" ]; then
     exit 1
 fi
 
-# Doom respects $EMACSDIR to tell it where Doom lives. If it fails, then this is
+# Rmcs respects $EMACSDIR to tell it where Rmcs lives. If it fails, then this is
 # either isn't bash, or it's a posix shell being directly sourced with sh, which
 # is unsupported.
 export EMACSDIR="${EMACSDIR:-$(CDPATH='' cd -- "$(dirname -- "${BASH_SOURCE:-$0}")/.." && pwd)}"
 if [ ! -f "$EMACSDIR/early-init.el" ]; then
     >&2 echo "Error: cannot load $EMACSDIR/early-init.el."
     >&2 echo
-    >&2 echo "Either the file doesn't exist (indicating a broken or missing Doom install)"
+    >&2 echo "Either the file doesn't exist (indicating a broken or missing Rmcs install)"
     >&2 echo "or that rmcsscript is being source directly (which is unsupported)."
     >&2 echo
-    >&2 echo "Set \$EMACSDIR to the path of an existing Doom installation."
+    >&2 echo "Set \$EMACSDIR to the path of an existing Rmcs installation."
     exit 1
 fi
-# Some state that Doom's CLI framework needs to know about the terminal. Read
+# Some state that Rmcs's CLI framework needs to know about the terminal. Read
 # the comments at the top of bin/rmcs for explanations.
 export __RMCSPID="${__RMCSPID:-$$}"
 export __RMCSSTEP="${__RMCSSTEP:-0}"
@@ -65,7 +65,7 @@ export __RMCSPIPE=
 [ -t 0 ] || __RMCSPIPE="${__RMCSPIPE}0"
 [ -t 1 ] || __RMCSPIPE="${__RMCSPIPE}1"
 
-# Now we're ready to execute the given script. $EMACSDIR/early-init.el is Doom's
+# Now we're ready to execute the given script. $EMACSDIR/early-init.el is Rmcs's
 # universal bootstrapper (and will only load the bare minimum), so it must be
 # loaded first.
 script="$1"
@@ -75,8 +75,8 @@ $emacs --load "$EMACSDIR/early-init" \
        -- "$@"
 exit=$?
 
-# To simulate execve syscalls, Doom generates a temporary exit-script if a
-# Doomscript returns a 254 exit code.
+# To simulate execve syscalls, Rmcs generates a temporary exit-script if a
+# Rmcsscript returns a 254 exit code.
 if [ "${exit:-0}" -eq 254 ]; then
     # The user may have a noexec flag set on /tmp, so the exit-script should be
     # passed to /bin/sh rather than executed directly.

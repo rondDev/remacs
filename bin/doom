@@ -14,7 +14,7 @@
 :; exit $exit
 
 ;; This magical mess of a shebang is necessary for any script that relies on
-;; Doom's CLI framework, because Emacs' tty libraries and capabilities are too
+;; Rmcs's CLI framework, because Emacs' tty libraries and capabilities are too
 ;; immature (borderline non-existent) at the time of writing (28.1). This
 ;; shebang sets out to accomplish these three goals:
 ;;
@@ -77,14 +77,14 @@
 ;; In CLI sessions, prefer correctness over performance.
 (setq load-prefer-newer t)
 
-;; Doom's core sets up everything we need; including `rmcs-*-dir' variables,
+;; Rmcs's core sets up everything we need; including `rmcs-*-dir' variables,
 ;; universal defaults, and autoloads for rmcs-*-initialize functions.
 (condition-case e
     (let* ((bin-dir (file-name-directory (file-truename load-file-name)))
            (init-file (expand-file-name "../early-init.el" bin-dir)))
       (or (and (load init-file nil 'nomessage 'nosuffix)
                (featurep 'rmcs))
-          (user-error "Failed to load Doom from %s" init-file)))
+          (user-error "Failed to load Rmcs from %s" init-file)))
   ;; Prevent ugly backtraces for trivial errors
   (user-error (message "Error: %s" (cadr e))
               (kill-emacs 2)))
@@ -97,7 +97,7 @@
     (message
      (concat
       "Error: this script was executed as root, which is likely not what you want.\n"
-      "It will cause file permissions errors later, when you run Doom as another\n"
+      "It will cause file permissions errors later, when you run Rmcs as another\n"
       "user.\n\n"
       "If this really *is* what you want, then change the owner of your Emacs\n"
       "config to root:\n\n"
@@ -111,7 +111,7 @@
 ;;; Entry point
 
 (defcli! rmcs (&args _command)
-  "A command line interface to Doom Emacs.
+  "A command line interface to Rmcs Emacs.
 
 Includes package management, diagnostics, unit tests, and byte-compilation.
 
@@ -121,15 +121,15 @@ with a different private module.
 ENVIRONMENT VARIABLES:
   `$EMACS'
     The Emacs executable or command to use for any Emacs operations in this or
-    other Doom CLI shell scripts (default: first emacs found in `$PATH').
+    other Rmcs CLI shell scripts (default: first emacs found in `$PATH').
 
   `$EMACSDIR'
-    The location of your Doom Emacs installation (defaults to ~/.config/emacs or
-    ~/.emacs.d; whichever is found first). This is *not* your private Doom
+    The location of your Rmcs Emacs installation (defaults to ~/.config/emacs or
+    ~/.emacs.d; whichever is found first). This is *not* your private Rmcs
     configuration. The `--emacsdir' option also sets this variable.
 
   `$RMCSDIR'
-    The location of your private configuration for Doom Emacs (defaults to
+    The location of your private configuration for Rmcs Emacs (defaults to
     ~/.config/rmcs or ~/.rmcs.d; whichever it finds first). This is *not* the
     place you've cloned rmcsemacs/rmcsemacs to. The `--rmcsdir' option also sets
     this variable.
@@ -139,33 +139,33 @@ ENVIRONMENT VARIABLES:
     option also sets this variable.
 
   `$RMCSPROFILE'
-    Which Doom profile to activate (default: \"_@0\"). The `--profile' option
+    Which Rmcs profile to activate (default: \"_@0\"). The `--profile' option
     also sets this variable.
 
   `$RMCSPROFILELOADFILE'
-    Doom generates a profile loader script on 'rmcs sync' or 'rmcs profiles
+    Rmcs generates a profile loader script on 'rmcs sync' or 'rmcs profiles
     sync'. By default, this file is written to and loaded from
     $EMACSDIR/profiles/load.el. Set this envvar to change that. Note that this
     envvar must be in scope for both interactive and non-interactive sessions
     for it to be effective. This is especially useful for folks on Nix/Guix, who
-    have deployed Doom to a read-only directory.
+    have deployed Rmcs to a read-only directory.
 
     Note: this file *must* end with a .el extension. It will be byte-compiled
     after it is generated.
 
   `$RMCSPROFILELOADPATH'
     A colon-delimited (semi-colon on Windows) list of profile config files or
-    directories under which Doom will search for implicit profiles. See
+    directories under which Rmcs will search for implicit profiles. See
     `var:rmcs-profile-load-path' for its default value.
 
 EXIT CODES:
   0        Successful run
   1        General internal error
-  2        Error with Emacs/Doom install or execution context
+  2        Error with Emacs/Rmcs install or execution context
   3        Unrecognized user input error
   4        Command not found, or is incorrect/deprecated
   5        Invalid, missing, or extra options/arguments
-  6-49     Reserved for Doom
+  6-49     Reserved for Rmcs
   50-200   Reserved for custom user codes
   254      Successful run (but then execute `rmcs-cli-restart-script')
   255      Uncaught internal errors
@@ -184,8 +184,8 @@ SEE ALSO:
     ((force?   ("-!" "--force")   "Suppress prompts by auto-accepting their consequences")
      (debug?   ("-D" "--debug")   "Enable debug output")
      (verbose? ("-v" "--verbose") "Enable verbose output")
-     (rmcsdir  ("--rmcsdir" dir)  "Use Doom config living in `DIR' (e.g. ~/.rmcs.d)")
-     (emacsdir ("--emacsdir" dir) "Use Doom install living in `DIR' (e.g. ~/.emacs.d)")
+     (rmcsdir  ("--rmcsdir" dir)  "Use Rmcs config living in `DIR' (e.g. ~/.rmcs.d)")
+     (emacsdir ("--emacsdir" dir) "Use Rmcs install living in `DIR' (e.g. ~/.emacs.d)")
      (pager    ("--pager" cmd)    "Pager command to use for large output")
      (profile  ("--profile" name) "Use profile named NAME")
      (bench?   ("--benchmark")    "Always display the benchmark")
@@ -266,7 +266,7 @@ SEE ALSO:
   (add-to-list 'rmcs-help-commands "%p h[elp] %c")
 
   (defcli-group! "Config Management"
-    :docs "Commands for maintaining your Doom Emacs configuration."
+    :docs "Commands for maintaining your Rmcs Emacs configuration."
     (defcli-autoload! ((sync s)))
     (defcli-autoload! ((profiles profile)))
     (defcli-autoload! ((upgrade up)))
@@ -287,13 +287,13 @@ SEE ALSO:
     )
 
   (defcli-group! "Diagnostics"
-    :docs "Commands for troubleshooting and debugging Doom."
+    :docs "Commands for troubleshooting and debugging Rmcs."
     (defcli-autoload! ((doctor doc)))
     (defcli-autoload! (info))
     (defcli-alias! ((version v)) (:root :version)))
 
   (defcli-group! "Development"
-    :docs "Commands for developing or launching Doom."
+    :docs "Commands for developing or launching Rmcs."
     (defcli-autoload! (ci))
     (defcli-autoload! (make))
     (defcli-autoload! (run))
@@ -310,7 +310,7 @@ SEE ALSO:
             (defcli-group! :prefix (if (cdr key) (format "+%s" (cdr key)))
               (rmcs-load (file-name-sans-extension path))))))))
 
-  ;; Allow per-project Doom settings in .rmcs files.
+  ;; Allow per-project Rmcs settings in .rmcs files.
   (let (rmcsrc)
     (cond
      ((setq rmcsrc (getenv "RMCSRC"))

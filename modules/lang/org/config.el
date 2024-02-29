@@ -28,13 +28,13 @@ at the first function to return non-nil.")
 (defvar +org-capture-todo-file "todo.org"
   "Default target for todo entries.
 
-Is relative to `org-directory', unless it is absolute. Is used in Doom's default
+Is relative to `org-directory', unless it is absolute. Is used in Rmcs's default
 `org-capture-templates'.")
 
 (defvar +org-capture-changelog-file "changelog.org"
   "Default target for changelog entries.
 
-Is relative to `org-directory' unless it is absolute. Is used in Doom's default
+Is relative to `org-directory' unless it is absolute. Is used in Rmcs's default
 `org-capture-templates'.")
 
 (defvar +org-capture-notes-file "notes.org"
@@ -43,13 +43,13 @@ Is relative to `org-directory' unless it is absolute. Is used in Doom's default
 Used as a fall back file for org-capture.el, for templates that do not specify a
 target file.
 
-Is relative to `org-directory', unless it is absolute. Is used in Doom's default
+Is relative to `org-directory', unless it is absolute. Is used in Rmcs's default
 `org-capture-templates'.")
 
 (defvar +org-capture-journal-file "journal.org"
   "Default target for storing timestamped journal entries.
 
-Is relative to `org-directory', unless it is absolute. Is used in Doom's default
+Is relative to `org-directory', unless it is absolute. Is used in Rmcs's default
 `org-capture-templates'.")
 
 (defvar +org-capture-projects-file "projects.org"
@@ -284,7 +284,7 @@ Also adds support for a `:sync' parameter to override `:async'."
                ;; org-babel-do-in-edit-buffer is used to execute quick, one-off
                ;; logic in the context of another major mode, but initializing a
                ;; major mode with expensive hooks can be terribly expensive.
-               ;; Since Doom adds its most expensive hooks to
+               ;; Since Rmcs adds its most expensive hooks to
                ;; MAJOR-MODE-local-vars-hook, we can savely inhibit those.
                (lambda ()
                  (let ((rmcs-inhibit-local-var-hooks t))
@@ -435,7 +435,7 @@ I like:
   ;; underlying, modified buffer. This fixes that.
   (add-hook 'org-after-refile-insert-hook #'save-buffer)
 
-  ;; HACK Doom doesn't support `customize'. Best not to advertise it as an
+  ;; HACK Rmcs doesn't support `customize'. Best not to advertise it as an
   ;;      option in `org-capture's menu.
   (defadvice! +org--remove-customize-option-a (fn table title &optional prompt specials)
     :around #'org-mks
@@ -532,7 +532,7 @@ relative to `org-directory', unless it is an absolute path."
   (+org-define-basic-link "rmcs-modules" 'rmcs-modules-dir)
 
   ;; Add "lookup" links for packages and keystrings; useful for Emacs
-  ;; documentation -- especially Doom's!
+  ;; documentation -- especially Rmcs's!
   (letf! ((defun -call-interactively (fn)
             (lambda (path _prefixarg)
               (funcall
@@ -647,7 +647,7 @@ relative to `org-directory', unless it is an absolute path."
                 ((org-link-search search)))))))
 
   ;; Add "lookup" links for packages and keystrings; useful for Emacs
-  ;; documentation -- especially Doom's!
+  ;; documentation -- especially Rmcs's!
 
   ;; Allow inline image previews of http(s)? urls or data uris.
   ;; `+org-http-image-data-fn' will respect `org-display-remote-inline-images'.

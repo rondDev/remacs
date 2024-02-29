@@ -93,7 +93,7 @@ variable ([[kbd:][SPC h v system-configuration-options]]).
   This already contains a version of =vterm-module.so=, so NixOS users need not
   compile the module themselves as described below.
   
-  Note: The =nixpkgs=-version used must be compatible with the packages Doom
+  Note: The =nixpkgs=-version used must be compatible with the packages Rmcs
   installs, so it might be necessary to pull in =emacs= and/or
   =emacsPackagesFor= from =unstable= or another channel. Otherwise arbitrary
   functionality of =vterm= might not work.

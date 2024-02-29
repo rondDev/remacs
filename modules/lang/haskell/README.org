@@ -4,7 +4,7 @@
 #+since:    0.9
 
 * Description :unfold:
-This module adds Haskell support to Doom Emacs.
+This module adds Haskell support to Rmcs Emacs.
 
 ** Maintainers
 - [[rmcs-user:][@iyefrat]]
@@ -62,7 +62,7 @@ relying on hls, follow the linked install instructions.
  󱌣 /This module's usage documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
-This module integrates the haskell packages into Doom by providing things such
+This module integrates the haskell packages into Rmcs by providing things such
 as REPL support, project root recognition, etc. It also provide the following
 keybindings:
 

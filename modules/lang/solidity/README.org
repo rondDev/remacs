@@ -4,7 +4,7 @@
 #+since:    21.12.0 (#599)
 
 * Description :unfold:
-This module adds [[https://github.com/ethereum/solidity][Solidity]] support to Doom Emacs.
+This module adds [[https://github.com/ethereum/solidity][Solidity]] support to Rmcs Emacs.
 
 - Syntax-checking ([[rmcs-package:flycheck]])
 - Code completion ([[rmcs-package:company-solidity]])

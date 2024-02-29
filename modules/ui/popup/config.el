@@ -49,7 +49,7 @@ adjustment.")
   "Active keymap in popup windows. See `+popup-buffer-mode'.")
 
 (define-minor-mode +popup-mode
-  "Global minor mode representing Doom's popup management system."
+  "Global minor mode representing Rmcs's popup management system."
   :init-value nil
   :global t
   :keymap +popup-mode-map

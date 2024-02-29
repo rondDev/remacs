@@ -4,7 +4,7 @@
 #+since:    22.06.0 (#5401)
 
 * Description :unfold:
-This module adds [[https://tree-sitter.github.io/tree-sitter/][tree-sitter]] support to Doom Emacs.
+This module adds [[https://tree-sitter.github.io/tree-sitter/][tree-sitter]] support to Rmcs Emacs.
 
 #+begin_quote
  󰟶 Tree sitter is a parser generator tool and an incremental parsing library.
@@ -55,7 +55,7 @@ Currently Emacs tree sitter has [[https://github.com/emacs-tree-sitter/tree-sitt
 highlighting support for [[https://github.com/emacs-tree-sitter/tree-sitter-langs/tree/master/queries][these languages]] as well as ~typescript-tsx-mode~.
 
 To enable tree-sitter support for specific languages, add the =+tree-sitter=
-flag to their respective Doom modules. Check the module readme of your language
+flag to their respective Rmcs modules. Check the module readme of your language
 for support.
 
 ** Text Objects

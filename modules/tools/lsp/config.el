@@ -31,7 +31,7 @@ killing and opening many LSP/eglot-powered buffers.")
       (setq-default read-process-output-max (* 1024 1024))
       ;; REVIEW LSP causes a lot of allocations, with or without the native JSON
       ;;        library, so we up the GC threshold to stave off GC-induced
-      ;;        slowdowns/freezes. Doom uses `gcmh' to enforce its GC strategy,
+      ;;        slowdowns/freezes. Rmcs uses `gcmh' to enforce its GC strategy,
       ;;        so we modify its variables rather than `gc-cons-threshold'
       ;;        directly.
       (setq-default gcmh-high-cons-threshold (* 2 +lsp--default-gcmh-high-cons-threshold))

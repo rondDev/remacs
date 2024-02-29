@@ -4,7 +4,7 @@
 #+since:    2.0.0
 
 * Description :unfold:
-This module provides code completion, powered by [[https://github.com/company-mode/company-mode][company-mode]]. Many of Doom's
+This module provides code completion, powered by [[https://github.com/company-mode/company-mode][company-mode]]. Many of Rmcs's
 [[rmcs-module::lang]] modules require it for "intellisense" functionality.
 
 https://assets.rmcsemacs.org/completion/company/overlay.png
@@ -129,7 +129,7 @@ requires that you have a Robe server running (~M-x robe-start~).
 Check the relevant module's documentation for this kind of information.
 
 ** No backends (or the incorrect ones) have been registered for X-mode
-Doom expects every mode to have an explicit list of ~company-backends~ (and as
+Rmcs expects every mode to have an explicit list of ~company-backends~ (and as
 short a list as possible). This may mean you aren't getting all the completion
 you want or any at all.
 

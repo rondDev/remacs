@@ -4,7 +4,7 @@
 #+since:    0.7
 
 * Description :unfold:
-This module adds support for the [[https://developer.apple.com/swift/][Swift programming language]] to Doom Emacs.
+This module adds support for the [[https://developer.apple.com/swift/][Swift programming language]] to Rmcs Emacs.
 
 ** Maintainers
 *This module needs a maintainer.* [[rmcs-contrib-maintainer:][Become a maintainer?]]

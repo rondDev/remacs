@@ -85,7 +85,7 @@ evil is loaded and enabled)."
 
 ;;;###autoload
 (defun +file-templates-get-short-path ()
-  "Fetches a short file path for the header in Doom module templates."
+  "Fetches a short file path for the header in Rmcs module templates."
   (let ((path (file-truename (or buffer-file-name default-directory))))
     (save-match-data
       (cond ((string-match "/modules/\\(.+\\)$" path)
@@ -147,7 +147,7 @@ for it. This is used for testing."
 ;;; Trigger functions
 
 (defun +file-templates-insert-rmcs-docs-fn ()
-  "Expand one of Doom's README templates depending."
+  "Expand one of Rmcs's README templates depending."
   (+file-templates--expand
    t :trigger
    (let ((path (file-truename (buffer-file-name))))

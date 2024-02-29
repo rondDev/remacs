@@ -30,7 +30,7 @@ e.g. ~cargo~.
 
 ** Hacks
 - rustic has been modified /not/ to automatically install lsp-mode or eglot if
-  they're missing. Doom expects you to have enabled the [[rmcs-module::tools lsp]] module
+  they're missing. Rmcs expects you to have enabled the [[rmcs-module::tools lsp]] module
   yourself.
 
 ** TODO Changelog
@@ -59,7 +59,7 @@ To install and manage Rust on Windows, consult [[https://forge.rust-lang.org/inf
     configuration on your part).
 
     Also, if you have used ~$ rmcs env~ in the past, changes to your ~$PATH~
-    won't be visible to Doom until you run it (or ~$ rmcs sync~) again.
+    won't be visible to Rmcs until you run it (or ~$ rmcs sync~) again.
 #+end_quote
 
 ** Other Requirements
@@ -86,7 +86,7 @@ $ rustup component add rust-analyzer rust-src
 
 If your needs are more complex, consult [[https://rust-analyzer.github.io/manual.html#installation][rust-analyzer's documentation]].
 
-Finally, enable Doom's [[rmcs-module::tools lsp]] module, and this module's
+Finally, enable Rmcs's [[rmcs-module::tools lsp]] module, and this module's
 [[rmcs-module:+lsp]] flag ([[id:01cffea4-3329-45e2-a892-95a384ab2338][how to enable modules and their flags]]), and you're good
 to go!
 
@@ -115,7 +115,7 @@ Enable [[rmcs-module::editor format +onsave]] to get formatting on save with
 #+end_quote
 
 ** Enabling eglot support for Rust
-Doom's [[rmcs-module::tools lsp]] module has an [[rmcs-module:+eglot]] flag. Enable it and this module will use
+Rmcs's [[rmcs-module::tools lsp]] module has an [[rmcs-module:+eglot]] flag. Enable it and this module will use
 eglot instead.
 
 * Troubleshooting

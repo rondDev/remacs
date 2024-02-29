@@ -38,7 +38,7 @@ selected so it should be possible to use without modifications.
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
 There are no hard dependencies for this module, but this module can benefit from
-having a PDF reader and one of Doom's [[rmcs-module::completion]] modules.
+having a PDF reader and one of Rmcs's [[rmcs-module::completion]] modules.
 
 ** PDF viewing
 An application for opening PDF files is required. By default =DocView= is used

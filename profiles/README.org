@@ -1,15 +1,15 @@
-#+title: Doom's profile directory
+#+title: Rmcs's profile directory
 
 * Introduction
-In order to power Doom's soon-to-be generational package manager, I wrote a
+In order to power Rmcs's soon-to-be generational package manager, I wrote a
 profile system. This system can effectively replace [[https://github.com/plexus/chemacs2][Chemacs]]; permitting you to
 switch between multiple Emacs configs on-demand (and those configs don't have to
-be Doom configs).
+be Rmcs configs).
 
 While I work on the formal documentation for this system, I've created this
-brief guide to walk users through their use. *However, for this to work, Doom
+brief guide to walk users through their use. *However, for this to work, Rmcs
 must live in =~/.emacs.d= or =~/.config/emacs=.* I'll refer to this as
-=$EMACSDIR= (and your private Doom config, in =~/.rmcs.d= or =~/.config/rmcs=,
+=$EMACSDIR= (and your private Rmcs config, in =~/.rmcs.d= or =~/.config/rmcs=,
 as =$RMCSDIR=).
 
 * How use profiles
@@ -29,7 +29,7 @@ as =$RMCSDIR=).
      Implicit profiles may have a =.rmcsprofile= file to apply additional
      settings. [[id:ac37ac6f-6082-4c34-b98c-962bc1e528c9][Example .rmcsprofile]].
 
-2. To run ~$ rmcs sync~ whenever you change the above, to regenerate Doom's
+2. To run ~$ rmcs sync~ whenever you change the above, to regenerate Rmcs's
    cached profile loader (generated at =$EMACSDIR/profiles/init.X.elc=, where X
    is your major Emacs version).
 
@@ -38,7 +38,7 @@ as =$RMCSDIR=).
    - Use ~bin/rmcs~ on the profile you want: ~$ rmcs sync --profile FOO~
 
 * Auto-generated profiles
-Doom v3's sandbox and transactional package manager are capable of generating
+Rmcs v3's sandbox and transactional package manager are capable of generating
 profiles on-the-fly. The former for rapid, isolated testing, and the latter for
 rollback/snapshot traversal for disaster recovery purposes.
 
@@ -46,8 +46,8 @@ These auto-generated profiles will be stored and versioned in:
 =$XDG_DATA_HOME/rmcs/$PROFILE_NAME/@/$PROFILE_VERSION/=
 
 * Fallback profile
-Unlike Chemacs, Doom's profiles has no notion of a "default"/fallback profile --
-rather, the fallback profile is the Doom installation doing the bootloading.
+Unlike Chemacs, Rmcs's profiles has no notion of a "default"/fallback profile --
+rather, the fallback profile is the Rmcs installation doing the bootloading.
 This "global" profile is unique in that it won't respect a =.rmcsprofile= -- in
 other words, it's not treated as a normal profile.
 
@@ -75,18 +75,18 @@ alias emacs='emacs --profile default'
 * Gotchas
 There are two caveats with this profile system:
 
-- It requires that Doom live in =~/.config/emacs= or =~/.emacs.d=. A
+- It requires that Rmcs live in =~/.config/emacs= or =~/.emacs.d=. A
   non-standard install location won't work, unless you use Emacs 29's new
   =--init-directory DIR= switch and launch Emacs with ~emacs --init-directory
   ~/nonstandard/emacs.d --profile NAME~. =bin/rmcs= is fine with it, though.
 
-- The profile system can be storage-inefficient. A barebones Doom config
+- The profile system can be storage-inefficient. A barebones Rmcs config
   averages at ~1mb without installed packages and ~3.75mb /with/ (straight alone
-  is 2.6m). A fully-fledged Doom config can average 500mb-1.4gb; the majority of
+  is 2.6m). A fully-fledged Rmcs config can average 500mb-1.4gb; the majority of
   which are packages, but include server binaries, elisp+native bytecode, and
   caches add up too.
 
-  To mitigate this, Doom dedups packages across snapshots of a single profile
+  To mitigate this, Rmcs dedups packages across snapshots of a single profile
   (e.g. =profile@23= -> =profile@24=), but it cannot (yet) do this across
   profiles (e.g. if =profile1= and =profile2= both install =org=). Even then,
   packages whose recipes change (either locally or upstream) may dodge this
@@ -112,7 +112,7 @@ There are two caveats with this profile system:
 * How to switch from Chemacs
 1. Delete [[https://github.com/plexus/chemacs2][Chemacs]] from =$EMACSDIR=.
 
-2. Install Doom there: ~$ git clone https://github.com/rmcsemacs/rmcsemacs
+2. Install Rmcs there: ~$ git clone https://github.com/rmcsemacs/rmcsemacs
    \~/.config/emacs~
 
 3. Move =~/.emacs-profiles.el= to =~/.config/rmcs/profiles.el= and transform the
@@ -132,23 +132,23 @@ There are two caveats with this profile system:
     (prelude   (user-emacs-directory . "~/prelude/")))
    #+end_src
 
-   A comprehensive example of Doom's profiles.el file can be found
+   A comprehensive example of Rmcs's profiles.el file can be found
    [[id:f9bce7da-d155-4727-9b6f-b566b5b8d824][in docs/examples.org]].
 
    *Differences with Chemacs profiles:*
    - Keys are symbols, not strings.
-   - Doom's profiles.el has a syntax for evaluating code, expanding paths, and
+   - Rmcs's profiles.el has a syntax for evaluating code, expanding paths, and
      appending/prepending to variables (with deferral). See the examples.org
      link above.
-   - Doom's profile system won't install [[https://github.com/raxod502/straight.el][Straight.el]] for you.
-   - Doom does not have a special "default" profile. If you don't specify a
-     --profile, it will simply start up the Doom config living in
+   - Rmcs's profile system won't install [[https://github.com/raxod502/straight.el][Straight.el]] for you.
+   - Rmcs does not have a special "default" profile. If you don't specify a
+     --profile, it will simply start up the Rmcs config living in
      =~/.config/emacs=. See the "Fallback profile" section below for a
      workaround.
 
 4. Then launch a profile. E.g. ~$ emacs --profile prelude~.
 
-* But Doom is kinda heavy to be a bootloader...
-I agree! To remedy that, I'll soon split Doom up into three projects: its core
+* But Rmcs is kinda heavy to be a bootloader...
+I agree! To remedy that, I'll soon split Rmcs up into three projects: its core
 (where its bootloader lives), its official modules, and its community
-contributed modules. At that point, Doom will be much lighter!
+contributed modules. At that point, Rmcs will be much lighter!

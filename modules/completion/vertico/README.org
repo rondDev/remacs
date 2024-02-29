@@ -54,7 +54,7 @@ like [[rmcs-package:ivy]] and [[rmcs-package:helm]] do. The primary packages are
 
 This module has only one requirement: [[https://github.com/BurntSushi/ripgrep][Ripgrep]] (built with [[https://www.pcre.org/][PCRE]] support; run ~$
 rmcs doctor~ to determine if your build meets this requirement), which is a hard
-dependency of Doom itself, so you should already have it installed.
+dependency of Rmcs itself, so you should already have it installed.
 
 Otherwise, Consult (a plugin this module installs) provides many commands to
 interface with a variety of programs from [[https://github.com/junegunn/fzf][fzf]] to [[https://kapeli.com/dash][Dash docsets]] to [[https://www.passwordstore.org/][pass]] and /much/
@@ -70,7 +70,7 @@ The packages in this module modify and use the built-in ~completing-read~
 function, which is used by any function that requires completion. Due to this
 the full scope of these packages is too large to cover here and you are
 encouraged to go and read their excellent documentation. We will detail
-Doom-specific additions:
+Rmcs-specific additions:
 
 ** Vertico keybindings
 When in an active Vertico completion session, the following rmcs added
@@ -248,7 +248,7 @@ pressing space and entering another input. In essence, when trying to match
 1. (BAD) Enter ~foo TAB~, completes to =foobar.=, enter ~org RET~
 2. (GOOD) Enter ~foo SPC org RET~
 
-Doom has some builtin [[https://github.com/oantolin/orderless#style-dispatchers][style dispatchers]] for more fine-grained filtering, which
+Rmcs has some builtin [[https://github.com/oantolin/orderless#style-dispatchers][style dispatchers]] for more fine-grained filtering, which
 you can use to further specify each space separated input in the following ways:
 | Input        | Description                              |
 |--------------+------------------------------------------|

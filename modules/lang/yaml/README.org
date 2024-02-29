@@ -4,7 +4,7 @@
 #+since:    21.12.0
 
 * Description :unfold:
-This module provides support for the [[https://yaml.org/][YAML file format]] to Doom Emacs.
+This module provides support for the [[https://yaml.org/][YAML file format]] to Rmcs Emacs.
 
 ** Maintainers
 /This module has no dedicated maintainers./ [[rmcs-contrib-maintainer:][Become a maintainer?]]

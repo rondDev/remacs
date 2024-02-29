@@ -5,7 +5,7 @@
 
 * Description :unfold:
 This module adds support for GDScript, the scripting language of the [[http://godotengine.org/][Godot]] game
-engine, to Doom Emacs, powered by [[https://github.com/GDQuest/emacs-gdscript-mode][gdscript-mode]].
+engine, to Rmcs Emacs, powered by [[https://github.com/GDQuest/emacs-gdscript-mode][gdscript-mode]].
 
 ** Maintainers
 *This module needs a maintainer.* [[rmcs-contrib-maintainer:][Become a maintainer?]]

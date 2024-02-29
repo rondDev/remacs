@@ -1,7 +1,7 @@
 #+TITLE: Module Index
 #+STARTUP: nofold
 
-Functionality in Doom is divided into collections of code called modules (à la
+Functionality in Rmcs is divided into collections of code called modules (à la
 Spacemacs' layers). A module is a bundle of packages, configuration and
 commands, organized into a unit that can be enabled or disabled by adding or
 removing them from your ~rmcs!~ block in =$RMCSDIR/init.el=.

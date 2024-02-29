@@ -4,7 +4,7 @@
 #+since:    21.12.0 (#3308)
 
 * Description :unfold:
-This module adds support for the [[https://www.raku.org/][Raku programming language]] to Doom Emacs.
+This module adds support for the [[https://www.raku.org/][Raku programming language]] to Rmcs Emacs.
 
 ** Maintainers
 /This module has no dedicated maintainers./ [[rmcs-contrib-maintainer:][Become a maintainer?]]

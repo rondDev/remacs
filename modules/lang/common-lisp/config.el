@@ -43,7 +43,7 @@
   (setq sly-mrepl-history-file-name (concat rmcs-cache-dir "sly-mrepl-history")
         sly-kill-without-query-p t
         sly-net-coding-system 'utf-8-unix
-        ;; Doom defaults to non-fuzzy search, because it is faster and more
+        ;; Rmcs defaults to non-fuzzy search, because it is faster and more
         ;; precise (but requires more keystrokes). Change this to
         ;; `sly-flex-completions' for fuzzy completion
         sly-complete-symbol-function 'sly-simple-completions)

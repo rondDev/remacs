@@ -81,7 +81,7 @@ If ARG (universal argument), include all files, even hidden or compressed ones."
 
 ;;;###autoload
 (defun +vertico-embark-target-package-fn ()
-  "Targets Doom's package! statements and returns the package name"
+  "Targets Rmcs's package! statements and returns the package name"
   (when (or (derived-mode-p 'emacs-lisp-mode) (derived-mode-p 'org-mode))
     (save-excursion
       (when (and (search-backward "(" nil t)

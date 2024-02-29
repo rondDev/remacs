@@ -4,7 +4,7 @@
 #+since:    21.12.0 (#568)
 
 * Description :unfold:
-This module adds [[https://nim-lang.org][Nim]] support to Doom Emacs.
+This module adds [[https://nim-lang.org][Nim]] support to Rmcs Emacs.
 
 - Code completion ([[rmcs-package:nimsuggest]] + [[rmcs-package:company]])
 - Syntax checking ([[rmcs-package:nimsuggest]] + [[rmcs-package:flycheck]])

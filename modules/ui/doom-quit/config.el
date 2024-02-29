@@ -1,7 +1,7 @@
 ;;; ui/rmcs-quit/config.el -*- lexical-binding: t; -*-
 
 (defvar +rmcs-quit-messages
-  `(;; from Doom 1
+  `(;; from Rmcs 1
     "Please don't leave, there's more demons to toast!"
     "Let's beat it -- This is turning into a bloodbath!"
     ,(format "I wouldn't leave if I were you. %s is much worse."

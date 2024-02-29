@@ -9,7 +9,7 @@ Code style is something that's hotly debated since the beginning of time.
 Tabs or spaces?
 2-width or 4-width indentation?
 
-Which is right? Doom doesn't care, but we will try and make it easy for you to
+Which is right? Rmcs doesn't care, but we will try and make it easy for you to
 format code within the safety of Emacs.
 
 At present, the module wraps [[https://github.com/radian-software/apheleia/][apheleia]], which includes some more detail on the
@@ -74,7 +74,7 @@ provide a simple macro that looks like the below:
 #+end_src
 
 If you're trying to override a formatter that has previously been defined by
-Doom, you will need to ensure that the call in your config is contained within
+Rmcs, you will need to ensure that the call in your config is contained within
 an =after!= form, eg below to override Clojure's with =zprint=:
 
 #+begin_src emacs-lisp

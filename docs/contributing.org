@@ -1,10 +1,10 @@
 #+TITLE: Contributing
 #+STARTUP: nofold
 
-Doom Emacs is an active and ongoing project, maintained mostly by a single
+Rmcs Emacs is an active and ongoing project, maintained mostly by a single
 person, but includes the efforts of 200 contributors and growing. There is no
 shortage of things that need doing; bugs that need stomping, features that need
-implementing, and documentation that needs documenting. If Doom's been useful to
+implementing, and documentation that needs documenting. If Rmcs's been useful to
 you, convert some caffiene into code; it'd be a huge help!
 
 You are welcome to [[https://discord.gg/qvGgnVx][join us on our Discord server]], otherwise read on to learn how
@@ -15,7 +15,7 @@ to contribute to our fine corner of the interwebs.
 - [[#reporting-issues][Reporting issues]]
   - [[#acquire-a-backtrace-from-errors][Acquire a backtrace from errors]]
   - [[#create-a-step-by-step-reproduction-guide][Create a step-by-step reproduction guide]]
-  - [[#include-information-about-your-rmcs-install][Include information about your Doom install]]
+  - [[#include-information-about-your-rmcs-install][Include information about your Rmcs install]]
   - [[#debugging-crashes-with-gdb][Debugging crashes with gdb]]
 - [[#suggesting-features-keybinds-andor-enhancements][Suggesting features, keybinds and/or enhancements]]
 - [[#contributing-code][Contributing code]]
@@ -26,14 +26,14 @@ to contribute to our fine corner of the interwebs.
     - [[#keybind-conventions][Keybind conventions]]
   - [[#your-first-code-contribution][Your first code contribution]]
   - [[#submitting-pull-requests][Submitting pull requests]]
-  - [[#contributing-to-rmcs-core][Contributing to Doom core]]
+  - [[#contributing-to-rmcs-core][Contributing to Rmcs core]]
   - [[#contributing-to-an-existing-module][Contributing to an existing module]]
   - [[#contributing-a-new-module][Contributing a new module]]
 - [[#contributing-documentation][Contributing documentation]]
-  - [[#contributing-to-rmcss-manual][Contributing to Doom's manual]]
+  - [[#contributing-to-rmcss-manual][Contributing to Rmcs's manual]]
   - [[#contributing-module-documentation][Contributing module documentation]]
 - [[#help-keep-packages-up-to-date][Help keep packages up-to-date!]]
-- [[#other-ways-to-support-rmcs-emacs][Other ways to support Doom Emacs]]
+- [[#other-ways-to-support-rmcs-emacs][Other ways to support Rmcs Emacs]]
 - [[#special-thanks][Special thanks]]
 
 * Where can I help?
@@ -48,10 +48,10 @@ to contribute to our fine corner of the interwebs.
   and when. It will give you an idea of what will change and where you can
   redirect your efforts.
 + The [[https://github.com/hlissner/rmcs-emacs/projects/2][plugins under review board]] lists third party plugins being considered (or
-  rejected) for inclusion in Doom Emacs. Approved and unclaimed packages are
+  rejected) for inclusion in Rmcs Emacs. Approved and unclaimed packages are
   open for you to implement yourself.
 + The [[https://github.com/hlissner/rmcs-emacs/projects/5][upstream bugs board]] lists known issues that have external causes, but
-  affect Doom. If you're feeling adventurous (or are better acquainted with the
+  affect Rmcs. If you're feeling adventurous (or are better acquainted with the
   cause) perhaps you can address them at the source.
 
 * TODO Reporting issues
@@ -63,7 +63,7 @@ An effective bug report is informative. Please try to provide:
 
 + A backtrace of all mentioned errors.
 + A step-by-step reproduction of the issue.
-+ Information about your Doom config and system environment.
++ Information about your Rmcs config and system environment.
 + Screenshots/casts of the issue (if possible).
 
 This section will show you how to collect this information.
@@ -73,7 +73,7 @@ See "[[file:getting_started.org::*How to extract a backtrace from an error][How 
 
 ** TODO Create a step-by-step reproduction guide
 
-** TODO Include information about your Doom install
+** TODO Include information about your Rmcs install
 
 ** TODO Debugging crashes with gdb
 
@@ -86,7 +86,7 @@ a few considerations before starting that PR:
 
 ** TODO Conventions
 *** TODO Code style
-Doom conforms to [[https://github.com/bbatsov/emacs-lisp-style-guide][@bbatsov's emacs-lisp style guide]] with the following
+Rmcs conforms to [[https://github.com/bbatsov/emacs-lisp-style-guide][@bbatsov's emacs-lisp style guide]] with the following
 exceptions:
 
 + Use ~mapc~ instead of ~seq-do~.
@@ -94,7 +94,7 @@ exceptions:
 + We use =DEPRECATED= to indicate code that will eventually be removed.
 
 *** Naming conventions
-Doom has a number of naming conventions that it uses in addition to the standard
+Rmcs has a number of naming conventions that it uses in addition to the standard
 lisp conventions. Third party packages may use their own conventions as well.
 
 **** Lisp Naming Conventions
@@ -106,7 +106,7 @@ public variables/functions (e.g. ~bookmark-default-file~ or
 ~NAMESPACE~ is usually the name of the containing file or package. E.g. the
 ~company~ plugin prefixes all its variables/functions with ~company-~.
 
-**** Doom Naming Conventions
+**** Rmcs Naming Conventions
 + ~rmcs/NAME~ or ~+MODULE/NAME~ :: Denotes a public command designed to be used
   interactively, via =M-x= or a keybinding. e.g. ~rmcs/info~, ~+popup/other~,
   ~+ivy/rg~.
@@ -123,14 +123,14 @@ public variables/functions (e.g. ~bookmark-default-file~ or
   interchangeable? Can it be replaced with another function with a matching
   signature? e.g. ~+lookup-dumb-jump-backend-fn~, ~+magit-display-buffer-fn~,
   ~+workspaces-set-project-action-fn~
-+ ~abc!~ :: A public Doom "autodef" function or macro. An autodef should always
++ ~abc!~ :: A public Rmcs "autodef" function or macro. An autodef should always
   be defined, even if its containing module is disabled (i.e. they will not
   throw a void-function error). The purpose of this is to avoid peppering module
   configs with conditionals or `after!` blocks before using their APIs. They
   should noop if their module is disabled, and should be zero-cost in the case
   their module is disabled.
 
-  Autodefs usually serve to configure Doom or a module. e.g. ~after!~,
+  Autodefs usually serve to configure Rmcs or a module. e.g. ~after!~,
   ~set-company-backends!~, ~set-evil-initial-state!~
 
 *** TODO Commits & PRs
@@ -146,26 +146,26 @@ public variables/functions (e.g. ~bookmark-default-file~ or
 
 ** TODO Submitting pull requests
 
-** TODO Contributing to Doom core
+** TODO Contributing to Rmcs core
 
 ** TODO Contributing to an existing module
 
 ** TODO Contributing a new module
 
 * TODO Contributing documentation
-Doom Emacs' documentation is an ongoing effort. If you have suggestions,
+Rmcs Emacs' documentation is an ongoing effort. If you have suggestions,
 improvements, tutorials and/or articles to submit, don't hesitate to get in
 contact via our [[https://discord.gg/bcZ6P3y][Discord server]] or [[mailto:henrik@lissner.net][email]]. I appreciate any help I can get!
 
-** TODO Contributing to Doom's manual
+** TODO Contributing to Rmcs's manual
 
 ** TODO Contributing module documentation
 
 * TODO Help keep packages up-to-date!
-Doom pins all its packages to reduce the likelihood of upstream breakage leaking
-into Doom Emacs. However, we may miss when a package releases hotfixes for
+Rmcs pins all its packages to reduce the likelihood of upstream breakage leaking
+into Rmcs Emacs. However, we may miss when a package releases hotfixes for
 critical issues. Let us know or PR a bump to our pinned packages.
 
-* TODO Other ways to support Doom Emacs
+* TODO Other ways to support Rmcs Emacs
 
 * TODO Special thanks

@@ -4,7 +4,7 @@
 #+since:    2.0.4
 
 * Description :unfold:
-This module adds text rotation to Doom Emacs. I.e. The ability to cycle through
+This module adds text rotation to Rmcs Emacs. I.e. The ability to cycle through
 keywords or text patterns at point, like ~true~ and ~false~, or ~public~,
 ~protected~, and ~private~ (in ~c++-mode~).
 

@@ -9,8 +9,8 @@
   "Prioritize private snippets over built-in ones if there are multiple
 choices.
 
-There are two groups of snippets in Doom Emacs. The built in ones (under
-`rmcs-emacs-dir'; provided by Doom or its plugins) or your private snippets
+There are two groups of snippets in Rmcs Emacs. The built in ones (under
+`rmcs-emacs-dir'; provided by Rmcs or its plugins) or your private snippets
 (outside of `rmcs-eamcs-dir').
 
 If there are multiple snippets with the same key in either camp (but not both),
@@ -239,7 +239,7 @@ You will be prompted for a snippet to alias."
     (+snippet--completing-read-uuid "Select snippet to alias: "
                                     current-prefix-arg)))
   (unless (require 'rmcs-snippets nil t)
-    (user-error "This command requires the `rmcs-snippets' library bundled with Doom Emacs"))
+    (user-error "This command requires the `rmcs-snippets' library bundled with Rmcs Emacs"))
   (let* ((default-directory (+snippet--ensure-dir (expand-file-name
                                                    (symbol-name major-mode)
                                                    +snippets-dir)))

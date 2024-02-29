@@ -4,7 +4,7 @@
 #+since:    2.0.9 (#772)
 
 * Description :unfold:
-This module adds support for the [[https://www.racket-lang.org/][Racket programming language]] to Doom Emacs.
+This module adds support for the [[https://www.racket-lang.org/][Racket programming language]] to Rmcs Emacs.
 
 ** Maintainers
 *This module needs a maintainer.* [[rmcs-contrib-maintainer:][Become a maintainer?]]

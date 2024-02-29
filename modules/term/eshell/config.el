@@ -10,11 +10,11 @@
 (defvar +eshell-config-dir
   (expand-file-name "eshell/" rmcs-user-dir)
   "Where to store eshell configuration files, as opposed to
-`eshell-directory-name', which is where Doom will store temporary/data files.")
+`eshell-directory-name', which is where Rmcs will store temporary/data files.")
 
 (defvar eshell-directory-name (concat rmcs-data-dir "eshell")
   "Where to store temporary/data files, as opposed to `eshell-config-dir',
-which is where Doom will store eshell configuration files.")
+which is where Rmcs will store eshell configuration files.")
 
 (defvar +eshell-enable-new-shell-on-split t
   "If non-nil, spawn a new eshell session after splitting from an eshell
@@ -131,7 +131,7 @@ You should use `set-eshell-alias!' to change this.")
   ;; HACK: Fixes #3817, where eshell completion after quotes is broken on Emacs
   ;;   28 and older.
   ;; CREDIT: Extracted from `cape''s cape-wrap-silent and cape-wrap-purify.
-  ;; REVIEW: Remove when Doom drops 28 support.
+  ;; REVIEW: Remove when Rmcs drops 28 support.
   (when (< emacs-major-version 29)
     (defadvice! +eshell--silent-a (capf)
       "Call CAPF and silence it (no messages, no errors).

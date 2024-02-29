@@ -239,7 +239,7 @@ https://emacs.stackexchange.com/questions/10230/how-to-indent-keywords-aligned"
 
 ;;;###autoload
 (defun +emacs-lisp-extend-imenu-h ()
-  "Improve imenu support in `emacs-lisp-mode' for Doom's APIs."
+  "Improve imenu support in `emacs-lisp-mode' for Rmcs's APIs."
   (setq imenu-generic-expression
         `(("Section" "^[ \t]*;;;*\\**[ \t]+\\([^\n]+\\)" 1)
           ("Evil commands" "^\\s-*(evil-define-\\(?:command\\|operator\\|motion\\) +\\(\\_<[^ ()\n]+\\_>\\)" 1)
@@ -370,7 +370,7 @@ as `+emacs-lisp-non-package-mode' will enable it and disable the other checkers.
                           (require 'rmcs-start))
                       (error
                        (princ
-                        (format "%s:%d:%d:Error:Failed to load Doom: %s\n"
+                        (format "%s:%d:%d:Error:Failed to load Rmcs: %s\n"
                                 (or ,(ignore-errors
                                        (file-name-nondirectory
                                         (buffer-file-name (buffer-base-buffer))))
@@ -390,7 +390,7 @@ Essentially, this means in any elisp file that either:
 - Lives in a project with a .rmcsmodule file,
 - Is a dotfile (like .dir-locals.el or .rmcsrc).
 
-This generally applies to your private config (`rmcs-user-dir') or Doom's source
+This generally applies to your private config (`rmcs-user-dir') or Rmcs's source
 \(`rmcs-emacs-dir')."
   :since "3.0.0"
   (unless (and (or (bound-and-true-p flycheck-mode)
@@ -675,7 +675,7 @@ Adapted from URL `https://www.reddit.com/r/emacs/comments/d7x7x8/finally_fixing_
 
 ;; HACK: Quite a few functions here are called often, and so are especially
 ;;   performance sensitive, so we compile this file on-demand, at least, until
-;;   Doom adds a formal compile step to 'rmcs sync'.
+;;   Rmcs adds a formal compile step to 'rmcs sync'.
 (rmcs-compile-functions #'+emacs-lisp-highlight-vars-and-faces
                         #'+emacs-lisp-truncate-pin
                         #'+emacs-lisp--calculate-lisp-indent-a)

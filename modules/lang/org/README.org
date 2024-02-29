@@ -4,7 +4,7 @@
 #+since:    2.0.0
 
 * Description :unfold:
-This module adds org-mode support to Doom Emacs, along with a number of
+This module adds org-mode support to Rmcs Emacs, along with a number of
 adjustments, extensions and reasonable defaults to make it more performant and
 intuitive out of the box:
 
@@ -289,7 +289,7 @@ V2 comes with a migration wizard for v1 users. It's new, which means issues can
 appear during the migration process. Because of that, *don't forget to backup*
 your ~org-roam-directory~ before attempting to migrate.
 
-In order to migrate from v1 to v2 using Doom follow the next steps:
+In order to migrate from v1 to v2 using Rmcs follow the next steps:
 1. Enable [[rmcs-module:+roam2]] flag (and disable [[rmcs-module:+roam]] if it was previously enabled) in your
    =init.el=.
 2. Ensure your ~org-roam-directory~ points to a directory with your v1 files.

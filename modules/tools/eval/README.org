@@ -66,7 +66,7 @@ Invoked via:
 #+end_quote
 
 ** Register a REPL for a major-mode
-REPLs are defined for most languages Doom supports. Check that language module's
+REPLs are defined for most languages Rmcs supports. Check that language module's
 README.org to see if it does (and if it requires additional setup).
 
 To use them, you may use ~M-x +eval/open-repl-other-window~, ~M-x
@@ -75,7 +75,7 @@ To use them, you may use ~M-x +eval/open-repl-other-window~, ~M-x
 
 #+begin_quote
 You can simply call that mode's REPL command manually. e.g. ~M-x ielm~, but this
-will bar you from the benefits of Doom's REPL system (like send-to-repl
+will bar you from the benefits of Rmcs's REPL system (like send-to-repl
 functionality).
 #+end_quote
 

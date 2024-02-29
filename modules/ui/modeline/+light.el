@@ -2,7 +2,7 @@
 
 ;; This is a slimmed down version of `rmcs-modeline' that manipulates
 ;; `mode-line-format' directly. Its purpose is to be truer to the original goal
-;; of Doom's modeline: to be more performant and minimalistic alternative to
+;; of Rmcs's modeline: to be more performant and minimalistic alternative to
 ;; other modeline packages and to be abstraction-light. Too much abstraction is
 ;; too much magic.
 ;;

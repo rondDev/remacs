@@ -1,10 +1,10 @@
 ;;; config/use-package/init.el -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;
-;; In the near future, Doom will stop using `use-package' internally (in its
+;; In the near future, Rmcs will stop using `use-package' internally (in its
 ;; modules and core), because it's far too complex and magical for our needs.
 ;; However, folks who still want to use it may enable this module. However, it
-;; will be enabled by default until Doom no longer depends on it.
+;; will be enabled by default until Rmcs no longer depends on it.
 ;;
 ;;; Code:
 
@@ -22,7 +22,7 @@
 
 ;; A common mistake for new users is that they inadvertently install their
 ;; packages with package.el, by copying over old `use-package' declarations with
-;; an :ensure t property. Doom doesn't use package.el, so this will throw an
+;; an :ensure t property. Rmcs doesn't use package.el, so this will throw an
 ;; error that will confuse beginners, so we disable `:ensure'.
 (setq use-package-ensure-function
       (lambda (name &rest _)
@@ -135,7 +135,7 @@
 This is a thin wrapper around `use-package', and is ignored if the NAME package
 is disabled by the user (with `package!').
 
-See `use-package' to see what properties can be provided. Doom adds support for
+See `use-package' to see what properties can be provided. Rmcs adds support for
 two extra properties:
 
 :after-call SYMBOL|LIST
@@ -155,7 +155,7 @@ two extra properties:
   (declare (indent 1))
   (unless (or (memq name rmcs-disabled-packages)
               ;; At compile-time, use-package will forcibly load packages to
-              ;; prevent compile-time errors. However, if a Doom user has
+              ;; prevent compile-time errors. However, if a Rmcs user has
               ;; disabled packages you get file-missing package errors, so it's
               ;; necessary to check for packages at compile time:
               (and (bound-and-true-p byte-compile-current-file)
@@ -180,7 +180,7 @@ WARNINGS:
 - If you are using this solely for :post-config, stop! `after!' is much better.
 - If :pre-init or :pre-config hooks return nil, the original `use-package!''s
   :init/:config block (respectively) is overwritten, so remember to have them
-  return non-nil (or exploit that to overwrite Doom's config)."
+  return non-nil (or exploit that to overwrite Rmcs's config)."
   (declare (indent defun))
   (unless (memq when '(:pre-init :post-init :pre-config :post-config))
     (error "'%s' isn't a valid hook for use-package-hook!" when))
