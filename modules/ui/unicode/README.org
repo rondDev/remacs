@@ -56,13 +56,13 @@ When this module is enabled:
 The first font that will be analyzed to see if it contains the glyphs of
 non-latin characters will be ~rmcs-symbol-font~:
 #+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
+;; in $RMCSDIR/config.el
 (setq rmcs-symbol-font (font-spec :family "JuliaMono"))
 #+end_src
 
 If your ~rmcs-font~ provides good unicode coverage use:
 #+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
+;; in $RMCSDIR/config.el
 (setq rmcs-symbol-font rmcs-font)
 #+end_src
 
@@ -76,7 +76,7 @@ A list of fonts with good unicode coverage can be found on the page of the
 ** Advanced configuration
 Consult the [[https://github.com/rolandwalker/unicode-fonts][unicode-fonts]] package documentation for a description of more
 advanced configuration. The configuration should be placed, as usual, in
-=$DOOMDIR/config.el= wrapped in an ~(after! unicode-fonts)~ block. The variable
+=$RMCSDIR/config.el= wrapped in an ~(after! unicode-fonts)~ block. The variable
 ~unicode-fonts-blocks~ contains a list of all unicode block names and their
 character ranges. The default fonts to search for glyphs are in the variable
 ~unicode-fonts-block-font-mapping~.
@@ -84,7 +84,7 @@ character ranges. The default fonts to search for glyphs are in the variable
 If you want to use the font =Symbola= for =Miscellaneous Symbols= by default
 use:
 #+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
+;; in $RMCSDIR/config.el
 (after! unicode-fonts
   (push "Symbola" (cadr (assoc "Miscellaneous Symbols" unicode-fonts-block-font-mapping))))
 #+end_src

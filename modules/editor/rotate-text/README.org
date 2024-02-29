@@ -47,14 +47,14 @@ through them.
 
 To enable a set of items to cycle through globally:
 #+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
+;; in $RMCSDIR/config.el
 (after! rotate-text
   (add-to-list 'rotate-text-words '("small" "medium" "large")))
 #+end_src
 
 To add a sequence to a specific mode:
 #+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
+;; in $RMCSDIR/config.el
 (set-rotate-patterns! 'c++-mode
     :words '(("float" "double")))
 #+end_src

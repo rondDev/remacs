@@ -225,7 +225,7 @@ Additional info:
 ** Configure LSP servers
 Search for your combination of =(LSP client package, LSP server)=. You are using
 [[rmcs-package:lsp-mode]] by default, [[rmcs-package:eglot]] if you have [[rmcs-module::tools lsp +eglot]] active in
-=$DOOMDIR/init.el= file.
+=$RMCSDIR/init.el= file.
 
 *** LSP-mode with clangd
 #+begin_src emacs-lisp

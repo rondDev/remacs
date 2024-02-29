@@ -22,7 +22,7 @@ Read RSS feeds in the comfort of Emacs.
 ** Hacks
 - By default ~elfeed-search-filter~ is set to ~@2-weeks-ago~ and makes the last
   2 weeks of entries visible. This needs to be set after elfeed has loaded like
-  so in your =$DOOMDIR/config.el=:
+  so in your =$RMCSDIR/config.el=:
   #+begin_src emacs-lisp
   (after! elfeed
     (setq elfeed-search-filter "@1-month-ago +unread"))
@@ -52,7 +52,7 @@ Read RSS feeds in the comfort of Emacs.
 
 ** Without +org
 When you don't want to use org mode to manage your elfeed feeds you can put your
-subscriptions in =$DOOMDIR/config.el=:
+subscriptions in =$RMCSDIR/config.el=:
 #+begin_src emacs-lisp
 (setq elfeed-feeds
       '("https://this-week-in-rust.org/rss.xml"
@@ -110,7 +110,7 @@ configure feeds to follow:
   + Both ~+news -rust~
 + String filtering, this is case insensitive
   + Include
-    + ~DOOM~
+    + ~RMCS~
     + ~Linu[sx]~ Search for both ~Linus~ and ~Linux~
   + Exclude ~!something~
 

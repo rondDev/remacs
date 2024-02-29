@@ -29,9 +29,9 @@
 
        :ui
        ;;deft              ; notational velocity for Emacs
-       rmcs              ; what makes DOOM look the way it does
+       rmcs              ; what makes RMCS look the way it does
        rmcs-dashboard    ; a nifty splash screen for Emacs
-       ;;rmcs-quit         ; DOOM quit-message prompts when you quit Emacs
+       ;;rmcs-quit         ; RMCS quit-message prompts when you quit Emacs
        ;;(emoji +unicode)  ; 🙂
        hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        ;;hydra

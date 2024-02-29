@@ -61,7 +61,7 @@ Formatting is handled using the [[rmcs-module::editor format]] module via [[http
 ~racket-smart-open-bracket-mode~ gets turned off automatically if you use
 ~parinfer~, ~lispy~. If you wish to enable it:
 #+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
+;; in $RMCSDIR/config.el
 (after! racket-mode
   (add-hook 'racket-mode-hook #'racket-smart-open-bracket-mode))
 #+end_src
@@ -72,7 +72,7 @@ as λ or π. To enable unicode input for a single buffer, run
 ~racket-unicode-input-method-enable~. To enable unicode input by default on all
 racket buffers:
 #+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
+;; in $RMCSDIR/config.el
 (add-hook 'racket-mode-hook      #'racket-unicode-input-method-enable)
 (add-hook 'racket-repl-mode-hook #'racket-unicode-input-method-enable)
 #+end_src

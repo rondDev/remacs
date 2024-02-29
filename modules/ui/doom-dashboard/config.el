@@ -140,7 +140,7 @@ PLIST can have the following properties:
   :group 'rmcs-themes)
 
 (defface rmcs-dashboard-banner '((t (:inherit font-lock-comment-face)))
-  "Face used for the DOOM banner on the dashboard"
+  "Face used for the RMCS banner on the dashboard"
   :group 'rmcs-dashboard)
 
 (defface rmcs-dashboard-footer '((t (:inherit font-lock-keyword-face)))
@@ -168,8 +168,8 @@ PLIST can have the following properties:
 ;;; Major mode
 
 (define-derived-mode +rmcs-dashboard-mode special-mode
-  (format "DOOM v%s" rmcs-version)
-  "Major mode for the DOOM dashboard buffer."
+  (format "RMCS v%s" rmcs-version)
+  "Major mode for the RMCS dashboard buffer."
   :syntax-table nil
   :abbrev-table nil
   (buffer-disable-undo)
@@ -337,7 +337,7 @@ What it is set to is controlled by `+rmcs-dashboard-pwd-policy'."
     (+rmcs-dashboard-reload 'force)))
 
 (defun +rmcs-dashboard-reload (&optional force)
-  "Update the DOOM scratch buffer (or create it, if it doesn't exist)."
+  "Update the RMCS scratch buffer (or create it, if it doesn't exist)."
   (when (or (and (not +rmcs-dashboard-inhibit-refresh)
                  (get-buffer-window (rmcs-fallback-buffer))
                  (not (window-minibuffer-p (frame-selected-window)))

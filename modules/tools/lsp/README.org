@@ -136,7 +136,7 @@ the correct ~PATH~"
 
 ** LSP/Eglot is not started automatically in my buffer
 Make sure that you have enabled the [[rmcs-module:+lsp]] flag on the appropriate module(s) (in
-your ~rmcs!~ block in =$DOOMDIR/init.el=):
+your ~rmcs!~ block in =$RMCSDIR/init.el=):
 #+begin_src diff
 :lang
 -python

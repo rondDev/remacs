@@ -62,7 +62,7 @@ If you want to use rime as the input method engine:
 Modify ~fcitx-remote-command~ to change the default:
 
 #+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
+;; in $RMCSDIR/config.el
 (setq fcitx-remote-command "fcitx5-remote")
 #+end_src
 

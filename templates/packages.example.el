@@ -1,5 +1,5 @@
 ;; -*- no-byte-compile: t; -*-
-;;; $DOOMDIR/packages.el
+;;; $RMCSDIR/packages.el
 
 ;; To install a package with Doom you must declare them here and run 'rmcs sync'
 ;; on the command line, then restart Emacs for the changes to take effect -- or

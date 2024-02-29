@@ -166,7 +166,7 @@ two extra properties:
   "Reconfigures a package's `use-package!' block.
 
 This macro must be used *before* PACKAGE's `use-package!' block. Often, this
-means using it from your DOOMDIR/init.el.
+means using it from your RMCSDIR/init.el.
 
 Under the hood, this uses use-package's `use-package-inject-hooks'.
 

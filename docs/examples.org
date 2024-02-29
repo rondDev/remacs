@@ -50,7 +50,7 @@ documentation.
 :END:
 This file can live in any of:
 
-- =$DOOMDIR/profiles.el=
+- =$RMCSDIR/profiles.el=
 - =$EMACSDIR/profiles.el=
 - =~/.config/rmcs-profiles.el=
 - =~/.rmcs-profiles.el=
@@ -72,9 +72,9 @@ Here is an exhaustive example of all its syntax and capabilities:
   ;; defaults to ~/.config/rmcs or ~/.rmcs.d:
   (rmcs-user-dir . "~/another/rmcs/config/")
   ;; If a CAR is a string, it is assumed you want to set an environment
-  ;; variable. (Side-note: setting DOOMDIR will be unnecessary if you're setting
+  ;; variable. (Side-note: setting RMCSDIR will be unnecessary if you're setting
   ;; `rmcs-user-dir' above).
-  ("DOOMDIR" . "~/another/rmcs/config/")
+  ("RMCSDIR" . "~/another/rmcs/config/")
 
   ;; Doom profiles support a number of special directives. They are:
   ;;

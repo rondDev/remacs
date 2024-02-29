@@ -182,8 +182,8 @@ This module provides a set of reasonable defaults, including:
 
 This module enables support for a literate config.
 
-A literate config consists of a =$DOOMDIR/config.org=. All src blocks within are
-tangled =$DOOMDIR/config.el=, by default, when ~$ rmcs sync~ is executed.
+A literate config consists of a =$RMCSDIR/config.org=. All src blocks within are
+tangled =$RMCSDIR/config.el=, by default, when ~$ rmcs sync~ is executed.
 
 
 ** [[rmcs-module::editor][:editor]] (12) :unfold:
@@ -1292,7 +1292,7 @@ Besides eye candy, the dashboard serves two other purposes:
 : One does not simply quit Emacs
 
 A silly module that throws cute confirmation prompts at you when you exit Emacs,
-like DOOM (the game) did. Some quotes are from the classic games, others are
+like RMCS (the game) did. Some quotes are from the classic games, others are
 random, nerdy references that no decent human being has any business
 recognizing.
 

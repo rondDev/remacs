@@ -80,7 +80,7 @@ as =msmtp= (recommended).
 
 If you use =msmtp=:
 #+begin_src emacs-lisp
-;; add to $DOOMDIR/config.el
+;; add to $RMCSDIR/config.el
 (after! mu4e
   (setq sendmail-program (executable-find "msmtp")
         send-mail-function #'smtpmail-send-it
@@ -246,7 +246,7 @@ folder: Move the message to the trash" for the integrations to work as expected.
 With the [[rmcs-module:+org]] flag, [[rmcs-package:org-msg]] is installed, and ~org-msg-mode~ is enabled before
 composing the first message. To disable ~org-msg-mode~ by default:
 #+begin_src emacs-lisp
-;; add to $DOOMDIR/config.el
+;; add to $RMCSDIR/config.el
 (setq +mu4e-compose-org-msg-toggle-next nil)
 #+end_src
 
@@ -261,7 +261,7 @@ This provides notifications through the [[https://github.com/jwiegley/alert][ale
 
 If you don't like this use:
 #+begin_src emacs-lisp
-;; add to $DOOMDIR/packages.el
+;; add to $RMCSDIR/packages.el
 (package! mu4e-alert :disable t)
 #+end_src
 

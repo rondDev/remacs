@@ -48,7 +48,7 @@ Wrapping can be toggled in the current buffer with ~M-x +word-wrap-mode~. The
 default rmcs bindings bind this to [[kbd:][SPC t w]] for ~evil~ users.
 
 To enable wrapping in a specific mode, add it to the appropriate hook in
-~$DOOMDIR/config.el~:
+~$RMCSDIR/config.el~:
 #+begin_src emacs-lisp
 ;; enable word-wrap in C/C++/ObjC/Java
 (add-hook 'c-mode-common-hook #'+word-wrap-mode)

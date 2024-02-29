@@ -1,7 +1,7 @@
 ;;; input/layout/+bepo.el -*- lexical-binding: t; -*-
 
 (defvar +layout-bepo-cr-rotation-style 'ergodis
-  "Modify this variable in your $DOOMDIR/init.el
+  "Modify this variable in your $RMCSDIR/init.el
 Style of binding rotation for the cr keys.
 If 'ergodis, then the module maps the old 'c' bindings to 'l' and the old 'r' to 'h', as
 the 'change' function is used more often and 'l' is easier to reach than 'h' in bépo.

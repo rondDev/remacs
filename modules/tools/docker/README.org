@@ -133,7 +133,7 @@ also send escape sequences, which =tramp-wait-for-output= doesn't ignore
 correctly. This was [[http://git.savannah.gnu.org/cgit/tramp.git/commit/?id=98a511248a9405848ed44de48a565b0b725af82c][fixed in TRAMP upstream]] and is available since TRAMP 2.3.
 
 For older versions of TRAMP you can dump [[https://github.com/emacs-pe/docker-tramp.el/blob/master/docker-tramp-compat.el][docker-tramp-compat.el]] in your
-~load-path~ somewhere and add the following to =$DOOMDIR/config.el= to overwrite
+~load-path~ somewhere and add the following to =$RMCSDIR/config.el= to overwrite
 ~tramp-wait-for-output~ with the patch applied:
 #+begin_src emacs-lisp
 (after! tramp

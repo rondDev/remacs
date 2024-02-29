@@ -71,7 +71,7 @@ This module supports LSP integration. For it to work you'll need:
 ** Customize zls path
 To customize the path of the =zls= executable, modify ~lsp-zig-zls-executable~:
 #+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
+;; in $RMCSDIR/config.el
 (setq lsp-zig-zls-executable "~/path/to/zls")
 #+end_src
 

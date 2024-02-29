@@ -69,7 +69,7 @@ Then configure [[rmcs-package:lsp-julia]] or [[rmcs-package:eglot-jl]] depending
 *** =lsp-julia=
 To instruct [[rmcs-package:lsp-julia]] not to use the built-in package:
 #+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
+;; in $RMCSDIR/config.el
 (setq lsp-julia-package-dir nil)
 #+end_src
 
@@ -77,7 +77,7 @@ To find your installation of ~LanguageServer.jl~, [[rmcs-package:lsp-julia]] nee
 environment in which it is installed. This is set to v1.6 by default as it is
 the current LTS:
 #+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
+;; in $RMCSDIR/config.el
 (after! lsp-julia
   (setq lsp-julia-default-environment "~/.julia/environments/v1.6"))
 #+end_src
@@ -87,14 +87,14 @@ To find your installation of ~LanguageServer.jl~, [[rmcs-package:eglot-jl]] must
 environment in which it is installed. This is set to v1.6 by default as it is
 the current LTS:
 #+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
+;; in $RMCSDIR/config.el
 (setq eglot-jl-language-server-project "~/.julia/environments/v1.6")
 #+end_src
 
 But to let [[rmcs-package:eglot-jl]] use the environment bundled with it, set it to
 ~eglot-jl-base~ instead:
 #+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
+;; in $RMCSDIR/config.el
 (after! eglot-jl
   (setq eglot-jl-language-server-project eglot-jl-base))
 #+end_src
@@ -131,7 +131,7 @@ described above.
 [[rmcs-package:lsp-julia]] requires a variable be set for the Julia environment. This is set to
 v1.6 by default as it is the current LTS:
 #+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
+;; in $RMCSDIR/config.el
 (after! lsp-julia
   (setq lsp-julia-default-environment "~/.julia/environments/v1.6"))
 #+end_src

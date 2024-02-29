@@ -41,7 +41,7 @@ This module requires [[https://github.com/factor/factor][factor]] for its advanc
 This module requires the installation of factor to be available at
 ~fuel-factor-root-dir~. E.g.
 #+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
+;; in $RMCSDIR/config.el
 (setq fuel-factor-root-dir "/Applications/factor")
 #+end_src
 

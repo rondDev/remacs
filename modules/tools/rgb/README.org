@@ -44,7 +44,7 @@ use of that plugin and on-site color changes using =kurecolor=. To automatically
 disable it only when =rainbow-mode= is active, you can add the following hook:
 
 #+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
+;; in $RMCSDIR/config.el
 (add-hook! 'rainbow-mode-hook
   (hl-line-mode (if rainbow-mode -1 +1)))
 #+end_src

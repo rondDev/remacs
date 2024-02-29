@@ -469,7 +469,7 @@ git clone https://github.com/hlissner/rmcs-emacs ~/.emacs.d
 ~/.emacs.d/bin/rmcs install
 #+END_SRC
 
-=rmcs install= will set up your =DOOMDIR= at =~/.rmcs.d= (if it doesn't already
+=rmcs install= will set up your =RMCSDIR= at =~/.rmcs.d= (if it doesn't already
 exist) and will work you through the first-time setup of Doom Emacs. Carefully
 follow any instructions it puts out.
 
@@ -635,7 +635,7 @@ rmcs upgrade --packages
 
 #+begin_quote
 To minimize issues while upgrading, avoid modifying Doom's source files in
-=~/.emacs.d=. All your customization should be kept in your =DOOMDIR= (e.g.
+=~/.emacs.d=. All your customization should be kept in your =RMCSDIR= (e.g.
 =~/.rmcs.d=). Read the [[#Configure][Configure]] section for more on configuring Doom.
 #+end_quote
 
@@ -683,22 +683,22 @@ server]].
 #+end_quote
 
 * Configure
-You can configure Doom by tweaking the files found in your =DOOMDIR=. Doom
+You can configure Doom by tweaking the files found in your =RMCSDIR=. Doom
 expects this directory to be found in one of:
 
 1. =~/.config/rmcs= (respects ~$XDG_CONFIG_HOME~)
 2. or =~/.rmcs.d=
 
-This directory is referred to as your =DOOMDIR=. Only one of these directories
+This directory is referred to as your =RMCSDIR=. Only one of these directories
 should exist (Doom will only recognize one).
 
 #+begin_quote
-Change the =DOOMDIR= environment variable to change where Doom looks for this
+Change the =RMCSDIR= environment variable to change where Doom looks for this
 directory. Symlinks will work as well.
 #+end_quote
 
 When you ran ~rmcs install~, it deployed a simple Doom configuration to your
-=DOOMDIR=, comprised of these three files:
+=RMCSDIR=, comprised of these three files:
 
 + init.el :: Where you'll find your ~rmcs!~ block, which controls what Doom
   modules are enabled and in what order they will be loaded.
@@ -725,10 +725,10 @@ will trigger them.
 ** Modules
 Doom consists of around 160 modules and growing. A Doom module is a bundle of
 packages, configuration and commands, organized into a unit that can be toggled
-easily by tweaking your ~rmcs!~ block (found in =$DOOMDIR/init.el=).
+easily by tweaking your ~rmcs!~ block (found in =$RMCSDIR/init.el=).
 
 #+begin_quote
-If =$DOOMDIR/init.el= doesn't exist, you haven't run ~rmcs install~ yet. See [[#install][the
+If =$RMCSDIR/init.el= doesn't exist, you haven't run ~rmcs install~ yet. See [[#install][the
 "Install" section]] above.
 #+end_quote
 
@@ -777,7 +777,7 @@ misspelled modules and flags.
 Instead, it uses its own declarative package manager built on top of
 [[https://github.com/raxod502/straight.el][straight.el]].
 
-Packages are declared in ~packages.el~ files. You'll find one in your =DOOMDIR=
+Packages are declared in ~packages.el~ files. You'll find one in your =RMCSDIR=
 and in many of Doom's modules. Read on to learn how to use this system to
 install your own packages.
 
@@ -797,7 +797,7 @@ install packages this way too!
 
 *** Installing packages
 To install a package, add a ~package!~ declaration for it to
-=DOOMDIR/packages.el=:
+=RMCSDIR/packages.el=:
 #+BEGIN_SRC emacs-lisp
 ;; Install a package named "example" from ELPA, MELPA, or Emacsmirror
 (package! example)
@@ -940,13 +940,13 @@ ensure your changes take effect.
 *** Changing a recipe for an included package
 If a Doom module installs package X from one place, but you'd like to install it
 from another (say, a superior fork), add a ~package!~ declaration for it in your
-=DOOMDIR/packages.el=. Your private declarations always have precedence over
+=RMCSDIR/packages.el=. Your private declarations always have precedence over
 modules (even your own).
 #+BEGIN_SRC elisp
 ;; in modules/editor/evil/packages.el
 (package! evil) ; installs from MELPA
 
-;; in DOOMDIR/packages.el
+;; in RMCSDIR/packages.el
 (package! evil :recipe (:host github :repo "username/my-evil-fork"))
 #+END_SRC
 
@@ -992,7 +992,7 @@ Alternatively, add the package's location to Emacs' ~load-path~. Do this if you
 don't need/care for autoload cookies or byte-compilation:
 #+BEGIN_SRC elisp
 ;; Doom has modified `use-package's `:load-path' to expand relative paths from
-;; your DOOMDIR. e.g. ~/.rmcs.d/lisp/package
+;; your RMCSDIR. e.g. ~/.rmcs.d/lisp/package
 (use-package my-package
   :load-path "lisp/package")
 
@@ -1317,12 +1317,12 @@ With that out of the way, here is the load order of Doom's most important files:
 |---------------------------------------------+-------------+-------+-----|
 | ~/.emacs.d/early-init.el (Emacs 27+ only)   | yes         | no    | no  |
 | ~/.emacs.d/init.el                          | yes         | no    | no  |
-| $DOOMDIR/init.el                            | yes         | yes   | yes |
-| {~/.emacs.d,$DOOMDIR}/modules/*/*/init.el   | yes         | yes   | yes |
-| $DOOMDIR/cli.el                             | no          | no    | yes |
-| {~/.emacs.d,$DOOMDIR}/modules/*/*/cli.el    | no          | no    | yes |
-| {~/.emacs.d,$DOOMDIR}/modules/*/*/config.el | yes         | no    | no  |
-| $DOOMDIR/config.el                          | yes         | no    | no  |
+| $RMCSDIR/init.el                            | yes         | yes   | yes |
+| {~/.emacs.d,$RMCSDIR}/modules/*/*/init.el   | yes         | yes   | yes |
+| $RMCSDIR/cli.el                             | no          | no    | yes |
+| {~/.emacs.d,$RMCSDIR}/modules/*/*/cli.el    | no          | no    | yes |
+| {~/.emacs.d,$RMCSDIR}/modules/*/*/config.el | yes         | no    | no  |
+| $RMCSDIR/config.el                          | yes         | no    | no  |
 
 *** Flags
 A module's flag is an arbitrary symbol. By convention, these symbols are

@@ -58,16 +58,16 @@ A special command is available for inserting software licenses: ~M-x
 
 ** Adding new or changing existing file templates
 New file templates can be added to
-=$DOOMDIR/snippets/{major-mode}/{snippet-name}=. The yasnippet documentation
+=$RMCSDIR/snippets/{major-mode}/{snippet-name}=. The yasnippet documentation
 covers [[https://joaotavora.github.io/yasnippet/snippet-development.html][how to write a snippet]]. You can map a snippet to a file path, major mode,
 or another arbitrary predicate using [[fn:set-file-template!]].
 
 Look into its documentation with [[kbd:][<help> f set-file-template\!]].
 
 ** Adding new OSS licenses
-Add snippet files to =$DOOMDIR/snippets/text-mode/= with the =__licenses-=
+Add snippet files to =$RMCSDIR/snippets/text-mode/= with the =__licenses-=
 prefix and [[fn:+file-templates/insert-license]] will recognize them. E.g.
-=$DOOMDIR/snippets/text-mode/__license-mit=.
+=$RMCSDIR/snippets/text-mode/__license-mit=.
 
 * Troubleshooting
 - If a file template isn't expanding where you expect it to, run ~M-x

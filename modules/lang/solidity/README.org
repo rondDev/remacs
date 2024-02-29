@@ -51,7 +51,7 @@ npm install -g solium
 By default *solium* looks for =.soliumrc.json= in the project directory, but you
 can set it to your own =.soliumrc.json= with:
 #+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
+;; in $RMCSDIR/config.el
 (setq flycheck-solidity-solium-soliumrcfile "~/.soliumrc.json")
 #+end_src
 

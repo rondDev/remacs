@@ -7,7 +7,7 @@
 #
 #   nix-shell
 #
-# With your own DOOMDIR:
+# With your own RMCSDIR:
 #
 #   nix-shell --argstr rmcsdir ~/.config/other-rmcs-config
 #
@@ -81,25 +81,25 @@ in pkgs.stdenv.mkDerivation {
       export EMACSDIR="$(readlink -f "${emacsdir}")/"
     fi
     if [[ -n "${rmcsdir}" ]]; then
-      export DOOMDIR="$(readlink -f "${rmcsdir}")/"
+      export RMCSDIR="$(readlink -f "${rmcsdir}")/"
     fi
     if [[ -n "${rmcslocaldir}" ]]; then
-      export DOOMLOCALDIR="$(readlink -f "${rmcslocaldir}").$EMACSVERSION/"
+      export RMCSLOCALDIR="$(readlink -f "${rmcslocaldir}").$EMACSVERSION/"
     fi
-    export DOOMNOCOMPILE=1
+    export RMCSNOCOMPILE=1
     export PATH="$EMACSDIR/bin:$PATH"
 
     echo "Running Emacs $EMACSVERSION (emacs=${emacs})"
     echo "EMACSDIR=$EMACSDIR"
-    echo "DOOMDIR=$DOOMDIR"
-    echo "DOOMLOCALDIR=$DOOMLOCALDIR"
+    echo "RMCSDIR=$RMCSDIR"
+    echo "RMCSLOCALDIR=$RMCSLOCALDIR"
 
     # Copy your existing repos over to optimize on install times (but not the
     # builds, because that may contain stale bytecode).
-    mkdir -p "$DOOMLOCALDIR/straight"
-    pushd "$DOOMLOCALDIR/straight" >/dev/null
+    mkdir -p "$RMCSLOCALDIR/straight"
+    pushd "$RMCSLOCALDIR/straight" >/dev/null
     if [[ -d "$EMACSDIR/.local/straight/repos" && ! -d ./repos ]]; then
-      echo "Copying '$EMACSDIR/.local/straight/repos' to './$(basename $DOOMLOCALDIR)/straight/repos' to save time"
+      echo "Copying '$EMACSDIR/.local/straight/repos' to './$(basename $RMCSLOCALDIR)/straight/repos' to save time"
       cp -r "$EMACSDIR/.local/straight/repos" ./repos
     fi
     popd >/dev/null

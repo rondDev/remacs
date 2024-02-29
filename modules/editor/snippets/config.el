@@ -33,7 +33,7 @@
   :config
   (add-to-list 'rmcs-debug-variables '(yas-verbosity . 3))
 
-  ;; Allow private snippets in DOOMDIR/snippets
+  ;; Allow private snippets in RMCSDIR/snippets
   (add-to-list 'yas-snippet-dirs '+snippets-dir)
 
   ;; default snippets library, if available

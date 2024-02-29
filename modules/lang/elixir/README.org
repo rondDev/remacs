@@ -37,7 +37,7 @@ or a version management tool such as [[https://github.com/asdf-vm/asdf-elixir][a
 
 To add LSP support, install [[https://github.com/JakeBecker/elixir-ls/][elixir-ls]] and enable [[rmcs-module::tools lsp]].
 
-To support linting with [[https://github.com/rrrene/credo][credo]], add ~:checkers syntax~ to ~$DOOMDIR/init.el~.
+To support linting with [[https://github.com/rrrene/credo][credo]], add ~:checkers syntax~ to ~$RMCSDIR/init.el~.
 
 ** Install Elixir
 (See [[https://elixir-lang.org/install.html]] for other operating systems)

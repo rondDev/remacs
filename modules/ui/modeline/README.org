@@ -81,9 +81,9 @@ rmcs/describe-active-minor-mode~ was written to substitute for it.
    workaround:
     #+begin_src emacs-lisp
     ;; See https://github.com/seagle0128/rmcs-modeline/issues/278#issuecomment-569510336
-    ;; Add to $DOOMDIR/packages.el
+    ;; Add to $RMCSDIR/packages.el
     (package! cnfonts)
-    ;; Add to $DOOMDIR/config.el
+    ;; Add to $RMCSDIR/config.el
     (add-hook 'after-setting-font-hook #'cnfonts-set-font)
     #+end_src
 

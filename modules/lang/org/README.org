@@ -252,13 +252,13 @@ For =evil-mode= users, an overview of org-mode keybindings is provided [[https:/
 ** Changing ~org-directory~
 ~org-directory~ must be set /before/ [[rmcs-package:org]] has loaded:
 #+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
+;; in $RMCSDIR/config.el
 (setq org-directory "~/new/org/location/")
 #+end_src
 
 ** Changing ~org-noter-notes-search-path~
 #+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
+;; in $RMCSDIR/config.el
 (setq org-noter-notes-search-path '("~/notes/path/"))
 #+end_src
 

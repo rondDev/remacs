@@ -151,7 +151,7 @@ both cases the universal argument has been moved to [[kbd:][<leader> u]].
 
 To undo this, use:
 #+begin_src emacs-lisp
-;; add to $DOOMDIR/config.el
+;; add to $RMCSDIR/config.el
 (setq! evil-want-C-u-scroll nil
        evil-want-C-u-delete nil)
 #+end_src
@@ -162,9 +162,9 @@ vim-seek/vim-sneak for 2-character versions of f/F/t/T).
 
 To disable evil-snipe on s/S, you can either:
 1. Disable ~evil-snipe-mode~ by adding ~(remove-hook 'rmcs-first-input-hook
-   #'evil-snipe-mode)~ to =$DOOMDIR/config.el=,
+   #'evil-snipe-mode)~ to =$RMCSDIR/config.el=,
 2. Or disable [[rmcs-package:evil-snipe]] completely with ~(package! evil-snipe :disable t)~
-   added to =$DOOMDIR/packages.el=, but this will also disable incremental
+   added to =$RMCSDIR/packages.el=, but this will also disable incremental
    highlighting for the f/F/t/T motions keys.
 3. Or use [[kbd:][cl]] and [[kbd:][cc]], respectively; they do the same thing.
 
@@ -175,7 +175,7 @@ because it was redundant with [[kbd:][yy]], which is easier to type than [[kbd:]
 
 If you prefer the old behavior, it can be reversed with:
 #+begin_src emacs-lisp
-;; add to $DOOMDIR/config.el
+;; add to $RMCSDIR/config.el
 (setq! evil-want-Y-yank-to-eol nil)
 #+end_src
 

@@ -5,7 +5,7 @@
 
 * Description :unfold:
 A silly module that throws cute confirmation prompts at you when you exit Emacs,
-like DOOM (the game) did. Some quotes are from the classic games, others are
+like RMCS (the game) did. Some quotes are from the classic games, others are
 random, nerdy references that no decent human being has any business
 recognizing.
 

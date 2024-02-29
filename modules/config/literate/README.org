@@ -6,8 +6,8 @@
 * Description :unfold:
 This module enables support for a literate config.
 
-A literate config consists of a =$DOOMDIR/config.org=. All src blocks within are
-tangled =$DOOMDIR/config.el=, by default, when ~$ rmcs sync~ is executed.
+A literate config consists of a =$RMCSDIR/config.org=. All src blocks within are
+tangled =$RMCSDIR/config.el=, by default, when ~$ rmcs sync~ is executed.
 
 ** Maintainers
 /This module has no dedicated maintainers./ [[rmcs-contrib-maintainer:][Become a maintainer?]]
@@ -28,11 +28,11 @@ tangled =$DOOMDIR/config.el=, by default, when ~$ rmcs sync~ is executed.
 * Installation
 [[id:01cffea4-3329-45e2-a892-95a384ab2338][Enable this module in your ~rmcs!~ block.]]
 
-This module only requires a =$DOOMDIR/config.org=, which will be tangled into
-=$DOOMDIR/config.el= when you run ~$ rmcs sync~.
+This module only requires a =$RMCSDIR/config.org=, which will be tangled into
+=$RMCSDIR/config.el= when you run ~$ rmcs sync~.
 
 #+begin_quote
-  *Be careful!* Enabling this module will overwrite =$DOOMDIR/config.el=! If
+  *Be careful!* Enabling this module will overwrite =$RMCSDIR/config.el=! If
     you are only trying out the module, *back up this file first!*
 #+end_quote
 
@@ -41,7 +41,7 @@ This module only requires a =$DOOMDIR/config.org=, which will be tangled into
  󱌣 /This module's usage documentation is incomplete./ [[rmcs-contrib-module:][Complete it?]]
 #+end_quote
 
-- Automatically tangles =$DOOMDIR/config.org= to =$DOOMDIR/config.el= when
+- Automatically tangles =$RMCSDIR/config.org= to =$RMCSDIR/config.el= when
   saving. See [[*Troubleshooting][Troubleshooting]] section belong on how to disable it.
 
 * TODO Configuration
@@ -51,8 +51,8 @@ This module only requires a =$DOOMDIR/config.org=, which will be tangled into
 
 ** Change the location of config.org
 The ~+literate-config-file~ variable controls where to look for your config.org.
-To change this it must be modified early -- in =$DOOMDIR/init.el= or
-=$DOOMDIR/cli.el=.
+To change this it must be modified early -- in =$RMCSDIR/init.el= or
+=$RMCSDIR/cli.el=.
 
 Source blocks needs to be in some language to be automatically tangled, for
 example ~#+begin_src emacs-lisp~, but it doesn't matter what language is used.
@@ -99,7 +99,7 @@ support [[https://orgmode.org/manual/Working-with-Source-Code.html][in the Org m
 * Frequently asked questions
 [[rmcs-suggest-faq:][Ask a question?]]
 
-** How do I tangle to =$DOOMDIR/init.el=?
+** How do I tangle to =$RMCSDIR/init.el=?
 If your literate needs are more complex (e.g. you want to make your init.el
 literate), this module won't cut it. =init.el= files in modules are loaded long
 before =config.org= is tangled in the ~$ rmcs sync~ process.
@@ -112,9 +112,9 @@ load your literate config every time Doom is started.
 ** How do I disable tangle-on-save?
 There are occasions where tangling on save may be undesirable. Maybe it's too
 slow, produces too much noise, or happens too often (on unrelated org files in
-your =$DOOMDIR=). This behavior can be disabled with:
+your =$RMCSDIR=). This behavior can be disabled with:
 #+begin_src emacs-lisp
-;; add to $DOOMDIR/config.el
+;; add to $RMCSDIR/config.el
 (remove-hook 'org-mode-hook #'+literate-enable-recompile-h)
 #+end_src
 

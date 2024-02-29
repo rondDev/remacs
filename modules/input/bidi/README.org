@@ -46,7 +46,7 @@ basis.
 
 If you want to have it on for all buffers, use ~+bidi-global-mode~:
 #+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
+;; in $RMCSDIR/config.el
 (+bidi-global-mode 1)
 #+end_src
 

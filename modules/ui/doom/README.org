@@ -60,7 +60,7 @@ number of alternatives:
 
 This can be changed by changing the ~rmcs-theme~ variable, e.g.
 #+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
+;; in $RMCSDIR/config.el
 (setq rmcs-theme 'rmcs-molokai)
 #+end_src
 
@@ -102,7 +102,7 @@ ugly background instead.
 If you only use Emacs in the terminal, your best bet is to disable the
 solaire-mode package:
 #+begin_src emacs-lisp
-;; in $DOOMDIR/packages.el
+;; in $RMCSDIR/packages.el
 (package! solaire-mode :disable t)
 #+end_src
 

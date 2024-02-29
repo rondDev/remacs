@@ -107,7 +107,7 @@ Formatting is handled using the [[rmcs-module::editor format]] module via [[http
 Reftex has a variable that allow you to specify where it should find your
 bibliography file(s):
 #+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
+;; in $RMCSDIR/config.el
 (setq reftex-default-bibliography "/your/bib/file.bib")
 #+end_src
 
@@ -125,7 +125,7 @@ They are searched for in this order. See ~+latex-viewers~ to change the order,
 or remove tools from the search altogether. If you want to exclusively use one
 tool, for instance:
 #+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
+;; in $RMCSDIR/config.el
 (setq +latex-viewers '(zathura))
 #+end_src
 
@@ -138,7 +138,7 @@ to ~nil~.
 [[rmcs-package:yasnippet]] when using [[rmcs-module::editor snippets]]. If you still wanna use it, simply rebind
 the [[kbd:][TAB]] key for cdlatex, which takes care of snippet-related stuff:
 #+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
+;; in $RMCSDIR/config.el
 (map! :map cdlatex-mode-map
       :i "TAB" #'cdlatex-tab)
 #+end_src

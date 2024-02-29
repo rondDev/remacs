@@ -107,7 +107,7 @@ $ pip3 install debugpy --user
 #+end_src
 
 #+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
+;; in $RMCSDIR/config.el
 (after! dap-mode
   (setq dap-python-debugger 'debugpy))
 #+end_src* TODO Usage

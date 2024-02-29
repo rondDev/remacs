@@ -10,12 +10,12 @@ While I work on the formal documentation for this system, I've created this
 brief guide to walk users through their use. *However, for this to work, Doom
 must live in =~/.emacs.d= or =~/.config/emacs=.* I'll refer to this as
 =$EMACSDIR= (and your private Doom config, in =~/.rmcs.d= or =~/.config/rmcs=,
-as =$DOOMDIR=).
+as =$RMCSDIR=).
 
 * How use profiles
 1. Declare all your profiles in either:
    - One or multiple profile files at:
-     - =$DOOMDIR/profiles.el=
+     - =$RMCSDIR/profiles.el=
      - =$EMACSDIR/profiles.el=
      - =~/.config/rmcs-profiles.el=
      - =~/.rmcs-profiles.el=
@@ -23,7 +23,7 @@ as =$DOOMDIR=).
      [[id:f9bce7da-d155-4727-9b6f-b566b5b8d824][Example profiles.el file]].
 
    - Or an implicit profile, which are inferred from the sub-directories of:
-     - =$DOOMDIR/profiles/=
+     - =$RMCSDIR/profiles/=
      - =$EMACSDIR/profiles/=
 
      Implicit profiles may have a =.rmcsprofile= file to apply additional
@@ -55,7 +55,7 @@ It is this way so that the profiles system imposes no overhead on users that
 aren't interested in the profile system (or prefer to use Chemacs).
 
 However, this behavior can be emulated by registering the "global" profile as a
-profile, and setting ~$DOOMPROFILE~ or aliasing ~emacs~, like so:
+profile, and setting ~$RMCSPROFILE~ or aliasing ~emacs~, like so:
 
 #+begin_src emacs-lisp
 ;; in a profiles.el file
@@ -66,7 +66,7 @@ profile, and setting ~$DOOMPROFILE~ or aliasing ~emacs~, like so:
 
 #+begin_src bash
 # in .zshrc or .bash_profile
-export DOOMPROFILE=default
+export RMCSPROFILE=default
 
 # Or
 alias emacs='emacs --profile default'
@@ -121,13 +121,13 @@ There are two caveats with this profile system:
    #+begin_src emacs-lisp
    ;; ~/.emacs-profiles.el
    (("default"   (user-emacs-directory . "~/.emacs.default/")
-                 (env ("DOOMDIR" . "~/.rmcs.private/")))
+                 (env ("RMCSDIR" . "~/.rmcs.private/")))
     ("spacemacs" (user-emacs-directory . "~/spacemacs/"))
     ("prelude"   (user-emacs-directory . "~/prelude/")))
 
    ;; ~/.config/emacs/profiles.el
    ((default   (user-emacs-directory . "~/.emacs.default/")
-               ("DOOMDIR" . "~/.rmcs.private/"))
+               ("RMCSDIR" . "~/.rmcs.private/"))
     (spacemacs (user-emacs-directory . "~/spacemacs/"))
     (prelude   (user-emacs-directory . "~/prelude/")))
    #+end_src

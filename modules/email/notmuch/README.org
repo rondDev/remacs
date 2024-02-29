@@ -102,7 +102,7 @@ install lieer, see the [[https://github.com/gauteh/lieer#installation][installat
 *** offlineimap
 To use [[https://www.offlineimap.org/][offlineimap]], change ~+notmuch-sync-backend~:
 #+begin_src emacs-lisp
-;; add to $DOOMDIR/config.el
+;; add to $RMCSDIR/config.el
 (setq +notmuch-sync-backend 'offlineimap)
 #+end_src
 
@@ -152,7 +152,7 @@ own backend:
 ** Customize =*notmuch-hello*= buffer
 It is possible to change the =*notmuch-hello*= buffer if you want to.
 #+begin_src emacs-lisp
-;; add to $DOOMDIR/config.el
+;; add to $RMCSDIR/config.el
 (after! notmuch
   (setq notmuch-show-log nil
         notmuch-hello-sections `(notmuch-hello-insert-saved-searches
@@ -188,7 +188,7 @@ a byline, and a table of contents. That's probably more formal than the emails
 you're used to sending, so here's some example configuration that turns those
 features off:
 #+begin_src emacs-lisp
-;; add to $DOOMDIR/config.el
+;; add to $RMCSDIR/config.el
 (after! org-mime
   (setq org-mime-export-options '(:section-numbers nil
                                   :with-author nil

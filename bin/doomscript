@@ -57,13 +57,13 @@ if [ ! -f "$EMACSDIR/early-init.el" ]; then
 fi
 # Some state that Doom's CLI framework needs to know about the terminal. Read
 # the comments at the top of bin/rmcs for explanations.
-export __DOOMPID="${__DOOMPID:-$$}"
-export __DOOMSTEP="${__DOOMSTEP:-0}"
-export __DOOMGEOM="${__DOOMGEOM:-$(tput cols 2>/dev/null)x$(tput lines 2>/dev/null)}"
-export __DOOMGPIPE="${__DOOMGPIPE:-$__DOOMPIPE}"
-export __DOOMPIPE=
-[ -t 0 ] || __DOOMPIPE="${__DOOMPIPE}0"
-[ -t 1 ] || __DOOMPIPE="${__DOOMPIPE}1"
+export __RMCSPID="${__RMCSPID:-$$}"
+export __RMCSSTEP="${__RMCSSTEP:-0}"
+export __RMCSGEOM="${__RMCSGEOM:-$(tput cols 2>/dev/null)x$(tput lines 2>/dev/null)}"
+export __RMCSGPIPE="${__RMCSGPIPE:-$__RMCSPIPE}"
+export __RMCSPIPE=
+[ -t 0 ] || __RMCSPIPE="${__RMCSPIPE}0"
+[ -t 1 ] || __RMCSPIPE="${__RMCSPIPE}1"
 
 # Now we're ready to execute the given script. $EMACSDIR/early-init.el is Doom's
 # universal bootstrapper (and will only load the bare minimum), so it must be
@@ -80,7 +80,7 @@ exit=$?
 if [ "${exit:-0}" -eq 254 ]; then
     # The user may have a noexec flag set on /tmp, so the exit-script should be
     # passed to /bin/sh rather than executed directly.
-    sh "${TMPDIR}/rmcs.${__DOOMPID}.${__DOOMSTEP}.sh" "$0" "$@"
+    sh "${TMPDIR}/rmcs.${__RMCSPID}.${__RMCSSTEP}.sh" "$0" "$@"
     exit="$?"
 fi
 exit $exit

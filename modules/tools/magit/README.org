@@ -61,7 +61,7 @@ If you are new to Magit, see the [[https://github.com/magit/magit#getting-starte
 ** Enable Gravatars
 To enable gravatars when viewing commits:
 #+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
+;; in $RMCSDIR/config.el
 (after! magit
   (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     ")))
 #+end_src
@@ -71,7 +71,7 @@ By default, changes are highlighted *linewise* for all but the selected hunk.
 This is so for [[https://magit.vc/manual/magit/Performance.html][performance reasons]]. You can enable character-wise highlights for
 /all/ visible hunks with:
 #+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
+;; in $RMCSDIR/config.el
 (after! magit
   (setq magit-diff-refine-hunk 'all))
 #+end_src

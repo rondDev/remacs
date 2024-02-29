@@ -218,7 +218,7 @@ See `+emacs-lisp-non-package-mode' for details.")
   (advice-add #'helpful-update :after #'elisp-demos-advice-helpful-update)
   :config
   ;; Add Doom's core and module demo files, so additional demos can be specified
-  ;; by end-users (in $DOOMDIR/demos.org), by modules (modules/X/Y/demos.org),
+  ;; by end-users (in $RMCSDIR/demos.org), by modules (modules/X/Y/demos.org),
   ;; or Doom's core (lisp/demos.org).
   (dolist (file (rmcs-module-locate-paths (rmcs-module-list) "demos.org"))
     (add-to-list 'elisp-demos-user-files file))

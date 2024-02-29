@@ -15,7 +15,7 @@ are great, but this file exists to add demos for Doom's API and beyond.
  󰐃 Please don't add demos for code outside of Doom Emacs. PR those to the parent
     project: https://github.com/xuchunyang/elisp-demos. And please don't add
     functions from modules, put those in that module's demo.org file, or your
-    own in $DOOMDIR/demos.org.
+    own in $RMCSDIR/demos.org.
 #+end_quote
 
 * add-hook!
@@ -242,7 +242,7 @@ Or to create aliases for functions that behave differently:
 :added: 3.0.0-pre
 :END:
 #+begin_src emacs-lisp :eval no
-;; Disable packages enabled by DOOM
+;; Disable packages enabled by RMCS
 (disable-packages! some-package second-package)
 #+end_src
 
@@ -281,7 +281,7 @@ Or to create aliases for functions that behave differently:
 (rmcs!
  (pin "v3.0.0")
 
- (source "modules/")  ; Modules in $DOOMDIR/modules/*/*
+ (source "modules/")  ; Modules in $RMCSDIR/modules/*/*
  (source :name rmcs :repo "rmcsemacs/modules" :pin "v21.12.0")  ; Doom's default modules
  (source :name contrib :repo "rmcsemacs/contrib-modules" :pin "v21.12.0")  ; Community-contributed
  ;; Examples:

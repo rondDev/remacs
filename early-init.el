@@ -59,7 +59,7 @@
          ;; --init-directory) because it is processed too late to change
          ;; `user-emacs-directory' in time.
          (profile (or (cadr (member "--profile" command-line-args))
-                      (getenv-internal "DOOMPROFILE"))))
+                      (getenv-internal "RMCSPROFILE"))))
      (if (null profile)
          ;; REVIEW: Backported from Emacs 29. Remove when 28 support is dropped.
          (let ((init-dir (or (cadr (member "--init-directory" command-line-args))
@@ -79,11 +79,11 @@
        (push (cons "--profile" (lambda (_) (pop argv))) command-switch-alist)
        ;; Running 'rmcs sync' or 'rmcs profile sync' (re)generates a light
        ;; profile loader in $EMACSDIR/profiles/load.el (or
-       ;; $DOOMPROFILELOADFILE), after reading `rmcs-profile-load-path'. This
-       ;; loader requires `$DOOMPROFILE' be set to function.
-       (setenv "DOOMPROFILE" profile)
+       ;; $RMCSPROFILELOADFILE), after reading `rmcs-profile-load-path'. This
+       ;; loader requires `$RMCSPROFILE' be set to function.
+       (setenv "RMCSPROFILE" profile)
        (or (load (expand-file-name
-                  (format (let ((lfile (getenv-internal "DOOMPROFILELOADFILE")))
+                  (format (let ((lfile (getenv-internal "RMCSPROFILELOADFILE")))
                             (if lfile
                                 (concat (let ((suffix ".el"))
                                           (if (string-suffix-p suffix lfile)

@@ -42,7 +42,7 @@ quickly jot down thoughts and easily retrieve them later.
 To use deft, you first need to specify the directory in which your notes are
 stored:
 #+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
+;; in $RMCSDIR/config.el
 (setq deft-directory "~/notes")
 #+end_src
 

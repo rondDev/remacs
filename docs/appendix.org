@@ -15,7 +15,7 @@
 - localleader key :: TODO
 
 ** Environment Variables :category:
-- $DOOMDIR :: The location of the user's private configuration for Doom Emacs;
+- $RMCSDIR :: The location of the user's private configuration for Doom Emacs;
   usually found in =~/.config/rmcs= or =~/.rmcs.d=.
 
 - $EMACSDIR :: The location of your Emacs initfile. This is where Doom users

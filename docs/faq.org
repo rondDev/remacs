@@ -78,7 +78,7 @@ Most of these issues will be resolved in the final 3.0.0 release.
 I am looking for [[id:29d9a145-8f2e-4d22-b4d0-de8a2c72698d][module maintainers]] though!
 
 ** Why is the project called "Doom"?
-As a kid in the Cretaceous period (1999), the [[https://github.com/id-Software/DOOM][source code]] of idsoftware's
+As a kid in the Cretaceous period (1999), the [[https://github.com/id-Software/RMCS][source code]] of idsoftware's
 classic Doom was my first exposure to programming. Totally clueless about C and
 compilers, all I could do was peek at it from time to time and hope I'd absorb
 its secrets if I stared hard enough. It didn't work, but it sure jump-started by
@@ -265,7 +265,7 @@ Each of these variables accept one of:
 
 For example:
 #+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
+;; in $RMCSDIR/config.el
 (setq rmcs-font (font-spec :family "JetBrainsMono" :size 12 :weight 'light)
       rmcs-variable-pitch-font (font-spec :family "DejaVu Sans" :size 13)
       rmcs-symbol-font (font-spec :family "JuliaMono")
@@ -288,7 +288,7 @@ Your changes should take effect immediately.
 
 ** Change, customize, or make themes?
 - To change themes, add ~(setq rmcs-theme 'name-of-theme)~ to
-  =$DOOMDIR/config.el=.
+  =$RMCSDIR/config.el=.
 - To switch themes on-the-fly, type [[kbd:][<help> t]] or ~M-x load-theme~.
 - To customize or write themes, see our guide on [[https://discourse.rmcsemacs.org/t/how-to-switch-customize-or-write-themes/37][the Discourse]].
 
@@ -340,7 +340,7 @@ Doom uses the [[rmcs-package:display-line-numbers]] package, which is included w
 
 *** To disable line numbers entirely
 #+begin_src emacs-lisp
-;;; in $DOOMDIR/config.el
+;;; in $RMCSDIR/config.el
 (setq display-line-numbers-type nil)
 ;; or
 (remove-hook! '(prog-mode-hook text-mode-hook conf-mode-hook)
@@ -359,7 +359,7 @@ nil          no line numbers
 
 For example:
 #+begin_src emacs-lisp
-;;; add to $DOOMDIR/config.el
+;;; add to $RMCSDIR/config.el
 (setq display-line-numbers-type 'relative)
 #+end_src
 
@@ -385,23 +385,23 @@ instructions.
 As a rule of thumb, run ~$ rmcs sync~ whenever you:
 
 - Update Doom with ~$ git pull~ instead of ~$ rmcs upgrade~,
-- Change your ~rmcs!~ block in =$DOOMDIR/init.el=,
-- Change =autoload.el= or =autoload/*.el= files in any module (or =$DOOMDIR=),
-- Change the =packages.el= file in any module (or =$DOOMDIR=).
+- Change your ~rmcs!~ block in =$RMCSDIR/init.el=,
+- Change =autoload.el= or =autoload/*.el= files in any module (or =$RMCSDIR=),
+- Change the =packages.el= file in any module (or =$RMCSDIR=).
 - Install an Emacs package or dependency outside of Emacs (i.e. through your OS
   package manager).
 
 If anything is misbehaving, it's a good idea to run ~$ rmcs sync~ first, to rule
 out any issues with missing packages or autoloads.
 
-This command is never needed for changes to =$DOOMDIR/config.el=.
+This command is never needed for changes to =$RMCSDIR/config.el=.
 
 ** Suppress confirmation prompts when executing a rmcs command?
 ~-!~ or ~--force~ are the universal "suppress all prompts" switch for most
 =rmcs= commands.
 
 ** Copy or sync my config to another system?
-*Short answer:* it is safe to sync =$DOOMDIR= across systems, but not
+*Short answer:* it is safe to sync =$RMCSDIR= across systems, but not
 =$EMACSDIR=. Once moved, use ~$ rmcs sync && rmcs build~ to ensure everything is
 set up correctly.
 
@@ -424,7 +424,7 @@ These keys were changed because they are redundant with [[kbd:][cl]] and [[kbd:]
 
 If you still want to restore the old behavior, simply disable evil-snipe-mode:
 #+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
+;; in $RMCSDIR/config.el
 (remove-hook 'rmcs-first-input-hook #'evil-snipe-mode)
 #+end_src
 
@@ -542,7 +542,7 @@ Here are a few common causes for random crashes:
 
   E.g. To disable ~org-indent-mode~:
   #+begin_src emacs-lisp
-  ;; in $DOOMDIR/config.el
+  ;; in $RMCSDIR/config.el
   (after! org
     (setq org-startup-indented nil))
   #+end_src
@@ -570,7 +570,7 @@ There are a couple ways to address this:
    - ~M-x untabify~
 
 2. Change ~indent-tabs-mode~ (~nil~ = spaces, ~t~ = tabs) in
-   =$DOOMDIR/config.el=:
+   =$RMCSDIR/config.el=:
 
    #+begin_src emacs-lisp
    ;; use tab indentation everywhere
@@ -931,10 +931,10 @@ I highly recommend putting in the time to learn them.
 That said, if you aren't convinced, it is trivial to install [[rmcs-package:expand-region]] and
 binds keys to it yourself:
 #+begin_src emacs-lisp
-;;; in $DOOMDIR/packages.el
+;;; in $RMCSDIR/packages.el
 (package! expand-region)
 
-;;; in $DOOMDIR/config.el
+;;; in $RMCSDIR/config.el
 (map! :nv "C-=" #'er/contract-region
       :nv "C-+" #'er/expand-region)
 #+end_src
@@ -967,10 +967,10 @@ reliable (and slightly faster) substitute. Here's why it's better:
 That said, if you still want [[var:exec-path-from-shell]], it is trivial to install
 yourself:
 #+begin_src emacs-lisp
-;;; in $DOOMDIR/packages.el
+;;; in $RMCSDIR/packages.el
 (package! exec-path-from-shell)
 
-;;; in $DOOMDIR/config.el
+;;; in $RMCSDIR/config.el
 (require 'exec-path-from-shell)
 (when (display-graphic-p)
   (exec-path-from-shell-initialize))

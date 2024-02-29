@@ -175,7 +175,7 @@ For example, an emacs command ~foo~ in package ~bar~ that uses a completion
 framework other than helm, say company, may break if handed off to Helm, so it
 makes sense to exempt ~foo~ with the following:
 #+begin_src emacs-lisp
-;; add to $DOOMDIR/config.el
+;; add to $RMCSDIR/config.el
 (after! helm
   (add-to-list 'helm-completing-read-handlers-alist (cons #'foo nil)))
 #+end_src
@@ -186,7 +186,7 @@ There are two icon "themes" available for this module:
 maintain consistency with other icons across Doom's modules,
 [[rmcs-package:nerd-icons]] is used. To change this:
 #+begin_src emacs-lisp
-;; add to $DOOMDIR/config.el
+;; add to $RMCSDIR/config.el
 (after! helm
   (setq helm-icons-provider 'treemacs))
 #+end_src

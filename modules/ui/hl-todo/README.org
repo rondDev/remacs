@@ -68,7 +68,7 @@ occur in code comments:
 To add your own ITEMS you would need to configure them using
 ~hl-todo-keyword-faces~:
 #+begin_src emacs-lisp
-;; in $DOOMDIR/config.el
+;; in $RMCSDIR/config.el
 (after! hl-todo
   (setq hl-todo-keyword-faces
         `(("FOO"  . ,(face-foreground "MY COLOUR HEX CODE"))

@@ -4,7 +4,7 @@
 Functionality in Doom is divided into collections of code called modules (à la
 Spacemacs' layers). A module is a bundle of packages, configuration and
 commands, organized into a unit that can be enabled or disabled by adding or
-removing them from your ~rmcs!~ block in =$DOOMDIR/init.el=.
+removing them from your ~rmcs!~ block in =$RMCSDIR/init.el=.
 
 * Table of Contents :TOC:
 - [[#app][:app]]
