@@ -5,10 +5,10 @@
       pos-tip-border-width 1)
 
 
-(use-package! rmcs-themes
+(use-package! doom-themes
   ;; improve integration w/ org-mode
-  :hook (rmcs-load-theme . rmcs-themes-org-config)
-  :init (setq rmcs-theme 'rmcs-one)
+  :hook (doom-load-theme . rmcs-themes-org-config)
+  :init (setq doom-theme 'doom-one)
   ;; more Atom-esque file icons for neotree/treemacs
   ;; (when (modulep! :ui neotree)
   ;;   (add-hook 'rmcs-load-theme-hook #'rmcs-themes-neotree-config)
@@ -19,5 +19,5 @@
 
 
 (use-package! solaire-mode
-  :hook (rmcs-load-theme . solaire-global-mode)
+  :hook (doom-load-theme . solaire-global-mode)
   :hook (+popup-buffer-mode . turn-on-solaire-mode))
