@@ -1,11 +1,11 @@
 ;;; rmcs-ui.el --- defaults for Rmcs's aesthetics -*- lexical-binding: t; -*-
 ;;; Commentary:
-;;; Code;
+;;; Code:
 
 ;;
 ;;; Variables
 
-(defcustom rmcs-theme nil
+(defcustom doom-theme nil
   "A symbol representing the Emacs theme to load at startup.
 
 Set to `nil' to load no theme at all. This variable is changed by
@@ -565,9 +565,9 @@ windows, switch to `rmcs-fallback-buffer'. Otherwise, delegate to original
   (run-hooks 'after-setting-font-hook))
 
 (defun rmcs-init-theme-h (&rest _)
-  "Load the theme specified by `rmcs-theme' in FRAME."
-  (when (and rmcs-theme (not (custom-theme-enabled-p rmcs-theme)))
-    (load-theme rmcs-theme t)))
+  "Load the theme specified by `doom-theme' in FRAME."
+  (when (and doom-theme (not (custom-theme-enabled-p doom-theme)))
+    (load-theme doom-theme t)))
 
 (defadvice! rmcs--load-theme-a (fn theme &optional no-confirm no-enable)
   "Record `rmcs-theme', disable old themes, and trigger `rmcs-load-theme-hook'."
@@ -582,8 +582,8 @@ windows, switch to `rmcs-fallback-buffer'. Otherwise, delegate to original
       (mapc #'disable-theme custom-enabled-themes)
       (prog1 (funcall fn theme no-confirm no-enable)
         (when (and (not no-enable) (custom-theme-enabled-p theme))
-          (setq rmcs-theme theme)
-          (put 'rmcs-theme 'previous-themes (or last-themes 'none))
+          (setq doom-theme theme)
+          (put 'doom-theme 'previous-themes (or last-themes 'none))
           ;; DEPRECATED Hook into `enable-theme-functions' when we target 29
           (rmcs-run-hooks 'rmcs-load-theme-hook))))))
 
