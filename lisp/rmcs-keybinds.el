@@ -15,7 +15,7 @@
   "An alternative leader prefix key, used for Insert and Emacs states, and for
 non-evil users.")
 
-(defvar rmcs-localleader-key "SPC m"
+(defvar rmcs-localleader-key ","
   "The localleader prefix key, for major-mode specific commands.")
 
 (defvar rmcs-localleader-alt-key "M-SPC m"
@@ -53,18 +53,18 @@ and Emacs states, and for non-evil users.")
 ;;   In the same vein, this keybind adds a [C-i] event, so users can bind to it.
 ;;   Otherwise, it falls back to regular C-i keybinds.
 (define-key key-translation-map [?\C-i]
-  (cmd! (if (let ((keys (this-single-command-raw-keys)))
-              (and keys
-                   (not (cl-position 'tab    keys))
-                   (not (cl-position 'kp-tab keys))
-                   (display-graphic-p)
-                   ;; Fall back if no <C-i> keybind can be found, otherwise
-                   ;; we've broken all pre-existing C-i keybinds.
-                   (let ((key
-                          (rmcs-lookup-key
-                           (vconcat (cl-subseq keys 0 -1) [C-i]))))
-                     (not (or (numberp key) (null key))))))
-            [C-i] [?\C-i])))
+            (cmd! (if (let ((keys (this-single-command-raw-keys)))
+                        (and keys
+                             (not (cl-position 'tab    keys))
+                             (not (cl-position 'kp-tab keys))
+                             (display-graphic-p)
+                             ;; Fall back if no <C-i> keybind can be found, otherwise
+                             ;; we've broken all pre-existing C-i keybinds.
+                             (let ((key
+                                    (rmcs-lookup-key
+                                     (vconcat (cl-subseq keys 0 -1) [C-i]))))
+                               (not (or (numberp key) (null key))))))
+                      [C-i] [?\C-i])))
 
 
 ;;
@@ -142,7 +142,7 @@ all hooks after it are ignored.")
                          def)))
             (unless (eq bdef :ignore)
               (push `(define-key rmcs-leader-map (general--kbd ,key)
-                       ,bdef)
+                      ,bdef)
                     forms))
             (when-let (desc (cadr (memq :which-key udef)))
               (prependq!
