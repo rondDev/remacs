@@ -1,0 +1,327 @@
+#!/usr/bin/env sh
+:; # -*- mode: emacs-lisp; lexical-binding: t -*-
+:; case "$EMACS" in *term*) EMACS=emacs ;; *) EMACS="${EMACS:-emacs}" ;; esac
+:; emacs="$EMACS ${DEBUG:+--debug-init} -q --no-site-file --batch"
+:; tmpdir=`$emacs --eval '(princ (temporary-file-directory))' 2>/dev/null`
+:; [ -z "$tmpdir" ] && { >&2 echo "Error: failed to run Emacs with command '$EMACS'"; >&2 echo; >&2 echo "Are you sure Emacs is installed and in your \$PATH?"; exit 1; }
+:; export __RMCSPID="${__RMCSPID:-$$}"
+:; export __RMCSSTEP="${__RMCSSTEP:-0}"
+:; export __RMCSGEOM="${__RMCSGEOM:-`tput cols 2>/dev/null`x`tput lines 2>/dev/null`}"
+:; export __RMCSGPIPE=${__RMCSGPIPE:-$__RMCSPIPE}
+:; export __RMCSPIPE=; [ -t 0 ] || __RMCSPIPE="${__RMCSPIPE}0"; [ -t 1 ] || __RMCSPIPE="${__RMCSPIPE}1"
+:; $emacs --load "$0" -- "$@" || exit=$?
+:; [ "${exit:-0}" -eq 254 ] && { sh "${tmpdir}/rmcs.${__RMCSPID}.${__RMCSSTEP}.sh" "$0" "$@" && true; exit="$?"; }
+:; exit $exit
+
+;; This magical mess of a shebang is necessary for any script that relies on
+;; Rmcs's CLI framework, because Emacs' tty libraries and capabilities are too
+;; immature (borderline non-existent) at the time of writing (28.1). This
+;; shebang sets out to accomplish these three goals:
+;;
+;; 1. To produce a more helpful error if Emacs isn't installed or broken. It
+;;    must do so without assuming whether $EMACS is a shell command (e.g. 'snap
+;;    run emacs') or an absolute path (to an emacs executable). I've avoided
+;;    'command -v $EMACS' for this reason.
+;;
+;; 2. To allow this Emacs session to "exit into" a child process (since Elisp
+;;    lacks an analogue for exec system calls) by calling an auto-generated and
+;;    self-destructing "exit script" if the parent Emacs process exits with code
+;;    254. It takes care to prevent nested child instances from clobbering the
+;;    exit script.
+;;
+;; 3. To expose some information about the terminal and session:
+;;    - $__RMCSGEOM holds the dimensions of the terminal (W . H).
+;;    - $__RMCSPIPE indicates whether the script has been piped (in and/or out).
+;;    - $__RMCSGPIPE indicates whether one of this process' parent has been
+;;      piped to/from.
+;;    - $__RMCSPID is a unique identifier for the parent script, so
+;;      child processes can identify which persistent data files (like logs) it
+;;      has access to.
+;;    - $__RMCSSTEP counts how many levels deep we are in the dream (appending
+;;      this to the exit script's filename avoids child processes clobbering the
+;;      same exit script and causing read errors).
+;;    - $TMPDIR (or $TEMP and $TMP on Windows) aren't guaranteed to have values,
+;;      and mktemp isn't available on all systems, but you know what is? Emacs!
+;;      So I use it to print `temporary-file-directory'. And it seconds as a
+;;      quick sanity check for Emacs' existence (for goal #1).
+;;
+;; Other weird facts about this shebang line:
+;;
+;; - The :; hack exploits properties of : and ; in shell scripting and elisp to
+;;   allow shell script and elisp to coexist in the same file without either's
+;;   interpreter throwing foreign syntax errors:
+;;
+;;   - In elisp, ":" is a valid keyword symbol literal; it evaluates to itself
+;;     and has no side-effect.
+;;   - In the shell, ":" is a valid command that does nothing and ignores its
+;;     arguments.
+;;   - In elisp, ";" begins a comment. I.e. the interpreter ignores everything
+;;     after it.
+;;   - In the shell, ";" is a command separator.
+;;
+;;   Put together, plus a strategically placed exit call, the shell will read
+;;   one part of this file and ignore the rest, while the elisp interpreter will
+;;   do the opposite.
+;; - I intentionally avoid loading site files, so lisp/rmcs-cli.el can load them
+;;   by hand later. There, I can suppress and deal with unhelpful warnings (e.g.
+;;   "package cl is deprecated"), "Loading X...DONE" spam, and any other
+;;   disasterous side-effects.
+;;
+;;   But be careful not to use -Q! It implies --no-site-lisp, which omits the
+;;   site-lisp directory from `load-path'.
+;; - POSIX-compliancy is paramount: there's no guarantee what /bin/sh will be
+;;   symlinked to in the esoteric OSes/distros Emacs users use.
+;; - The user may have a noexec flag set on /tmp, so pass the exit script to
+;;   /bin/sh rather than executing them directly.
+
+;; In CLI sessions, prefer correctness over performance.
+(setq load-prefer-newer t)
+
+;; Rmcs's core sets up everything we need; including `rmcs-*-dir' variables,
+;; universal defaults, and autoloads for rmcs-*-initialize functions.
+(condition-case e
+    (let* ((bin-dir (file-name-directory (file-truename load-file-name)))
+           (init-file (expand-file-name "../early-init.el" bin-dir)))
+      (or (and (load init-file nil 'nomessage 'nosuffix)
+               (featurep 'rmcs))
+          (user-error "Failed to load Rmcs from %s" init-file)))
+  ;; Prevent ugly backtraces for trivial errors
+  (user-error (message "Error: %s" (cadr e))
+              (kill-emacs 2)))
+
+;; UX: Abort if the user is using 'rmcs' as root, unless ~/.config/emacs is
+;;   owned by root, in which case we assume the user genuinely wants root to be
+;;   their primary user account for Emacs.
+(when (equal 0 (user-real-uid))
+  (unless (equal 0 (file-attribute-user-id (file-attributes rmcs-emacs-dir)))
+    (message
+     (concat
+      "Error: this script was executed as root, which is likely not what you want.\n"
+      "It will cause file permissions errors later, when you run Rmcs as another\n"
+      "user.\n\n"
+      "If this really *is* what you want, then change the owner of your Emacs\n"
+      "config to root:\n\n"
+      ;; TODO Add cmd.exe/powershell commands
+      "  chown root:root -R " (abbreviate-file-name rmcs-emacs-dir) "\n\n"
+      "Aborting..."))
+    (kill-emacs 2)))
+
+
+;;
+;;; Entry point
+
+(defcli! rmcs (&args _command)
+  "A command line interface to Rmcs Emacs.
+
+Includes package management, diagnostics, unit tests, and byte-compilation.
+
+This tool also makes it trivial to launch Emacs out of a different folder or
+with a different private module.
+
+ENVIRONMENT VARIABLES:
+  `$EMACS'
+    The Emacs executable or command to use for any Emacs operations in this or
+    other Rmcs CLI shell scripts (default: first emacs found in `$PATH').
+
+  `$EMACSDIR'
+    The location of your Rmcs Emacs installation (defaults to ~/.config/emacs or
+    ~/.emacs.d; whichever is found first). This is *not* your private Rmcs
+    configuration. The `--emacsdir' option also sets this variable.
+
+  `$RMCSDIR'
+    The location of your private configuration for Rmcs Emacs (defaults to
+    ~/.config/rmcs or ~/.rmcs.d; whichever it finds first). This is *not* the
+    place you've cloned rmcsemacs/rmcsemacs to. The `--rmcsdir' option also sets
+    this variable.
+
+  `$RMCSPAGER'
+    The pager to invoke for large output (default: \"less +g\"). The `--pager'
+    option also sets this variable.
+
+  `$RMCSPROFILE'
+    Which Rmcs profile to activate (default: \"_@0\"). The `--profile' option
+    also sets this variable.
+
+  `$RMCSPROFILELOADFILE'
+    Rmcs generates a profile loader script on 'rmcs sync' or 'rmcs profiles
+    sync'. By default, this file is written to and loaded from
+    $EMACSDIR/profiles/load.el. Set this envvar to change that. Note that this
+    envvar must be in scope for both interactive and non-interactive sessions
+    for it to be effective. This is especially useful for folks on Nix/Guix, who
+    have deployed Rmcs to a read-only directory.
+
+    Note: this file *must* end with a .el extension. It will be byte-compiled
+    after it is generated.
+
+  `$RMCSPROFILELOADPATH'
+    A colon-delimited (semi-colon on Windows) list of profile config files or
+    directories under which Rmcs will search for implicit profiles. See
+    `var:rmcs-profile-load-path' for its default value.
+
+EXIT CODES:
+  0        Successful run
+  1        General internal error
+  2        Error with Emacs/Rmcs install or execution context
+  3        Unrecognized user input error
+  4        Command not found, or is incorrect/deprecated
+  5        Invalid, missing, or extra options/arguments
+  6-49     Reserved for Rmcs
+  50-200   Reserved for custom user codes
+  254      Successful run (but then execute `rmcs-cli-restart-script')
+  255      Uncaught internal errors
+
+SEE ALSO:
+  https://rmcsemacs.org               Homepage
+  https://docs.rmcsemacs.org          Official documentation
+  https://discourse.rmcsemacs.org     Discourse (discussion & support forum)
+  https://rmcsemacs.org/discord       Discord chat server
+  https://rmcsemacs.org/roadmap       Development roadmap
+  https://git.rmcsemacs.org           Shortcut to Github org
+  https://git.rmcsemacs.org/todo      Global issue tracker"
+  :partial t)
+
+(defcli! :before
+    ((force?   ("-!" "--force")   "Suppress prompts by auto-accepting their consequences")
+     (debug?   ("-D" "--debug")   "Enable debug output")
+     (verbose? ("-v" "--verbose") "Enable verbose output")
+     (rmcsdir  ("--rmcsdir" dir)  "Use Rmcs config living in `DIR' (e.g. ~/.rmcs.d)")
+     (emacsdir ("--emacsdir" dir) "Use Rmcs install living in `DIR' (e.g. ~/.emacs.d)")
+     (pager    ("--pager" cmd)    "Pager command to use for large output")
+     (profile  ("--profile" name) "Use profile named NAME")
+     (bench?   ("--benchmark")    "Always display the benchmark")
+     &flags
+     (color?   ("--color") "Whether or not to show ANSI color codes")
+     &multiple
+     (loads    ("-L" "--load" "--strict-load" file) "Load elisp `FILE' before executing `COMMAND'")
+     (evals    ("-E" "--eval" form) "Evaluate `FORM' before executing commands")
+     &input input
+     &context context
+     &args _)
+  "OPTIONS:
+  -E, -eval
+    Can be used multiple times.
+
+  -L, --load, --strict-load
+    Can be used multiple times to load multiple files. Both -L and --load will
+    silently fail on missing files, but --strict-load won't.
+
+    Warning: files loaded this way load too late to define new commands. To
+    define commands, do so from `$RMCSDIR'/cli.el, `$RMCSDIR'/init.el, or a
+    .rmcsrc file in the current project tree."
+  (when bench?
+    (setq rmcs-cli-benchmark-threshold 'always))
+  (unless init-file-debug ; debug-mode implies verbose
+    (when verbose?
+      (setq rmcs-print-minimum-level 'info)))
+  (when color?
+    (setq rmcs-print-backend (if (eq color? :yes) 'ansi)))
+  (when pager
+    (setq rmcs-cli-pager pager))
+  (when force?
+    (setf (rmcs-cli-context-suppress-prompts-p context) t))
+  ;; For these settings to take full effect, the script must be restarted:
+  (when (or debug?
+            profile
+            emacsdir
+            rmcsdir)
+    (let (omit)
+      (when debug?
+        (setenv "DEBUG" "1")
+        (setq init-file-debug t)
+        (push "--debug" omit))
+      (when profile
+        (setenv "RMCSPROFILE" profile)
+        (push "--profile=" omit))
+      (when emacsdir
+        (setenv "EMACSDIR" emacsdir)
+        (push "--emacsdir=" omit))
+      (when rmcsdir
+        (setenv "RMCSDIR" rmcsdir)
+        (push "--rmcsdir=" omit))
+      (exit! :restart :omit omit)))
+  ;; Load extra files and forms, as per given options.
+  (dolist (file loads)
+    (load (rmcs-path (cdr file))
+          (not (equal (car file) "--strict-load"))
+          (not init-file-debug) t))
+  (dolist (form evals)
+    (eval (read (cdr form)) t)))
+
+
+;;
+;;; Load user config + commands
+
+;; Load $RMCSDIR/init.el, to read the user's `rmcs!' block and give users an
+;; opportunity to customize the CLI environment, if they like. Otherwise, they
+;; can do so in .rmcsrc or .rmcsproject.
+(load! rmcs-module-init-file rmcs-user-dir t)
+
+;; There are a lot of CLIs, and some have expensive initialization, so best we
+;; load them lazily.
+(defcli-group!
+  :prefix 'rmcs
+  ;; Import this for implicit 'X help' commands for your script:
+  (defcli-alias! ((help h)) (:root :help))
+  ;; And suggest its use when errors occur.
+  (add-to-list 'rmcs-help-commands "%p h[elp] %c")
+
+  (defcli-group! "Config Management"
+    :docs "Commands for maintaining your Rmcs Emacs configuration."
+    (defcli-autoload! ((sync s)))
+    (defcli-autoload! ((profiles profile)))
+    (defcli-autoload! ((upgrade up)))
+    (defcli-autoload! (env))
+    (defcli-autoload! ((build b purge p rollback)) "packages")
+    (defcli-autoload! ((install i)))
+    (defcli-autoload! ((compile c)))
+    (defcli-autoload! (clean) "compile")
+
+    ;; TODO Post-3.0 commands
+    ;; (load! "gc" dir)
+    ;; (load! "module" dir)
+    ;; (load! "nuke" dir)
+    ;; (load! "package" dir)
+    ;; (load! "profile" dir)
+    ;; (defcli-obsolete! ((compile c)) (sync "--compile") "v3.0.0")
+    ;; (defcli-obsolete! ((build b))   (sync "--rebuild") "v3.0.0")
+    )
+
+  (defcli-group! "Diagnostics"
+    :docs "Commands for troubleshooting and debugging Rmcs."
+    (defcli-autoload! ((doctor doc)))
+    (defcli-autoload! (info))
+    (defcli-alias! ((version v)) (:root :version)))
+
+  (defcli-group! "Development"
+    :docs "Commands for developing or launching Rmcs."
+    (defcli-autoload! (ci))
+    (defcli-autoload! (make))
+    (defcli-autoload! (run))
+
+    ;; FIXME Test framework
+    ;; (load! "test" dir)
+    )
+
+  (let ((cli-file "cli.el"))
+    (defcli-group! "Module commands"
+      (rmcs-context-with 'modules
+        (dolist (key (rmcs-module-list))
+          (when-let (path (rmcs-module-locate-path (car key) (cdr key) cli-file))
+            (defcli-group! :prefix (if (cdr key) (format "+%s" (cdr key)))
+              (rmcs-load (file-name-sans-extension path))))))))
+
+  ;; Allow per-project Rmcs settings in .rmcs files.
+  (let (rmcsrc)
+    (cond
+     ((setq rmcsrc (getenv "RMCSRC"))
+      (load! rmcsrc default-directory))
+     ((setq rmcsrc (locate-dominating-file default-directory ".rmcsrc"))
+      (load! ".rmcsrc" rmcsrc)))))
+
+
+;;
+;;; Let 'er rip
+
+(run! "rmcs" (cdr (member "--" argv)))
+
+;;; rmcs ends here, unless...
