@@ -8,10 +8,10 @@
 
 Meant for `rmcs-change-font-size-hook'."
   (unless +modeline--old-bar-height
-    (setq +modeline--old-bar-height rmcs-modeline-height))
+    (setq +modeline--old-bar-height doom-modeline-height))
   (let ((default-height +modeline--old-bar-height)
         (scale (or (frame-parameter nil 'font-scale) 0)))
-    (setq rmcs-modeline-height
+    (setq doom-modeline-height
           (if (> scale 0)
               (+ default-height (* scale rmcs-font-increment))
             default-height))))
