@@ -267,7 +267,7 @@ If this is a daemon session, load them all immediately instead."
 
 If RETURN-P, return the message as a string instead of displaying it."
   (funcall (if return-p #'format #'message)
-           "Rmcs loaded %d packages across %d modules in %.03fs"
+           "Remacs loaded %d packages across %d modules in %.03fs"
            (- (length load-path) (length (get 'load-path 'initial-value)))
            (hash-table-count rmcs-modules)
            rmcs-init-time))
