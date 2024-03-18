@@ -513,8 +513,8 @@ What it is set to is controlled by `+rmcs-dashboard-pwd-policy'."
     (with-temp-buffer
       (insert-text-button (or (nerd-icons-codicon "nf-cod-octoface" :face 'rmcs-dashboard-footer-icon :height 1.3 :v-adjust -0.15)
                               (propertize "github" 'face 'rmcs-dashboard-footer))
-                          'action (lambda (_) (browse-url "https://github.com/hlissner/rmcs-emacs"))
+                          'action (lambda (_) (browse-url "https://github.com/rondDev/remacs"))
                           'follow-link t
-                          'help-echo "Open Rmcs Emacs github page")
+                          'help-echo "Open Remacs github page")
       (buffer-string)))
    "\n"))
