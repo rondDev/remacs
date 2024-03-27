@@ -25,7 +25,8 @@
           ;; from project to project.
           ("NOTE" success bold)
           ("BUG" error bold)
-          ("XXX" font-lock-constant-face bold)))
+          ("XXX" font-lock-constant-face bold)
+          ("PERF" warning bold)))
 
 
   (defadvice! +hl-todo-clamp-font-lock-fontify-region-a (fn &rest args)
