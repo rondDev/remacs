@@ -9,7 +9,7 @@
       (when (and (modulep! :checkers syntax)
                  (not (modulep! :checkers syntax +flymake)))
         (package! flycheck-eglot :pin "9ff8d0068be59b1450964b390349d75a68af21ed")))
-  (package! lsp-mode)
+  (package! lsp-mode :pin "fd0a4f1fa5abc601b01a234e96798961b8a417c1")
   (package! lsp-ui :pin "bc58c6664577d1d79060c6b32b7ad20e70ee19d0")
   (when (modulep! :completion ivy)
     (package! lsp-ivy :pin "9ecf4dd9b1207109802bd1882aa621eb1c385106"))
