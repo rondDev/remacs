@@ -3,7 +3,7 @@
 
 (when (package! magit :pin "0e8f25a8d8011328f2bf082232c720b24c2a12c2")
   (when (modulep! +forge)
-    (package! forge :pin "3fc6c362b0162082317c128c9c3226529f6965ae")
+    (package! forge :pin "2a25e8db65e939023a29e28fb40ac0576790674d")
     (package! code-review
       :recipe (:host github
                :repo "doomelpa/code-review"
