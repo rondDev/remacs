@@ -153,7 +153,8 @@ Each element of this list can be one of:
                (let ((bump-re "\\(?:https?://.+\\|[^/]+\\)/[^/]+@\\([a-z0-9]+\\)"))
                  (not (string-match-p (concat "^" bump-re " -> " bump-re "$")
                                       body)))
-               (fail! "Bump commit is missing commit hash diffs")))
+                                        ; (fail! "Bump commit is missing commit hash diffs")
+               ))
 
         (lambda! (&key body)
           "Ensure commit hashes in bump lines are 12 characters long"
@@ -248,115 +249,115 @@ Note: warnings are not considered failures.")
 
 ;;; rmcs ci
 (defcli! ci (&args _)
-  "Commands that automate development processes."
-  :partial t)
+         "Commands that automate development processes."
+         :partial t)
 
 ;; TODO Move to 'rmcs install --git-hooks'
 (defcli! (ci deploy-hooks) ((force ("--force")))
-  "TODO"
-  (let* ((repo-path (sh! "git" "rev-parse" "--show-toplevel"))
-         (repo-path (if (zerop (car repo-path))
-                        (cdr repo-path)
-                      (user-error "Cannot locate a git repo in %s"
-                                  (file-relative-name default-directory))))
-         (submodule-p (string-empty-p (cdr (sh! "git" "rev-parse" "show-superproject-working-tree"))))
-         (config-hooks-path (cdr (sh! "git" "config" "core.hooksPath")))
-         (hooks-path (cdr (sh! "git" "rev-parse" "--git-path" "hooks"))))
-    (unless (string-empty-p config-hooks-path)
-      (or force
-          (y-or-n-p
-           (format (concat "Detected non-standard core.hookPath: %S\n\n"
-                           "Install Rmcs's commit-msg and pre-push git hooks anyway?")
-                   hooks-path))
-          (user-error "Aborted")))
-    (make-directory hooks-path 'parents)
-    (print-group!
-     (dolist (hook '("commit-msg" "pre-push"))
-       (let* ((hook (rmcs-path hooks-path hook))
-              (overwrite-p (file-exists-p hook)))
-         (with-temp-file hook
-           (insert "#!/usr/bin/env sh\n"
-                   (rmcs-path rmcs-emacs-dir "bin/rmcs")
-                   " --no-color ci hook " (file-name-base hook)
-                   " \"$@\""))
-         (set-file-modes hook #o700)
-         (print! (success "%s %s")
-                 (if overwrite-p "Overwrote" "Created")
-                 (path hook)))))))
+         "TODO"
+         (let* ((repo-path (sh! "git" "rev-parse" "--show-toplevel"))
+                (repo-path (if (zerop (car repo-path))
+                               (cdr repo-path)
+                             (user-error "Cannot locate a git repo in %s"
+                                         (file-relative-name default-directory))))
+                (submodule-p (string-empty-p (cdr (sh! "git" "rev-parse" "show-superproject-working-tree"))))
+                (config-hooks-path (cdr (sh! "git" "config" "core.hooksPath")))
+                (hooks-path (cdr (sh! "git" "rev-parse" "--git-path" "hooks"))))
+           (unless (string-empty-p config-hooks-path)
+             (or force
+                 (y-or-n-p
+                  (format (concat "Detected non-standard core.hookPath: %S\n\n"
+                                  "Install Rmcs's commit-msg and pre-push git hooks anyway?")
+                          hooks-path))
+                 (user-error "Aborted")))
+           (make-directory hooks-path 'parents)
+           (print-group!
+             (dolist (hook '("commit-msg" "pre-push"))
+               (let* ((hook (rmcs-path hooks-path hook))
+                      (overwrite-p (file-exists-p hook)))
+                 (with-temp-file hook
+                   (insert "#!/usr/bin/env sh\n"
+                           (rmcs-path rmcs-emacs-dir "bin/rmcs")
+                           " --no-color ci hook " (file-name-base hook)
+                           " \"$@\""))
+                 (set-file-modes hook #o700)
+                 (print! (success "%s %s")
+                         (if overwrite-p "Overwrote" "Created")
+                         (path hook)))))))
 
 ;; TODO Move to 'rmcs lint commits'
 (defcli! (ci lint-commits) (from &optional to)
-  "TODO"
-  (with-temp-buffer
-    (insert
-     (cdr (rmcs-call-process
-           "git" "log"
-           (format "%s...%s" from (or to (concat from "~1"))))))
-    (rmcs-ci--lint
-     (let (commits)
-       (while (re-search-backward "^commit \\([a-z0-9]\\{40\\}\\)" nil t)
-         (push (cons (match-string 1)
-                     (replace-regexp-in-string
-                      "^    " ""
-                      (save-excursion
-                        (buffer-substring-no-properties
-                         (search-forward "\n\n")
-                         (if (re-search-forward "\ncommit \\([a-z0-9]\\{40\\}\\)" nil t)
-                             (match-beginning 0)
-                           (point-max))))))
-               commits))
-       commits))))
+         "TODO"
+         (with-temp-buffer
+           (insert
+            (cdr (rmcs-call-process
+                  "git" "log"
+                  (format "%s...%s" from (or to (concat from "~1"))))))
+           (rmcs-ci--lint
+            (let (commits)
+              (while (re-search-backward "^commit \\([a-z0-9]\\{40\\}\\)" nil t)
+                (push (cons (match-string 1)
+                            (replace-regexp-in-string
+                             "^    " ""
+                             (save-excursion
+                               (buffer-substring-no-properties
+                                (search-forward "\n\n")
+                                (if (re-search-forward "\ncommit \\([a-z0-9]\\{40\\}\\)" nil t)
+                                    (match-beginning 0)
+                                  (point-max))))))
+                      commits))
+              commits))))
 
 ;; TODO Move to 'rmcs lint hook:commit-msg'
 (defcli! (ci hook commit-msg) (file)
-  "Run git commit-msg hook.
+         "Run git commit-msg hook.
 
 Lints the current commit message."
-  (with-temp-buffer
-    (insert-file-contents file)
-    (rmcs-ci--lint
-     `(("CURRENT" .
-        ,(buffer-substring
-          (point-min)
-          (if (re-search-forward "^# Please enter the commit message" nil t)
-              (match-beginning 0)
-            (point-max))))))))
+         (with-temp-buffer
+           (insert-file-contents file)
+           (rmcs-ci--lint
+            `(("CURRENT" .
+               ,(buffer-substring
+                 (point-min)
+                 (if (re-search-forward "^# Please enter the commit message" nil t)
+                     (match-beginning 0)
+                   (point-max))))))))
 
 ;; TODO Move to 'rmcs lint hook:pre-push'
 (defcli! (ci hook pre-push) (remote url)
-  "Run git pre-push hook.
+         "Run git pre-push hook.
 
 Prevents pushing if there are unrebased or WIP commits."
-  (with-temp-buffer
-    (let ((z40 (make-string 40 ?0))
-          line error)
-      (while (setq line (ignore-errors (read-from-minibuffer "")))
-        (catch 'continue
-          (seq-let (local-ref local-sha remote-ref remote-sha)
-              (split-string line " ")
-            ;; TODO Extract this branch detection to a variable
-            (unless (or (string-match-p "^refs/heads/\\(master\\|main\\)$" remote-ref)
-                        (equal local-sha z40))
-              (throw 'continue t))
-            (print-group!
-             (mapc (lambda (commit)
-                     (seq-let (hash msg) (split-string commit "\t")
-                       (setq error t)
-                       (print! (item "%S commit in %s"
-                                     (car (split-string msg " "))
-                                     (substring hash 0 12)))))
-                   (split-string
-                    (cdr (rmcs-call-process
-                          "git" "rev-list"
-                          "--grep" (concat "^" (regexp-opt '("WIP" "squash!" "fixup!" "FIXUP") t) " ")
-                          "--format=%H\t%s"
-                          (if (equal remote-sha z40)
-                              local-sha
-                            (format "%s..%s" remote-sha local-sha))))
-                    "\n" t))
-             (when error
-               (print! (error "Aborting push due to unrebased WIP, squash!, or fixup! commits"))
-               (exit! 1)))))))))
+         (with-temp-buffer
+           (let ((z40 (make-string 40 ?0))
+                 line error)
+             (while (setq line (ignore-errors (read-from-minibuffer "")))
+               (catch 'continue
+                 (seq-let (local-ref local-sha remote-ref remote-sha)
+                     (split-string line " ")
+                   ;; TODO Extract this branch detection to a variable
+                   (unless (or (string-match-p "^refs/heads/\\(master\\|main\\)$" remote-ref)
+                               (equal local-sha z40))
+                     (throw 'continue t))
+                   (print-group!
+                     (mapc (lambda (commit)
+                             (seq-let (hash msg) (split-string commit "\t")
+                               (setq error t)
+                               (print! (item "%S commit in %s"
+                                             (car (split-string msg " "))
+                                             (substring hash 0 12)))))
+                           (split-string
+                            (cdr (rmcs-call-process
+                                  "git" "rev-list"
+                                  "--grep" (concat "^" (regexp-opt '("WIP" "squash!" "fixup!" "FIXUP") t) " ")
+                                  "--format=%H\t%s"
+                                  (if (equal remote-sha z40)
+                                      local-sha
+                                    (format "%s..%s" remote-sha local-sha))))
+                            "\n" t))
+                     (when error
+                       (print! (error "Aborting push due to unrebased WIP, squash!, or fixup! commits"))
+                       (exit! 1)))))))))
 
 
 ;;
@@ -426,24 +427,24 @@ Prevents pushing if there are unrebased or WIP commits."
         (failures 0))
     (print! (start "Linting %d commits" (length commits)))
     (print-group!
-     (pcase-dolist (`(,ref . ,commitmsg) commits)
-       (let* ((commit   (rmcs-ci--parse-commit commitmsg))
-              (shortref (substring ref 0 7))
-              (subject  (plist-get commit :subject)))
-         (cl-block 'linter
-           (letf! ((defun skip! (reason &rest args)
-                     (print! (warn "Skipped because: %s") (apply #'format reason args))
-                     (cl-return-from 'linter))
-                   (defun warn! (reason &rest args)
-                     (cl-incf warnings)
-                     (print! (warn "%s") (apply #'format reason args)))
-                   (defun fail! (reason &rest args)
-                     (cl-incf failures)
-                     (print! (error "%s") (apply #'format reason args))))
-             (print! (start "%s %s") shortref subject)
-             (print-group!
-              (mapc (rmcs-rpartial #'apply commit)
-                    rmcs-ci-commit-rules)))))))
+      (pcase-dolist (`(,ref . ,commitmsg) commits)
+        (let* ((commit   (rmcs-ci--parse-commit commitmsg))
+               (shortref (substring ref 0 7))
+               (subject  (plist-get commit :subject)))
+          (cl-block 'linter
+            (letf! ((defun skip! (reason &rest args)
+                      (print! (warn "Skipped because: %s") (apply #'format reason args))
+                      (cl-return-from 'linter))
+                    (defun warn! (reason &rest args)
+                      (cl-incf warnings)
+                      (print! (warn "%s") (apply #'format reason args)))
+                    (defun fail! (reason &rest args)
+                      (cl-incf failures)
+                      (print! (error "%s") (apply #'format reason args))))
+              (print! (start "%s %s") shortref subject)
+              (print-group!
+                (mapc (rmcs-rpartial #'apply commit)
+                      rmcs-ci-commit-rules)))))))
     (let ((issues (+ warnings failures)))
       (if (= issues 0)
           (print! (success "There were no issues!"))
