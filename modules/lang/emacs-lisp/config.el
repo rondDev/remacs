@@ -9,8 +9,8 @@ This marks a foldable marker for `outline-minor-mode' in elisp buffers.")
 
 (defvar +emacs-lisp-linter-warnings
   '(not free-vars    ; don't complain about unknown variables
-        noruntime    ; don't complain about unknown function calls
-        unresolved)  ; don't complain about undefined functions
+    noruntime    ; don't complain about unknown function calls
+    unresolved)  ; don't complain about undefined functions
   "The value for `byte-compile-warnings' in non-packages.
 
 This reduces the verbosity of flycheck in Emacs configs and scripts, which are
@@ -41,15 +41,15 @@ See `+emacs-lisp-non-package-mode' for details.")
   (set-ligatures! 'emacs-lisp-mode :lambda "lambda")
   (set-formatter! 'lisp-indent #'apheleia-indent-lisp-buffer :modes '(emacs-lisp-mode))
   (set-rotate-patterns! 'emacs-lisp-mode
-    :symbols '(("t" "nil")
-               ("let" "let*")
-               ("when" "unless")
-               ("advice-add" "advice-remove")
-               ("defadvice!" "undefadvice!")
-               ("add-hook" "remove-hook")
-               ("add-hook!" "remove-hook!")
-               ("it" "xit")
-               ("describe" "xdescribe")))
+                        :symbols '(("t" "nil")
+                                   ("let" "let*")
+                                   ("when" "unless")
+                                   ("advice-add" "advice-remove")
+                                   ("defadvice!" "undefadvice!")
+                                   ("add-hook" "remove-hook")
+                                   ("add-hook!" "remove-hook!")
+                                   ("it" "xit")
+                                   ("describe" "xdescribe")))
 
   (setq-hook! 'emacs-lisp-mode-hook
     ;; Emacs' built-in elisp files use a hybrid tab->space indentation scheme
@@ -70,11 +70,11 @@ See `+emacs-lisp-non-package-mode' for details.")
     (setq-hook! 'emacs-lisp-mode-hook
       mode-name `("ELisp"
                   (lexical-binding (:propertize "/l"
-                                    help-echo "Using lexical-binding mode")
+                                                help-echo "Using lexical-binding mode")
                                    (:propertize "/d"
-                                    help-echo "Using old dynamic scoping mode"
-                                    face warning
-                                    mouse-face mode-line-highlight)))))
+                                                help-echo "Using old dynamic scoping mode"
+                                                face warning
+                                                mouse-face mode-line-highlight)))))
 
   ;; Introduces logic to improve plist indentation in emacs-lisp-mode.
   (advice-add #'calculate-lisp-indent :override #'+emacs-lisp--calculate-lisp-indent-a)
@@ -115,12 +115,10 @@ See `+emacs-lisp-non-package-mode' for details.")
    'emacs-lisp-mode
    (append `(;; custom Rmcs cookies
              ("^;;;###\\(autodef\\|if\\|package\\)[ \n]" (1 font-lock-warning-face t)))
-           ;; Shorten the :pin of `package!' statements to 10 characters
-           `(("(package!\\_>" (0 (+emacs-lisp-truncate-pin))))
            ;; highlight defined, special variables & functions
            (when +emacs-lisp-enable-extra-fontification
              `((+emacs-lisp-highlight-vars-and-faces . +emacs-lisp--face)))))
- 
+
   (defadvice! +emacs-lisp-append-value-to-eldoc-a (fn sym)
     "Display variable value next to documentation in eldoc."
     :around #'elisp-get-var-docstring
@@ -141,18 +139,18 @@ See `+emacs-lisp-non-package-mode' for details.")
         :map (emacs-lisp-mode-map lisp-interaction-mode-map)
         :desc "Expand macro" "m" #'macrostep-expand
         (:prefix ("d" . "debug")
-          "f" #'+emacs-lisp/edebug-instrument-defun-on
-          "F" #'+emacs-lisp/edebug-instrument-defun-off)
+                 "f" #'+emacs-lisp/edebug-instrument-defun-on
+                 "F" #'+emacs-lisp/edebug-instrument-defun-off)
         (:prefix ("e" . "eval")
-          "b" #'eval-buffer
-          "d" #'eval-defun
-          "e" #'eval-last-sexp
-          "r" #'eval-region
-          "l" #'load-library)
+                 "b" #'eval-buffer
+                 "d" #'eval-defun
+                 "e" #'eval-last-sexp
+                 "r" #'eval-region
+                 "l" #'load-library)
         (:prefix ("g" . "goto")
-          "f" #'find-function
-          "v" #'find-variable
-          "l" #'find-library)))
+                 "f" #'find-function
+                 "v" #'find-variable
+                 "l" #'find-library)))
 
 (use-package! ielm
   :defer t
